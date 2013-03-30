@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="OrderDBModelStoreContainer">
+    <EntitySet Name="Orders" EntityType="OrderDBModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Orders_Product" EntityType="OrderDBModel.Store.Orders_Product" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="varchar" MaxLength="20" />
+    <Property Name="OrderDate" Type="date" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderTime" Type="time" Precision="5" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderState" Type="smallint" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="TripType" Type="smallint" />
+    <Property Name="DepartureCity" Type="varchar" MaxLength="20" />
+    <Property Name="DepartureTime" Type="date" />
+    <Property Name="ReturnDate" Type="date" />
+    <Property Name="StayReturnDate" Type="date" />
+    <Property Name="TravelDays" Type="smallint" />
+    <Property Name="AdultNum" Type="smallint" />
+    <Property Name="ChildNum" Type="smallint" />
+    <Property Name="PersonNum" Type="smallint" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="IsStayHotel" Type="bit" />
+    <Property Name="AirTicketOneself" Type="bit" />
+    <Property Name="SpecialMemento" Type="varchar" MaxLength="500" />
+    <Property Name="SpecialHope" Type="varchar" MaxLength="500" />
+    <Property Name="RequestFrom" Type="varchar" MaxLength="50" />
+    <Property Name="Company" Type="smallint" />
+    <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
+    <Property Name="LastModifyTime" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="Orders_Product">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OrderId" Type="int" Nullable="false" />
+    <Property Name="ProductId" Type="int" />
+    <Property Name="ProductSpecId" Type="int" />
+    <Property Name="ProductState" Type="smallint" />
+    <Property Name="IsStay" Type="bit" />
+    <Property Name="DepartureTime" Type="date" />
+    <Property Name="ReturnDate" Type="date" />
+    <Property Name="Times" Type="smallint" />
+    <Property Name="AdultNum" Type="smallint" />
+    <Property Name="ChildNum" Type="smallint" />
+    <Property Name="PriceAdult" Type="int" />
+    <Property Name="PriceChild" Type="int" />
+    <Property Name="Amount" Type="int" />
+    <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
+    <Property Name="LastModifyTime" Type="datetime" StoreGeneratedPattern="Computed" />
+  </EntityType>
+</Schema>

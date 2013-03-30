@@ -1,0 +1,147 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.CustomizeOrderModel
+@{
+    ViewBag.Title = "量身定制";
+    Layout = "~/Views/Shared/_LayoutPopup.cshtml";
+}
+<!--量身定制-->
+<div class="header_warp" style="width: auto;">
+    <div class="order_warp" style="padding: 0 10px;">
+        <div class="header" style="width: 700px;">
+            <h2 class="h_logo">
+                <a href="@Url.AbsoluteIndexCn()">
+                    <img alt="鸿鹄逸游" src="@Url.AbsoluteContent("~/images/logo_cn.jpg")" />鸿鹄逸游</a></h2>
+            <em></em>
+        </div>
+        <h3 class="order_pro_name">
+            量身定制</h3>
+        <p class="order_detail">
+            <b>订单编号：@Html.DisplayFor(om => om.OrderNo)</b><br />
+            感谢您对鸿鹄逸游的支持！您的预订需求已转交专属服务人员处理中，敬请耐心等候。如有任何疑问，欢迎与我们联系。
+        </p>
+        <p>
+            鸿鹄．上海<br />
+            ‧服务电话 400 690 2323<br />
+            ‧服务时间 周一至周五 9：00～18：00
+        </p>
+        <p class="dotted_line">
+        </p>
+        <h6 class="tbl_caption">
+            基本资料</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl">
+            <tr>
+                <td class="name">
+                    中文姓名<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.Suranme)
+                    @Html.DisplayFor(om => om.FirstName)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    英文姓名
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.FirstNameEn)
+                    @Html.DisplayFor(om => om.SurnameEn)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    联络电话<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.PhoneNumber)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    E-mail<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.Email)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    联络方式偏好<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.ContactFavorite)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    方便接听电话时间<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.ConvinientTime)
+                </td>
+            </tr>
+        </table>
+        <p class="dotted_line">
+        </p>
+        <h6 class="tbl_caption">
+            行程需求</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl">
+            <tr>
+                <td class="name">
+                    商品名称
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.ProductName)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    希望的出发日期<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.DepartureDate)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    旅行天数<em class="red">*</em>
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.Days)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    参加人数<em class="red">*</em>
+                </td>
+                <td>
+                    成人：
+                    @Html.DisplayFor(om => om.AdultNum)，孩童：
+                    @Html.DisplayFor(om => om.ChildNum)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    这趟旅行有特殊纪念意义或庆祝特别的日子吗？
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.SpecialHope)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    请描述想包含/想避免在行程里的城市、景点、活动、餐厅。
+                </td>
+                <td>
+                    @Html.DisplayFor(om => om.SpecialMemento)
+                </td>
+            </tr>
+        </table>
+        <p class="tbl_send_warp">
+            @*http://blogs.x2line.com/al/articles/350.aspx*@ <a href="javascript:window.opener='x';window.close();">
+                关闭本窗口</a></p>
+        <div class="send_order_footer">
+            <em class="s_o_l"></em><em class="s_o_c"></em><em class="s_o_r"></em>
+            <h2 class="s_o_slogan">
+                实现顶级旅游者的梦想</h2>
+        </div>
+    </div>
+</div>

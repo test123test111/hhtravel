@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "实现顶级旅游者的梦想‧鸿鹄逸游 HHtravel";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section JS{
+    @*_SearchBox*@
+    <script src="@Href("~/js/select2css.js")" type="text/javascript"></script>
+    <script src="@Href("~/js/datepicker/WdatePicker.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        var t = 0, imgIndex = 0, count;
+        $(document).ready(function () {
+            count = $("#banner_list a").length;
+            $("#banner_list a:not(:first-child)").hide();
+            $("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
+            $("#banner_info").click(function () { window.open($("#banner_list a:first-child").attr('href'), "_blank") });
+
+            t = setInterval("showAuto()", 4000);
+        })
+
+        var foo = function ($ele) {
+            i = imgIndex;
+            if (i >= count) return;
+            $("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
+            $("#banner_info").unbind().click(function () { window.open($("#banner_list a").eq(i).attr('href'), "_blank") })
+            $("#banner_list a").filter(":visible").fadeOut(1500).parent().children().eq(i).fadeIn(500);
+
+            document.getElementById("focus_area_bn").style.background = "";
+            $ele.toggleClass("on");
+            $ele.siblings().removeAttr("class");
+        };
+
+        function showAuto() {
+            imgIndex = imgIndex >= (count - 1) ? 0 : ++imgIndex;
+            var $li = $('#focus_area_bn li').eq(imgIndex);
+            foo($li);
+        }
+    </script>
+    @Html.RenderResources("jsSearchBox")
+}
+<!--图片切换-->
+<div class="photo_warp">
+    <div id="focus_area_bn">
+        <ul>
+            <li class="on">1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+        <div id="banner_list">
+            <a href="#" ><img alt src="@Href("~/images/idx_photo/77_b_cn.jpg")" title="全球酒庄游"  /></a>
+            <a href="#" ><img alt src="@Href("~/images/idx_photo/74_b_cn.jpg")" title="顶级梦想  银联尊享"  /></a>
+            <a href="#" ><img alt src="@Href("~/images/idx_photo/73_b_cn.jpg")" title="2013 圣诞 跨年"  /></a>
+            <a href="#" ><img alt src="@Href("~/images/idx_photo/75_b_cn.jpg")" title="搭新航  环游世界"  /></a>
+        </div>
+    </div>
+</div>
+<div class="main_warp clearfix pt20" style="width: 655px; padding-left: 305px;">
+    @Html.Partial("_SearchBox", (SearchBoxModel)ViewBag.SearchModel)
+    <!--高端产品推荐-->
+    <div class="idx_travel">
+        <h4 class="t_title">
+            超越头等舱的尊贵体验．A380豪华套房</h4>
+        <p class="d_cont">
+            最奢华的航行！全程搭乘世界最佳新加坡航空环游世界。特别安排A380豪华套房感受坐卧云端尊荣享受：意大利名家手工缝制皮革扶手椅，配备23吋液晶电视娱乐系统，独立豪华睡床伴随新航知名铺床服务，每间套房配有活动拉门与窗帘，可依据喜好调整私人空间，同时由享誉全球烹饪品酒团队为您精选美食佳肴...
+            <a href="#" class="t_more">更多</a></p>
+        <p class="d_ad_img">
+            <img width="635" height="210" alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></p>
+        <p class="d_ad_img">
+            <img width="635" height="123" alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></p>
+    </div>
+</div>
+<div class="main_warp clearfix pt20">
+    <!--新品热推-->
+    <div class="idx_new_pro_tit">
+        <h5>
+            新品热推</h5>
+        <span>Featured Offers</span></div>
+    <ul class="idx_new_pro_list">
+        <li>
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" />
+            <p>
+                <a href="#">澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+        </li>
+        <li>
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" />
+            <p>
+                <a href="#">澳大利亚3奇景澳大利亚3奇景澳大利亚3奇景澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+        </li>
+        <li>
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" />
+            <p>
+                <a href="#">澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+        </li>
+    </ul>
+</div>
+<div class="main_warp clearfix pt20">
+    <!--热门排行-->
+    <div class="idx_new_pro_tit">
+        <h5>
+            热门排行</h5>
+        <span>Most Popular</span></div>
+    <p class="idx_ranking_list">
+        <a href="#" class="fir">
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
+        <a href="#">
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
+        <a href="#">
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
+        <a href="#">
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
+        <a href="#">
+            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
+    </p>
+</div>
+<div class="main_warp clearfix pt20">
+    <!--合作伙伴-->
+    <div class="idx_new_pro_tit">
+        <h5>
+            合作伙伴</h5>
+        <span>Most Popular</span></div>
+    <p class="idx_partners_list">
+        <a href="#" class="fir">
+            <img alt="" src="" /></a> <a href="#">
+                <img alt="" src="" /></a> <a href="#">
+                    <img alt="" src="" /></a> <a href="#">
+                        <img alt="" src="" /></a> <a href="#">
+                            <img alt="" src="" /></a> <a href="#">
+                                <img alt="" src="" /></a>
+    </p>
+</div>
+<div class="main_warp clearfix pt20">
+    <!--口号-->
+    <div class="idx_slogan">
+        <h1>
+            鸿鹄 实现高端旅游者的梦想</h1>
+        <p>
+            「鸿鹄逸游 HHtravel」创作，挑战极限；服务，精雕细琢；以高端坚持打造每趟旅行；一趟旅行，无价收藏。</p>
+        <ul class="h_brand_idea">
+            <li>■ 商 务 舱</li>
+            <li>■ 高端住宿</li>
+            <li>■ 美食飨宴</li>
+            <li>■ 六人成行</li>
+            <li>■ 一人两座</li>
+            <li>■ 专业领队</li>
+            <li>■ 严选时节</li>
+            <li>■ 小型团队</li>
+            <li>■ 订制延宿</li>
+            <li>■ 珍贵稀有</li>
+        </ul>
+    </div>
+</div>

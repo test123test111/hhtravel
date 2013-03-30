@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{718AF501-8F91-434B-A958-9A942945FEA8}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HHTravel.CRM.Booking_Online.Site</RootNamespace>
+    <AssemblyName>HHTravel.CRM.Booking-Online.Site</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>pdf\readme.txt</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EFCachingProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=def642f226e0e59b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFCachingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Mvc.3.0.20105.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\CaptchaController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Filter\ExceptionFilter.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="HtmlExtensions.cs" />
+    <Compile Include="Models\CustomizeOrderModel.cs" />
+    <Compile Include="Models\MonthModel.cs" />
+    <Compile Include="Models\NewsletterModel.cs" />
+    <Compile Include="Models\OrderModel.cs" />
+    <Compile Include="Models\SelectedTicketModel.cs" />
+    <Compile Include="Models\SelectedRoomClassModel.cs" />
+    <Compile Include="Models\RoomFilghtModel.cs" />
+    <Compile Include="Models\LefuMenuModel.cs" />
+    <Compile Include="Models\PagerModel.cs" />
+    <Compile Include="Models\ProductListModel.cs" />
+    <Compile Include="Models\SearchBoxModel.cs" />
+    <Compile Include="Models\ShareEmailModel.cs" />
+    <Compile Include="Models\ShareModel.cs" />
+    <Compile Include="Models\TopTastingModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UrlExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\common.css" />
+    <Content Include="css\layout.css" />
+    <Content Include="css\PIE.htc" />
+    <Content Include="css\reset.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\jquery-ui.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="html2pdf\libeay32.dll" />
+    <Content Include="html2pdf\libgcc_s_dw2-1.dll" />
+    <Content Include="html2pdf\ssleay32.dll" />
+    <Content Include="html2pdf\wkhtmltopdf.exe" />
+    <Content Include="html\around_world.htm" />
+    <Content Include="html\brand_concept.htm" />
+    <Content Include="html\contact_us.htm" />
+    <Content Include="html\depart_month.htm" />
+    <Content Include="html\destination.htm" />
+    <Content Include="html\email.html" />
+    <Content Include="html\email2.html" />
+    <Content Include="html\email_news_letter.html" />
+    <Content Include="html\email_share_friends.html" />
+    <Content Include="html\error.htm" />
+    <Content Include="html\index.htm" />
+    <Content Include="html\index_sh.htm" />
+    <Content Include="html\index_sh_test_bycj.htm" />
+    <Content Include="html\news_letter.htm" />
+    <Content Include="html\ordering_inf.htm" />
+    <Content Include="html\pdf_download.htm" />
+    <Content Include="html\pdf_download1.htm" />
+    <Content Include="html\privacy_policy.htm" />
+    <Content Include="html\pro_detail.htm" />
+    <Content Include="html\pro_detail1.htm" />
+    <Content Include="html\search_list.htm" />
+    <Content Include="html\send_order.htm" />
+    <Content Include="html\send_order1.htm" />
+    <Content Include="html\share_with_friends.htm" />
+    <Content Include="html\top_tasting.htm" />
+    <Content Include="html\travel_consultation.htm" />
+    <Content Include="html\travel_themes.htm" />
+    <Content Include="images\020.gif" />
+    <Content Include="images\diners_club_icon.jpg" />
+    <Content Include="images\address_mark.jpg" />
+    <Content Include="images\American_Express_icon.jpg" />
+    <Content Include="images\arrow_more2.jpg" />
+    <Content Include="images\calendar_month.jpg" />
+    <Content Include="images\about_logo_cn.gif" />
+    <Content Include="images\album_bg.jpg" />
+    <Content Include="images\around_world\indexcn_50.jpg" />
+    <Content Include="images\around_world\indexcn_80.jpg" />
+    <Content Include="images\around_world\indexcn_s16.jpg" />
+    <Content Include="images\around_world\indexcn_s16free.jpg" />
+    <Content Include="images\arrow01.gif" />
+    <Content Include="images\arrow02.gif" />
+    <Content Include="images\arrow_icon.gif" />
+    <Content Include="images\arrow_icon_s.gif" />
+    <Content Include="images\arrow_l.gif" />
+    <Content Include="images\arrow_more1.jpg" />
+    <Content Include="images\arrow_r.gif" />
+    <Content Include="images\arrow_title1.jpg" />
+    <Content Include="images\arrow_title2.jpg" />
+    <Content Include="images\back_btn.jpg" />
+    <Content Include="images\banner_photo\FRN0000009473.jpg" />
+    <Content Include="images\bg01_cn.jpg" />
+    <Content Include="images\bg02_cn.jpg" />
+    <Content Include="images\big_t.gif" />
+    <Content Include="images\btn.jpg" />
+    <Content Include="images\btn01_cn.gif" />
+    <Content Include="images\circle_ico.jpg" />
+    <Content Include="images\close_btn.gif" />
+    <Content Include="images\contact_bg_cn.jpg" />
+    <Content Include="images\copyright_bg_cn.jpg" />
+    <Content Include="images\ctrip_logo.png" />
+    <Content Include="images\date_pic-1.jpg" />
+    <Content Include="images\date_pic-2.jpg" />
+    <Content Include="images\edmmail_wd_cn.gif" />
+    <Content Include="images\edm_bg-1_cn.jpg" />
+    <Content Include="images\edm_numreload_btn_cn.gif" />
+    <Content Include="images\edm_ok_btn.png" />
+    <Content Include="images\email_f_bg.jpg" />
+    <Content Include="images\email_h_bg.jpg" />
+    <Content Include="images\favicon.ico" />
+    <Content Include="images\header_bg.jpg" />
+    <Content Include="images\header_bg_01.jpg" />
+    <Content Include="images\header_bg_03.jpg" />
+    <Content Include="images\HH_foot_cn.jpg" />
+    <Content Include="images\hname_left.gif" />
+    <Content Include="images\hname_right.gif" />
+    <Content Include="images\hotal_shadow.jpg" />
+    <Content Include="images\hotal_tit_ico.jpg" />
+    <Content Include="images\icon01.gif" />
+    <Content Include="images\icon02.gif" />
+    <Content Include="images\icon02.png" />
+    <Content Include="images\icon03.gif" />
+    <Content Include="images\icon04.gif" />
+    <Content Include="images\icon07.gif" />
+    <Content Include="images\icon08.gif" />
+    <Content Include="images\icon10.gif" />
+    <Content Include="images\icon11.gif" />
+    <Content Include="images\icon13.gif" />
+    <Content Include="images\icon14.gif" />
+    <Content Include="images\icon15.gif" />
+    <Content Include="images\icon_close.gif" />
+    <Content Include="images\icon_phone01.png" />
+    <Content Include="images\idx_photo\73_b_cn.jpg" />
+    <Content Include="images\idx_photo\74_b_cn.jpg" />
+    <Content Include="images\idx_photo\75_b_cn.jpg" />
+    <Content Include="images\idx_photo\77_b_cn.jpg" />
+    <Content Include="images\idx_search_btn.jpg" />
+    <Content Include="images\idx_to_detail.jpg" />
+    <Content Include="images\jcb_icon.jpg" />
+    <Content Include="images\leftbg.gif" />
+    <Content Include="images\loading.gif" />
+    <Content Include="images\logo_cn.jpg" />
+    <Content Include="images\map-1_01_cn.jpg" />
+    <Content Include="images\map-1_02_cn.jpg" />
+    <Content Include="images\map-1_03_cn.jpg" />
+    <Content Include="images\map-1_04_cn.jpg" />
+    <Content Include="images\map-1_05_cn.jpg" />
+    <Content Include="images\map-1_06_cn.jpg" />
+    <Content Include="images\map-1_07_cn.jpg" />
+    <Content Include="images\map-1_08_cn.jpg" />
+    <Content Include="images\map-1_cn.jpg" />
+    <Content Include="images\map20120917_cn.jpg" />
+    <Content Include="images\MasterCard_icon.jpg" />
+    <Content Include="images\mbody_bg.gif" />
+    <Content Include="images\mbody_bg1.gif" />
+    <Content Include="images\mbottom.png" />
+    <Content Include="images\menu-5cn.jpg" />
+    <Content Include="images\menu-5cnover.jpg" />
+    <Content Include="images\more_photo_ico.jpg" />
+    <Content Include="images\mtop.png" />
+    <Content Include="images\nopic.gif" />
+    <Content Include="images\nopic2.gif" />
+    <Content Include="images\nopic3.gif" />
+    <Content Include="images\nopic4.gif" />
+    <Content Include="images\notfound.jpg" />
+    <Content Include="images\notfound_logo.jpg" />
+    <Content Include="images\ok_btn.png" />
+    <Content Include="images\ok_icon.gif" />
+    <Content Include="images\open_logo.gif" />
+    <Content Include="images\order_btn.jpg" />
+    <Content Include="images\order_ico.jpg" />
+    <Content Include="images\pdf_footer.jpg" />
+    <Content Include="images\print_icon.gif" />
+    <Content Include="images\reload_cn.gif" />
+    <Content Include="images\road_map\FRN0000009198.jpg" />
+    <Content Include="images\select_bg.gif" />
+    <Content Include="images\sendLetter_header_cn.gif" />
+    <Content Include="images\send_header_cn.gif" />
+    <Content Include="images\share_icon.gif" />
+    <Content Include="images\small_t.gif" />
+    <Content Include="images\standard_top_cn.swf" />
+    <Content Include="images\subscribe_tel.jpg" />
+    <Content Include="images\tab_bg.jpg" />
+    <Content Include="images\tab_bg_long.jpg" />
+    <Content Include="images\tag_sale_cn.png" />
+    <Content Include="images\theme_pic-1_cn.jpg" />
+    <Content Include="images\theme_pic-2_cn.jpg" />
+    <Content Include="images\theme_pic-3_cn.jpg" />
+    <Content Include="images\theme_pic-4_cn.jpg" />
+    <Content Include="images\theme_pic-5_cn.jpg" />
+    <Content Include="images\theme_pic-6_cn.jpg" />
+    <Content Include="images\theme_pic-7_cn.jpg" />
+    <Content Include="images\theme_pic-8_cn.jpg" />
+    <Content Include="images\theme_pic-9_cn.jpg" />
+    <Content Include="images\top_tasting\700x280_20120816.jpg" />
+    <Content Include="images\top_tasting\b700x133_cn_01.jpg" />
+    <Content Include="images\top_tasting\pic29_s.jpg" />
+    <Content Include="images\top_tasting\pic46_s.jpg" />
+    <Content Include="images\top_tasting\pic49_s.jpg" />
+    <Content Include="images\top_tasting\pic56_s.jpg" />
+    <Content Include="images\travel_footer.jpg" />
+    <Content Include="images\travel_header.jpg" />
+    <Content Include="images\travel_ico.jpg" />
+    <Content Include="images\travel_link.jpg" />
+    <Content Include="images\type_label.jpg" />
+    <Content Include="images\visa_icon.jpg" />
+    <Content Include="js\datepicker\calendar.js" />
+    <Content Include="js\datepicker\lang\en.js" />
+    <Content Include="js\datepicker\lang\zh-cn.js" />
+    <Content Include="js\datepicker\lang\zh-tw.js" />
+    <Content Include="js\datepicker\skin\datePicker.gif" />
+    <Content Include="js\datepicker\skin\default\datepicker.css" />
+    <Content Include="js\datepicker\skin\default\img.gif" />
+    <Content Include="js\datepicker\skin\WdatePicker.css" />
+    <Content Include="js\datepicker\skin\whyGreen\bg.jpg" />
+    <Content Include="js\datepicker\skin\whyGreen\datepicker.css" />
+    <Content Include="js\datepicker\skin\whyGreen\img.gif" />
+    <Content Include="js\datepicker\WdatePicker.js" />
+    <Content Include="js\downloadPDF.js" />
+    <Content Include="js\jquery-1.3.2.js" />
+    <Content Include="js\hhcal.js" />
+    <Content Include="js\printer_cn.js" />
+    <Content Include="js\select2css.js" />
+    <Content Include="js\shareToSociality_cn.js" />
+    <Content Include="pdf\readme.txt" />
+    <Content Include="Scripts\jQuery.tmpl.js" />
+    <Content Include="Scripts\jQuery.tmpl.min.js" />
+    <Content Include="Views\readme.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
+    <Content Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Footer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\List.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\HHTravel.Base\HHTravel.Base.Common\HHTravel.Base.Common.Framework\HHTravel.Base.Common.Framework.csproj">
+      <Project>{30A7B2FD-6A5A-4C04-9DD4-0A02FD80E203}</Project>
+      <Name>HHTravel.Base.Common.Framework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\HHTravel.Base\HHTravel.Base.Common\HHTravel.Base.Common.Web\HHTravel.Base.Common.Web.csproj">
+      <Project>{3672E4F5-B123-48D2-A2B5-C34C37F43350}</Project>
+      <Name>HHTravel.Base.Common.Web</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Business\HHTravel.CRM.Booking-Online.Business.csproj">
+      <Project>{8085D7A1-A59B-4DB5-9FB2-59BFF4542719}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Model\HHTravel.CRM.Booking-Online.Model.csproj">
+      <Project>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\IndexCn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LeftMenu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Layout2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\TopTasting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_TopNav.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\AroundWorld.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\BrandConcept.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Interest.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Destination.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\DepartMonth.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\NewsLetter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\PrivacyPolicy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\ContactUs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\NotFound.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Error\ServerError.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SearchBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_ProductListBar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_Highlights.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_Schedule.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_Hotel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_CalendarRoomFlight.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_TopTasting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutPopup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\OrderNotes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Pager.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Calendar\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Calendar\Test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="html\info\" />
+    <Folder Include="html\marketing\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_Calendar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_RoomFlight.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_Hotel2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_Schedule2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\_RoomFlight2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\Index2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\Customize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\PDF.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\Share.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\ShareSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\IndexSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\Index2Success.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\CustomizeSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Product\ShareEmail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\DisplayTemplates\_ContactFavorite.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\DisplayTemplates\_ConvinientTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\DisplayTemplates\_Boolean.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\NewsLetterSuccess.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\DisplayTemplates\_IsSubscription.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Footer2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Header2.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Order\DisplayTemplates\_FlightIsGo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Home\NewsletterEmail.cshtml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>57006</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/HHTravel.CRM.Booking-Online.Site</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

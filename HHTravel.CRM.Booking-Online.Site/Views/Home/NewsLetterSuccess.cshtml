@@ -1,0 +1,19 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.NewsletterModel
+@{
+    ViewBag.Title = "电子报订阅";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="pp_bg1">
+    <ul class="email_form">
+        <li class="name">
+            <h3>
+                操作成功</h3>
+        </li>
+        <li class="name">您的E-mail: </li>
+        <li class="value">&nbsp;&nbsp;@Html.DisplayFor(m => m.Email)
+        </li>
+        <li class="name">订阅或取消: </li>
+        <li class="value">&nbsp;&nbsp;@Html.DisplayFor(m => m.IsSubscription)
+        </li>
+    </ul>
+</div>

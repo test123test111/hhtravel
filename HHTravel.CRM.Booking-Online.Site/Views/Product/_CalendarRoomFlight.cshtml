@@ -1,0 +1,46 @@
+﻿@model HHTravel.CRM.Booking_Online.Model.Product
+@{var p = Model;}
+<!--日期.订购-->
+<div class="highlights">
+    @if (ViewBag.Step == 1)
+    {
+        if (p.TravelType == TravelType.团队游)
+        {
+        <!--第一步(团队游中的日历)-->
+        <div class="calendar_order_warp">
+            <h6 class="process">
+                <span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订）</em></h6>
+            @Html.Partial("_Calendar")
+        </div>
+        }
+        else if (p.TravelType == TravelType.自由行)
+        {
+        <!--第一步(自由行里的日历)-->
+        <div class="calendar_order_warp">
+            <h6 class="process">
+                <span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订）</em></h6>
+            @Html.Partial("_Calendar")
+        </div>
+        }
+        else if (p.TravelType == TravelType.单品游)
+        {
+        <div class="calendar_order_warp">
+            <h6 class="process">
+                <span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订，价格显示为<b>双人房每人最低起价</b>）</em></h6>
+            @Html.Partial("_Calendar")
+        </div>
+        }
+    }
+    else if (ViewBag.Step == 2)
+    {
+        <!--第二步-->
+        if (p.TravelType != TravelType.单品游)
+        {
+        @Html.Partial("_RoomFlight", (RoomFilghtModel)ViewBag.RoomFilghtModel)
+        }
+        else
+        { 
+        @Html.Partial("_RoomFlight2", (RoomFilghtModel)ViewBag.RoomFilghtModel)
+        }
+    }
+</div>

@@ -1,0 +1,401 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>实现顶级旅游者的梦想‧鸿鹄逸游 HHtravel</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common.css" type="text/css" rel="stylesheet" />
+    <link href="../css/layout.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../js/jquery-1.3.2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.nav span:has(a)').css('color', '#5a5a5a');
+            $('.l_list li:has(a)').css('margin-left', -8);
+            //tab切换
+            $('#tab li').click(function () {
+                $(this).addClass('current').siblings().removeClass();
+                var i = $('#tab li').index(this);
+                $('#pro_list>div').eq(i).show().siblings().hide();
+            });
+            //            var h = $(document).height();
+            //            $('.mask_layer').height(h);
+            
+            //字体放大缩小  
+            $("#r_ope img").click(function () {
+                var font = $("#pro_list").css("font-size");
+                var f = parseFloat(font, 10);
+                var c_name = $(this).attr("class");
+                if (c_name == "c_small") {
+                    if (f <= 22) {
+                        f += 2;
+                    }
+                } else if (c_name == "c_big") {
+                    if (f >= 12) {
+                        f -= 2;
+                    }
+                }
+                $("#pro_list").css("font-size", f);
+            });
+            //点击分享显示层
+            $('#share').click(function () {
+                $('#share_layer').slideToggle(500);
+                $('#share_layer').find('a.ico_close').click(function () {
+                    $('#share_layer').slideUp(500);
+                });
+            });
+            //机票加购项说明提示层
+            $('#tbl_tips_desc').mouseover(function () {
+                $('.spw_type_layer').show();
+            });
+            $('#tbl_tips_desc').mouseout(function () {
+                $('.spw_type_layer').hide();
+            });
+        });
+        //点击"订购须知”弹出新窗口
+        function openwin() {
+            window.open('ordering_inf.htm', 'newwindow', 'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=auto, resizable=no,location=no, status=no')
+        }
+        function openwin_order() {
+            window.open('send_order1.htm', 'newwindow', 'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, status=no')
+        }
+    </script>
+</head>
+<body>
+<div class="header_warp">
+<div class="header header_fixed">
+</div>
+</div>
+<div class="warpper">
+    <div class="photo_warp" style="height:300px">
+        <img alt="" title="" src="../images/banner_photo/FRN0000009473.jpg" />
+    </div>
+    <div class="nav"><span><a href="../">首页</a>/</span><span><a href="../">目的地</a>/</span><span>亚洲</span></div>
+    <div class="main_warp">
+        <!--left begin-->
+        <div class="left_warp">
+            <h3 class="l_title">目的地 Travel Destination</h3>
+            <ul class="l_list">
+                <li><a href="around_world.htm">环游世界</a></li>
+                <li><a href="search_list.htm">欧洲</a></li>
+            </ul>
+            <h3 class="l_title">旅行主题 Travel Interest</h3>
+            <ul class="l_list">
+                <li><a href="search_list.htm">地球标记</a></li>
+                <li><a href="search_list.htm">世界遗产</a></li>
+            </ul>
+            <h3 class="l_title">出发月份 Departure Month</h3>
+            <ul class="l_list">
+                <li>2012</li>
+                <li><a href="#search_list.htm">2012-8月</a></li>
+                <li><a href="search_list.htm">2012-9月</a></li>
+                <li>2013</li>
+                <li><a href="search_list.htm">2013-1月</a></li>
+                <li><a href="search_list.htm">2013-2月</a></li>
+            </ul>
+        </div>     
+        <!--left end-->
+        <!--right begin-->
+        <div class="right_warp">
+            <div class="r_ope" id="r_ope">
+                <img alt="字体缩小" class="c_big" src="../images/small_t.gif" /><img alt="字体放大" class="c_small" src="../images/big_t.gif" /><a href="#" class="share" id="share">分享</a><a href="#" onclick="window.print();" class="print">打印本页</a>
+                <div class="share_layer" id="share_layer" style="display:none">
+                    <p class="s_l_tit"><span>分享、转寄</span><a href="#" class="ico_close"><img src="../images/close_btn.gif" /></a></p>
+                    <p class="s_l_list">
+                        <a class="s_friends" href="javascript:shareWithFriends();">转寄好友</a>
+                        <a class="s_pdf" href="javascript:downloadPDF('cn');">PDF下载</a>
+                        <a class="s_sina" href="javascript:window.open('http://v.t.sina.com.cn/share/share.php?appkey=1961588658&url='+encodeURIComponent('[url]')+'&pic='+encodeURIComponent('')+'&title='+encodeURIComponent('[content]'),'_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0">新浪微博</a>
+                        <a class="s_renren" href="javascript:window.open('http://share.renren.com/share/buttonshare.do?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;link='+encodeURIComponent(location.href)+'&amp;content=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0">人人网</a>
+                    </p>
+                </div>
+            </div>
+            <h3 class="r_title">北非．突尼斯+摩洛哥 13 天（上海出发）<span class="pro_num">FRN9473</span></h3>
+            <ul class="tab_long" id="tab">
+                <li class="current"><a href="#">行程亮点</a></li>
+                <li><a href="#">详细行程</a></li>
+                <li><a href="#">精选饭店</a></li>
+                <li><a href="#">日期.价格</a></li>
+            </ul>
+            <div class="pro_list" id="pro_list">
+                <!--行程亮点-->
+                <div class="highlights">
+                    <h5>行程亮点</h5>
+                    <div class="h_detail">
+                        <img alt="" title="" src="" />
+                        <!--单品游中，这里两个价格自己复制一行加吧-->
+                        <ul class="l_theme h_reset">
+                            <li><span class="name">城市：</span><span class="value">希腊</span></li>
+                            <li><span class="name">入住日期：</span><span class="value">2012.09.27 / 2012.10.01 / 2012.10.11 / 2012.10.25<a class="data_more" href="#">...更多</a></span></li>
+                            <li><span class="name">天数：</span><span class="value">9天/8晚 </span></li>
+                            <li><span class="name">市价参考：</span><span class="value">RMB 120,000 起(含税)</span></li>
+                            <li><span class="name">鸿鹄价格：</span><span class="value"><em>RMB 120,000</em>起(含税)</span></li>
+                        </ul>
+                    </div>
+                    <div class="h_content">
+                        加州地中海气侯的阳光，奠定纳帕谷地与法国红酒同级的世界地位，精选四大欧式古老葡萄酒庄园之旅，满足您对红酒独特高尚的品味；在旅程中乘着热气球征服天空、身体静逸地享受SPA疗程、观赏精絶伦的太阳马戏团表演、山珍海味丰富您挑剔的味蕾，鸿鹄逸游带您体验一趟与众不同的美国之旅！
+                    </div>
+                    <h5>高端坚持</h5>
+                    <div class="h_brand">
+                        <p>「鸿鹄逸游 HHtravel」以高端坚持打造每趟旅程，坚持高标准的服务规格，让您无忧无虑，尽情享受优质旅行。</p>
+                        <ul class="h_brand_idea">
+                            <li>■ 商  务  舱</li>
+                            <li>■ 高端住宿</li>
+                            <li>■ 美食飨宴</li>
+                            <li>■ 六人成行</li>
+                            <li>■ 一人两座</li>
+                            <li>■ 专业领队</li>
+                            <li>■ 严选时节</li>
+                            <li>■ 小型团队</li>
+                            <li>■ 订制延宿</li>
+                            <li>■ 珍贵稀有</li>
+                        </ul>
+                        <span class="details_link">&gt;&gt;<a href="brand_concept.htm">详细内容 </a></span>
+                    </div>
+                    <h5>位置图</h5>
+                    <p class="road_map"><img alt="" src="../images/road_map/FRN0000009198.jpg" /></p>
+                </div>
+                <!--单品游的详细行程-->
+                <div class="highlights" style="display:none;">
+                    <h5>详细行程</h5>
+                    <div class="h_img_warp">
+                        <img class="big_img" alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                        <img alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                        <img alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                    </div>
+                    <div class="h_content">
+                    费用包含1<br />
+                    费用包含2<br />
+                    </div>
+                    <h5>特色体验</h5>
+                    <div class="h_content">
+                        <h6 class="day_list_tit">豪华VILLA SPA</h6>
+                        <p>最奢华的航行！全程搭乘世界最佳新加坡航空环游世界。特别安排A380豪华套房感受坐卧云端尊荣享受：意大利名家手工缝制皮革扶手椅，配备23吋液晶电视娱乐系统，独立豪华睡床伴随新航知名铺床服务，每间套房配有活动拉门与窗帘，可依据喜好调整私人空间，同时由享誉全球烹饪品酒团队为您精选美食佳肴..</p>
+                        <h6 class="day_list_tit">豪华VILLA SPA</h6>
+                        <p>一段文字一段文字一段文字一段文字一段文字</p>
+                    </div>
+                </div>
+                <!--单品游的精选饭店-->
+                <div class="highlights" style="display:none;">
+                    <h5>精选饭店</h5>
+                    <div class="h_img_title"><h3>伊亚酒店</h3></div>
+                    <div class="h_img_warp bg_gray">
+                        <img class="big_img clearfix" alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                        <img class="clearfix" alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                        <img class="clearfix" alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                    </div>
+                    <div class="h_content">
+                    费用包含1<br />
+                    费用包含2<br />
+                    费用包含只在单品游中出现，注意注意~~~~
+                    </div>
+                    <h6 class="day_list_tit mt20">酒店简介</h6>
+                    <div class="h_content">
+                        <p class="h_desc">最奢华的航行！全程搭乘世界最佳新加坡航空环游世界。特别安排A380豪华套房感受坐卧云端尊荣享受：意大利名家手工缝制皮革扶手椅，配备23吋液晶电视娱乐系统，独立豪华睡床伴随新航知名铺床服务，每间套房配有活动拉门与窗帘，可依据喜好调整私人空间，同时由享誉全球烹饪品酒团队为您精选美食佳肴<a href="#" class="net_link_hotal"><img alt="官网" align="bottom" src="../images/btn01_cn.gif" /></a></p>
+                    </div>
+                    <h6 class="day_list_tit mt20">其他信息</h6>
+                    <div class="other_msg_list">
+                        <p><span>交通信息：</span>交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息交通信息</p>
+                        <p><span>周边环境：</span>周边环境描述信息</p>
+                        <p><span>酒店服务：</span>商务中心 停车场 外币兑换服务 票务服务 洗衣服务 残疾人客房 商场 鲜花店 冲印店 医务室 理发美容室 出租车 全部房间有宽带上网 部分房间有宽带上网 全部房间免费宽带上网 穿梭机场班车 邮政服务 前台贵重物品保险柜 专职行李员 行李存放服务 叫醒服务 自动取款机 免费停车场 收费停车场 有可无线上网的公共区域 免费旅游交通图(可赠送) 接机服务 无电梯 滚梯/电梯</p>
+                        <p><span>餐饮设施：</span>中餐厅 西餐厅 咖啡厅 酒吧 限时送餐服务 茶室 日餐厅 烧烤 全天送餐服务 大堂吧</p>
+                        <p><span>娱乐健身：</span>交谊舞厅 迪斯科舞厅 卡拉OK厅 棋牌室 桌球室 乒乓球室 电子游戏机室 室内游泳池 保龄球场 网球场 壁球室 高尔夫球场 模拟高尔夫球场 录像室 健身室 按摩室 桑拿浴室 日光浴场 室外游泳池 夜总会 足浴 SPA 儿童乐园 潜水 足球 篮球 沙滩排球 水上运动</p>
+                        <p><span>客房设施：</span>国内长途电话 国际长途电话 拖鞋 雨伞 独立写字台 浴室化妆放大镜 24小时热水 电热水壶 咖啡壶/茶壶 免费洗漱用品 免费瓶装水 中央空调/普通分体空调 迷你酒吧 熨斗/熨衣板 小冰箱 浴衣 多种规格电源插座 110V电压插座 浴缸 独立淋浴间 吹风机 保险箱 中央空调 普通分体空调 公共卫浴 无空调 非24小时热水 电热水器 无热水</p>
+                        <p class="credit_card"><span>接受信用卡：</span>
+                            <img alt="境外发行信用卡 -- 万事达(Master)" src="../images/MasterCard_icon.jpg" />
+                            <img alt="境外发行信用卡 -- 威士(VISA)" src="../images/visa_icon.jpg" />
+                            <img alt="境外发行信用卡 -- 运通(AMEX)" src="../images/American_Express_icon.jpg" />
+                            <img alt="境外发行信用卡 -- 大来(Diners Club)" src="../images/diners_club_icon.jpg" />
+                            <img alt="境外发行信用卡 -- JCB" src="../images/jcb_icon.jpg" />
+                        </p>
+                        <p><span>附加选择：</span>自助早餐价RMB 200元/人</p>
+                        <p><span>入住时间：</span>入住日15:00后</p>
+                        <p><span>退房时间：</span>退房日12:00前</p>
+                    </div>
+                    <h5>位置图</h5>
+                    <p class="road_map"><img alt="" src="../images/road_map/FRN0000009198.jpg" /></p>
+                </div>
+                <!--日期.订购-->
+                <div class="highlights" style="display:none;">
+                    <!--1选择出发日期.价格-->
+                    <!--默认只出第一步的日历，点击日历上某一天后，切换到2.3.4，注意注意注意。。。。。。。-->
+                    <div class="calendar_order_warp">
+                        <h6 class="process"><span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订，价格显示为<b>双人房每人最低起价</b>）</em></h6>
+                        <div class="calendar_month">
+                            <a href="#" class="calendar_l"></a>
+                            <h5>7月</h5>
+                            <a href="#" class="calendar_r"></a>
+                        </div>
+                        <div class="calendar_warp">                            
+                            <table border="0" cellpadding="0" cellspacing="0" class="tbl tbl_calendar">
+                              <tr class="tbl_header">
+                                <td>日</td>
+                                <td>一</td>
+                                <td>二</td>
+                                <td>三</td>
+                                <td>四</td>
+                                <td>五</td>
+                                <td>六</td>
+                              </tr>
+                              <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td class="depar_date">5<p class="calendar_price">RMB 125,000起</p></td>
+                                <td>6</td>
+                                <td class="depar_date">7<p class="calendar_price">RMB 125,000起</p></td>
+                              </tr>
+                              <tr>
+                                <td class="depar_date">28<p class="calendar_price">RMB 125,000起</p></td>
+                                <td>29</td>
+                                <td>30</td>
+                                <td class="depar_date">31<p class="calendar_price">RMB 125,000起</p></td>
+                                <td class="other_month">1</td>
+                                <td class="other_month">2</td>
+                                <td class="other_month">3</td>
+                              </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <!--2房型.数量-->
+                    <!--2.3.4默认不出，设置display:none;-->
+                    <div class="calendar_order_warp" style="position:relative; display:;">
+                        <h6 class="process"><span>2</span>房型.数量</h6>
+                        <p class="order_infor pst_reset"><img alt="订购须知" src="../images/order_ico.jpg" /><a href="#" onclick="openwin()">订购须知</a></p>
+                        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                          <tr class="tr_hide">
+                            <td style="width:140px;"></td><td style="width:160px;"></td><td style="width:90px;"></td><td></td><td style="width:80px;"></td>
+                          </tr>
+                          <tr>
+                            <td class="name">入住日期</td>
+                            <td class="tbl_date tbl_price">2012年10月10号（三）</td>
+                            <td class="name">退房日期</td>
+                            <td colspan="2" class="tbl_date tbl_price">2012年10月10号（三）</td>
+                          </tr>
+                          <tr>
+                            <td class="name">房型</td>
+                            <td class="name">含早/晚餐</td>
+                            <td class="name">入住/晚</td>
+                            <td class="name">价格</td>
+                            <td class="name">选择(必选)</td>
+                          </tr>
+                          <tr>
+                            <td>豪华套房单人房</td>
+                            <td>单人早晚餐</td>
+                            <td>8</td>
+                            <td class="tbl_price">RMB 125,000 (含税)/人</td>
+                            <td><select><option>0间</option><option>1间</option></select></td>
+                          </tr>
+                          <tr>
+                            <td>豪华套房单人房</td>
+                            <td>单人早晚餐</td>
+                            <td>8</td>
+                            <td class="tbl_price">RMB 125,000 (含税)/人</td>
+                            <td><select><option>0间</option><option>1间</option></select></td>
+                          </tr>
+                        </table>
+                        <!--3延长住宿-->
+                        <h6 class="process mt20"><span>3</span>延长住宿</h6>
+                        <p class="h_content">若您对于天数无法尽兴，我们更贴心提供延长住宿的服务</p>
+                        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                          <tr class="tr_hide">
+                            <td style="width:140px;"></td><td style="width:160px;"></td><td></td><td style="width:80px;"></td>
+                          </tr>
+                          <tr>
+                            <td class="name">退房日期</td>
+                            <td colspan="3" class="tbl_date"><input type="text" class="tbl_txt" /></td>
+                          </tr>
+                          <tr>
+                            <td class="name">房型</td>
+                            <td class="name">含早/晚餐</td>
+                            <td class="name">每晚延长住宿价格</td>
+                            <td class="name">选择</td>
+                          </tr>
+                          <tr>
+                            <td>豪华套房单人房</td>
+                            <td>单人早晚餐</td>
+                            <td class="tbl_price">RMB 125,000 (含税)/人</td>
+                            <td><select><option>0间</option><option>1间</option></select></td>
+                          </tr>
+                          <tr>
+                            <td>豪华套房单人房</td>
+                            <td>单人早晚餐</td>
+                            <td class="tbl_price">RMB 125,000 (含税)/人</td>
+                            <td><select><option>0间</option><option>1间</option></select></td>
+                          </tr>
+                        </table>
+                        <!--4加购机票-->
+                        <h6 class="process mt20"><span>4</span>加购机票</h6>
+                        <p class="h_content">若您有机票的需求，欢迎加购我们提供的推荐机票</p>
+                        <h6 class="ticket_tit">推荐机票1</h6>
+                        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                          <tr class="tr_hide">
+                            <td style="width:45px;"></td><td style="width:70px;"></td><td style="width:45px;"></td><td style="width:55px;"></td><td style="width:70px;"></td><td style="width:60px;"></td><td style="width:50px;"></td><td style="width:50px;"></td><td></td><td style="width:55px;"></td><td style="width:60px;"></td>
+                          </tr>
+                          <tr>
+                            <td colspan="2" class="name">出发日期</td>
+                            <td colspan="4" class="tbl_date tbl_price">2012年10月10号（三）</td>
+                            <td colspan="2" class="name">回程日期</td>
+                            <td colspan="3" class="tbl_date tbl_price">2012年10月20号（三）</td>
+                          </tr>
+                          <tr>
+                            <td class="name">行程</td>
+                            <td class="name">航空公司</td>
+                            <td class="name">航班</td>
+                            <td class="name">舱等</td>
+                            <td class="name">出发地</td>
+                            <td class="name">到达地</td>
+                            <td class="name">出发时间</td>
+                            <td class="name">到达时间</td>
+                            <td class="name">价格</td>
+                            <td class="name">说明</td>
+                            <td class="name">选择</td>
+                          </tr>
+                          <tr>
+                            <td>去程</td>
+                            <td>国际航空</td>
+                            <td>961</td>
+                            <td>公务舱</td>
+                            <td>北京机场</td>
+                            <td>雅典机场</td>
+                            <td>05:10</td>
+                            <td>10:10</td>
+                            <td rowspan="2" class="tbl_price">RMB 125,000 (含税)/人</td>
+                            <td rowspan="2" style="position:relative;"><img alt="说明" src="../images/order_ico.jpg" /><a id="tbl_tips_desc" href="javascript:void(0);">说明</a>
+                                <!--机票加购项说明-->
+                                <div class="spw_type_layer tbl_type_layer" style="behavior: url(../css/PIE.htc);">
+                                    <p>机票加购项说明机票加购项说明机票加购项说明机票加购项说明机票加购项说明</p>
+                                    <div class="spw_type_tip">
+                                        <em>&#9670</em><span>&#9670</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td rowspan="2"><select><option>0人</option><option>1人</option></select></td>
+                          </tr>
+                          <tr>
+                            <td>回程</td>
+                            <td>国际航空</td>
+                            <td>961</td>
+                            <td>公务舱</td>
+                            <td>北京机场</td>
+                            <td>雅典机场</td>
+                            <td>05:10</td>
+                            <td>10:10</td>
+                          </tr>
+                        </table>
+                        <p class="tbl_send_warp"><input type="button" value="" class="order_btn" onclick="openwin_order()" /></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <!--right end-->
+    </div>
+    <div class="sl_footer">
+        <p class="copy_right">
+            <a href="brand_concept.htm">关于HHtravel</a><a href="privacy_policy.htm">隐私政策</a><a href="news_letter.htm">电子报订阅</a><a href="contact_us.htm">联络我们</a><a href="../">回首页</a>
+        </p>
+        <p class="server_time">服务时间 周一至周五 9：00～18：00</p>
+    </div>
+</div>
+
+</body>
+</html>

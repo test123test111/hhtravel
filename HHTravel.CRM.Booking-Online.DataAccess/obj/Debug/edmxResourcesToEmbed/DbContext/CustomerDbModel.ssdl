@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CustomerDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="CustomerDBModelStoreContainer">
+    <EntitySet Name="Customer" EntityType="CustomerDBModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubNews" EntityType="CustomerDBModel.Store.SubNews" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="CnFirstName" Type="varchar" MaxLength="10" />
+    <Property Name="CnLastName" Type="varchar" MaxLength="10" />
+    <Property Name="EnFirstName" Type="varchar" MaxLength="50" />
+    <Property Name="EnLastName" Type="varchar" MaxLength="50" />
+    <Property Name="Telphone" Type="varchar" MaxLength="50" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="ContactFavorite" Type="varchar" MaxLength="50" />
+    <Property Name="ConvenientTime" Type="varchar" MaxLength="50" />
+    <Property Name="Remark" Type="varchar" MaxLength="500" />
+    <Property Name="Company" Type="smallint" />
+    <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
+    <Property Name="LastModifyTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SubNews">
+    <Key>
+      <PropertyRef Name="SubId" />
+    </Key>
+    <Property Name="SubId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmailAddress" Type="varchar" MaxLength="50" />
+    <Property Name="IsValid" Type="bit" />
+    <Property Name="LastModifyTime" Type="datetime" />
+  </EntityType>
+</Schema>

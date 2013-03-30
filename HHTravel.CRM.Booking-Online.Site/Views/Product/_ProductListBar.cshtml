@@ -1,0 +1,87 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.ProductListModel
+@{
+    Func<string, int?, string> getUrl = (name, value) =>
+    {
+        var a = Model.PagerModel.GetUrl(name, value, Model.PagerModel.BaseUrl);
+        return a;
+    };
+}
+<script type="text/javascript">
+    $(function () {
+        //旅游型态说明提示层
+        $('#tips_desc').mouseover(function () {
+            $('.spw_type_layer').show();
+        });
+        $('#tips_desc').mouseout(function () {
+            $('.spw_type_layer').hide();
+        });
+        //选中旅游型态
+        var travelType = "@(Model.TravelType ?? 0)";
+        $('input[name="spw_type"][value=' + travelType + ']').attr('checked', true);
+        //按旅游型态筛选
+        $('input[name="spw_type"]').change(function () {
+            var url = $(this).attr('url');
+            location = url;
+        });
+        // 选中箭头效果
+        var sort = "@(Model.Sort)";
+        $a = $('.sort').find('a[sort="' + sort + '"]');
+        var descending = "@(Model.Descending)";
+        if (descending == 'True') {
+            $a.attr('class', 'sort_desc');
+        } else if (descending == 'False') {
+            $a.attr('class', 'sort_asc');
+        }
+
+        // 排序改变箭头效果
+        $('.sort a').click(function () {
+            var $a = $(this);
+            var oldClass = $a.attr('class');
+            if (oldClass == '') {
+                location = $a.attr('href') + '&descending=true';
+            } else if (oldClass == 'sort_asc') {
+                location = $a.attr('href') + '&descending=true';
+            } else if (oldClass == 'sort_desc') {
+                location = $a.attr('href') + '&descending=false';
+            }
+            return false;
+        });
+    });
+</script>
+<div class="sort_page_warp">
+    <p class="spw_type">
+        <span>旅游型态（<a id="tips_desc" href="javascript:void(0);">说明</a>）：</span>
+        <input type="radio" name="spw_type" id="Radio1" value="0" url="@getUrl("travelType", null)"/>
+        <label for="type01">
+            不限</label>
+        <input type="radio" name="spw_type" id="type01" value="1" url="@getUrl("travelType", 1)" />
+        <label for="type01">
+            团队游</label>
+        <input type="radio" name="spw_type" id="type02" value="2" url="@getUrl("travelType", 2)" />
+        <label for="type02">
+            自由行</label>
+        <input type="radio" name="spw_type" id="type03" value="3" url="@getUrl("travelType", 3)" />
+        <label for="type03">
+            单品游（2人成行.自行组装）</label></p>
+    <!--升序给a加class="sort_asc"；降序给a加class="sort_desc"-->
+    <p class="sort">
+        <span>排列方式：</span> <a href="@getUrl("sort", (int)SortRule.ProductTripDays)" sort="@((int)SortRule.ProductTripDays)">
+            依天数</a><span>|</span> <a href="@getUrl("sort", (int)SortRule.ProductMinDepartureDate)" sort="@((int)SortRule.ProductMinDepartureDate)">
+                依出发月份</a><span>|</span> <a href="@getUrl("sort", (int)SortRule.ProductMinPrice)" sort="@((int)SortRule.ProductMinPrice)">
+                    依价格</a>
+    </p>
+    <p class="page">
+        @Html.Partial("_Pager", Model.PagerModel)
+    </p>
+    <!--旅游型态说明-->
+    <div class="spw_type_layer" style="behavior: url(@Href("~/css/PIE.htc"));">
+        <p>
+            <b>旅游型态说明：</b><br />
+            ‧团队游(6人成行．全程领队服务)<br />
+            ‧自由行(2人成行‧当地专属车导)<br />
+            ‧单品游(2人成行．自行组装)</p>
+        <div class="spw_type_tip">
+            <em>&#9670</em><span>&#9670</span>
+        </div>
+    </div>
+</div>

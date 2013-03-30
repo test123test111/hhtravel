@@ -1,0 +1,138 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.RoomFilghtModel
+<div class="calendar_order_warp">
+    <h6 class="process">
+        <span>2</span>房型.航班资讯</h6>
+    <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+        <tr class="tr_hide">
+            <td style="width: 80px;">
+            </td>
+            <td style="width: 100px;">
+            </td>
+            <td style="width: 50px;">
+            </td>
+            <td style="width: 120px;">
+            </td>
+            <td style="width: 120px;">
+            </td>
+            <td style="width: 70px;">
+            </td>
+            <td style="width: 70px;">
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                出发日期
+            </td>
+            <td colspan="6" class="tbl_date tbl_price">
+                @Html.DepartureDate(Model.DepartureDate)
+            </td>
+            @{
+                var ticket = Model.TicketList.First();
+            }
+            <td rowspan="@(Model.RoomClassList.Count + ticket.FlightList.Count + 3)">
+                <input type="button" value="" class="order_btn" onclick="javascript:openwin('@Url.Action("Index", "Order", new { productNo = Model.ProductNo, date = Model.DepartureDate.ToString("yyyyMMdd") })');" /><p
+                    class="order_infor">
+                    <img alt="订购须知" src="@Url.Content("~/images/order_ico.jpg")" />
+                    <a onclick="javascript:openwin('@Url.Action("OrderNotes", new { productNo = Model.ProductNo })');">
+                        订购须知</a></p>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                房型
+            </td>
+            <td class="name" colspan="2">
+                早晚餐说明
+            </td>
+            <td class="name" colspan="2">
+                价格
+            </td>
+            <td class="name" colspan="2">
+                席次
+            </td>
+        </tr>
+        @for (int i = 0; i < Model.RoomClassList.Count; i++)
+        {
+            var b = Model.RoomClassList[i];
+            <tr>
+                <td>
+                    @b.RoomClassName
+                </td>
+                <td colspan="2">
+                    @(!string.IsNullOrEmpty(b.BreakfastDinnerTip) ? b.BreakfastDinnerTip : "无")
+                </td>
+                <td colspan="2" class="tbl_price">
+                    RMB @b.Price 元(含税)/人
+                </td>
+                @if (i == 0)
+                {
+                    <td colspan="2" rowspan="@Model.RoomClassList.Count">
+                        @Model.MaxPersonNum
+                    </td>
+                }
+            </tr>
+        }
+        <tr>
+            <td class="name">
+                行程
+            </td>
+            <td class="name">
+                航空公司
+            </td>
+            <td class="name">
+                航班
+            </td>
+            <td class="name">
+                出发地
+            </td>
+            <td class="name">
+                到达地
+            </td>
+            <td class="name">
+                出发时间
+            </td>
+            <td class="name">
+                到达时间
+            </td>
+        </tr>
+        @foreach (var f in ticket.FlightList)
+        {
+            <tr>
+                <td>
+                    @(f.IsGo ? "去程" : "回程")
+                </td>
+                <td class="tbl_price">
+                    @f.Airline
+                </td>
+                <td class="tbl_price">
+                    @f.FlightNo
+                </td>
+                <td class="tbl_price">
+                    @f.DepartureAirport
+                </td>
+                <td class="tbl_price">
+                    @f.ArrivalAirport
+                </td>
+                <td class="tbl_price">
+                    @f.DepartureTime.Value.ToString(@"hh\:mm")
+                </td>
+                <td class="tbl_price">
+                    @f.ArrivalTime.Value.ToString(@"hh\:mm")
+                </td>
+            </tr>
+        }
+    </table>
+    <p class="tbl_send_warp">
+        @{
+            var backUrl = Url.Action("CalendarRoomFlight", "Product", new
+            {
+                productNo = Model.ProductNo,
+                year = Model.Year,
+                month = Model.Month,
+                step = 1
+            });
+        }
+        <input type="button" class="back_btn" value="回上一页" onclick="javascript:location='@backUrl';" /></p>
+</div>

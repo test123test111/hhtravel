@@ -1,0 +1,52 @@
+﻿@model HHTravel.CRM.Booking_Online.Model.Product
+@{
+    var hotel = Model.HotelList.FirstOrDefault() ?? new Hotel
+    {
+        Description = "最奢华的航行！全程搭乘世界最佳新加坡航空环游世界。特别安排A380豪华套房感受坐卧云端尊荣享受：意大利名家手工缝制皮革扶手椅，配备23吋液晶电视娱乐系统，独立豪华睡床伴随新航知名铺床服务，每间套房配有活动拉门与窗帘，可依据喜好调整私人空间，同时由享誉全球烹饪品酒团队为您精选美食佳肴"
+    };
+}
+<!--单品游的精选饭店-->
+<div class="highlights">
+    <h5>
+        精选饭店</h5>
+    <div class="h_img_title">
+        <h3>
+            @hotel.HotelName</h3>
+    </div>
+    <div class="h_img_warp bg_gray">
+        @{
+            // 为了下面使用方便
+            if (hotel.PhotoList == null) { hotel.PhotoList = new List<ImageInfo>(); }
+            while (hotel.PhotoList.Count < 3) { hotel.PhotoList.Add(null); }
+        }
+        @Html.Image(@hotel.PhotoList[0], @Url.Content("~/images/nopic2.gif"), new { @class = "big_img clearfix" })
+        @Html.Image(@hotel.PhotoList[1], @Url.Content("~/images/nopic.gif"), new { @class = "clearfix" })
+        @Html.Image(@hotel.PhotoList[2], @Url.Content("~/images/nopic.gif"), new { @class = "clearfix" })
+    </div>
+    <div class="h_content">
+    </div>
+    <h6 class="day_list_tit mt20">
+        酒店简介</h6>
+    <div class="h_content">
+        <p class="h_desc">
+            @Html.Raw(hotel.Feature)
+            @if (!string.IsNullOrEmpty(hotel.Url))
+            {
+                <a href="@(new UriBuilder(hotel.Url))" class="net_link_hotal" target="about:blank">
+                    <img alt="官网" align="bottom" src="@Url.Content("~/images/btn01_cn.gif")" /></a>}</p>
+    </div>
+    <h6 class="day_list_tit mt20">
+        其他信息</h6>
+    <div class="other_msg_list">
+        @*转换图片路径*@
+        @Html.Raw(hotel.Description.Replace("../", Url.Content("~/")))
+    </div>
+    @if (Model.RouteMap != null)
+    {
+        <h5>
+            位置图</h5>
+        <p class="road_map">
+            @*Url.Content("~/images/road_map/FRN0000009198.jpg")*@
+            @Html.Image(Model.RouteMap)</p>
+    }
+</div>

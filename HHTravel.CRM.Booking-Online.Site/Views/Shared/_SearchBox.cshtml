@@ -1,0 +1,121 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.SearchBoxModel
+@Html.Resource(
+@<script type="text/javascript">
+     $(function () {
+         $('#ddlDestinationGroup').change(function () {
+             $("#ddlDestinationRegion").empty();
+             $("<option></option>").text("全部").appendTo($("#ddlDestinationRegion"));
+             var groupId = $(this).val();
+             $.getJSON('@Url.Action("GetDestinationRegions", "Home")', { groupId: groupId }, function (data) {
+                 $.each(data, function (i, item) {
+                     $("<option></option>").val(item["RegionId"]).text(item["Name"])
+                        .appendTo($("#ddlDestinationRegion"));
+                 });
+             });
+         });
+
+         var emailDeafultWord = '输入E-mail';
+         var regex = /[A-Za-z0-9._%+-]+@@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}/;
+         $('#email').focus(function () {
+             $('.spw_type_layer').hide();
+             if ($(this).val() == emailDeafultWord) {
+                 $(this).val('');
+             }
+         }).blur(function () {
+             if ($(this).val() == '') {
+                 $(this).val(emailDeafultWord)
+             }
+         }).val(emailDeafultWord);
+         $('#subfrm').submit(function () {
+             var $email = $('#email');
+             var email = (email != emailDeafultWord) ? $email.val() : '';
+             if (!email.match(regex)) {
+                 $('.spw_type_layer').show();
+                 return false;
+             }
+             $.post('@Url.Action("Subscribe", "Home")?email=' + email, function (r) {
+                 if (r) {
+                     alert('电子报订阅成功');
+                 } else {
+                     $('.spw_type_layer').show();
+                 }
+             });
+             return false;
+         });
+     });
+</script>, "jsSearchBox")
+<!--搜索-->
+@using (Html.BeginForm("Search", "Product", FormMethod.Get))
+{
+    <div class="idx_search" style="behavior: url(@Href("~/css/PIE.htc");">
+        <ul class="idx_search_list">
+            <li><b class="address_mark">出发地</b><div class="hhtravel_select">
+                <select id="ddlDeparturePlace" name="departureCity">
+                    <option value="null">全部</option>
+                    @foreach (var d in Model.DeparturePlaces)
+                    {
+                        <option value="@d.Name" >@d.Name</option>
+                    }
+                </select></div>
+            </li>
+            <li><b class="address_mark">目的地</b><div class="hhtravel_select">
+                <select id="ddlDestinationGroup" name="destinationGroupId">
+                    @foreach (var d in Model.DestinationGroups)
+                    {
+                        <option value="@d.GroupId" >@d.Name</option>
+                    }
+                </select></div>
+                <div class="hhtravel_select" style="margin-top: 8px;">
+                    <select id="ddlDestinationRegion" name="destinationRegionId" style="margin-top: 8px;">
+                        <option value="null">全部</option>
+                    </select></div>
+            </li>
+            <li><b>旅游型态</b><div class="hhtravel_select">
+                <select name="travelTypeId">
+                    <option value="null">全部</option>
+                    <option value="1">6人成行.全程领队服务</option>
+                    <option value="2">2人成行.当地专属车导</option>
+                    <option value="3">单品游.2人成行.自行组装</option>
+                    @*                    @foreach (var travelType in Model.TravelTypes)
+                    {
+                        <option value="@((int)travelType)" >@travelType.ToString()</option>
+                    }*@
+                </select></div>
+            </li>
+            <li><b>出发区间</b><input type="text" class="idx_txt" name="beginDate" value="" maxlength="10" onclick="WdatePicker({ minDate: '@Model.DepartureBeginDate.ToString("yyyy-MM-dd")' });" />
+                <input type="text" name="endDate" class="idx_txt" style="margin-top:8px;" value="" maxlength="10" onclick="WdatePicker({ minDate: '@Model.DepartureEndDate.ToString("yyyy-MM-dd")' });" /></li>
+            <li><b>旅行主题</b><div class="hhtravel_select">
+                <select name="interestid">
+                    <option value="null">全部</option>
+                    @foreach (var d in Model.Interests)
+                    {
+                        <option value="@d.InterestId" >@d.Name</option>
+                    }
+                </select></div>
+            </li>
+        </ul>
+        <p class="idx_search_btn">
+            <input type="submit" value="搜索" /></p>
+    </div>
+}
+@using (Html.BeginForm("Subscribe", "Home", FormMethod.Post, new { @id = "subfrm" }))
+{
+    <!--订阅-->
+    <div class="idx_search wh_reset" style="position:relative; behavior: url(@Href("~/css/PIE.htc");">
+        <p>
+            订阅最新情报</p>
+        <p>
+            @Html.TextBox("email", "", new { @id = "email", @class = "idx_subscribe_text" })
+            <input type="submit" value="订阅" class="idx_subscribe_btn" /></p>
+        <!--提示信息层-->
+        <div class="spw_type_layer" style="top: 0; left: 30px; behavior: url(../css/PIE.htc);">
+            <p style="padding: 0; text-align: left;">
+                请输入正确的电子邮件地址！</p>
+            <div class="spw_type_tip idx_tip_reset">
+                <em>&#9670</em><span>&#9670</span>
+            </div>
+        </div>
+        <p>
+            需要专人服务？<span>400 690 2323</span></p>
+    </div>
+}

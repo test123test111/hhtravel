@@ -1,0 +1,46 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.TopNavModel
+@if (Model != null)
+{
+    <script type="text/javascript">
+        $(function () {
+            $('.nav span:has(a)').css('color', '#5a5a5a');
+            $('@Html.Image(Model.TopImage, Url.Content("~/images/nopic4.gif"))').load(function () {
+                $('#topImgLoading').attr('src', $(this).attr('src'));
+            });
+        });
+    </script>
+}
+@if (Model != null)
+{
+    <div class="photo_warp" style="height: 300px">
+        @if (Model.TopImage != null && Model.TopImage.Url.EndsWith("swf", StringComparison.InvariantCultureIgnoreCase))
+        {
+            <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0"
+                width="960" height="300">
+                <param name="movie" value="@Url.Content(Model.TopImage.Url)" />
+                <param name="quality" value="high" />
+                <param name="wmode" value="opaque" />
+                <!--for IE-->
+                <embed src="@Url.Content(Model.TopImage.Url)" wmode="opaque" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer"
+                    type="application/x-shockwave-flash" width="960" height="300"></embed><!--for FF-->
+            </object>
+        }
+        else
+        {
+            <img id="topImgLoading" alt="hhTravel" src="@Url.Content("~/images/loading.gif")") />
+        }
+    </div>
+    <div class="nav">
+        <span><a href="@Url.IndexCn()">首页</a></span>
+        @for (int i = 0; i < Model.Breadcrumbs.Count; i++)
+        {
+            var b = Model.Breadcrumbs[i];
+            if (i != Model.Breadcrumbs.Count - 1)
+            {<span>/ <a href="@((b.Text == "环游世界") ? Url.Action("AroundWorld", "Home") : Href(b.Url))">@b.Text</a></span>
+            }
+            else
+            {<text>/ </text><span>@b.Text</span>
+            }
+        }
+    </div>
+}

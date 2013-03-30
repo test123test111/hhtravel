@@ -1,0 +1,16 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
+}
+@section JS{
+    @if (IsSectionDefined("JS"))
+    {
+        @RenderSection("JS", required: false)
+    }
+}
+<!--left begin-->
+@{Html.RenderAction("_LeftMenu", "Home");}
+<!--left end-->
+<!--right begin-->
+<div class="right_warp">
+    @RenderBody()
+</div>

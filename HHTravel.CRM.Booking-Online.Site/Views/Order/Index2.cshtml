@@ -1,0 +1,423 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.OrderModel
+@{
+    ViewBag.Title = "我要订购";
+    Layout = "~/Views/Shared/_LayoutPopup.cshtml";
+}
+@section JS{
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("input[data-val-length-max]").each(function () {
+                var $this = $(this);
+                var data = $this.data();
+                $this.attr("maxlength", data["val-length-max"]);
+            });
+        });
+    </script>
+}
+<div class="header_warp" style="width: auto;">
+    <div class="order_warp" style="padding: 0 10px;">
+        <div class="header" style="width: 700px;">
+            <h2 class="h_logo">
+                <a href="@Url.IndexCn()">
+                    <img alt="鸿鹄逸游" src="@Url.Content("~/images/logo_cn.jpg")" />鸿鹄逸游</a></h2>
+            <em></em>
+        </div>
+        @using (Html.BeginForm("Submit2", "Order"))
+        {
+            @Html.HiddenFor(om => om.ProductName)
+            @Html.HiddenFor(om => om.ProductId)
+            @Html.HiddenFor(om => om.Days)
+            @Html.HiddenFor(om => om.DepartureDate)
+            @Html.HiddenFor(om => om.ReturnDate)
+            <h3 class="order_pro_name">
+                @Html.DisplayFor(om => om.ProductName)</h3>
+            <p class="order_detail">
+                鸿鹄逸游坚持以高标准的服务规格，实现高端旅游者的梦想。<br />
+                如您欲预订高端旅游行程，欢迎拨打鸿鹄逸游服务专线：400 690 2323 进行咨询，或填写下方高端游需求单提交，我们将尽快与您联系，并竭诚为您服务。
+            </p>
+            <h6 class="process">
+                <span>5</span>高端游需求单</h6>
+            <table border="0" cellpadding="0" cellspacing="0" class="tbl">
+                <tr>
+                    <td class="name" style="width: 200px;">
+                        商品名称
+                    </td>
+                    <td>
+                        @Html.DisplayFor(om => om.ProductName)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        天数
+                    </td>
+                    <td>
+                        @Html.DisplayFor(om => om.Days) 天
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        预定入住日期
+                    </td>
+                    <td>
+                        @Model.DepartureDate.ToString("yyyy年MM月dd日")
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        详细行程
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Description)
+                    </td>
+                </tr>
+            </table>
+            <p class="dotted_line">
+            </p>
+            <h6 class="tbl_caption">
+                房型.数量</h6>
+            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                <tr class="tbl_header">
+                    <td style="width: 140px;">
+                        房型
+                    </td>
+                    <td style="width: 160px;">
+                        含早/晚餐
+                    </td>
+                    <td style="width: 90px;">
+                        入住/晚
+                    </td>
+                    <td>
+                        价格
+                    </td>
+                    <td style="width: 80px;">
+                        数量
+                    </td>
+                </tr>
+                @for (int i = 0; i < Model.SelectedRoomClasses.Count; i++)
+                {
+                    @Html.HiddenFor(om => om.SelectedRoomClasses[i].RoomClassId)
+                    @Html.HiddenFor(om => om.SelectedRoomClasses[i].RoomClassName)
+                    @Html.HiddenFor(om => om.SelectedRoomClasses[i].BreakfastDinnerTip)
+                    @Html.HiddenFor(om => om.SelectedRoomClasses[i].Price)
+                    @Html.HiddenFor(om => om.SelectedRoomClasses[i].RoomCount)
+                    var selected = Model.SelectedRoomClasses[i];
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(om => om.SelectedRoomClasses[i].RoomClassName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(om => om.SelectedRoomClasses[i].BreakfastDinnerTip)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(om => om.NightDays)
+                        </td>
+                        <td>
+                            RMB @Html.DisplayFor(om => om.SelectedRoomClasses[i].Price) (含税)/人
+                        </td>
+                        <td>
+                            @(selected.RoomCount)间
+                        </td>
+                    </tr>
+                }
+            </table>
+                if (Model.StayReturnDate.HasValue && Model.StayRoomClasses.Count > 0)
+                {
+            <h6 class="tbl_caption">
+                延长住宿</h6>
+            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                <tr class="tr_hide">
+                    <td style="width: 160px;">
+                    </td>
+                    <td style="width: 150px;">
+                    </td>
+                    <td>
+                    </td>
+                    <td style="width: 70px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        退房日期
+                    </td>
+                    <td colspan="3" class="tbl_date">
+                        @Html.DepartureDate(Model.StayReturnDate.Value)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        房型
+                    </td>
+                    <td class="name">
+                        含早/晚餐
+                    </td>
+                    <td class="name">
+                        每晚延长住宿价格
+                    </td>
+                    <td class="name">
+                        数量
+                    </td>
+                </tr>
+                @for (int i = 0; i < Model.StayRoomClasses.Count; i++)
+                {
+                    @Html.HiddenFor(om => om.StayRoomClasses[i].RoomClassId)
+                    @Html.HiddenFor(om => om.StayRoomClasses[i].RoomClassName)
+                    @Html.HiddenFor(om => om.StayRoomClasses[i].BreakfastDinnerTip)
+                    @Html.HiddenFor(om => om.StayRoomClasses[i].StayPrice)
+                    @Html.HiddenFor(om => om.StayRoomClasses[i].StayCount)
+                    var selected = Model.StayRoomClasses[i];
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(om => om.StayRoomClasses[i].RoomClassName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(om => om.StayRoomClasses[i].BreakfastDinnerTip)
+                        </td>
+                        <td>
+                            RMB @Html.DisplayFor(om => om.StayRoomClasses[i].StayPrice) (含税)/人
+                        </td>
+                        <td>
+                            @(selected.StayCount)间
+                        </td>
+                    </tr>
+                }
+            </table>
+                }
+                if (Model.SelectedTickets != null && Model.SelectedTickets.Count > 0)
+                {
+            <h6 class="tbl_caption">
+                加购机票</h6>
+            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                <tr class="tr_hide">
+                    <td style="width: 45px;">
+                    </td>
+                    <td style="width: 70px;">
+                    </td>
+                    <td style="width: 45px;">
+                    </td>
+                    <td style="width: 55px;">
+                    </td>
+                    <td style="width: 70px;">
+                    </td>
+                    <td style="width: 60px;">
+                    </td>
+                    <td style="width: 50px;">
+                    </td>
+                    <td style="width: 50px;">
+                    </td>
+                    <td>
+                    </td>
+                    <td style="width: 60px;">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="name">
+                        出发日期
+                    </td>
+                    <td colspan="4" class="tbl_date">
+                        @Html.DepartureDate(Model.DepartureDate)
+                    </td>
+                    <td colspan="2" class="name">
+                        回程日期
+                    </td>
+                    <td colspan="2" class="tbl_date">
+                        @Html.DepartureDate(Model.ReturnDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        行程
+                    </td>
+                    <td class="name">
+                        航空公司
+                    </td>
+                    <td class="name">
+                        航班
+                    </td>
+                    <td class="name">
+                        舱等
+                    </td>
+                    <td class="name">
+                        出发地
+                    </td>
+                    <td class="name">
+                        到达地
+                    </td>
+                    <td class="name">
+                        出发时间
+                    </td>
+                    <td class="name">
+                        到达时间
+                    </td>
+                    <td class="name">
+                        价格
+                    </td>
+                    <td class="name">
+                        数量
+                    </td>
+                </tr>
+                @for (var i = 0; i < Model.SelectedTickets.Count; i++)
+                {
+                    var ticket = Model.SelectedTickets[i];
+                    for (var j = 0; j < Model.SelectedTickets[i].FlightList.Count; j++)
+                    {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].IsGo)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].IsGo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].Airline)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].Airline)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].FlightNo)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].FlightNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightClassName)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightClassName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].DepartureAirport)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].DepartureAirport)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].ArrivalAirport)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].ArrivalAirport)
+                        </td>
+                        <td>
+                            @*@f.DepartureTime.Value.ToString(@"hh\:mm")*@
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].DepartureTime)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].DepartureTime)
+                        </td>
+                        <td>
+                            @*@f.ArrivalTime.Value.ToString(@"hh\:mm")*@
+                            @Html.DisplayFor(m => m.SelectedTickets[i].FlightList[j].ArrivalTime)
+                            @Html.HiddenFor(m => m.SelectedTickets[i].FlightList[j].ArrivalTime)
+                        </td>
+                        @if (j == 0)
+                        {
+                            @Html.HiddenFor(om => om.SelectedTickets[i].TicketId)
+                            <td rowspan="@ticket.FlightList.Count" class="tbl_price">
+                                RMB @ticket.Price (含税)/人
+                            </td>
+                            <td rowspan="@ticket.FlightList.Count">
+                                @Html.DisplayFor(m => m.SelectedTickets[i].Count)
+                                @Html.HiddenFor(m => m.SelectedTickets[i].Count)
+                            </td>
+                        }
+                    </tr>
+                    }
+                }
+            </table>
+                }
+            <p class="dotted_line">
+            </p>
+            <h6 class="tbl_caption">
+                基本资料</h6>
+            <table border="0" cellpadding="0" cellspacing="0" class="tbl">
+                <tr>
+                    <td class="name">
+                        中文姓名<em class="red">*</em>
+                    </td>
+                    <td>
+                        <span class="tbl_attr">姓</span>
+                        @Html.TextBoxFor(om => om.Suranme, new { @class = "tbl_txt", @style = "width: 60px;" })
+                        @Html.ValidationMessageFor(om => om.Suranme) <span class="tbl_attr">名</span>
+                        @Html.TextBoxFor(om => om.FirstName, new { @class = "tbl_txt", @style = "width: 60px;" })
+                        @Html.ValidationMessageFor(om => om.FirstName)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        英文姓名
+                    </td>
+                    <td>
+                        <span class="tbl_attr">Last Name</span>
+                        @Html.TextBoxFor(om => om.FirstNameEn, new { @class = "tbl_txt", @style = "width: 60px;" })
+                        @Html.ValidationMessageFor(om => om.FirstNameEn)
+                        <span class="tbl_attr">First Name</span>
+                        @Html.TextBoxFor(om => om.SurnameEn, new { @class = "tbl_txt", @style = "width: 60px;" })
+                        @Html.ValidationMessageFor(om => om.SurnameEn)
+                        <span class="font_gray">须与护照相同</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        联络电话<em class="red">*</em>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(om => om.PhoneNumber, new { @class = "tbl_txt" })
+                        @Html.ValidationMessageFor(om => om.PhoneNumber)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        E-mail<em class="red">*</em>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(om => om.Email, new { @class = "tbl_txt" })
+                        @Html.ValidationMessageFor(om => om.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        参加人数<em class="red">*</em>
+                    </td>
+                    <td>
+                        成人：
+                        @Html.TextBoxFor(om => om.AdultNum, new { @class = "tbl_txt", @style = "width: 50px; float: none;" })人
+                        @Html.ValidationMessageFor(om => om.AdultNum)，孩童：
+                        @Html.TextBoxFor(om => om.ChildNum, new { @class = "tbl_txt", @style = "width: 50px; float: none;" })人
+                        @Html.ValidationMessageFor(om => om.ChildNum)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        联络方式偏好<em class="red">*</em>
+                    </td>
+                    <td>
+                        @Html.RadioButtonFor(om => om.ContactFavorite, 0, new { @name = "contact" })电话或手机
+                        @Html.RadioButtonFor(om => om.ContactFavorite, 1, new { @name = "contact" })E-mail
+                        @Html.ValidationMessageFor(om => om.ContactFavorite)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        方便接听电话时间<em class="red">*</em>
+                    </td>
+                    <td>
+                        @Html.RadioButtonFor(om => om.ConvinientTime, 0, new { @name = "tel" })09:00-12:00
+                        @Html.RadioButtonFor(om => om.ConvinientTime, 1, new { @name = "tel" })12:00-14:00
+                        @Html.RadioButtonFor(om => om.ConvinientTime, 2, new { @name = "tel" })14:00-18:00<br />
+                        @Html.RadioButtonFor(om => om.ConvinientTime, -1, new { @name = "tel" })以上时间皆可
+                        @Html.ValidationMessageFor(om => om.ConvinientTime)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="name">
+                        请输入验证码<em class="red">*</em>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(om => om.Captcha, new { @class = "i_txt", @style = "width: 80px;" })
+                        &nbsp;&nbsp;<img id="captcha" alt="验证码" src="@Url.Action("Index", "Captcha")" />
+                        <a onclick="javascript:$('#captcha').attr('src','@Url.Action("Index", "Captcha")?r=' + new Date().getTime());">
+                            <img alt="刷新验证码"
+                        src="@Url.Content("~/images/reload_cn.gif")" height="30" /></a><br />
+                        @Html.ValidationMessageFor(om => om.Captcha)
+                    </td>
+                </tr>
+            </table>
+            <p class="tbl_send_warp">
+                <input type="submit" class="tbl_send_btn" value="提交" /></p>
+        }
+        <div class="send_order_footer">
+            <em class="s_o_l"></em><em class="s_o_c"></em><em class="s_o_r"></em>
+            <h2 class="s_o_slogan">
+                实现顶级旅游者的梦想</h2>
+        </div>
+    </div>
+</div>

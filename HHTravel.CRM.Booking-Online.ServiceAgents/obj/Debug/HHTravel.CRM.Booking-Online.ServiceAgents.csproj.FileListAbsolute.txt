@@ -1,0 +1,10 @@
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.ServiceAgents\bin\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.ServiceAgents\bin\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.ServiceAgents\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.ServiceAgents\obj\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.ServiceAgents\obj\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.ServiceAgents\bin\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.ServiceAgents\bin\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.ServiceAgents\obj\Debug\ResolveAssemblyReference.cache
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.ServiceAgents\obj\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.ServiceAgents\obj\Debug\HHTravel.CRM.Booking-Online.ServiceAgents.pdb

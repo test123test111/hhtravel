@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="OrderDBModelStoreContainer" CdmEntityContainer="OrderDbEntities">
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="OrderDbModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="DepartureCity" ColumnName="DepartureCity" />
+          <ScalarProperty Name="TripType" ColumnName="TripType" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+          <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+          <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+          <ScalarProperty Name="OrderState" ColumnName="OrderState" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="StayReturnDate" ColumnName="StayReturnDate" />
+          <ScalarProperty Name="TravelDays" ColumnName="TravelDays" />
+          <ScalarProperty Name="AdultNum" ColumnName="AdultNum" />
+          <ScalarProperty Name="ChildNum" ColumnName="ChildNum" />
+          <ScalarProperty Name="PersonNum" ColumnName="PersonNum" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="IsStayHotel" ColumnName="IsStayHotel" />
+          <ScalarProperty Name="AirTicketOneself" ColumnName="AirTicketOneself" />
+          <ScalarProperty Name="SpecialMemento" ColumnName="SpecialMemento" />
+          <ScalarProperty Name="SpecialHope" ColumnName="SpecialHope" />
+          <ScalarProperty Name="RequestFrom" ColumnName="RequestFrom" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders_Product">
+      <EntityTypeMapping TypeName="OrderDbModel.Orders_Product">
+        <MappingFragment StoreEntitySet="Orders_Product">
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="PriceChild" ColumnName="PriceChild" />
+          <ScalarProperty Name="PriceAdult" ColumnName="PriceAdult" />
+          <ScalarProperty Name="ChildNum" ColumnName="ChildNum" />
+          <ScalarProperty Name="AdultNum" ColumnName="AdultNum" />
+          <ScalarProperty Name="Times" ColumnName="Times" />
+          <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+          <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+          <ScalarProperty Name="IsStay" ColumnName="IsStay" />
+          <ScalarProperty Name="ProductState" ColumnName="ProductState" />
+          <ScalarProperty Name="ProductSpecId" ColumnName="ProductSpecId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

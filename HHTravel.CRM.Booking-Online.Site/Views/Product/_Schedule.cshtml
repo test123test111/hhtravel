@@ -1,0 +1,136 @@
+﻿@model HHTravel.CRM.Booking_Online.Model.Product
+@{ 
+    var p = Model;
+    string travel_link = "return false;";
+    if (!string.IsNullOrEmpty(Model.Consultation))
+    {
+        travel_link = string.Format("openwin('{0}');", new UriBuilder(Model.Consultation));
+    }
+}
+<script type="text/javascript">
+    $(function () {
+        showPhoto(0);
+        //查看更多图片层
+        $('#more_img_id').click(function () {
+            $('.mask_layer').addClass('mask_layer_show');
+            $('.img_layer').show();
+        });
+        $('.close_ico').click(function () {
+            $('.mask_layer').removeClass('mask_layer_show');
+            $('.img_layer').hide();
+        });
+        // 旅游资讯
+        $('.travel_link').click(function () {
+            eval("@Html.Raw(travel_link)");
+        });
+    });
+    function showPhoto(photoIndex) {
+        var $img = $('.img_detail>img').eq(photoIndex);
+        $img.show().siblings().hide();
+        $('.img_desc').text($img.attr('title'));
+        $('.img_page>a').eq(photoIndex).addClass('cur').siblings().removeClass();
+    }
+    function prevPhoto() {
+        var index = $('.img_detail>img:visible').index();
+        var prevPhotoIndex = index - 1;
+        showPhoto(prevPhotoIndex);
+    }
+    function nextPhoto() {
+        var index = $('.img_detail>img:visible').index();
+        var nextPhotoIndex = index + 1;
+        showPhoto(nextPhotoIndex);
+    }
+</script>
+<!--详细行程-->
+<div class="highlights" style="display: block;">
+    <h5>
+        详细行程</h5>
+    <p class="d_visited_type">
+        <span>★入内参观</span><span>☆下车参观</span></p>
+    <div class="sort_page_warp">
+        <p class="page">
+            @Html.Partial("_Pager", (PagerModel)ViewBag.PagerModel)
+        </p>
+    </div>
+    <div class="day_list_warp">
+        @*为了不被右上的照片div覆盖，前2个作特殊处理，额外包一个div*@
+        <div class="day_list_model">
+            <div class="d_photos">
+                @Html.Image(p.MainPhoto, Url.Content("~/images/nopic.gif"), p.ProductName)<p class="more_img"
+                    id="more_img_id">
+                    <a href="#">看更多相片</a></p>
+                @if (!string.IsNullOrEmpty(Model.Consultation))
+                {
+                    <p class="travel_link">
+                        <a href="javascript:void(0)">旅游资讯</a></p>
+                }</div>
+            <!--不要忘了下面这个孤单的div，是为了解决ie6的bug-->
+            <div style="width: 460px;">
+                @for (int i = 0; i < 2 && i < p.ScheduleItemList.Count; i++)
+                {
+                    var s = p.ScheduleItemList[i];
+                    <div class="day_list_item">
+                        <h6 class="d_num">
+                            第 @s.Sort 天：@s.Name
+                        </h6>
+                        <p class="d_desc">
+                            @Html.Raw(s.Infos.FlightInfo ?? s.Infos.SpotsInfo)</p>
+                        <p class="d_meal">
+                            @Html.Raw(s.Infos.CateringInfo)</p>
+                        <p class="d_hotal">
+                            @Html.Raw(s.Infos.HotelInfo)
+                        </p>
+                    </div>
+                }
+            </div>
+        </div>
+        @for (int i = 2; i < p.ScheduleItemList.Count && i < p.ScheduleItemList.Count; i++)
+        {
+            var s = p.ScheduleItemList[i];
+            <div class="day_list_item">
+                <h6 class="d_num">
+                    第 @s.Sort 天：@s.Name
+                </h6>
+                <p class="d_desc">
+                    @Html.Raw(s.Infos.FlightInfo ?? s.Infos.SpotsInfo)</p>
+                <p class="d_meal">
+                    @Html.Raw(s.Infos.CateringInfo)</p>
+                <p class="d_hotal">
+                    @Html.Raw(s.Infos.HotelInfo)
+                </p>
+            </div>
+        }
+    </div>
+</div>
+<div class="sort_page_warp mt20" style="position: static;">
+    <p class="page">
+        @Html.Partial("_Pager", (PagerModel)ViewBag.PagerModel)
+    </p>
+</div>
+<!--遮罩层-->
+<div class="mask_layer">
+</div>
+<div class="img_layer" style="behavior: url(@Url.Content("~/css/PIE.htc"));">
+    <a class="close_ico">
+        <img alt="关闭" src="@Url.Content("~/images/icon_close.gif")" /></a>
+    <p class="img_page">
+        @{  
+            var pagerModel = (PagerModel)ViewBag.PhotoPagerModel;
+            pagerModel.TextVisible = false;
+            pagerModel.InReverserOrder = false;
+        }
+        @Html.Partial("_Pager", pagerModel)
+    </p>
+    <div class="img_list">
+        <a class="prev" href="javascript:prevPhoto();"><em class="ico_left"></em></a>
+        <p class="img_detail">
+            @foreach (var photo in p.PhotoList)
+            {
+                @Html.Image(photo)
+            }
+        </p>
+        <a class="next" href="javascript:nextPhoto();"><em class="ico_right"></em></a>
+    </div>
+    <p class="img_desc">
+        图片描述图片描述图片描述图片描述图片描述图片描述</p>
+</div>

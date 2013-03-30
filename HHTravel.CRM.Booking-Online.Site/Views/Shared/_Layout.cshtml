@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta  http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="@ViewBag.Keywords" />
+    <meta name="description" content="@ViewBag.Description" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="@Url.Content("~/images/favicon.ico")" />
+    <link href="@Url.Content("~/css/reset.css")" type="text/css" rel="stylesheet" />
+    <link href="@Url.Content("~/css/common.css")" type="text/css" rel="stylesheet" />
+    <link href="@Url.Content("~/css/layout.css")" type="text/css" rel="stylesheet" />
+    @RenderSection("CSS", required: false)
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    @*@Html.RenderResources("jsHeader")*@
+    @RenderSection("JS", required: false)
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-35643946-1']);
+        _gaq.push(['_setDomainName', 'hhtravel.com']);
+        _gaq.push(['_trackPageview']);
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+</script>
+</head>
+<body>
+    <div class="warpper">
+        @if (string.Equals(this.Url.RequestContext.RouteData.Values["action"].ToString(),
+                            "IndexCn",
+                            StringComparison.InvariantCultureIgnoreCase))
+        {
+            @Html.Partial("_Header")
+        }
+        else
+        { 
+            @Html.Partial("_Header2")
+        }
+        @Html.Partial("_TopNav", (TopNavModel)ViewBag.TopNavModel)
+        <div class="main_warp clearfix">
+            @RenderBody()
+        </div>
+        @if (string.Equals(this.Url.RequestContext.RouteData.Values["action"].ToString(),
+                            "IndexCn",
+                            StringComparison.InvariantCultureIgnoreCase))
+        {
+            @Html.Partial("_Footer")
+        }
+        else
+        { 
+            @Html.Partial("_Footer2")
+        }
+    </div>
+</body>
+</html>

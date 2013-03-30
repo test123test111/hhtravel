@@ -1,0 +1,149 @@
+﻿@model HHTravel.CRM.Booking_Online.Model.Product
+@{
+    ViewBag.Title = "产品详情";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    var p = Model;
+    int tab = ViewBag.Tab ?? 0;
+}
+@section JS{
+    <script src="@Url.Content("~/js/shareToSociality_cn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/printer_cn.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/downloadPDF.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            //tab切换
+            $('#tab li').click(function () {
+                $(this).addClass('current').siblings().removeClass();
+                //var i = $('#tab li').index(this);
+                //$('#pro_list>div').eq(i).show().siblings().hide();
+            });
+            var htab = '@(ViewBag.Tab != null ? ViewBag.Tab : 0)';
+            $($('#tab li')[htab]).click();
+            //字体放大缩小  
+            $("#r_ope img").click(function () {
+                var font = $("#pro_list").css("font-size");
+                var f = parseFloat(font, 10);
+                var c_name = $(this).attr("class");
+                if (c_name == "c_small") {
+                    if (f <= 22) {
+                        f += 2;
+                    }
+                } else if (c_name == "c_big") {
+                    if (f >= 12) {
+                        f -= 2;
+                    }
+                }
+                $("#pro_list").css("font-size", f);
+            });
+            //点击分享显示层
+            $('#share').click(function () {
+                $('#share_layer').slideToggle(500);
+                $('#share_layer').find('a.ico_close').click(function () {
+                    $('#share_layer').slideUp(500);
+                });
+            });
+        });
+        // 弹出新窗口
+        function openwin(pageName) {
+            var win = window.open(pageName,
+                'newwindow',
+                'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, status=no');
+            return win;
+        }
+    </script>
+}
+<div class="r_ope" id="r_ope">
+    <div class="r_ope_details">
+        <img alt="字体缩小" class="c_big" src="@Href("~/images/small_t.gif")" /><img alt="字体放大" class="c_small"
+        src="@Href("~/images/big_t.gif")" /><a href="#" class="share" id="share">分享</a><a
+            id="printer" href="javascript:printer(@tab,'@p.ProductNo','@p.ProductName', '@Url.Content("~")');"
+            class="print">打印本页</a>
+        <div class="share_layer" id="share_layer" style="display: none">
+            <p class="s_l_tit">
+                <span>分享、转寄</span><a href="#" class="ico_close"><img alt="" src="@Href("~/images/close_btn.gif")" /></a></p>
+            <p class="s_l_list">
+                <a class="s_friends" onclick="javascript:openwin('@Url.Action("Share", new { productNo = Model.ProductNo })');">
+                    转寄好友</a> <a class="s_pdf"
+                onclick="javascript:downloadPDF('@Url.Action("DownloadPDF", "Product", new { productNo = p.ProductNo }, "http")');">PDF下载</a>
+                <a class="s_sina" href="javascript:weibo('@p.ProductNo','@p.ProductName','@(p.MainImage != null ? p.MainImage.Url : "")');">
+                    新浪微博</a> <a class="s_renren" href="javascript:renren('@p.ProductNo','@p.ProductName','@(p.MainImage != null ? p.MainImage.Url : "")');">
+                        人人网</a>
+            </p>
+        </div>
+    </div>
+    <div class="pdf_loading" style="display:none">
+        <img alt="" src="@Href("~/images/020.gif")" />PDF产生中,请稍后...</div>
+</div>
+<h3 class="r_title">
+    @p.ProductName<span class="pro_num">@p.ProductNo</span></h3>
+@if (p.TravelType != TravelType.单品游)
+{
+    <ul class="tab" id="tab">
+        <li class="current"><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 0 })">
+            行程亮点</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 1 })">详细行程</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 2 })">精选饭店</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 3 })">出发日期
+            ‧ 订购</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 4 })">量身定制</a></li>
+        @if (!string.IsNullOrEmpty(p.VisaNotes))
+        {
+            <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 5 })">签证信息</a></li>
+        }
+    </ul>
+}
+else
+{ 
+    <ul class="tab_long" id="tab">
+        <li class="current"><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 0 })">
+            行程亮点</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 1 })">详细行程</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 2 })">精选饭店</a></li>
+        <li><a href="@Url.Action("Details", new { productNo = p.ProductNo, tab = 3 })">日期 ‧
+            价格</a></li>
+    </ul>
+}
+<div class="pro_list" id="pro_list">
+    @switch (tab)
+    {
+        case 0:
+        default:
+        @Html.Partial("_Highlights", p)
+   break;
+        case 1:
+   if (p.TravelType != TravelType.单品游)
+   {
+        @Html.Partial("_Schedule", p)
+   }
+   else
+   { 
+        @Html.Partial("_Schedule2", p)
+   }
+   break;
+        case 2:
+   if (p.TravelType != TravelType.单品游)
+   {
+        @Html.Partial("_Hotel", p)
+   }
+   else
+   { 
+        @Html.Partial("_Hotel2", p)
+   }
+   break;
+        case 3:
+        @Html.Partial("_CalendarRoomFlight", p)
+   break;
+        case 4:
+   Html.RenderAction("Customize", "Order", new { productId = p.ProductId });
+   break;
+        case 5:
+        <!--签证信息-->
+        <div class="highlights">
+            <h5>
+                签证信息</h5>
+            <div class="h_content">
+                @Html.Raw(p.VisaNotes)</div>
+        </div>
+           break;
+    }
+</div>

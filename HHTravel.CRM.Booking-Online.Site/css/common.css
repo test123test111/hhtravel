@@ -1,0 +1,87 @@
+.clearfix:after {
+content: ".";
+display: block;
+height: 0px;
+clear: both;
+visibility: hidden;
+}
+.mt20 { margin-top:20px;}
+.pt20 { padding-top:20px;}
+/*--首页--*/
+.idx_bg { background:#82dcd2;}
+#idx_warpper, .header { width:960px; height:100%; margin:0 auto; text-align:center;}
+.idx_logo { float:left; position:absolute; width:542px; height:189px; left:50%; margin-left:-271px; top:50%; margin-top:-160px; background:url(../images/open_logo.gif) no-repeat; text-indent:-9999px;}
+.city_enter { float:left; position:absolute; width:100%; height:16px; top:50%; margin-top:60px; line-height:16px; text-align:center;}
+.city_enter a { padding:0 15px; border-left:1px solid #24747b; color:#24747b;}
+.city_enter a:first-child { border-left:none;}
+.city_enter a:hover { color:#fff;}
+/*--header--*/
+.header_warp { width:960px; margin:0 auto; text-align:center;}
+.header { position:relative; height:100px; background:#dcf5f2 url(../images/header_bg_01.jpg) no-repeat; overflow:hidden;}
+.header_fixed { position:fixed; top:0; left:50%; margin-left:-480px; z-index:1000;}
+.header em { float:right; width:40px; height:100px; position:absolute; z-index:-1; top:0; right:0; background:url(../images/header_bg_03.jpg) no-repeat right;}
+.h_logo { float:left; width:214px; height:100px; font-size:13px; line-height:26px;}
+.h_logo img { width:214px; height:100px;}
+.h_top { float:left; width:725px; margin:7px 0 0 8px; line-height:20px;}
+.h_slogan, .h_tel { color:#609da2;}
+.h_slogan{ float:left; width:625px; padding-left:100px; text-align:left;}
+.h_slogan img { width:60px; height:20px; padding:0 10px 0 7px; display:inline;}
+/*.h_depart { float:right; position:absolute; top:5px; right:-8px;}
+.h_depart a { float:right; margin:0 8px; padding-left:8px; background:url(../images/arrow_icon.gif) no-repeat 0 6px;}
+.h_depart a:hover { text-decoration:underline;}*/
+.h_tel { float:right; margin-top:-20px; padding-left:35px; background:url(../images/icon_phone01.png) no-repeat; font-size:22px; font-family:arial;}
+.h_menu { clear:both; float:left; width:100%; margin-top:25px;}
+.h_menu li, .h_menu li a { float:left; height:34px;}
+.h_menu li a { background:url(../images/menu-5cn.jpg) no-repeat; display:block; text-indent:-9999px;}
+.h_menu li a:hover { background:url(../images/menu-5cnover.jpg) no-repeat;}
+.h_menu li.one a, .h_menu li.one a:hover { width:116px; background-position:-1px 0;}
+.h_menu li.two a, .h_menu li.two a:hover { width:110px; background-position:-116px 0;}
+.h_menu li.thr a, .h_menu li.thr a:hover { width:113px; background-position:-226px 0;}
+.h_menu li.four a, .h_menu li.four a:hover { width:111px; background-position:-339px 0;}
+.h_menu li.five a, .h_menu li.five a:hover { width:103px; background-position:right 0;}
+/* 修正IE6下头部锁定失效的bug */
+* html,* html body { background-image:url(about:blank); background-attachment:fixed} 
+* html .header_fixed { position:absolute; left:50%; _margin-left:-485px; top:expression(eval(document.documentElement.scrollTop))} 
+/*--footer--*/
+.footer { width:960px; height:16px; margin:0 auto; padding:18px 0 12px; line-height:16px; color:#999;}
+.copy_right { float:left; width:600px; height:16px; margin-left:-18px; margin-left:-20px; _margin-left:-10px; text-align:left;}
+.copy_right a { padding:1px 18px; border-right:1px solid #999; color:#999;}
+.copy_right a:hover { text-decoration:underline;}
+a.ico_attention { padding-left:23px; margin-left:18px; border-right:none; background:url(../images/icon07.gif) no-repeat;}
+.server_time { float:right; text-align:right;}
+.f_share { float:right; width:960px; height:18px; padding-top:10px; line-height:18px; text-align:right; color:#999;}
+.f_share a { padding-left:8px;}
+.f_share a img { display:inline;}
+/*--搜索列表页footer--*/
+.sl_footer { clear:both; float:left; width:920px; height:16px; margin:30px 0 10px; padding:7px 20px; background:#b1b1b1; line-height:16px; color:#fff;}
+.sl_footer .copy_right a { border-right:1px solid #fff; color:#fff;}
+/*--nav--*/
+.nav { width:960px; height:16px; padding:13px 0; margin:0 auto; margin-left:-5px; font-size:12px; line-height:16px; text-align:left; color:#619ea3;}
+.nav a { padding:0 5px; color:#5a5a5a;}
+/*--left--*/
+.left_warp { float:left; width:218px; overflow:hidden; line-height:16px; text-align:left;}
+.l_title { float:left; width:100%; height:36px; background:url(../images/leftbg.gif) no-repeat; font-size:12px; line-height:36px; text-indent:20px;}
+.l_title a { color:#14636c; display:block;}
+.l_list, .l_destination { float:left; width:100%; padding:5px 0; background:#f0fcfb;}
+.l_list li { float:left; width:188px; height:16px; padding:3px 0 3px 30px; color:gray;}
+.l_list li a { padding-left:8px; background:url(../images/arrow_icon_s.gif) no-repeat 0 4px; color:#24747b;}
+.l_list li a:hover, .l_destination h5 a:hover, .l_destination p a:hover { text-decoration:underline;}
+.l_destination { padding-top:0px;}
+.l_destination h5, .l_destination p { float:left; width:188px; margin-left:22px; display:inline;}
+.l_destination h5 { padding:12px 0 3px 9px; margin-top:-1px; border-top:1px dashed #9bd3c6; background:url(../images/arrow_icon_s.gif) no-repeat 0 15px; font-size:13px; color:#24747b;}
+.l_destination h5 a { color:#24747b;}
+.l_destination h5:first-child { border-top:none;}
+.l_destination p { padding:3px 0 6px 2px;}
+.l_destination p a { float:left; padding:0 7px; color:#24747b; line-height:22px; white-space:nowrap;}
+/*--网站信息提示页面--*/
+.no_data_warp { float:left; width:100%; padding-top:15px; text-align:left; line-height:25px;}
+.no_data_warp p { padding-top:10px; text-align:left;}
+.no_data_warp p b { color:#666;}
+.error_page { position:relative; width:340px; height:230px; margin:0 auto; padding:10px 10px 10px 250px; background:#f0faf9 url(../images/notfound.jpg) no-repeat; text-align:left; font-size:13px; line-height:25px; color:#24747b;}
+.error_page h4 { float:left; width:100%; padding:20px 0; font-size:22px;}
+.error_page p { float:left; width:100%; padding:5px 0;}
+.error_page p a { color:#24747b; text-decoration:underline;}
+.error_page em { float:right; position:absolute; width:133px; height:63px; right:10px; bottom:10px; background:url(../images/notfound_logo.jpg) no-repeat right bottom;}
+
+/*--ASP.NET MVC Model Auto Validation--*/
+.field-validation-error { color: #ff0000;}

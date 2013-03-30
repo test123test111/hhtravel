@@ -1,0 +1,509 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ProductDBModelStoreContainer" CdmEntityContainer="ProductDBEntities">
+    <EntitySetMapping Name="Area_City">
+      <EntityTypeMapping TypeName="ProductDBModel.Area_City">
+        <MappingFragment StoreEntitySet="Area_City">
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="CityCode" ColumnName="CityCode" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EnAbbreviation" ColumnName="EnAbbreviation" />
+          <ScalarProperty Name="PinYin" ColumnName="PinYin" />
+          <ScalarProperty Name="PinYinAbbreviation" ColumnName="PinYinAbbreviation" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_CityLandmark">
+      <EntityTypeMapping TypeName="ProductDBModel.Area_CityLandmark">
+        <MappingFragment StoreEntitySet="Area_CityLandmark">
+          <ScalarProperty Name="CityLandmarkID" ColumnName="CityLandmarkID" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="CnAbbreviation" ColumnName="CnAbbreviation" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="Big5Abbreviation" ColumnName="Big5Abbreviation" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EnAbbreviation" ColumnName="EnAbbreviation" />
+          <ScalarProperty Name="PinYin" ColumnName="PinYin" />
+          <ScalarProperty Name="PinYinAbbreviation" ColumnName="PinYinAbbreviation" />
+          <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+          <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+          <ScalarProperty Name="CityLandmarkTypeID" ColumnName="CityLandmarkTypeID" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_Continent">
+      <EntityTypeMapping TypeName="ProductDBModel.Area_Continent">
+        <MappingFragment StoreEntitySet="Area_Continent">
+          <ScalarProperty Name="ContinentID" ColumnName="ContinentID" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+          <ScalarProperty Name="CnAbbreviation" ColumnName="CnAbbreviation" />
+          <ScalarProperty Name="EnAbbreviation" ColumnName="EnAbbreviation" />
+          <ScalarProperty Name="Big5Abbreviation" ColumnName="Big5Abbreviation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_Country">
+      <EntityTypeMapping TypeName="ProductDBModel.Area_Country">
+        <MappingFragment StoreEntitySet="Area_Country">
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="CountryTwoCode" ColumnName="CountryTwoCode" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="CnAbbreviation" ColumnName="CnAbbreviation" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="Big5Abbreviation" ColumnName="Big5Abbreviation" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EnAbbreviation" ColumnName="EnAbbreviation" />
+          <ScalarProperty Name="PinYin" ColumnName="PinYin" />
+          <ScalarProperty Name="PinYinAbbreviation" ColumnName="PinYinAbbreviation" />
+          <ScalarProperty Name="Capital" ColumnName="Capital" />
+          <ScalarProperty Name="ContinentName" ColumnName="ContinentName" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Area_Province">
+      <EntityTypeMapping TypeName="ProductDBModel.Area_Province">
+        <MappingFragment StoreEntitySet="Area_Province">
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="PinYin" ColumnName="PinYin" />
+          <ScalarProperty Name="Area" ColumnName="Area" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Base_Holiday">
+      <EntityTypeMapping TypeName="ProductDBModel.Base_Holiday">
+        <MappingFragment StoreEntitySet="Base_Holiday">
+          <ScalarProperty Name="HolidayID" ColumnName="HolidayID" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EffectDate" ColumnName="EffectDate" />
+          <ScalarProperty Name="StarDate" ColumnName="StarDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Base_IDcardType">
+      <EntityTypeMapping TypeName="ProductDBModel.Base_IDcardType">
+        <MappingFragment StoreEntitySet="Base_IDcardType">
+          <ScalarProperty Name="IDcardTypeID" ColumnName="IDcardTypeID" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Base_IP">
+      <EntityTypeMapping TypeName="ProductDBModel.Base_IP">
+        <MappingFragment StoreEntitySet="Base_IP">
+          <ScalarProperty Name="IPID" ColumnName="IPID" />
+          <ScalarProperty Name="StartIP" ColumnName="StartIP" />
+          <ScalarProperty Name="EndIP" ColumnName="EndIP" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Base_MPCode">
+      <EntityTypeMapping TypeName="ProductDBModel.Base_MPCode">
+        <MappingFragment StoreEntitySet="Base_MPCode">
+          <ScalarProperty Name="MPCodeID" ColumnName="MPCodeID" />
+          <ScalarProperty Name="Prefix7" ColumnName="Prefix7" />
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Cityname" ColumnName="Cityname" />
+          <ScalarProperty Name="MPType" ColumnName="MPType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Base_ZipCode">
+      <EntityTypeMapping TypeName="ProductDBModel.Base_ZipCode">
+        <MappingFragment StoreEntitySet="Base_ZipCode">
+          <ScalarProperty Name="ZipCodeID" ColumnName="ZipCodeID" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="DistrictCode" ColumnName="DistrictCode" />
+          <ScalarProperty Name="DistrictName" ColumnName="DistrictName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fin_Bank">
+      <EntityTypeMapping TypeName="ProductDBModel.Fin_Bank">
+        <MappingFragment StoreEntitySet="Fin_Bank">
+          <ScalarProperty Name="BankID" ColumnName="BankID" />
+          <ScalarProperty Name="BankCode" ColumnName="BankCode" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="CnAbbreviation" ColumnName="CnAbbreviation" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="Big5Abbreviation" ColumnName="Big5Abbreviation" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EnAbbreviation" ColumnName="EnAbbreviation" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fin_CurrencyISO">
+      <EntityTypeMapping TypeName="ProductDBModel.Fin_CurrencyISO">
+        <MappingFragment StoreEntitySet="Fin_CurrencyISO">
+          <ScalarProperty Name="CurrencyISOID" ColumnName="CurrencyISOID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="CurrencyISO" ColumnName="CurrencyISO" />
+          <ScalarProperty Name="CurrencySymbol" ColumnName="CurrencySymbol" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flt_AirLine">
+      <EntityTypeMapping TypeName="ProductDBModel.Flt_AirLine">
+        <MappingFragment StoreEntitySet="Flt_AirLine">
+          <ScalarProperty Name="AirLineID" ColumnName="AirLineID" />
+          <ScalarProperty Name="AirLineCode" ColumnName="AirLineCode" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+          <ScalarProperty Name="Continent" ColumnName="Continent" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flt_Airport">
+      <EntityTypeMapping TypeName="ProductDBModel.Flt_Airport">
+        <MappingFragment StoreEntitySet="Flt_Airport">
+          <ScalarProperty Name="AirportID" ColumnName="AirportID" />
+          <ScalarProperty Name="AirportCode" ColumnName="AirportCode" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="CnAbbreviation" ColumnName="CnAbbreviation" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="Big5Abbreviation" ColumnName="Big5Abbreviation" />
+          <ScalarProperty Name="EnName" ColumnName="EnName" />
+          <ScalarProperty Name="EnAbbreviation" ColumnName="EnAbbreviation" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Flt_CraftType">
+      <EntityTypeMapping TypeName="ProductDBModel.Flt_CraftType">
+        <MappingFragment StoreEntitySet="Flt_CraftType">
+          <ScalarProperty Name="CraftTypeID" ColumnName="CraftTypeID" />
+          <ScalarProperty Name="CraftTypeCode" ColumnName="CraftTypeCode" />
+          <ScalarProperty Name="CNName" ColumnName="CNName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="ENName" ColumnName="ENName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="WidthLevel" ColumnName="WidthLevel" />
+          <ScalarProperty Name="MinSeats" ColumnName="MinSeats" />
+          <ScalarProperty Name="MaxSeats" ColumnName="MaxSeats" />
+          <ScalarProperty Name="CraftKind" ColumnName="CraftKind" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IDMap">
+      <EntityTypeMapping TypeName="ProductDBModel.IDMap">
+        <MappingFragment StoreEntitySet="IDMap">
+          <ScalarProperty Name="MapID" ColumnName="MapID" />
+          <ScalarProperty Name="IDType" ColumnName="IDType" />
+          <ScalarProperty Name="HHID" ColumnName="HHID" />
+          <ScalarProperty Name="PkgID" ColumnName="PkgID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Picture">
+      <EntityTypeMapping TypeName="ProductDBModel.Picture">
+        <MappingFragment StoreEntitySet="Picture">
+          <ScalarProperty Name="PictureId" ColumnName="PictureId" />
+          <ScalarProperty Name="PictureType" ColumnName="PictureType" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product">
+      <EntityTypeMapping TypeName="ProductDBModel.Product">
+        <MappingFragment StoreEntitySet="Product">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductNo" ColumnName="ProductNo" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+          <ScalarProperty Name="ProductDesc" ColumnName="ProductDesc" />
+          <ScalarProperty Name="ProductFeature" ColumnName="ProductFeature" />
+          <ScalarProperty Name="Destination" ColumnName="Destination" />
+          <ScalarProperty Name="DestCountry" ColumnName="DestCountry" />
+          <ScalarProperty Name="StartCity" ColumnName="StartCity" />
+          <ScalarProperty Name="DestCity" ColumnName="DestCity" />
+          <ScalarProperty Name="TripDays" ColumnName="TripDays" />
+          <ScalarProperty Name="MinPersonNum" ColumnName="MinPersonNum" />
+          <ScalarProperty Name="MaxPersonNum" ColumnName="MaxPersonNum" />
+          <ScalarProperty Name="AdvanceDays" ColumnName="AdvanceDays" />
+          <ScalarProperty Name="EffectDate" ColumnName="EffectDate" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="SetOffDays" ColumnName="SetOffDays" />
+          <ScalarProperty Name="SaleDesc" ColumnName="SaleDesc" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="IsUp" ColumnName="IsUp" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Info">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_Info">
+        <MappingFragment StoreEntitySet="Product_Info">
+          <ScalarProperty Name="ProdInfoId" ColumnName="ProdInfoId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="InfoTypeName" ColumnName="InfoTypeName" />
+          <ScalarProperty Name="Info" ColumnName="Info" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_NoDeparture">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_NoDeparture">
+        <MappingFragment StoreEntitySet="Product_NoDeparture">
+          <ScalarProperty Name="DepartureId" ColumnName="DepartureId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Property">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_Property">
+        <MappingFragment StoreEntitySet="Product_Property">
+          <ScalarProperty Name="ProdPropId" ColumnName="ProdPropId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Schedule">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_Schedule">
+        <MappingFragment StoreEntitySet="Product_Schedule">
+          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="DayNo" ColumnName="DayNo" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Schedule_Detail">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_Schedule_Detail">
+        <MappingFragment StoreEntitySet="Product_Schedule_Detail">
+          <ScalarProperty Name="ScheduleDetailId" ColumnName="ScheduleDetailId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ScheduleId" ColumnName="ScheduleId" />
+          <ScalarProperty Name="ScheduleType" ColumnName="ScheduleType" />
+          <ScalarProperty Name="TakeOffTime" ColumnName="TakeOffTime" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Section">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_Section">
+        <MappingFragment StoreEntitySet="Product_Section">
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+          <ScalarProperty Name="SectionDesc" ColumnName="SectionDesc" />
+          <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Section_Resource">
+      <EntityTypeMapping TypeName="ProductDBModel.Product_Section_Resource">
+        <MappingFragment StoreEntitySet="Product_Section_Resource">
+          <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="SectionId" ColumnName="SectionId" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="OptionType" ColumnName="OptionType" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Property">
+      <EntityTypeMapping TypeName="ProductDBModel.Property">
+        <MappingFragment StoreEntitySet="Property">
+          <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+          <ScalarProperty Name="PropertyTypeId" ColumnName="PropertyTypeId" />
+          <ScalarProperty Name="PropertyName" ColumnName="PropertyName" />
+          <ScalarProperty Name="PropertyCName" ColumnName="PropertyCName" />
+          <ScalarProperty Name="PropertyEName" ColumnName="PropertyEName" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PropertyType">
+      <EntityTypeMapping TypeName="ProductDBModel.PropertyType">
+        <MappingFragment StoreEntitySet="PropertyType">
+          <ScalarProperty Name="PropertyTypeId" ColumnName="PropertyTypeId" />
+          <ScalarProperty Name="PropertyTypeName" ColumnName="PropertyTypeName" />
+          <ScalarProperty Name="PropertyTypeCName" ColumnName="PropertyTypeCName" />
+          <ScalarProperty Name="PropertyTypeEName" ColumnName="PropertyTypeEName" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provider">
+      <EntityTypeMapping TypeName="ProductDBModel.Provider">
+        <MappingFragment StoreEntitySet="Provider">
+          <ScalarProperty Name="ProviderID" ColumnName="ProviderID" />
+          <ScalarProperty Name="ProviderType" ColumnName="ProviderType" />
+          <ScalarProperty Name="CnName" ColumnName="CnName" />
+          <ScalarProperty Name="Big5Name" ColumnName="Big5Name" />
+          <ScalarProperty Name="CityID" ColumnName="CityID" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactTel" ColumnName="ContactTel" />
+          <ScalarProperty Name="ContactFax" ColumnName="ContactFax" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Zip" ColumnName="Zip" />
+          <ScalarProperty Name="HotelID" ColumnName="HotelID" />
+          <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+          <ScalarProperty Name="Bank" ColumnName="Bank" />
+          <ScalarProperty Name="BankAddress" ColumnName="BankAddress" />
+          <ScalarProperty Name="FinanceContact" ColumnName="FinanceContact" />
+          <ScalarProperty Name="FinanceTel" ColumnName="FinanceTel" />
+          <ScalarProperty Name="FinanceFax" ColumnName="FinanceFax" />
+          <ScalarProperty Name="FinanceContent" ColumnName="FinanceContent" />
+          <ScalarProperty Name="FinancePeriod" ColumnName="FinancePeriod" />
+          <ScalarProperty Name="FinanceRemark" ColumnName="FinanceRemark" />
+          <ScalarProperty Name="IsAvailable" ColumnName="IsAvailable" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource">
+      <EntityTypeMapping TypeName="ProductDBModel.Resource">
+        <MappingFragment StoreEntitySet="Resource">
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+          <ScalarProperty Name="ResourceName" ColumnName="ResourceName" />
+          <ScalarProperty Name="ResourceCName" ColumnName="ResourceCName" />
+          <ScalarProperty Name="ResourceEName" ColumnName="ResourceEName" />
+          <ScalarProperty Name="ResourceSpec" ColumnName="ResourceSpec" />
+          <ScalarProperty Name="ResourceDesc" ColumnName="ResourceDesc" />
+          <ScalarProperty Name="Dcity" ColumnName="Dcity" />
+          <ScalarProperty Name="Acity" ColumnName="Acity" />
+          <ScalarProperty Name="ServiceDays" ColumnName="ServiceDays" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource_Flight">
+      <EntityTypeMapping TypeName="ProductDBModel.Resource_Flight">
+        <MappingFragment StoreEntitySet="Resource_Flight">
+          <ScalarProperty Name="FlightID" ColumnName="FlightID" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+          <ScalarProperty Name="Direction" ColumnName="Direction" />
+          <ScalarProperty Name="FlightNo" ColumnName="FlightNo" />
+          <ScalarProperty Name="FlightStyle" ColumnName="FlightStyle" />
+          <ScalarProperty Name="Stops" ColumnName="Stops" />
+          <ScalarProperty Name="StopPorts" ColumnName="StopPorts" />
+          <ScalarProperty Name="TimeLength" ColumnName="TimeLength" />
+          <ScalarProperty Name="Dport" ColumnName="Dport" />
+          <ScalarProperty Name="Aport" ColumnName="Aport" />
+          <ScalarProperty Name="Dtime" ColumnName="Dtime" />
+          <ScalarProperty Name="Atime" ColumnName="Atime" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource_Price">
+      <EntityTypeMapping TypeName="ProductDBModel.Resource_Price">
+        <MappingFragment StoreEntitySet="Resource_Price">
+          <ScalarProperty Name="PriceId" ColumnName="PriceId" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="EffectDate" ColumnName="EffectDate" />
+          <ScalarProperty Name="ExpireDate" ColumnName="ExpireDate" />
+          <ScalarProperty Name="PriceAdult" ColumnName="PriceAdult" />
+          <ScalarProperty Name="PriceChild" ColumnName="PriceChild" />
+          <ScalarProperty Name="PriceBaby" ColumnName="PriceBaby" />
+          <ScalarProperty Name="SingleAdultPriceDiff" ColumnName="SingleAdultPriceDiff" />
+          <ScalarProperty Name="ThreeAdultPriceDiff" ColumnName="ThreeAdultPriceDiff" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Resource_Stock">
+      <EntityTypeMapping TypeName="ProductDBModel.Resource_Stock">
+        <MappingFragment StoreEntitySet="Resource_Stock">
+          <ScalarProperty Name="StockId" ColumnName="StockId" />
+          <ScalarProperty Name="ResourceId" ColumnName="ResourceId" />
+          <ScalarProperty Name="StockDate" ColumnName="StockDate" />
+          <ScalarProperty Name="Qty" ColumnName="Qty" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SEO">
+      <EntityTypeMapping TypeName="ProductDBModel.SEO">
+        <MappingFragment StoreEntitySet="SEO">
+          <ScalarProperty Name="SEOId" ColumnName="SEOId" />
+          <ScalarProperty Name="SEOType" ColumnName="SEOType" />
+          <ScalarProperty Name="SEOResourceId" ColumnName="SEOResourceId" />
+          <ScalarProperty Name="SEOTitle" ColumnName="SEOTitle" />
+          <ScalarProperty Name="SEOKeyword" ColumnName="SEOKeyword" />
+          <ScalarProperty Name="SEODescription" ColumnName="SEODescription" />
+          <ScalarProperty Name="SEOCTitle" ColumnName="SEOCTitle" />
+          <ScalarProperty Name="SEOCKeyword" ColumnName="SEOCKeyword" />
+          <ScalarProperty Name="SEOCDescription" ColumnName="SEOCDescription" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,14 @@
+﻿/* css重设 */
+html,body{ font-size:13px; font-family:宋体,Verdana; color:#5a5a5a;}
+body,div,form,ul,ol,li,p,form,input,textarea,select,label,th,td,h1,h2,h3,h4,h5,h6,fieldset,legend,em,dl,dd,dt,header,label,i,img { margin:0px; padding:0px;}
+i { font-style:normal;}
+table{border-collapse:collapse;}
+img{ border:none;}
+input,textarea,select{font-size:100%; vertical-align:middle; zoom:1; }
+ul,li { list-style:none;}
+input[type=radio] { height:14px; line-height:14px; vertical-align:middle;}
+input[type=checkbox]{ height:13px; line-height:13px; vertical-align:middle; margin-right:4px; *margin-right:0px; *margin-left:0px;}
+input[type=button] { cursor:pointer;}
+/* 统一链接 */
+a:link,a:visited,a:hover,a:active{ text-decoration:none; cursor:pointer; }
+

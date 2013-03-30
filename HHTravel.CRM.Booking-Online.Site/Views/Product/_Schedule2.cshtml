@@ -1,0 +1,26 @@
+﻿@model HHTravel.CRM.Booking_Online.Model.Product
+<!--单品游的详细行程-->
+<div class="highlights">
+    <h5>
+        详细行程</h5>
+    <div class="h_img_warp">
+        @{
+            // 为了下面使用方便
+            if (Model.PhotoList == null) { Model.PhotoList = new List<ImageInfo>(); }
+            while (Model.PhotoList.Count < 3) { Model.PhotoList.Add(null); }
+        }
+        @Html.Image(Model.PhotoList[0], @Url.Content("~/images/nopic2.gif"), new { @class = "big_img" })
+        @Html.Image(Model.PhotoList[1], @Url.Content("~/images/nopic.gif"))
+        @Html.Image(Model.PhotoList[2], @Url.Content("~/images/nopic.gif"))
+    </div>
+    <div class="h_content">
+        @*单品游：费用包含=产品描述*@
+        @Html.Raw(Model.Description)<br />
+    </div>
+    <h5>
+        特色体验</h5>
+    <div class="h_content">
+        @*单品游：特色体验=产品备注*@
+        @Html.Raw(Model.Note)
+    </div>
+</div>

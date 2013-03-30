@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OrderDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="OrderDBModelStoreContainer">
+          <EntitySet Name="Orders" EntityType="OrderDBModel.Store.Orders" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Orders_Product" EntityType="OrderDBModel.Store.Orders_Product" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNo" Type="varchar" MaxLength="20" />
+          <Property Name="OrderDate" Type="date" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderTime" Type="time" Precision="5" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderState" Type="smallint" />
+          <Property Name="CustomerID" Type="int" />
+          <Property Name="TripType" Type="smallint" />
+          <Property Name="DepartureCity" Type="varchar" MaxLength="20" />
+          <Property Name="DepartureTime" Type="date" />
+          <Property Name="ReturnDate" Type="date" />
+          <Property Name="StayReturnDate" Type="date" />
+          <Property Name="TravelDays" Type="smallint" />
+          <Property Name="AdultNum" Type="smallint" />
+          <Property Name="ChildNum" Type="smallint" />
+          <Property Name="PersonNum" Type="smallint" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="IsStayHotel" Type="bit" />
+          <Property Name="AirTicketOneself" Type="bit" />
+          <Property Name="SpecialMemento" Type="varchar" MaxLength="500" />
+          <Property Name="SpecialHope" Type="varchar" MaxLength="500" />
+          <Property Name="RequestFrom" Type="varchar" MaxLength="50" />
+          <Property Name="Company" Type="smallint" />
+          <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifyTime" Type="datetime" StoreGeneratedPattern="Computed" />
+        </EntityType>
+        <EntityType Name="Orders_Product">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Name="ItemId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="OrderId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="ProductSpecId" Type="int" />
+          <Property Name="ProductState" Type="smallint" />
+          <Property Name="IsStay" Type="bit" />
+          <Property Name="DepartureTime" Type="date" />
+          <Property Name="ReturnDate" Type="date" />
+          <Property Name="Times" Type="smallint" />
+          <Property Name="AdultNum" Type="smallint" />
+          <Property Name="ChildNum" Type="smallint" />
+          <Property Name="PriceAdult" Type="int" />
+          <Property Name="PriceChild" Type="int" />
+          <Property Name="Amount" Type="int" />
+          <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifyTime" Type="datetime" StoreGeneratedPattern="Computed" />
+        </EntityType>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OrderDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="OrderDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Orders" EntityType="OrderDbModel.Orders" />
+          <EntitySet Name="Orders_Product" EntityType="OrderDbModel.Orders_Product" />
+        </EntityContainer>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderId" />
+          </Key>
+          <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderNo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="OrderDate" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderTime" Type="Time" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OrderState" Type="Int16" />
+          <Property Name="CustomerID" Type="Int32" />
+          <Property Name="DepartureTime" Type="DateTime" />
+          <Property Name="ReturnDate" Type="DateTime" />
+          <Property Name="StayReturnDate" Type="DateTime" />
+          <Property Name="TravelDays" Type="Int16" />
+          <Property Name="AdultNum" Type="Int16" />
+          <Property Name="ChildNum" Type="Int16" />
+          <Property Name="PersonNum" Type="Int16" />
+          <Property Name="Amount" Type="Int32" />
+          <Property Name="IsStayHotel" Type="Boolean" />
+          <Property Name="AirTicketOneself" Type="Boolean" />
+          <Property Name="SpecialMemento" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="SpecialHope" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="RequestFrom" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Company" Type="Int16" />
+          <Property Name="LastModifyMan" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastModifyTime" Type="DateTime" annotation:StoreGeneratedPattern="Computed" />
+          <Property Type="Int16" Name="TripType" />
+          <Property Type="String" Name="DepartureCity" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Orders_Product">
+          <Key>
+            <PropertyRef Name="ItemId" />
+          </Key>
+          <Property Type="Int32" Name="ItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="OrderId" Nullable="false" />
+          <Property Type="Int32" Name="ProductId" />
+          <Property Type="Int32" Name="ProductSpecId" />
+          <Property Type="Int16" Name="ProductState" />
+          <Property Type="Boolean" Name="IsStay" />
+          <Property Type="DateTime" Name="DepartureTime" />
+          <Property Type="DateTime" Name="ReturnDate" />
+          <Property Type="Int16" Name="Times" />
+          <Property Type="Int16" Name="AdultNum" />
+          <Property Type="Int16" Name="ChildNum" />
+          <Property Type="Int32" Name="PriceAdult" />
+          <Property Type="Int32" Name="PriceChild" />
+          <Property Type="Int32" Name="Amount" />
+          <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastModifyTime" annotation:StoreGeneratedPattern="Computed" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OrderDBModelStoreContainer" CdmEntityContainer="OrderDbEntities">
+          <EntitySetMapping Name="Orders"><EntityTypeMapping TypeName="OrderDbModel.Orders"><MappingFragment StoreEntitySet="Orders">
+            <ScalarProperty Name="DepartureCity" ColumnName="DepartureCity" />
+                <ScalarProperty Name="TripType" ColumnName="TripType" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+            <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+            <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+            <ScalarProperty Name="OrderTime" ColumnName="OrderTime" />
+            <ScalarProperty Name="OrderState" ColumnName="OrderState" />
+            <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+            <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+            <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+            <ScalarProperty Name="StayReturnDate" ColumnName="StayReturnDate" />
+            <ScalarProperty Name="TravelDays" ColumnName="TravelDays" />
+            <ScalarProperty Name="AdultNum" ColumnName="AdultNum" />
+            <ScalarProperty Name="ChildNum" ColumnName="ChildNum" />
+            <ScalarProperty Name="PersonNum" ColumnName="PersonNum" />
+            <ScalarProperty Name="Amount" ColumnName="Amount" />
+            <ScalarProperty Name="IsStayHotel" ColumnName="IsStayHotel" />
+            <ScalarProperty Name="AirTicketOneself" ColumnName="AirTicketOneself" />
+            <ScalarProperty Name="SpecialMemento" ColumnName="SpecialMemento" />
+            <ScalarProperty Name="SpecialHope" ColumnName="SpecialHope" />
+            <ScalarProperty Name="RequestFrom" ColumnName="RequestFrom" />
+            <ScalarProperty Name="Company" ColumnName="Company" />
+            <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+            <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Orders_Product">
+            <EntityTypeMapping TypeName="OrderDbModel.Orders_Product">
+              <MappingFragment StoreEntitySet="Orders_Product">
+                <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+                <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="PriceChild" ColumnName="PriceChild" />
+                <ScalarProperty Name="PriceAdult" ColumnName="PriceAdult" />
+                <ScalarProperty Name="ChildNum" ColumnName="ChildNum" />
+                <ScalarProperty Name="AdultNum" ColumnName="AdultNum" />
+                <ScalarProperty Name="Times" ColumnName="Times" />
+                <ScalarProperty Name="ReturnDate" ColumnName="ReturnDate" />
+                <ScalarProperty Name="DepartureTime" ColumnName="DepartureTime" />
+                <ScalarProperty Name="IsStay" ColumnName="IsStay" />
+                <ScalarProperty Name="ProductState" ColumnName="ProductState" />
+                <ScalarProperty Name="ProductSpecId" ColumnName="ProductSpecId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="OrderDbModel">
+        <EntityTypeShape EntityType="OrderDbModel.Orders" Width="1.5" PointX="0.75" PointY="0.75" Height="5.2173673502604156" IsExpanded="true" />
+        <EntityTypeShape EntityType="OrderDbModel.Orders_Product" Width="1.5" PointX="3.375" PointY="0.75" Height="4.0712491861979156" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

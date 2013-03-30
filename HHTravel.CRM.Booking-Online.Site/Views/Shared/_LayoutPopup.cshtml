@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="keywords" content="@ViewBag.Keywords"/>
+    <meta name="description" content="@ViewBag.Description"/>
+    <title>@ViewBag.Title | 鸿鹄逸游 HHtravel</title>
+    <link href="@Url.Content("~/css/reset.css")" type="text/css" rel="stylesheet" />
+    <link href="@Url.Content("~/css/layout.css")" type="text/css" rel="stylesheet" />
+    <link href="@Url.Content("~/css/common.css")" type="text/css" rel="stylesheet" />
+    @RenderSection("CSS", required: false)
+    @RenderSection("JS", required: false)
+</head>
+<body>
+        @RenderBody()
+</body>
+</html>

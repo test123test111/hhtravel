@@ -1,0 +1,6 @@
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Entity\bin\Release\HHTravel.CRM.Booking-Online.Entity.dll.config
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Entity\bin\Release\HHTravel.CRM.Booking-Online.Entity.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Entity\bin\Release\HHTravel.CRM.Booking-Online.Entity.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Entity\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Entity\obj\Release\HHTravel.CRM.Booking-Online.Entity.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Entity\obj\Release\HHTravel.CRM.Booking-Online.Entity.pdb

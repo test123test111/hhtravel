@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using HHTravel.CRM.Booking_Online.Site.Controllers;
+using HHTravel.Site.Controllers;
 using System;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models.OrderWizard
+namespace HHTravel.Site.Models.OrderWizard
 {
     public class Step5PostModel : IPostModel
     {

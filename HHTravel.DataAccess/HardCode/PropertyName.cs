@@ -1,4 +1,4 @@
-﻿namespace HHTravel.CRM.Booking_Online.DataAccess.HardCode
+﻿namespace HHTravel.DataAccess.HardCode
 {
     /// <summary>
     /// 对应Property表中的PropertyName

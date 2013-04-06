@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models.OrderWizard
+namespace HHTravel.Site.Models.OrderWizard
 {
     public class Step2PostModel : IPostModel
     {

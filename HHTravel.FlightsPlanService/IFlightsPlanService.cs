@@ -1,5 +1,5 @@
 ﻿using System;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
 namespace HHTravel.FlightsPlanService
 {

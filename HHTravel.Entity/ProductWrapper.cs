@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HHTravel.CRM.Booking_Online.Entity
+namespace HHTravel.Entity
 {
     public class ProductWrapper
     {

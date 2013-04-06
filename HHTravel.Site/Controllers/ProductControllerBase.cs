@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Site.Models;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Site.Models;
 
-namespace HHTravel.CRM.Booking_Online.Site.Controllers
+namespace HHTravel.Site.Controllers
 {
     public class ProductControllerBase : ControllerBase
     {

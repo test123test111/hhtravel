@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.DomainModel
+namespace HHTravel.DomainModel
 {
     internal interface IPriceDate
     {

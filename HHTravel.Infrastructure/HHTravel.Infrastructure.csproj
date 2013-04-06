@@ -8,8 +8,8 @@
     <ProjectGuid>{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HHTravel.CRM.Booking_Online.Infrastructure</RootNamespace>
-    <AssemblyName>HHTravel.CRM.Booking-Online.Infrastructure</AssemblyName>
+    <RootNamespace>HHTravel.Infrastructure</RootNamespace>
+    <AssemblyName>HHTravel.Infrastructure</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>

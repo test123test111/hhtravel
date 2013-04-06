@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting
+namespace HHTravel.Infrastructure.Crosscutting
 {
     [DataContract]
     public class SearchCondition

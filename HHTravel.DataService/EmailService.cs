@@ -1,9 +1,9 @@
 ﻿using System.ServiceModel;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.DataService
+namespace HHTravel.DataService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class EmailService

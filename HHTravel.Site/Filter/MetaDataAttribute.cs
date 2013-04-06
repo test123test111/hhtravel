@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
-using HHTravel.CRM.Booking_Online.Site.Models;
+using HHTravel.Site.Models;
 
-namespace HHTravel.CRM.Booking_Online.Site.Filter
+namespace HHTravel.Site.Filter
 {
     public class MetaDataAttribute : ActionFilterAttribute
     {

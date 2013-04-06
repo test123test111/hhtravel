@@ -6,7 +6,7 @@ using System.Data.Metadata.Edm;
 using EFCachingProvider;
 using EFCachingProvider.Caching;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Caching
+namespace HHTravel.Infrastructure.Caching
 {
     /// <summary>
     /// Custom caching policy on per-table basis.

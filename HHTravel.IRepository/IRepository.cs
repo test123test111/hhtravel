@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.IRepository
+namespace HHTravel.IRepository
 {
     public interface IRepository<T> : IDisposable where T : IAggregateRoot, new()
     {

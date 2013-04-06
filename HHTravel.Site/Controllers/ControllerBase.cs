@@ -1,11 +1,11 @@
 ﻿using System.IO;
 using System.Web.Mvc;
-using HHTravel.CRM.Booking_Online.ApplicationService;
-using HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.ApplicationService;
+using HHTravel.ApplicationService.ApplicationServiceImp;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.Site.Controllers
+namespace HHTravel.Site.Controllers
 {
     public abstract class ControllerBase : Controller
     {

@@ -3,31 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.Site", "HHTravel.Site\HHTravel.Site.csproj", "{718AF501-8F91-434B-A958-9A942945FEA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.DomainService", "HHTravel.DomainService\HHTravel.CRM.Booking-Online.DomainService.csproj", "{09E1E6D9-138D-4F15-A938-DB5C1FB87B60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.DomainService", "HHTravel.DomainService\HHTravel.DomainService.csproj", "{09E1E6D9-138D-4F15-A938-DB5C1FB87B60}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.FlightsPlanService", "HHTravel.FlightsPlanService\HHTravel.FlightsPlanService.csproj", "{6FA84C78-8C6F-4376-B26E-1AED675D2250}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.DomainModel", "HHTravel.DomainModel\HHTravel.CRM.Booking-Online.DomainModel.csproj", "{2B505487-72C1-4DEC-85A1-FF944CA1FF46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.DomainModel", "HHTravel.DomainModel\HHTravel.DomainModel.csproj", "{2B505487-72C1-4DEC-85A1-FF944CA1FF46}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.Repository", "HHTravel.Repository\HHTravel.CRM.Booking-Online.Repository.csproj", "{59B0D0BD-9508-40D5-B9AE-E5D39B7D6EE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.Repository", "HHTravel.Repository\HHTravel.Repository.csproj", "{59B0D0BD-9508-40D5-B9AE-E5D39B7D6EE9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.Infrastructure", "HHTravel.Infrastructure\HHTravel.CRM.Booking-Online.Infrastructure.csproj", "{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.Infrastructure", "HHTravel.Infrastructure\HHTravel.Infrastructure.csproj", "{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting", "HHTravel.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj", "{38830438-C575-481D-ACC1-7D123961F4DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.Infrastructure.Crosscutting", "HHTravel.Infrastructure.Crosscutting\HHTravel.Infrastructure.Crosscutting.csproj", "{38830438-C575-481D-ACC1-7D123961F4DD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.DataService", "HHTravel.DataService\HHTravel.CRM.Booking-Online.DataService.csproj", "{5478CC2F-AAA2-4932-93DF-DA2BF3534093}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.DataService", "HHTravel.DataService\HHTravel.DataService.csproj", "{5478CC2F-AAA2-4932-93DF-DA2BF3534093}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CtripServices", "CtripService\CtripServices.csproj", "{8B026AA2-9B90-47EF-BE10-1D66F9224DB5}"
 EndProject
-Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "HHTravel.CRM.Booking-Online.Modeling", "HHTravel.Modeling\HHTravel.CRM.Booking-Online.Modeling.modelproj", "{D6BD608E-C0DE-4934-B9C3-BF7A0D9B8526}"
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "HHTravel.Modeling", "HHTravel.Modeling\HHTravel.Modeling.modelproj", "{D6BD608E-C0DE-4934-B9C3-BF7A0D9B8526}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.IRepository", "HHTravel.IRepository\HHTravel.CRM.Booking-Online.IRepository.csproj", "{7A666EBC-4E0D-43AE-8914-909592655561}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.IRepository", "HHTravel.IRepository\HHTravel.IRepository.csproj", "{7A666EBC-4E0D-43AE-8914-909592655561}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.DataAccess", "HHTravel.DataAccess\HHTravel.CRM.Booking-Online.DataAccess.csproj", "{2811D388-AD77-4630-B1FD-D329F7666D55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.DataAccess", "HHTravel.DataAccess\HHTravel.DataAccess.csproj", "{2811D388-AD77-4630-B1FD-D329F7666D55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.Entity", "HHTravel.Entity\HHTravel.CRM.Booking-Online.Entity.csproj", "{8ABB78F9-B800-4C3B-BAD7-60DC7EB3C6D4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.Data.Entity", "HHTravel.Entity\HHTravel.Data.Entity.csproj", "{8ABB78F9-B800-4C3B-BAD7-60DC7EB3C6D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.CRM.Booking-Online.ApplicationService", "HHTravel.ApplicationService\HHTravel.CRM.Booking-Online.ApplicationService.csproj", "{36876F6D-A6C7-4519-8065-B265E854F385}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HHTravel.ApplicationService", "HHTravel.ApplicationService\HHTravel.ApplicationService.csproj", "{36876F6D-A6C7-4519-8065-B265E854F385}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{80278CA6-ECBE-4ED8-9FE1-816F7F66EA54}"
 EndProject

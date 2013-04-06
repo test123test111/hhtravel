@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.DomainModel
+namespace HHTravel.DomainModel
 {
     /// <summary>
     /// 房型信息

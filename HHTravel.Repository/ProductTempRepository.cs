@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Data.Objects;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.HardCode;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Infrastructure.Exceptions;
-using HHTravel.CRM.Booking_Online.Infrastructure;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.HardCode;
+using HHTravel.DataAccess.Providers;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Exceptions;
+using HHTravel.Infrastructure;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     public class ProductTempRepository : ProductRepository
     {

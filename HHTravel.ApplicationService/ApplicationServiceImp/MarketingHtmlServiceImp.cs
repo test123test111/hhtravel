@@ -1,6 +1,6 @@
-﻿using HHTravel.CRM.Booking_Online.DataService;
+﻿using HHTravel.DataService;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
+namespace HHTravel.ApplicationService.ApplicationServiceImp
 {
     public class MarketingHtmlServiceImp : IMarketingHtmlService
     {

@@ -1,4 +1,4 @@
-﻿@model HHTravel.CRM.Booking_Online.Site.Models.ProductModel
+﻿@model HHTravel.Site.Models.ProductModel
 @{
     var hotel = Model.HotelList.FirstOrDefault() ?? new Hotel
     {
@@ -16,7 +16,7 @@
     <div class="h_img_warp bg_gray">
         @{
             // 为了下面使用方便
-            if (hotel.PhotoList == null) { hotel.PhotoList = new List<HHTravel.CRM.Booking_Online.Infrastructure.ImageInfo>(); }
+            if (hotel.PhotoList == null) { hotel.PhotoList = new List<HHTravel.Infrastructure.ImageInfo>(); }
             while (hotel.PhotoList.Count < 3) { hotel.PhotoList.Add(null); }
         }
         @Html.Image(@hotel.PhotoList[0], @Url.Content("~/images/nopic2.gif"), new { @class = "big_img clearfix" })

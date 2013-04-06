@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class BreadcrumbModel
     {

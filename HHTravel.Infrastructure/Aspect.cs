@@ -5,7 +5,7 @@ using System.Text;
 using System.Diagnostics;
 //using HHTravel.Base.Common.Framework.Logging;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public static class Aspect
     {

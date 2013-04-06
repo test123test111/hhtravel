@@ -1,6 +1,6 @@
 ﻿using System.ServiceModel;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService
+namespace HHTravel.ApplicationService
 {
     [ServiceContract]
     public interface IRepositoryService

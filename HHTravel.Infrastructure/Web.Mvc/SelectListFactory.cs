@@ -5,7 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Web.Mvc
+namespace HHTravel.Infrastructure.Web.Mvc
 {
     public class SelectListFactory
     {

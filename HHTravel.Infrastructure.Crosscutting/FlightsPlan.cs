@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting
+namespace HHTravel.Infrastructure.Crosscutting
 {
     /// <summary>
     /// 航班计划

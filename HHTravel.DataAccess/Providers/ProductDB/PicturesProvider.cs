@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.Entity;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.Entity;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.Providers
+namespace HHTravel.DataAccess.Providers
 {
     public class PicturesProvider : ProductDbProviderBase<Picture>
     {

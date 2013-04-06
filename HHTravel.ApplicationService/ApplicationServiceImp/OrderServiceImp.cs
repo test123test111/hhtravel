@@ -1,7 +1,7 @@
 ﻿using System.ServiceModel;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.IRepository;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
+namespace HHTravel.ApplicationService.ApplicationServiceImp
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class OrderServiceImp : IOrderService

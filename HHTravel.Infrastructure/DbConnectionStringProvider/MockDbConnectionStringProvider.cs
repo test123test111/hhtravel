@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public class MockDbConnectionStringProvider : DbConnectionStringProvider
     {

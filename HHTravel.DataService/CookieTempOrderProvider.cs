@@ -6,7 +6,7 @@ using System.Web;
 using System.IO;
 using System.IO.Compression;
 
-namespace HHTravel.CRM.Booking_Online.DataService
+namespace HHTravel.DataService
 {
     class CookieTempOrderProvider : ITempOrderProvider
     {

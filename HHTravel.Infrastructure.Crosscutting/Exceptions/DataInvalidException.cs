@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Exceptions
+namespace HHTravel.Infrastructure.Exceptions
 {
     public class DataInvalidException : Exception, ISerializable
     {

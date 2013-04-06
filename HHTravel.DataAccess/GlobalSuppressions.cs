@@ -8,5 +8,5 @@
 // "In Project Suppression File".
 // You do not need to add suppressions to this file manually.
 
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Scope = "namespace", Target = "HHTravel.CRM.Booking_Online.DataAccess.DbContexts")]
-[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Db", Scope = "member", Target = "HHTravel.CRM.Booking_Online.DataAccess.Providers.PropertiesProvider.#.ctor(HHTravel.CRM.Booking_Online.DataAccess.DbContexts.ProductDbEntities)")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Scope = "namespace", Target = "HHTravel.DataAccess.DbContexts")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", MessageId = "Db", Scope = "member", Target = "HHTravel.DataAccess.Providers.PropertiesProvider.#.ctor(HHTravel.DataAccess.DbContexts.ProductDbEntities)")]

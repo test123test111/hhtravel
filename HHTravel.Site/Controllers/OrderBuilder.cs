@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Site.Models;
-using HHTravel.CRM.Booking_Online.Site.Models.OrderWizard;
+using HHTravel.ApplicationService.ApplicationServiceImp;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Site.Models;
+using HHTravel.Site.Models.OrderWizard;
 
-namespace HHTravel.CRM.Booking_Online.Site.Controllers
+namespace HHTravel.Site.Controllers
 {
     public class OrderBuilder
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 //using HHTravel.Base.Common.Framework.Logging;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     /// <summary>
     /// 异常开关

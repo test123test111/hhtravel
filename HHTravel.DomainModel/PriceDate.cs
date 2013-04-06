@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.DomainModel
+namespace HHTravel.DomainModel
 {
     /// <summary>
     /// 有价格的日期

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using HHTravel.CRM.Booking_Online.Infrastructure;
+using HHTravel.Infrastructure;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class StayInfoModel
     {

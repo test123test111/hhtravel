@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess
+namespace HHTravel.DataAccess
 {
     public class PagerHelper
     {

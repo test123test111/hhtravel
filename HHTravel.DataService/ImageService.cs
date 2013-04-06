@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using System.ServiceModel;
-using HHTravel.CRM.Booking_Online.DataAccess.HardCode;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.DataAccess.HardCode;
+using HHTravel.DataAccess.Providers;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.DataService
+namespace HHTravel.DataService
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ImageService
@@ -36,7 +36,7 @@ namespace HHTravel.CRM.Booking_Online.DataService
             return a;
         }
 
-        private static ImageInfo GetImageInfo(HHTravel.CRM.Booking_Online.Entity.Picture pic)
+        private static ImageInfo GetImageInfo(HHTravel.Entity.Picture pic)
         {
             if (pic == null || string.IsNullOrEmpty(pic.URL)) return null;
             return new ImageInfo { Title = pic.Title, Url = pic.URL };

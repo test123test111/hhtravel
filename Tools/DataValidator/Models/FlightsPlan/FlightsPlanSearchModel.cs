@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 using System.Web.Mvc;
 
 namespace DataValidator.Models.FlightsPlan

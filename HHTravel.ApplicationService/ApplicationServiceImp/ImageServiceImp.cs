@@ -1,7 +1,7 @@
-﻿using HHTravel.CRM.Booking_Online.DataService;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+﻿using HHTravel.DataService;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
+namespace HHTravel.ApplicationService.ApplicationServiceImp
 {
     public class ImageServiceImp : IImageService
     {

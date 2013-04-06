@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Globalization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public class GlobalConfig
     {

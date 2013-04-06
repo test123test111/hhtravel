@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using HHTravel.FlightsPlanService;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
 
-namespace HHTravel.CRM.Booking_Online.DataService
+namespace HHTravel.DataService
 {
     public class SqlFlightsPlanFilterProvider : IFlightsPlanFilterProvider
     {

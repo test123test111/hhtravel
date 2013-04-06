@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.Infrastructure.Web.Mvc;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.Infrastructure.Web.Mvc;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class HotelSegmentModelsBuilder : IModelBuilder<List<HotelSegmentModel>, IList<HotelSegment> >
     {

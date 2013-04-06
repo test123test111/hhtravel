@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration.Provider;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     internal abstract class ProductStoreProvider : ProviderBase
     {

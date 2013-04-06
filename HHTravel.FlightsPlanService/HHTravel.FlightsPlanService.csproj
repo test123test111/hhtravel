@@ -75,13 +75,13 @@
       <Project>{8B026AA2-9B90-47EF-BE10-1D66F9224DB5}</Project>
       <Name>CtripServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HHTravel.Infrastructure\HHTravel.CRM.Booking-Online.Infrastructure.csproj">
+    <ProjectReference Include="..\HHTravel.Infrastructure\HHTravel.Infrastructure.csproj">
       <Project>{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Infrastructure</Name>
+      <Name>HHTravel.Infrastructure</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HHTravel.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+    <ProjectReference Include="..\HHTravel.Infrastructure.Crosscutting\HHTravel.Infrastructure.Crosscutting.csproj">
       <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
+      <Name>HHTravel.Infrastructure.Crosscutting</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

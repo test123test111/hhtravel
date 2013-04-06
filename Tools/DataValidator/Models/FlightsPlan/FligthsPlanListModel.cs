@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using HHTravel.FlightsPlanService;
 using Newtonsoft.Json;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
 namespace DataValidator.Models.FlightsPlan
 {

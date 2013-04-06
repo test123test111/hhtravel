@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Practices.Unity;
 
-namespace HHTravel.CRM.Booking_Online.IRepository
+namespace HHTravel.IRepository
 {
     public static class RepositoryFactory
     {

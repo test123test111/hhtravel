@@ -9,7 +9,7 @@ using EFCachingProvider.Caching;
 using EFProviderWrapperToolkit;
 using EFTracingProvider;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess
+namespace HHTravel.DataAccess
 {
     public abstract class DbEntitiesBase : DbContext
     {

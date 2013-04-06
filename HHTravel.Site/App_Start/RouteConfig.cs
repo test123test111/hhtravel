@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace HHTravel.CRM.Booking_Online.Site.App_Start
+namespace HHTravel.Site.App_Start
 {
     public class RouteConfig
     {

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models.OrderWizard
+namespace HHTravel.Site.Models.OrderWizard
 {
     public class GroundServiceModelBuilder : IModelBuilder<List<GroundServiceModel>, GroundServiceSegment>
     {

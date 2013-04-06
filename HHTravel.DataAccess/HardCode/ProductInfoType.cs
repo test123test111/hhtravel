@@ -1,4 +1,4 @@
-﻿namespace HHTravel.CRM.Booking_Online.DataAccess.HardCode
+﻿namespace HHTravel.DataAccess.HardCode
 {
     /// <summary>
     /// 对应Product_Info表中的InfoTypeName

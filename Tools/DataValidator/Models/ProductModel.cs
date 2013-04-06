@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.DomainModel;
 
 namespace DataValidator.Models
 {

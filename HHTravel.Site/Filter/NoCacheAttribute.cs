@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace HHTravel.CRM.Booking_Online.Site.Filter
+namespace HHTravel.Site.Filter
 {
     // http://stackoverflow.com/questions/264216/getjson-returning-cached-data-in-ie8
     public class NoCacheAttribute : ActionFilterAttribute

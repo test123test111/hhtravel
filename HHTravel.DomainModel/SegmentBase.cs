@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.DomainModel
+namespace HHTravel.DomainModel
 {
     [DataContract]
     public class SegmentBase : IPriceDate

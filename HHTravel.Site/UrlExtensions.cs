@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace HHTravel.CRM.Booking_Online.Site
+namespace HHTravel.Site
 {
     public static class UrlExtensions
     {

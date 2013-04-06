@@ -8,9 +8,9 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Newtonsoft.Json;
-using HHTravel.CRM.Booking_Online.DataService;
+using HHTravel.DataService;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models.OrderWizard
+namespace HHTravel.Site.Models.OrderWizard
 {
     public class WizardContext
     {

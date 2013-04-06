@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web.Mvc;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Site.Controllers;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Site.Controllers;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class CustomerModel
     {

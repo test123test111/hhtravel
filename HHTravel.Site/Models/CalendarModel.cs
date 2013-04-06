@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class CalendarDayModel
     {

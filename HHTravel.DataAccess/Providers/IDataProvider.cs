@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.Providers
+namespace HHTravel.DataAccess.Providers
 {
     internal interface IDataProvider<T> : IDisposable where T : class, new()
     {

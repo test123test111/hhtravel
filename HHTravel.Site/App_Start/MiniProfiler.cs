@@ -7,12 +7,12 @@ using StackExchange.Profiling.MVCHelpers;
 
 //#if DEBUG
 //[assembly: WebActivator.PreApplicationStartMethod(
-//    typeof(HHTravel.CRM.Booking_Online.Site.App_Start.MiniProfilerPackage), "PreStart")]
+//    typeof(HHTravel.Site.App_Start.MiniProfilerPackage), "PreStart")]
 //[assembly: WebActivator.PostApplicationStartMethod(
-//    typeof(HHTravel.CRM.Booking_Online.Site.App_Start.MiniProfilerPackage), "PostStart")]
+//    typeof(HHTravel.Site.App_Start.MiniProfilerPackage), "PostStart")]
 //#endif
 
-namespace HHTravel.CRM.Booking_Online.Site.App_Start
+namespace HHTravel.Site.App_Start
 {
     public static class MiniProfilerPackage
     {

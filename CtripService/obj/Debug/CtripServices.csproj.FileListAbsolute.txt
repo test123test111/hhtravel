@@ -20,13 +20,13 @@ D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\CtripServ
 D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\CtripService\bin\Debug\HHTravel.Base.Common.Framework.pdb
 D:\Depository\hhtravel\CtripService\bin\Debug\CtripServices.dll
 D:\Depository\hhtravel\CtripService\bin\Debug\CtripServices.pdb
-D:\Depository\hhtravel\CtripService\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.dll
 D:\Depository\hhtravel\CtripService\bin\Debug\EFCachingProvider.dll
 D:\Depository\hhtravel\CtripService\bin\Debug\Microsoft.Practices.Unity.dll
 D:\Depository\hhtravel\CtripService\bin\Debug\ICSharpCode.SharpZipLib.dll
 D:\Depository\hhtravel\CtripService\bin\Debug\EFProviderWrapperToolkit.dll
 D:\Depository\hhtravel\CtripService\bin\Debug\Microsoft.Practices.ServiceLocation.dll
-D:\Depository\hhtravel\CtripService\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.pdb
 D:\Depository\hhtravel\CtripService\obj\Debug\CtripServices.csprojResolveAssemblyReference.cache
 D:\Depository\hhtravel\CtripService\obj\Debug\CtripServices.dll
 D:\Depository\hhtravel\CtripService\obj\Debug\CtripServices.pdb
+D:\Depository\hhtravel\CtripService\bin\Debug\HHTravel.Infrastructure.dll
+D:\Depository\hhtravel\CtripService\bin\Debug\HHTravel.Infrastructure.pdb

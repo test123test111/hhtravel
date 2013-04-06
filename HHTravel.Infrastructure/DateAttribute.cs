@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     [AttributeUsage(AttributeTargets.Property, Inherited = false, AllowMultiple = false)]
     public sealed class DateAttribute : ValidationAttribute

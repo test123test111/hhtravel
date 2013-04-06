@@ -8,7 +8,7 @@
     <ProjectGuid>{8ABB78F9-B800-4C3B-BAD7-60DC7EB3C6D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HHTravel.CRM.Booking_Online.Entity</RootNamespace>
+    <RootNamespace>HHTravel.Entity</RootNamespace>
     <AssemblyName>HHTravel.CRM.Booking-Online.Entity</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

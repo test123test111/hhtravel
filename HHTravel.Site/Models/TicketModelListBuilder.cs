@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class TicketModelListBuilder : IModelBuilder<List<TicketModel>, IList<Ticket>>
     {

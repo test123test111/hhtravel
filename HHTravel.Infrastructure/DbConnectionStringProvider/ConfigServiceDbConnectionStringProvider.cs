@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 //using HHTravel.Base.Common.Framework.Config;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public class ConfigServiceDbConnectionStringProvider : DbConnectionStringProvider
     {

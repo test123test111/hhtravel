@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Xml.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Mock
+namespace HHTravel.Infrastructure.Mock
 {
     /// <summary>
     /// Mock辅助工具类

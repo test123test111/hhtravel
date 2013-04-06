@@ -14,7 +14,7 @@ namespace CtripServices.IntlFlight.SearchService
         private XmlSerializer s_requestSerializer = new XmlSerializer(typeof(CtripServicesRequest));
         private XmlSerializer s_responseSerializer = new XmlSerializer(typeof(CtripServicesResponse));
 
-        [HHTravel.CRM.Booking_Online.Infrastructure.CountingHandler("FlightIntl.FlightSearch.SearchFlights")]
+        [HHTravel.Infrastructure.CountingHandler("FlightIntl.FlightSearch.SearchFlights")]
         public SearchResponse Search(SearchRequest searchRequest)
         {
             SearchResponse searchResponse;
@@ -39,7 +39,7 @@ namespace CtripServices.IntlFlight.SearchService
             string responseXml = "";
             using (CtripServicesAgent agent = new CtripServicesAgent("http://fltws.sh.ctriptravel.com/FltIntlFlightSearchWebService/FlightSearch.asmx"))   // todo: 配置
             {
-                HHTravel.CRM.Booking_Online.Infrastructure.Aspect.Counting("FlightIntl.FlightSearch.SearchFlights", () =>
+                HHTravel.Infrastructure.Aspect.Counting("FlightIntl.FlightSearch.SearchFlights", () =>
                 {
                     responseXml = agent.Request(requestXml);
                 });

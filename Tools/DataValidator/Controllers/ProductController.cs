@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 using DataValidator.Models;
-using HHTravel.CRM.Booking_Online.ApplicationService;
-using HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Infrastructure.Exceptions;
-using HHTravel.CRM.Booking_Online.Infrastructure.Web.Mvc;
+using HHTravel.ApplicationService;
+using HHTravel.ApplicationService.ApplicationServiceImp;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Exceptions;
+using HHTravel.Infrastructure.Web.Mvc;
 
 namespace DataValidator.Controllers
 {

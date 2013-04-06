@@ -2,7 +2,7 @@
 using System.IO;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess
+namespace HHTravel.DataAccess
 {
     public class ActionTextWriter : TextWriter
     {

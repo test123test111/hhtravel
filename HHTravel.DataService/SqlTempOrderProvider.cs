@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers.OrderDB;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.Providers.OrderDB;
 
-namespace HHTravel.CRM.Booking_Online.DataService
+namespace HHTravel.DataService
 {
     public class SqlTempOrderProvider : ITempOrderProvider
     {

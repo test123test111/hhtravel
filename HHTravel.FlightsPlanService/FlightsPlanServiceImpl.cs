@@ -4,7 +4,7 @@ using System.Linq;
 using CtripServices.IntlFlight.DataContract;
 using CtripServices.IntlFlight.SearchService;
 using CtripServices.IntlFlight.SearchService.DataContract;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
 namespace HHTravel.FlightsPlanService
 {
@@ -152,7 +152,7 @@ namespace HHTravel.FlightsPlanService
 
                                        // FlightBaseInfo与Flight一一对应
                                        let flightBaseInfo = poli.FlightBaseInfos[f.No - 1]
-                                       select new HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting.Flight
+                                       select new HHTravel.Infrastructure.Crosscutting.Flight
                                        {
                                            ActualAirline = new Airline
                                            {

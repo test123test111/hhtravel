@@ -2,11 +2,11 @@
 using System.Web.Optimization;
 using System.Web.Routing;
 using EFCachingProvider;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Caching;
-using HHTravel.CRM.Booking_Online.Site.App_Start;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Caching;
+using HHTravel.Site.App_Start;
 
-namespace HHTravel.CRM.Booking_Online.Site
+namespace HHTravel.Site
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode,
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -15,7 +15,7 @@ namespace HHTravel.CRM.Booking_Online.Site
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HHTravel.CRM.Booking_Online.Site.Filter.ExceptionFilter());
+            filters.Add(new HHTravel.Site.Filter.ExceptionFilter());
         }
 
         protected void Application_Start()
@@ -31,7 +31,7 @@ namespace HHTravel.CRM.Booking_Online.Site
             EFCachingProviderConfiguration.DefaultCachingPolicy = new EFCachingPolicy();
 
             bool mock = GlobalConfig.MockRepository;
-            new HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp.RepositoryServiceImp().Register(mock);
+            new HHTravel.ApplicationService.ApplicationServiceImp.RepositoryServiceImp().Register(mock);
         }
     }
 }

@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Exceptions;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Exceptions;
+using HHTravel.IRepository;
 
-namespace HHTravel.CRM.Booking_Online.DomainService
+namespace HHTravel.DomainService
 {
     public class ProductManager
     {

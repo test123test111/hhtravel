@@ -11,7 +11,7 @@ using System.Web.Caching;
 using EFCachingProvider.Caching;
 //using HHTravel.Base.Common.Framework.Logging;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Caching
+namespace HHTravel.Infrastructure.Caching
 {
     /// <summary>
     /// Implementation of <see cref="ICache"/> which works with ASP.NET cache object.

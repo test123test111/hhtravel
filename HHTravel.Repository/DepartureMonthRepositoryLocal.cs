@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DomainModel;
+using HHTravel.IRepository;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     public class DepartureMonthRepositoryLocal : RepositoryBase<DepartureMonth>, IDepartureMonthRepository
     {

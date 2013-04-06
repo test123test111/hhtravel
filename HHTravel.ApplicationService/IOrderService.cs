@@ -1,7 +1,7 @@
 ﻿using System.ServiceModel;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService
+namespace HHTravel.ApplicationService
 {
     [ServiceContract]
     public interface IOrderService

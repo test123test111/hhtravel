@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.HardCode
+namespace HHTravel.DataAccess.HardCode
 {
     /// <summary>
     /// 对应PROPERTY表中定义的父级属性路径

@@ -10,10 +10,10 @@
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
-using HHTravel.CRM.Booking_Online.Entity;
+using HHTravel.Entity;
 using System;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
+namespace HHTravel.DataAccess.DbContexts
 {
     public partial class CustomerDbEntities : DbEntitiesBase, IDisposable
     {

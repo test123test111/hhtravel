@@ -16,9 +16,9 @@ using EFCachingProvider;
 using EFCachingProvider.Caching;
 using EFProviderWrapperToolkit;
 using EFTracingProvider;
-using HHTravel.CRM.Booking_Online.Entity;
+using HHTravel.Entity;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
+namespace HHTravel.DataAccess.DbContexts
 {
     public partial class ProductDbEntities : DbEntitiesBase, IDisposable
     {

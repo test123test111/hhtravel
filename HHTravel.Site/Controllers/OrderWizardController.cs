@@ -4,14 +4,14 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Site.Models;
-using HHTravel.CRM.Booking_Online.Site.Models.OrderWizard;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Site.Models;
+using HHTravel.Site.Models.OrderWizard;
 using Newtonsoft.Json;
 
-namespace HHTravel.CRM.Booking_Online.Site.Controllers
+namespace HHTravel.Site.Controllers
 {
     public class OrderWizardController : ControllerBase
     {

@@ -8,8 +8,8 @@
     <ProjectGuid>{7A666EBC-4E0D-43AE-8914-909592655561}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HHTravel.CRM.Booking_Online.IRepository</RootNamespace>
-    <AssemblyName>HHTravel.CRM.Booking-Online.IRepository</AssemblyName>
+    <RootNamespace>HHTravel.IRepository</RootNamespace>
+    <AssemblyName>HHTravel.IRepository</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -64,13 +64,13 @@
       <Project>{8B026AA2-9B90-47EF-BE10-1D66F9224DB5}</Project>
       <Name>CtripServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HHTravel.DomainModel\HHTravel.CRM.Booking-Online.DomainModel.csproj">
+    <ProjectReference Include="..\HHTravel.DomainModel\HHTravel.DomainModel.csproj">
       <Project>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</Project>
-      <Name>HHTravel.CRM.Booking-Online.DomainModel</Name>
+      <Name>HHTravel.DomainModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HHTravel.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+    <ProjectReference Include="..\HHTravel.Infrastructure.Crosscutting\HHTravel.Infrastructure.Crosscutting.csproj">
       <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
+      <Name>HHTravel.Infrastructure.Crosscutting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

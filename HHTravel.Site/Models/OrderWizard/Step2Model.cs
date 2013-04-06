@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models.OrderWizard
+namespace HHTravel.Site.Models.OrderWizard
 {
     public class Step2Model : Step2PostModel, IStepModel
     {

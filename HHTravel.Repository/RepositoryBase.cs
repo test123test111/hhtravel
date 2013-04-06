@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DomainModel;
+using HHTravel.IRepository;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     public abstract class RepositoryBase<T> : IRepository<T> where T : IAggregateRoot, new()
     {

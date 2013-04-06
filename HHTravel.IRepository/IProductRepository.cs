@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.IRepository
+namespace HHTravel.IRepository
 {
     public interface IProductRepository : IRepository<Product>
     {

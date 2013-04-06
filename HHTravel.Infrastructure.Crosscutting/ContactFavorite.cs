@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting
+namespace HHTravel.Infrastructure.Crosscutting
 {
     /// <summary>
     /// （客户）倾向的联系方式

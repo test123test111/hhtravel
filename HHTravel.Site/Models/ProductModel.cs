@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using HHTravel.CRM.Booking_Online.DomainModel;
+using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class ProductModel : Product
     {

@@ -6,7 +6,7 @@ using Microsoft.Practices.Unity.InterceptionExtension;
 //using HHTravel.Base.Common.Framework.Logging;
 using System.Diagnostics;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     internal class CountingCallHandler : ICallHandler
     {

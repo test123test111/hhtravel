@@ -5,12 +5,12 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using EFCachingProvider.Caching;
-using HHTravel.CRM.Booking_Online.Infrastructure.Caching;
-using HHTravel.CRM.Booking_Online.Site.Filter;
-using HHTravel.CRM.Booking_Online.Site.Models;
-using HHTravel.CRM.Booking_Online.Infrastructure;
+using HHTravel.Infrastructure.Caching;
+using HHTravel.Site.Filter;
+using HHTravel.Site.Models;
+using HHTravel.Infrastructure;
 
-namespace HHTravel.CRM.Booking_Online.Site.Controllers
+namespace HHTravel.Site.Controllers
 {
     public class ManageController : Controller
     {

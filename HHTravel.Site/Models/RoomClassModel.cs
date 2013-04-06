@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using HHTravel.CRM.Booking_Online.Infrastructure.Web.Mvc;
+using HHTravel.Infrastructure.Web.Mvc;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public class RoomClassModel
     {

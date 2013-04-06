@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.HardCode;
-using HHTravel.CRM.Booking_Online.DataAccess.Mock;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Entity;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Infrastructure.Mock;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.HardCode;
+using HHTravel.DataAccess.Mock;
+using HHTravel.DomainModel;
+using HHTravel.Entity;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Mock;
 
-namespace HHTravel.CRM.Booking_Online.Repository.Mock
+namespace HHTravel.Repository.Mock
 {
     public class ProductRepositoryMock : ProductRepository
     {

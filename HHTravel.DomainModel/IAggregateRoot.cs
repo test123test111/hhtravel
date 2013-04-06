@@ -1,4 +1,4 @@
-﻿namespace HHTravel.CRM.Booking_Online.DomainModel
+﻿namespace HHTravel.DomainModel
 {
     /// <summary>
     /// This is a marker interface that indicates that an

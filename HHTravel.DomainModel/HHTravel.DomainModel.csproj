@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{38830438-C575-481D-ACC1-7D123961F4DD}</ProjectGuid>
+    <ProjectGuid>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting</RootNamespace>
-    <AssemblyName>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</AssemblyName>
+    <RootNamespace>HHTravel.DomainModel</RootNamespace>
+    <AssemblyName>HHTravel.DomainModel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
@@ -37,7 +37,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
@@ -47,47 +46,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aircraft.cs" />
-    <Compile Include="Airline.cs" />
-    <Compile Include="Airport.cs" />
-    <Compile Include="City.cs" />
-    <Compile Include="ContactFavorite.cs" />
-    <Compile Include="ConvinientTime.cs" />
-    <Compile Include="DaysSection.cs" />
-    <Compile Include="DepartureCity.cs" />
-    <Compile Include="Email.cs" />
-    <Compile Include="EmailType.cs" />
-    <Compile Include="Exceptions\DataInvalidException.cs" />
-    <Compile Include="Flight.cs" />
-    <Compile Include="FlightSeat.cs" />
-    <Compile Include="FlightsPlan.cs" />
-    <Compile Include="FlightsPlanSearchCondition.cs" />
-    <Compile Include="FlightsSegment.cs" />
-    <Compile Include="HotelSegmentType.cs" />
-    <Compile Include="HtmlMeta.cs" />
-    <Compile Include="ImageInfo.cs" />
-    <Compile Include="Pager.cs" />
+    <Compile Include="GroundService.cs" />
+    <Compile Include="GroundServiceSegment.cs" />
+    <Compile Include="Passenger.cs" />
+    <Compile Include="SegmentBase.cs" />
+    <Compile Include="IPriceDate.cs" />
+    <Compile Include="PriceDate.cs" />
+    <Compile Include="RoomClass.cs" />
+    <Compile Include="DepartureMonth.cs" />
+    <Compile Include="DestinationGroup.cs" />
+    <Compile Include="DestinationRegion.cs" />
+    <Compile Include="EntityBase.cs" />
+    <Compile Include="Hotel.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="Interest.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderItem.cs" />
+    <Compile Include="Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchCondition.cs" />
-    <Compile Include="SiteColumn.cs">
-      <DependentUpon>SiteColumn.tt</DependentUpon>
-      <SubType>Code</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="SortRule.cs" />
-    <Compile Include="Stopover.cs" />
-    <Compile Include="TravelChildType.cs" />
-    <Compile Include="TravelType.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="HotelSegment.cs" />
+    <Compile Include="Subscription.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="TicketSegment.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <None Include="DomainModel.cd" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SiteColumn.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SiteColumn.cs</LastGenOutput>
-    </None>
+    <ProjectReference Include="..\HHTravel.Infrastructure.Crosscutting\HHTravel.Infrastructure.Crosscutting.csproj">
+      <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
+      <Name>HHTravel.Infrastructure.Crosscutting</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

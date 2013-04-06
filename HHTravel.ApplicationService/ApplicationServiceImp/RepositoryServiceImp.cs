@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.IRepository;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
+namespace HHTravel.ApplicationService.ApplicationServiceImp
 {
     /// <summary>
     /// 仓储服务
@@ -14,17 +14,17 @@ namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
         /// <summary>
         /// 仓储接口的类型全名
         /// </summary>
-        private const string c_fromTypeFormat = "HHTravel.CRM.Booking_Online.IRepository.{0}, HHTravel.CRM.Booking-Online.IRepository";
+        private const string c_fromTypeFormat = "HHTravel.IRepository.{0}, HHTravel.CRM.Booking-Online.IRepository";
 
         /// <summary>
         /// 仓储Mock类的类型全名
         /// </summary>
-        private const string c_mockTypeFormat = "HHTravel.CRM.Booking_Online.Repository.Mock.{0}Mock, HHTravel.CRM.Booking-Online.Repository";
+        private const string c_mockTypeFormat = "HHTravel.Repository.Mock.{0}Mock, HHTravel.CRM.Booking-Online.Repository";
 
         /// <summary>
         /// 仓储实现类的的类型全名
         /// </summary>
-        private const string c_toTypeFormat = "HHTravel.CRM.Booking_Online.Repository.{0}, HHTravel.CRM.Booking-Online.Repository";
+        private const string c_toTypeFormat = "HHTravel.Repository.{0}, HHTravel.CRM.Booking-Online.Repository";
 
         public RepositoryServiceImp()
         {

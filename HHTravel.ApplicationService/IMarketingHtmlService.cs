@@ -1,4 +1,4 @@
-﻿namespace HHTravel.CRM.Booking_Online.ApplicationService
+﻿namespace HHTravel.ApplicationService
 {
     public interface IMarketingHtmlService
     {

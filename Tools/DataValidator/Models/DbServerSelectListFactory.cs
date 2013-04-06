@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using HHTravel.CRM.Booking_Online.Infrastructure.Web.Mvc;
+using HHTravel.Infrastructure.Web.Mvc;
 
 namespace DataValidator.Models
 {

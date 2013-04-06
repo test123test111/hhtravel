@@ -1,6 +1,6 @@
-﻿using HHTravel.CRM.Booking_Online.DomainModel;
+﻿using HHTravel.DomainModel;
 
-namespace HHTravel.CRM.Booking_Online.IRepository
+namespace HHTravel.IRepository
 {
     public interface IDepartureMonthRepository : IRepository<DepartureMonth>
     {

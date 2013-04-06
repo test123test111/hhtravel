@@ -4,7 +4,7 @@ using System.Configuration.Provider;
 using System.Linq;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public abstract class DbConnectionStringProvider : ProviderBase
     {

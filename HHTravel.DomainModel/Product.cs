@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.Serialization;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.DomainModel
+namespace HHTravel.DomainModel
 {
     /// <summary>
     /// 旅行产品
@@ -18,7 +18,7 @@ namespace HHTravel.CRM.Booking_Online.DomainModel
             this.DestinationGroupList = new List<DestinationGroup>();
             this.DestinationRegionList = new List<DestinationRegion>();
             this.InterestList = new List<Interest>();
-            this.PhotoList = new List<HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting.ImageInfo>();
+            this.PhotoList = new List<HHTravel.Infrastructure.Crosscutting.ImageInfo>();
             this.SetOffDateList = new List<DateTime>();
 
             this.PriceDateList = new List<PriceDate>();

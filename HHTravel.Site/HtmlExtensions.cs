@@ -7,11 +7,11 @@ using System.Web.Mvc.Html;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.WebPages;
-using HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Infrastructure;
+using HHTravel.ApplicationService.ApplicationServiceImp;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure;
 
-namespace HHTravel.CRM.Booking_Online.Site
+namespace HHTravel.Site
 {
     /// <summary>
     /// 容纳HtmlHelper的扩展方法

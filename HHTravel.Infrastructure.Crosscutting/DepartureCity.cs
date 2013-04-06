@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting
+namespace HHTravel.Infrastructure.Crosscutting
 {
     /// <summary>
     /// 出发地

@@ -1,6 +1,6 @@
-﻿using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+﻿using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models
+namespace HHTravel.Site.Models
 {
     public interface ITopImageModel
     {

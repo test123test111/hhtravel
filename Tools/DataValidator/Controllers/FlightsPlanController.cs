@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using DataValidator.Models.FlightsPlan;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 using Newtonsoft.Json;
 using HHTravel.FlightsPlanService;
-using HHTravel.CRM.Booking_Online.DataService;
-using HHTravel.CRM.Booking_Online.Infrastructure;
+using HHTravel.DataService;
+using HHTravel.Infrastructure;
 using DataValidator.Models;
-using HHTravel.CRM.Booking_Online.ApplicationService;
-using HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp;
+using HHTravel.ApplicationService;
+using HHTravel.ApplicationService.ApplicationServiceImp;
 
 namespace DataValidator.Controllers
 {

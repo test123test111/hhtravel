@@ -8,7 +8,7 @@ using System.Web.Helpers;
 using System.Web.Mvc;
 //using HHTravel.Base.Common.Framework.Security;
 
-namespace HHTravel.CRM.Booking_Online.Site.Controllers
+namespace HHTravel.Site.Controllers
 {
     public class CaptchaController : Controller
     {

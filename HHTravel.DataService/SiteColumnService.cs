@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.HardCode;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.HardCode;
+using HHTravel.DataAccess.Providers;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.DataService
+namespace HHTravel.DataService
 {
     public class SiteColumnService
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public static class StringExtensions
     {

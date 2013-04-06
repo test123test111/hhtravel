@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
-using HHTravel.CRM.Booking_Online.Infrastructure;
+using HHTravel.Infrastructure;
 
 namespace DataValidator
 {
@@ -25,7 +25,7 @@ namespace DataValidator
             GlobalConfig.EnableEFTracing = false;
 
             bool mock = GlobalConfig.MockRepository;
-            new HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp.RepositoryServiceImp().Register(mock);
+            new HHTravel.ApplicationService.ApplicationServiceImp.RepositoryServiceImp().Register(mock);
         }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using CtripServices.IntlFlight.DataContract;
 using CtripServices.IntlFlight.SearchService.DataContract;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
 namespace HHTravel.FlightsPlanService
 {

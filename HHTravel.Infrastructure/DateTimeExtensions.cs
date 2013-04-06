@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure
+namespace HHTravel.Infrastructure
 {
     public static class DateTimeExtensions
     {

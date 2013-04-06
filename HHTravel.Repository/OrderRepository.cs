@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.Providers;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.IRepository;
 using Microsoft.Practices.Unity;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     public class OrderRepository : RepositoryBase<Order>, IOrderRepository
     {

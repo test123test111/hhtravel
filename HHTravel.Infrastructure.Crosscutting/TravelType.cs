@@ -2,7 +2,7 @@
 using System;
 using System.ComponentModel;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting
+namespace HHTravel.Infrastructure.Crosscutting
 {
     /// <summary>
     /// 旅游型态

@@ -1,12 +1,12 @@
 ﻿using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Entity;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DomainModel;
+using HHTravel.Entity;
+using HHTravel.IRepository;
 using Microsoft.Practices.Unity;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     public class NewsletterRepository : RepositoryBase<Subscription>, INewsletterRepository
     {

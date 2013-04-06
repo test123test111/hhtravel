@@ -1,8 +1,8 @@
 ﻿using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.Providers;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.Mock
+namespace HHTravel.DataAccess.Mock
 {
     public class PicturesProviderMock : PicturesProvider
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Diagnostics.Contracts;
 
-namespace HHTravel.CRM.Booking_Online.Site.Models.OrderWizard
+namespace HHTravel.Site.Models.OrderWizard
 {
     public class Step3ModelBuilder : IModelBuilder<Step3Model, object>
     {

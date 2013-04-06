@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="HHTravel.CRM.Booking_Online.Model.DestinationGroup">
+  <Class Name="HHTravel.Model.DestinationGroup">
     <Position X="5.5" Y="7" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAAAAAAAAAAAAAAAAAAAgAAEAAAAAAAAAE=</HashCode>
@@ -10,7 +10,7 @@
       <Property Name="RegionList" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.DestinationRegion">
+  <Class Name="HHTravel.Model.DestinationRegion">
     <Position X="6.5" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAEAAAAgAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAA=</HashCode>
@@ -20,42 +20,42 @@
       <Property Name="Group" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.FilghtInfo" Collapsed="true">
+  <Class Name="HHTravel.Model.FilghtInfo" Collapsed="true">
     <Position X="3.5" Y="5.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>QAAAEABAAAAAAAIAAEIAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FlightInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.HotelInfo" Collapsed="true">
+  <Class Name="HHTravel.Model.HotelInfo" Collapsed="true">
     <Position X="0.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgCAAAAAAAAAA=</HashCode>
       <FileName>HotelInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.ImageInfo" Collapsed="true">
+  <Class Name="HHTravel.Model.ImageInfo" Collapsed="true">
     <Position X="9" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>ImageInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.Interest" Collapsed="true">
+  <Class Name="HHTravel.Model.Interest" Collapsed="true">
     <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgAAAAAAAAAAAAAAAAAAAAAAAAgAIAAAAAAAAAAA=</HashCode>
       <FileName>Interest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.Order" Collapsed="true">
+  <Class Name="HHTravel.Model.Order" Collapsed="true">
     <Position X="10.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Order.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.Product">
+  <Class Name="HHTravel.Model.Product">
     <Position X="3.5" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>EIAAAYAAAAAgAAAAAEAAIAAiQAAAAgAgAAAAABAIQAA=</HashCode>
@@ -74,28 +74,28 @@
       <Property Name="ReturnFilghtList" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.RoomInfo" Collapsed="true">
+  <Class Name="HHTravel.Model.RoomInfo" Collapsed="true">
     <Position X="3.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ASCAAAAEAIAACBABAAAAAIAAIACAAIIAAAABAAAAAEA=</HashCode>
       <FileName>RoomInfo.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.ScheduleItem">
+  <Class Name="HHTravel.Model.ScheduleItem">
     <Position X="6.5" Y="2" Width="2" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAAAAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Schedule.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.SearchType" Collapsed="true">
+  <Class Name="HHTravel.Model.SearchType" Collapsed="true">
     <Position X="10.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAEAAAFAAAAAAAAAAAAA=</HashCode>
       <FileName>SearchType.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="HHTravel.CRM.Booking_Online.Model.SearchItem" Collapsed="true">
+  <Class Name="HHTravel.Model.SearchItem" Collapsed="true">
     <Position X="9" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEQAAAAAAAAAAAAAJAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>

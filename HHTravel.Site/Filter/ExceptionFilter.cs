@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace HHTravel.CRM.Booking_Online.Site.Filter
+namespace HHTravel.Site.Filter
 {
     public class ExceptionFilter : HandleErrorAttribute
     {

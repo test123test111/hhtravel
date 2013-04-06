@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.ServiceModel;
-using HHTravel.CRM.Booking_Online.DataService;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.DomainService;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DataService;
+using HHTravel.DomainModel;
+using HHTravel.DomainService;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.IRepository;
 using HHTravel.FlightsPlanService;
 
-namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
+namespace HHTravel.ApplicationService.ApplicationServiceImp
 {
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class ProductServiceImp : IProductService
@@ -348,7 +348,7 @@ namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
             sc.Validate();
 
             IFlightsPlanFilterProvider filterProvider = new SqlFlightsPlanFilterProvider();
-            HHTravel.CRM.Booking_Online.Infrastructure.Aspect.Counting("FlightsPlanServiceImpl.Search", () =>
+            HHTravel.Infrastructure.Aspect.Counting("FlightsPlanServiceImpl.Search", () =>
             {
                 segment = new FlightsPlanServiceImpl(filterProvider).Search(sc);
             });
@@ -425,7 +425,7 @@ namespace HHTravel.CRM.Booking_Online.ApplicationService.ApplicationServiceImp
             return seg;
         }
 
-        public IList<Infrastructure.Crosscutting.FlightsSegment> GetFlightsSegments(int productId)
+        public IList<HHTravel.Infrastructure.Crosscutting.FlightsSegment> GetFlightsSegments(int productId)
         {
             List<FlightsSegment> list = null;
 

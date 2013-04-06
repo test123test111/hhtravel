@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Caching;
 using System.Xml;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Caching
+namespace HHTravel.Infrastructure.Caching
 {
     /// <summary>
     /// SAF.Cache is an object caching service that

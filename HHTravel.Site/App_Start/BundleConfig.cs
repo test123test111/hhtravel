@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace HHTravel.CRM.Booking_Online.Site.App_Start
+namespace HHTravel.Site.App_Start
 {
     public class BundleConfig
     {

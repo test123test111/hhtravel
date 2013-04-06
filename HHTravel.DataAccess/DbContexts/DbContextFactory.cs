@@ -7,11 +7,11 @@ using System.IO;
 using System.Linq;
 using EFProviderWrapperToolkit;
 using EFTracingProvider;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess
+namespace HHTravel.DataAccess
 {
     /// <summary>
     /// DbContextFactory

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Web;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Crosscutting;
 
-namespace HHTravel.CRM.Booking_Online.Site
+namespace HHTravel.Site
 {
     /// <summary>
     /// CookieManager
@@ -23,7 +23,7 @@ namespace HHTravel.CRM.Booking_Online.Site
         /// </summary>
         public static DepartureCity? DepartureCity
         {
-            get { return Infrastructure.Crosscutting.DepartureCity.Parse(GetCookie("DepartureCityCode")); }
+            get { return HHTravel.Infrastructure.Crosscutting.DepartureCity.Parse(GetCookie("DepartureCityCode")); }
             set { SetCookie("DepartureCityCode", value != null ? value.Value.CityCode : null); }
         }
 

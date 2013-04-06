@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Caching
+namespace HHTravel.Infrastructure.Caching
 {
     public interface IQueryableCache
     {

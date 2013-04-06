@@ -1,4 +1,4 @@
-﻿namespace HHTravel.CRM.Booking_Online.Repository.Mock
+﻿namespace HHTravel.Repository.Mock
 {
     public class NewsletterRepositoryMock : NewsletterRepository
     {

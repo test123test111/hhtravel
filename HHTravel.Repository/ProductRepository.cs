@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Objects;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
-using HHTravel.CRM.Booking_Online.DataAccess.HardCode;
-using HHTravel.CRM.Booking_Online.DataAccess.Providers;
-using HHTravel.CRM.Booking_Online.DomainModel;
-using HHTravel.CRM.Booking_Online.Infrastructure;
-using HHTravel.CRM.Booking_Online.Infrastructure.Crosscutting;
-using HHTravel.CRM.Booking_Online.Infrastructure.Exceptions;
-using HHTravel.CRM.Booking_Online.IRepository;
+using HHTravel.DataAccess;
+using HHTravel.DataAccess.DbContexts;
+using HHTravel.DataAccess.HardCode;
+using HHTravel.DataAccess.Providers;
+using HHTravel.DomainModel;
+using HHTravel.Infrastructure;
+using HHTravel.Infrastructure.Crosscutting;
+using HHTravel.Infrastructure.Exceptions;
+using HHTravel.IRepository;
 using Microsoft.Practices.Unity;
 
-namespace HHTravel.CRM.Booking_Online.Repository
+namespace HHTravel.Repository
 {
     public class ProductRepository : RepositoryBase<Product>, IProductRepository
     {

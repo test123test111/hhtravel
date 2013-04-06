@@ -1,6 +1,6 @@
 ﻿using EFCachingProvider.Caching;
 
-namespace HHTravel.CRM.Booking_Online.Infrastructure.Caching
+namespace HHTravel.Infrastructure.Caching
 {
     public interface IStatisticableCache : ICache
     {

@@ -2,9 +2,9 @@
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
+using HHTravel.DataAccess.DbContexts;
 
-namespace HHTravel.CRM.Booking_Online.DataAccess.Providers
+namespace HHTravel.DataAccess.Providers
 {
     public abstract class CustomerDbProviderBase<T> : IDataProvider<T> where T : class, new()
     {

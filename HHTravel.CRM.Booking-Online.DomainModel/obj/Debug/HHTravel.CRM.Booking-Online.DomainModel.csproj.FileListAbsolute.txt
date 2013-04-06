@@ -1,7 +1,0 @@
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\bin\Debug\HHTravel.CRM.Booking-Online.DomainModel.dll
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\bin\Debug\HHTravel.CRM.Booking-Online.DomainModel.pdb
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\obj\Debug\HHTravel.CRM.Booking-Online.DomainModel.csprojResolveAssemblyReference.cache
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\obj\Debug\HHTravel.CRM.Booking-Online.DomainModel.dll
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\obj\Debug\HHTravel.CRM.Booking-Online.DomainModel.pdb
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.DomainModel\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb

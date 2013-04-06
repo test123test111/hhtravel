@@ -1,4 +1,0 @@
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\bin\Release\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\bin\Release\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Release\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
-D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Release\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb

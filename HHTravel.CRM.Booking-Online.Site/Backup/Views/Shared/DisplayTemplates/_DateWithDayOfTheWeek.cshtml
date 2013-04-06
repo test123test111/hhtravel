@@ -1,8 +1,0 @@
-﻿@{
-    DateTime date = Model;
-    string[] chineseDayOfTheWeekCollect = new string[]{
-                "日","一","二", "三","四","五", "六",
-            };
-}
-@string.Format("{0}（{1}）",
-                    date.ToString("yyyy年MM月dd号"), chineseDayOfTheWeekCollect[(int)date.DayOfWeek])

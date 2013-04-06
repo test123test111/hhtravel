@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{d6bd608e-c0de-4934-b9c3-bf7a0d9b8526}</ProjectGuid>
+    <ArchitectureToolsVersion>1.0.0.0</ArchitectureToolsVersion>
+    <Name>HHTravel.CRM.Booking-Online.Modeling</Name>
+    <RootNamespace>HHTravel.CRM.Booking-Online.Modeling</RootNamespace>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="ModelDefinition\HHTravel.CRM.Booking-Online.Modeling.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="HHTravel.CRM.Booking-Online.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="HHTravel.CRM.Booking-Online.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>HHTravel.CRM.Booking-Online.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="HHTravel.CRM.Booking-Online.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>HHTravel.CRM.Booking-Online.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="LayerDiagram1.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>LayerDiagram1.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CtripService\CtripServices.csproj">
+      <Name>CtripServices</Name>
+      <Project>{8b026aa2-9b90-47ef-be10-1d66f9224db5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.ApplicationService\HHTravel.CRM.Booking-Online.ApplicationService.csproj">
+      <Name>HHTravel.CRM.Booking-Online.ApplicationService</Name>
+      <Project>{36876f6d-a6c7-4519-8065-b265e854f385}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.DataAccess\HHTravel.CRM.Booking-Online.DataAccess.csproj">
+      <Name>HHTravel.CRM.Booking-Online.DataAccess</Name>
+      <Project>{2811d388-ad77-4630-b1fd-d329f7666d55}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.DataService\HHTravel.CRM.Booking-Online.DataService.csproj">
+      <Name>HHTravel.CRM.Booking-Online.DataService</Name>
+      <Project>{5478cc2f-aaa2-4932-93df-da2bf3534093}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.DomainModel\HHTravel.CRM.Booking-Online.DomainModel.csproj">
+      <Name>HHTravel.CRM.Booking-Online.DomainModel</Name>
+      <Project>{2b505487-72c1-4dec-85a1-ff944ca1ff46}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.DomainService\HHTravel.CRM.Booking-Online.DomainService.csproj">
+      <Name>HHTravel.CRM.Booking-Online.DomainService</Name>
+      <Project>{09e1e6d9-138d-4f15-a938-db5c1fb87b60}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.Entity\HHTravel.CRM.Booking-Online.Entity.csproj">
+      <Name>HHTravel.CRM.Booking-Online.Entity</Name>
+      <Project>{8abb78f9-b800-4c3b-bad7-60dc7eb3c6d4}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.FlightsPlanService\HHTravel.FlightsPlanService.csproj">
+      <Name>HHTravel.FlightsPlanService</Name>
+      <Project>{6fa84c78-8c6f-4376-b26e-1aed675d2250}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
+      <Project>{38830438-c575-481d-acc1-7d123961f4dd}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.Infrastructure\HHTravel.CRM.Booking-Online.Infrastructure.csproj">
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure</Name>
+      <Project>{914c84b9-b2a0-497c-9b73-4c9b6f48c2aa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.IRepository\HHTravel.CRM.Booking-Online.IRepository.csproj">
+      <Name>HHTravel.CRM.Booking-Online.IRepository</Name>
+      <Project>{7a666ebc-4e0d-43ae-8914-909592655561}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.Repository\HHTravel.CRM.Booking-Online.Repository.csproj">
+      <Name>HHTravel.CRM.Booking-Online.Repository</Name>
+      <Project>{59b0d0bd-9508-40d5-b9ae-e5d39b7d6ee9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.Site\HHTravel.Site.csproj">
+      <Name>HHTravel.Site</Name>
+      <Project>{718af501-8f91-434b-a958-9a942945fea8}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Tools\DataValidator\DataValidator.csproj">
+      <Name>DataValidator</Name>
+      <Project>{fe2a46f5-e212-4099-ab94-08f447da81a7}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

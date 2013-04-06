@@ -1,4 +1,0 @@
-D:\Users\wangxg\Documents\Visual Studio 2010\Projects\FltIntlSearchFlightsServiceAgent\CtripService\bin\Debug\CtripService.dll
-D:\Users\wangxg\Documents\Visual Studio 2010\Projects\FltIntlSearchFlightsServiceAgent\CtripService\bin\Debug\CtripService.pdb
-D:\Users\wangxg\Documents\Visual Studio 2010\Projects\FltIntlSearchFlightsServiceAgent\CtripService\obj\Debug\CtripService.dll
-D:\Users\wangxg\Documents\Visual Studio 2010\Projects\FltIntlSearchFlightsServiceAgent\CtripService\obj\Debug\CtripService.pdb

@@ -39,9 +39,8 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EFCachingProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=def642f226e0e59b, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>.\EFCachingProvider.dll</HintPath>
+    <Reference Include="EFCachingProvider">
+      <HintPath>..\HHTravel.Infrastructure\EFCachingProvider.dll</HintPath>
     </Reference>
     <Reference Include="EFProviderWrapperToolkit">
       <HintPath>..\packages\CommunityEFProviderWrappers.EFProviderWrapperToolkit.1.0.0\lib\net40-Client\EFProviderWrapperToolkit.dll</HintPath>
@@ -200,9 +199,6 @@
       <Project>{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}</Project>
       <Name>HHTravel.Infrastructure</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="EFCachingProvider.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

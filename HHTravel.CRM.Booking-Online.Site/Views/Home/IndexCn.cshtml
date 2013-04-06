@@ -1,25 +1,28 @@
 ﻿@{
-    ViewBag.Title = "实现顶级旅游者的梦想‧鸿鹄逸游 HHtravel";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@section JS{
-    @*_SearchBox*@
-    <script src="@Href("~/js/select2css.js")" type="text/javascript"></script>
-    <script src="@Href("~/js/datepicker/WdatePicker.js")" type="text/javascript"></script>
+@section JS
+{
+    <script src="@Url.Content("~/js/select2css.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/datepicker/WdatePicker.js")" type="text/javascript"></script>
     <script type="text/javascript">
-        var t = 0, imgIndex = 0, count;
-        $(document).ready(function () {
+        var t = imgIndex = 0, count;
+        $(function () {
             count = $("#banner_list a").length;
             $("#banner_list a:not(:first-child)").hide();
             $("#banner_info").html($("#banner_list a:first-child").find("img").attr('alt'));
             $("#banner_info").click(function () { window.open($("#banner_list a:first-child").attr('href'), "_blank") });
-
+            $("#focus_area_bn li").click(function () {
+                switchImg($(this));
+            });
             t = setInterval("showAuto()", 4000);
-        })
+            $("#focus_area_bn").hover(function () { clearInterval(t) }, function () { t = setInterval("showAuto()", 4000); });
+        });
 
-        var foo = function ($ele) {
-            i = imgIndex;
-            if (i >= count) return;
+        var switchImg = function ($ele) {
+            var i = $ele.text() - 1; //取Li元素内的值，即1，2，3，4
+            imgIndex = i;
+            if (i>= count) return;
             $("#banner_info").html($("#banner_list a").eq(i).find("img").attr('alt'));
             $("#banner_info").unbind().click(function () { window.open($("#banner_list a").eq(i).attr('href'), "_blank") })
             $("#banner_list a").filter(":visible").fadeOut(1500).parent().children().eq(i).fadeIn(500);
@@ -30,14 +33,30 @@
         };
 
         function showAuto() {
-            imgIndex = imgIndex >= (count - 1) ? 0 : ++imgIndex;
+            imgIndex = imgIndex>= (count - 1) ? 0 : ++imgIndex;
             var $li = $('#focus_area_bn li').eq(imgIndex);
-            foo($li);
+            switchImg($li);
         }
     </script>
-    @Html.RenderResources("jsSearchBox")
-}
-<!--图片切换-->
+    <script type="text/javascript">
+        $(function () {
+            var trigger = null;
+            $('.idx_new_pro_list li').hover(function () {
+                var $li = $(this);
+                trigger = setTimeout(function () {
+                    $li.css('border', '3px solid #85ddd1');
+                    $li.find('.idx_show_addr').animate({ right: "-1px" }, 400);
+                }, 400);
+            }, function () {
+                clearTimeout(trigger);
+                $(this).css('border', '3px solid #fff');
+                $(this).find('.idx_show_addr').animate({ right: "-85px" }, 200);
+            });
+            $('.idx_show_addr a').attr('target', '_blank');
+        });
+    </script>
+    @Html.RenderResources("jsSearchBox")}
+<!--广告图片切换-->
 <div class="photo_warp">
     <div id="focus_area_bn">
         <ul>
@@ -47,10 +66,14 @@
             <li>4</li>
         </ul>
         <div id="banner_list">
-            <a href="#" ><img alt src="@Href("~/images/idx_photo/77_b_cn.jpg")" title="全球酒庄游"  /></a>
-            <a href="#" ><img alt src="@Href("~/images/idx_photo/74_b_cn.jpg")" title="顶级梦想  银联尊享"  /></a>
-            <a href="#" ><img alt src="@Href("~/images/idx_photo/73_b_cn.jpg")" title="2013 圣诞 跨年"  /></a>
-            <a href="#" ><img alt src="@Href("~/images/idx_photo/75_b_cn.jpg")" title="搭新航  环游世界"  /></a>
+            <a href="http://www.hhtravel.com/hTravel/event/2012_southpole/index_cn_new.html">
+                <img alt="白色寂境  梦想南极" title="白色寂境  梦想南极" src="http://images4.c-ctrip.com/target/hhtravel/455/717/160/6b1fc05a65fb4bb49c48be61d99a34b5_103_b_cn.jpg" /></a>
+            <a href="http://www.hhtravel.com/hTravel/event/2012_sydney/sydney_cn_new.html">
+                <img alt="极美之梦，新年限定绝景！" title="极美之梦，新年限定绝景！" src="http://images4.c-ctrip.com/target/hhtravel/907/368/187/9e7cac5b96f7441ca6b257f1a21ec7d2_104_b_cn.jpg" /></a>
+            <a href="http://test.hhtravel.com/Home/AroundWorld">
+                <img alt="VIP飞行体验 尽在A380" title="VIP飞行体验 尽在A380" src="http://images4.c-ctrip.com/target/hhtravel/600/406/666/8911e1a233574db9ba2ea73faed7aed8_101_b_cn.jpg" /></a>
+            <a href="http://test.hhtravel.com/Product/GT-BJS-87372">
+                <img alt="奢华至尊！全球唯一跨年典藏" title="奢华至尊！全球唯一跨年典藏" src="http://images4.c-ctrip.com/target/hhtravel/407/636/520/5208b0f3e6984b09aafc69cacde769eb_105_b_cn.jpg" /></a>
         </div>
     </div>
 </div>
@@ -59,74 +82,176 @@
     <!--高端产品推荐-->
     <div class="idx_travel">
         <h4 class="t_title">
-            超越头等舱的尊贵体验．A380豪华套房</h4>
+            享受春节寒假，以旅行调剂生活、舒畅身心</h4>
         <p class="d_cont">
-            最奢华的航行！全程搭乘世界最佳新加坡航空环游世界。特别安排A380豪华套房感受坐卧云端尊荣享受：意大利名家手工缝制皮革扶手椅，配备23吋液晶电视娱乐系统，独立豪华睡床伴随新航知名铺床服务，每间套房配有活动拉门与窗帘，可依据喜好调整私人空间，同时由享誉全球烹饪品酒团队为您精选美食佳肴...
-            <a href="#" class="t_more">更多</a></p>
+            趁着岁末年初，为自己规划一场心灵沉淀之旅，您可以到瑞士冰河快车欣赏雪地风光、南极大陆与企鹅面对面，埃及仰望千年古神庙，大溪地亲手喂食鲨鱼、泰国岛屿登树顶吃早餐……从极地到热带、从山城到海岛，各式冬日精选顶级旅程，满足您渴望休养生息的心情。
+            <a href="http://www.hhtravel.com/hTravel/event/2013_newyear/newyear_cn_new.html" class="t_more">
+                更多</a></p>
         <p class="d_ad_img">
-            <img width="635" height="210" alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></p>
+            <img width="635" height="210" alt="雪白山城、洁白沙滩 冬日白金之旅" src="http://images4.c-ctrip.com/target/hhtravel/691/814/957/ec8666e0454a411aac806563ac331a47_635x210b_20121101.jpg" /></p>
         <p class="d_ad_img">
-            <img width="635" height="123" alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></p>
+            <a href="http://test.hhtravel.com/Home/AroundWorld">
+                <img width="635" height="123" alt="环游世界80天" src="http://images4.c-ctrip.com/target/hhtravel/670/107/150/3bfedbbf8d4240d29e417c3d12133336_635x123s_20121026_cn.jpg" /></a></p>
     </div>
 </div>
 <div class="main_warp clearfix pt20">
     <!--新品热推-->
     <div class="idx_new_pro_tit">
-        <h5>
-            新品热推</h5>
+        <h3 class="idx_f_o">
+            新品热推</h3>
         <span>Featured Offers</span></div>
     <ul class="idx_new_pro_list">
         <li>
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" />
+            <img alt="以色列•耶路撒冷+伯利恒+死海8天" src="http://images4.c-ctrip.com/target/hhtravel/713/299/190/f682fd1f96f541688f6135b17f18f1fd_themebox13.jpg" />
             <p>
-                <a href="#">澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+                以色列•耶路撒冷+伯利恒+死海8天</p>
+            <div class="idx_show_addr">
+                <a href="http://test.hhtravel.com/Product/GT-BJS-87544">上海出发</a> <a href="http://test.hhtravel.com/Product/GT-BJS-87541">
+                    北京出发</a>
+            </div>
         </li>
         <li>
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" />
+            <img alt="加西•温哥华+维多利亚+惠斯勒9天" src="http://images4.c-ctrip.com/target/hhtravel/735/894/378/6991ac1156c641b7bdfcdd389f964188_themebox23.jpg" />
             <p>
-                <a href="#">澳大利亚3奇景澳大利亚3奇景澳大利亚3奇景澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+                加西•温哥华+维多利亚+惠斯勒9天</p>
+            <div class="idx_show_addr">
+                <a href="http://test.hhtravel.com/Product/GT-SHA-87895">上海出发</a> <a href="http://test.hhtravel.com/Product/GT-BJS-87783">
+                    北京出发</a>
+            </div>
         </li>
         <li>
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" />
+            <img alt="RCL邮轮•海洋神话号新加坡、马六甲、民丹岛别墅6天" src="http://images4.c-ctrip.com/target/hhtravel/078/992/157/95f1a292e4994678a3cb7debb6f60520_themebox15.jpg" />
             <p>
-                <a href="#">澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+                RCL邮轮•海洋神话号新加坡、马六甲、民丹岛别墅6天</p>
+            <div class="idx_show_addr">
+                <a href="http://test.hhtravel.com/Product/GT-SHA-85984">上海出发</a> <a href="http://test.hhtravel.com/Product/GT-BJS-86845">
+                    北京出发</a>
+            </div>
         </li>
+    </ul>
+</div>
+<div class="main_warp clearfix pt20">
+    <!--本周推荐-->
+    <div class="idx_new_pro_tit">
+        <h3 class="idx_t_t_d">
+            本周推荐</h3>
+        <span>Hot Deals</span></div>
+    <ul class="idx_new_pro_list">
+        <li>
+            <img alt="马尔代夫．维丝瑞岛Viceroy 自游行6天" src="http://images4.c-ctrip.com/target/hhtravel/667/513/227/312febf87caa40c698785383c470d315_themebox16.jpg" />
+            <p>
+                马尔代夫．维丝瑞岛Viceroy 自游行 6 天</p>
+            <div class="idx_show_addr">
+                <a href="http://test.hhtravel.com/Product/PT-SHA-76883">上海出发</a> <a href="http://test.hhtravel.com/Product/PT-BJS-88146">
+                    北京出发</a>
+            </div>
+        </li>
+        <li>
+            <img alt="瑞士浪漫冬日10天" src="http://images4.c-ctrip.com/target/hhtravel/143/264/327/4e0c61feb6424761a8f78c2a4add22da_themebox18.jpg" />
+            <p>
+                瑞士浪漫冬日10天</p>
+            <div class="idx_show_addr">
+                <a href="http://test.hhtravel.com/Product/GT-SHA-87449">上海出发</a> <a href="http://test.hhtravel.com/Product/GT-BJS-87966">
+                    北京出发</a>
+            </div>
+        </li>
+        <li>
+            <img alt="巴厘岛•宝格丽＋乌布空中花园专属车导自游行6天" src="http://images4.c-ctrip.com/target/hhtravel/703/969/808/f066b62c2f834f279084c8264eb40575_themebox17.jpg" />
+            <p>
+                巴厘岛•宝格丽＋乌布空中花园专属车导自游行6天</p>
+            <div class="idx_show_addr">
+                <a href="http://test.hhtravel.com/Product/PT-SHA-84961">上海出发</a> <a href="http://test.hhtravel.com/Product/PT-BJS-84960">
+                    北京出发</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="main_warp clearfix pt20">
+    <!--一生必游-->
+    <div class="idx_new_pro_tit">
+        <h3 class="idx_t_c">
+            一生必游</h3>
+        <span>Top City</span></div>
+    <ul class="idx_new_pro_list">
+        <li>
+<img alt="环游世界系列•一生必游地球十大名城30天" src="http://images4.c-ctrip.com/target/hhtravel/762/258/502/dadc3f2b56c04ff9862a529dd16b4bff_themebox22.jpg" />
+<p>环游世界系列•一生必游地球十大名城30天</p>
+<div class="idx_show_addr">
+<a href="http://test.hhtravel.com/Product/GT-SHA-88133">上海出发</a>
+<a href="http://test.hhtravel.com/Product/GT-BJS-88264">北京出发</a>
+</div>
+</li>
+
+<li>
+<img alt="冰岛•北极极光 8 天" src="http://images4.c-ctrip.com/target/hhtravel/997/278/940/bc5692d28c94455b978e50bec21e37b7_themebox05.jpg" />
+<p>冰岛•北极极光 8 天</p>
+<div class="idx_show_addr">
+<a href="http://test.hhtravel.com/Product/GT-SHA-87683">上海出发</a>
+<a href="http://test.hhtravel.com/Product/GT-BJS-87875">北京出发</a>
+</div>
+</li>
+
+<li>
+<img alt="不丹．香格里拉快乐国7天" src="http://images4.c-ctrip.com/target/hhtravel/662/014/224/1038c424d9d74e94ae6f0ea6d736d397_themebox21.jpg" />
+<p>不丹．香格里拉快乐国7天</p>
+<div class="idx_show_addr">
+<a href="http://test.hhtravel.com/Product/GT-SHA-87474">上海出发</a>
+<a href="http://test.hhtravel.com/Product/GT-BJS-87723">北京出发</a>
+</div>
+</li>
+
     </ul>
 </div>
 <div class="main_warp clearfix pt20">
     <!--热门排行-->
     <div class="idx_new_pro_tit">
-        <h5>
-            热门排行</h5>
+        <h3 class="idx_m_p">
+            热门排行</h3>
         <span>Most Popular</span></div>
     <p class="idx_ranking_list">
-        <a href="#" class="fir">
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
-        <a href="#">
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
-        <a href="#">
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
-        <a href="#">
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
-        <a href="#">
-            <img alt="" src="@Href("~/images/top_tasting/700x280_20120816.jpg")" /></a>
+        <a class="fir" href="http://test.hhtravel.com/Home/Destination">
+            <img alt="法国" src="http://images4.c-ctrip.com/target/hhtravel/630/168/833/c78c0d51d98c4e229d8f265c20d45bee_p01_cn.jpg" /></a>
+        <a href="http://test.hhtravel.com/Home/Destination">
+            <img alt="美国" src="http://images4.c-ctrip.com/target/hhtravel/070/565/019/3cbf4e85d775465d8fc206732d57a9dc_p02_cn.jpg" /></a>
+        <a href="http://test.hhtravel.com/Home/Destination">
+            <img alt="澳大利亚" src="http://images4.c-ctrip.com/target/hhtravel/678/938/917/f7b508cce8f74ecca8cea117d1bab23d_p03_cn.jpg" /></a>
+        <a href="http://test.hhtravel.com/Home/Destination">
+            <img alt="马尔代夫" src="http://images4.c-ctrip.com/target/hhtravel/637/306/063/afc5117263ee405d8eb17311cc8af5b9_p04_cn.jpg" /></a>
+        <a href="http://test.hhtravel.com/Home/Destination">
+            <img alt="台湾" src="http://images4.c-ctrip.com/target/hhtravel/815/026/409/dc40fed0d5a042d5b260c6621c5b6608_p05_cn.jpg" /></a>
     </p>
 </div>
-<div class="main_warp clearfix pt20">
-    <!--合作伙伴-->
-    <div class="idx_new_pro_tit">
-        <h5>
-            合作伙伴</h5>
-        <span>Most Popular</span></div>
-    <p class="idx_partners_list">
-        <a href="#" class="fir">
-            <img alt="" src="" /></a> <a href="#">
-                <img alt="" src="" /></a> <a href="#">
-                    <img alt="" src="" /></a> <a href="#">
-                        <img alt="" src="" /></a> <a href="#">
-                            <img alt="" src="" /></a> <a href="#">
-                                <img alt="" src="" /></a>
-    </p>
+<div class="main_warp clearfix pt20" style="overflow: hidden;">
+    <!--合作专区-->
+    <div class="cooperation_area">
+        <div class="idx_new_pro_tit">
+            <h3 class="idx_h_p">
+                合作专区</h3>
+            <span>HH Partners</span></div>
+        <p class="idx_partners_list">
+            <a href="http://www.hhtravel.com/hTravel/event/2012_union/union_cn_new.html" class="fir">
+                <img alt="顶级梦想  银联尊享" src="http://images4.c-ctrip.com/target/hhtravel/587/609/385/a95a8beda9784d8b8d1c6a976a7041d3_hh_a_03.jpg" /></a>
+            <a href="http://www.hhtravel.com/hTravel/event/2012_cmd/cmd_cn_new.html">
+                <img alt="" src="http://images4.c-ctrip.com/target/hhtravel/404/535/328/f3076a6f3a804b0199454b341e50d86e_hh_a_05.jpg" /></a>
+        </p>
+    </div>
+    <!--友情链接-->
+    <div class="friend_links">
+        <div class="idx_new_pro_tit">
+            <h3 class="idx_h_p">
+                友情链接</h3>
+            <span>HH Partners</span></div>
+        <p class="idx_partners_list">
+            <a href="http://www.lvping.com/" class="fir new-blank">
+                <img alt="驴评网" src="http://images4.c-ctrip.com/target/hhtravel/737/578/790/45072ef866994f9eb876565e15cdc35a_logo03.gif" /></a>
+            <a href="http://www.xiaomishu.com" class=" new-blank">
+                <img alt="订餐小秘书" src="http://images4.c-ctrip.com/target/hhtravel/755/724/680/a6b3eba4862841ffa055e189021020a2_logo02.png" /></a>
+            <a href="http://www.landzestate.com" class=" new-blank">
+                <img alt="丽兹行" src="http://images4.c-ctrip.com/target/hhtravel/550/683/353/1a0ac084ef6c4d0699792ab885afbcd6_logo04.jpg" /></a>
+            <a href="http://www.tujia.com" class=" new-blank">
+                <img alt="途家网" src="http://images4.c-ctrip.com/target/hhtravel/922/543/982/ad2bccff0a0b4450bddc8a0f6485aadc_logo01.gif" /></a>
+        </p>
+    </div>
 </div>
 <div class="main_warp clearfix pt20">
     <!--口号-->

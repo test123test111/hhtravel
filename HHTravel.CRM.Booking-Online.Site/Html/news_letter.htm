@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>电子报订阅 | 鸿鹄逸游 HHtravel</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common.css" type="text/css" rel="stylesheet" />
+    <link href="../css/layout.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../Scripts/jquery-1.4.4.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.nav span:has(a)').css('color', '#5a5a5a');
+            $('.send_btn').click(function () {
+                $('.show_ok_layer').show();
+            });
+            $('.show_ok_bg>input').click(function () {
+                $('.show_ok_layer').hide();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="warpper">
+        <div class="header">
+        </div>
+        <div class="photo_warp" style="height: 300px">
+            <img alt="" title="" src="../images/banner_photo/FRN0000009473.jpg" />
+        </div>
+        <div class="nav">
+            <span><a href="../">首页</a>/</span><span>电子报订阅 </span>
+        </div>
+        <div class="main_warp">
+            <div class="pp_bg1">
+                <ul class="email_form">
+                    <li class="name">请输入您的E-mail</li>
+                    <li class="value">
+                        <input type="text" class="i_txt" /></li>
+                    <li class="name">请再输入一次E-mail</li>
+                    <li class="value">
+                        <input type="text" class="i_txt" /></li>
+                    <li class="name">订阅或取消</li>
+                    <li class="value">
+                        <input type="radio" />订阅<input type="radio" />取消订阅</li>
+                    <li class="name">请输入验证码</li>
+                    <li class="value">
+                        <input type="text" class="i_txt" style="width: 80px;" /><img alt="" src="" /><a href="#"
+                            class="yzm_btn"></a></li>
+                </ul>
+                <p class="send_btn_warp">
+                    <input type="button" class="send_btn" value="" /></p>
+            </div>
+        </div>
+        <div class="sl_footer">
+            <p class="copy_right">
+                <a href="brand_concept.htm">关于HHtravel</a><a href="privacy_policy.htm">隐私政策</a><a
+                    href="news_letter.htm">电子报订阅</a><a href="contact_us.htm">联络我们</a><a href="../">回首页</a>
+            </p>
+            <p class="server_time">
+                服务时间 周一至周五 9：00～18：00</p>
+        </div>
+        <!--layer-->
+        <div class="show_ok_layer">
+            <em class="show_ok_bgtop"></em>
+            <div class="show_ok_bg">
+                <p>
+                    <img alt="" src="../images/ok_icon.gif" style="vertical-align: text-top;" />您已成功订阅电子报</p>
+                <input type="button" value="" /></div>
+            <em class="show_ok_bgbot"></em>
+        </div>
+    </div>
+</body>
+</html>

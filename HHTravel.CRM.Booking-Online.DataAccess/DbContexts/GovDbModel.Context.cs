@@ -22,24 +22,19 @@ namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
 {
     public partial class GovDbEntities : DbEntitiesBase
     {
-        public GovDbEntities()
+        internal GovDbEntities()
             : base("name=GovDbEntities")
         {
         }
     
-        public GovDbEntities(string connectionString) : base(connectionString)
+        internal GovDbEntities(string connectionString) : base(connectionString)
     	{
     	
     	}
     
-    	public GovDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
+    	internal GovDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
                 : base(existingConnection, contextOwnsConnection)
         {
-        }
-    
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
         }
     
         public DbSet<Email> Email { get; set; }

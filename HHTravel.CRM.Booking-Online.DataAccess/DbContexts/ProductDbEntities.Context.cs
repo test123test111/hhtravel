@@ -7,16 +7,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System;
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.IO;
+using EFCachingProvider;
+using EFCachingProvider.Caching;
+using EFProviderWrapperToolkit;
+using EFTracingProvider;
 using HHTravel.CRM.Booking_Online.Entity;
 
 namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
 {
     public partial class ProductDbEntities : DbEntitiesBase
     {
-    	public ProductDbEntities() : base("name=ProductDbEntities")
+    	internal ProductDbEntities() : base("name=ProductDbEntities")
     	{
     	
     	}
@@ -26,45 +32,76 @@ namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
     	
     	}
     
-    	public ProductDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
+    	internal ProductDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
                 : base(existingConnection, contextOwnsConnection)
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
+        // 实现NoTrack的 临时解决方案，InternalEntity标记为public是因为EF在运行时的需要
+        public DbSet<Area_City> InternalArea_City { get; set; }
+        public DbSet<Area_CityLandmark> InternalArea_CityLandmark { get; set; }
+        public DbSet<Area_Continent> InternalArea_Continent { get; set; }
+        public DbSet<Area_Country> InternalArea_Country { get; set; }
+        public DbSet<Area_Province> InternalArea_Province { get; set; }
+        public DbSet<Base_Holiday> InternalBase_Holiday { get; set; }
+        public DbSet<Base_IDcardType> InternalBase_IDcardType { get; set; }
+        public DbSet<Base_IP> InternalBase_IP { get; set; }
+        public DbSet<Base_MPCode> InternalBase_MPCode { get; set; }
+        public DbSet<Base_ZipCode> InternalBase_ZipCode { get; set; }
+        public DbSet<Fin_Bank> InternalFin_Bank { get; set; }
+        public DbSet<Fin_CurrencyISO> InternalFin_CurrencyISO { get; set; }
+        public DbSet<Flt_AirLine> InternalFlt_AirLine { get; set; }
+        public DbSet<Flt_Airport> InternalFlt_Airport { get; set; }
+        public DbSet<Flt_CraftType> InternalFlt_CraftType { get; set; }
+        public DbSet<Picture> InternalPicture { get; set; }
+        public DbSet<Product> InternalProduct { get; set; }
+        public DbSet<Product_Flight> InternalProduct_Flight { get; set; }
+        public DbSet<Product_Info> InternalProduct_Info { get; set; }
+        public DbSet<Product_NoDeparture> InternalProduct_NoDeparture { get; set; }
+        public DbSet<Product_Price> InternalProduct_Price { get; set; }
+        public DbSet<Product_Property> InternalProduct_Property { get; set; }
+        public DbSet<Product_Schedule> InternalProduct_Schedule { get; set; }
+        public DbSet<Product_Schedule_Detail> InternalProduct_Schedule_Detail { get; set; }
+        public DbSet<Product_Section> InternalProduct_Section { get; set; }
+        public DbSet<Product_Spec> InternalProduct_Spec { get; set; }
+        public DbSet<Product_Stock> InternalProduct_Stock { get; set; }
+        public DbSet<Property> InternalProperty { get; set; }
+        public DbSet<SEO> InternalSEO { get; set; }
+        public DbSet<Product_Attach_Product> InternalProduct_Attach_Product { get; set; }
+        public DbSet<Product_AttachPrice_Cache> InternalProduct_AttachPrice_Cache { get; set; }
+        public DbSet<Product_Price_Cache> InternalProduct_Price_Cache { get; set; }
     
-        public DbSet<Area_City> Area_City { get; set; }
-        public DbSet<Area_CityLandmark> Area_CityLandmark { get; set; }
-        public DbSet<Area_Continent> Area_Continent { get; set; }
-        public DbSet<Area_Country> Area_Country { get; set; }
-        public DbSet<Area_Province> Area_Province { get; set; }
-        public DbSet<Base_Holiday> Base_Holiday { get; set; }
-        public DbSet<Base_IDcardType> Base_IDcardType { get; set; }
-        public DbSet<Base_IP> Base_IP { get; set; }
-        public DbSet<Base_MPCode> Base_MPCode { get; set; }
-        public DbSet<Base_ZipCode> Base_ZipCode { get; set; }
-        public DbSet<Fin_Bank> Fin_Bank { get; set; }
-        public DbSet<Fin_CurrencyISO> Fin_CurrencyISO { get; set; }
-        public DbSet<Flt_AirLine> Flt_AirLine { get; set; }
-        public DbSet<Flt_Airport> Flt_Airport { get; set; }
-        public DbSet<Flt_CraftType> Flt_CraftType { get; set; }
-        public DbSet<Picture> Picture { get; set; }
-        public DbSet<Product> Product { get; set; }
-        public DbSet<Product_Flight> Product_Flight { get; set; }
-        public DbSet<Product_Info> Product_Info { get; set; }
-        public DbSet<Product_NoDeparture> Product_NoDeparture { get; set; }
-        public DbSet<Product_Price> Product_Price { get; set; }
-        public DbSet<Product_Property> Product_Property { get; set; }
-        public DbSet<Product_Schedule> Product_Schedule { get; set; }
-        public DbSet<Product_Schedule_Detail> Product_Schedule_Detail { get; set; }
-        public DbSet<Product_Section> Product_Section { get; set; }
-        public DbSet<Product_Spec> Product_Spec { get; set; }
-        public DbSet<Product_Stock> Product_Stock { get; set; }
-        public DbSet<Property> Property { get; set; }
-        public DbSet<SEO> SEO { get; set; }
-        public DbSet<Product_Attach_Product> Product_Attach_Product { get; set; }
+        public DbQuery<Area_City> Area_City { get { return this.InternalArea_City != null ? this.InternalArea_City.AsNoTracking() : this.InternalArea_City; } }
+        public DbQuery<Area_CityLandmark> Area_CityLandmark { get { return this.InternalArea_CityLandmark != null ? this.InternalArea_CityLandmark.AsNoTracking() : this.InternalArea_CityLandmark; } }
+        public DbQuery<Area_Continent> Area_Continent { get { return this.InternalArea_Continent != null ? this.InternalArea_Continent.AsNoTracking() : this.InternalArea_Continent; } }
+        public DbQuery<Area_Country> Area_Country { get { return this.InternalArea_Country != null ? this.InternalArea_Country.AsNoTracking() : this.InternalArea_Country; } }
+        public DbQuery<Area_Province> Area_Province { get { return this.InternalArea_Province != null ? this.InternalArea_Province.AsNoTracking() : this.InternalArea_Province; } }
+        public DbQuery<Base_Holiday> Base_Holiday { get { return this.InternalBase_Holiday != null ? this.InternalBase_Holiday.AsNoTracking() : this.InternalBase_Holiday; } }
+        public DbQuery<Base_IDcardType> Base_IDcardType { get { return this.InternalBase_IDcardType != null ? this.InternalBase_IDcardType.AsNoTracking() : this.InternalBase_IDcardType; } }
+        public DbQuery<Base_IP> Base_IP { get { return this.InternalBase_IP != null ? this.InternalBase_IP.AsNoTracking() : this.InternalBase_IP; } }
+        public DbQuery<Base_MPCode> Base_MPCode { get { return this.InternalBase_MPCode != null ? this.InternalBase_MPCode.AsNoTracking() : this.InternalBase_MPCode; } }
+        public DbQuery<Base_ZipCode> Base_ZipCode { get { return this.InternalBase_ZipCode != null ? this.InternalBase_ZipCode.AsNoTracking() : this.InternalBase_ZipCode; } }
+        public DbQuery<Fin_Bank> Fin_Bank { get { return this.InternalFin_Bank != null ? this.InternalFin_Bank.AsNoTracking() : this.InternalFin_Bank; } }
+        public DbQuery<Fin_CurrencyISO> Fin_CurrencyISO { get { return this.InternalFin_CurrencyISO != null ? this.InternalFin_CurrencyISO.AsNoTracking() : this.InternalFin_CurrencyISO; } }
+        public DbQuery<Flt_AirLine> Flt_AirLine { get { return this.InternalFlt_AirLine != null ? this.InternalFlt_AirLine.AsNoTracking() : this.InternalFlt_AirLine; } }
+        public DbQuery<Flt_Airport> Flt_Airport { get { return this.InternalFlt_Airport != null ? this.InternalFlt_Airport.AsNoTracking() : this.InternalFlt_Airport; } }
+        public DbQuery<Flt_CraftType> Flt_CraftType { get { return this.InternalFlt_CraftType != null ? this.InternalFlt_CraftType.AsNoTracking() : this.InternalFlt_CraftType; } }
+        public DbQuery<Picture> Picture { get { return this.InternalPicture != null ? this.InternalPicture.AsNoTracking() : this.InternalPicture; } }
+        public DbQuery<Product> Product { get { return this.InternalProduct != null ? this.InternalProduct.AsNoTracking() : this.InternalProduct; } }
+        public DbQuery<Product_Flight> Product_Flight { get { return this.InternalProduct_Flight != null ? this.InternalProduct_Flight.AsNoTracking() : this.InternalProduct_Flight; } }
+        public DbQuery<Product_Info> Product_Info { get { return this.InternalProduct_Info != null ? this.InternalProduct_Info.AsNoTracking() : this.InternalProduct_Info; } }
+        public DbQuery<Product_NoDeparture> Product_NoDeparture { get { return this.InternalProduct_NoDeparture != null ? this.InternalProduct_NoDeparture.AsNoTracking() : this.InternalProduct_NoDeparture; } }
+        public DbQuery<Product_Price> Product_Price { get { return this.InternalProduct_Price != null ? this.InternalProduct_Price.AsNoTracking() : this.InternalProduct_Price; } }
+        public DbQuery<Product_Property> Product_Property { get { return this.InternalProduct_Property != null ? this.InternalProduct_Property.AsNoTracking() : this.InternalProduct_Property; } }
+        public DbQuery<Product_Schedule> Product_Schedule { get { return this.InternalProduct_Schedule != null ? this.InternalProduct_Schedule.AsNoTracking() : this.InternalProduct_Schedule; } }
+        public DbQuery<Product_Schedule_Detail> Product_Schedule_Detail { get { return this.InternalProduct_Schedule_Detail != null ? this.InternalProduct_Schedule_Detail.AsNoTracking() : this.InternalProduct_Schedule_Detail; } }
+        public DbQuery<Product_Section> Product_Section { get { return this.InternalProduct_Section != null ? this.InternalProduct_Section.AsNoTracking() : this.InternalProduct_Section; } }
+        public DbQuery<Product_Spec> Product_Spec { get { return this.InternalProduct_Spec != null ? this.InternalProduct_Spec.AsNoTracking() : this.InternalProduct_Spec; } }
+        public DbQuery<Product_Stock> Product_Stock { get { return this.InternalProduct_Stock != null ? this.InternalProduct_Stock.AsNoTracking() : this.InternalProduct_Stock; } }
+        public DbQuery<Property> Property { get { return this.InternalProperty != null ? this.InternalProperty.AsNoTracking() : this.InternalProperty; } }
+        public DbQuery<SEO> SEO { get { return this.InternalSEO != null ? this.InternalSEO.AsNoTracking() : this.InternalSEO; } }
+        public DbQuery<Product_Attach_Product> Product_Attach_Product { get { return this.InternalProduct_Attach_Product != null ? this.InternalProduct_Attach_Product.AsNoTracking() : this.InternalProduct_Attach_Product; } }
+        public DbQuery<Product_AttachPrice_Cache> Product_AttachPrice_Cache { get { return this.InternalProduct_AttachPrice_Cache != null ? this.InternalProduct_AttachPrice_Cache.AsNoTracking() : this.InternalProduct_AttachPrice_Cache; } }
+        public DbQuery<Product_Price_Cache> Product_Price_Cache { get { return this.InternalProduct_Price_Cache != null ? this.InternalProduct_Price_Cache.AsNoTracking() : this.InternalProduct_Price_Cache; } }
     }
 }

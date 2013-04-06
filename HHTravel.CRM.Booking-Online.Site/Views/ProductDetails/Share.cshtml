@@ -1,0 +1,82 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.ShareModel
+@{
+    ViewBag.Title = "转寄好友";
+    Layout = "~/Views/Shared/_LayoutPopup.cshtml";
+}
+@section JS{
+    <script src="@Url.Content("~/Scripts/jquery-1.4.4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+}
+<div class="header_warp" style="width: 470px;">
+    <div class="order_warp" style="width: 450px; padding: 0 10px;">
+        <div class="send_header_cn">
+        </div>
+        @using (Html.BeginForm())
+        {
+            @Html.HiddenFor(m => m.ProductNo)
+            @Html.HiddenFor(m => m.ProductName)
+            <table border="0" cellpadding="0" cellspacing="0" class="tbl tbl_bdrnone">
+                <tr>
+                    <td class="txt_r">
+                        朋友的 E-mail：
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.FriendEmail, new { @class = "tbl_txt" })<br />
+                        <br />
+                        @Html.ValidationMessageFor(m => m.FriendEmail)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txt_r">
+                        您的 E-mail：
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.YourEmail, new { @class = "tbl_txt" })<br />
+                        <br />
+                        @Html.ValidationMessageFor(m => m.YourEmail)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txt_r">
+                        信件主旨：
+                    </td>
+                    <td>
+                        @*<input type="text" class="tbl_txt" value="这里取产品名称 | 鸿鹄逸游 HHtravel" />*@
+                        @Html.TextBoxFor(m => m.Title, new { @class = "tbl_txt" })<br />
+                        <br />
+                        @Html.ValidationMessageFor(m => m.Title)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txt_r">
+                        给朋友的留言：
+                    </td>
+                    <td>
+                        @Html.TextAreaFor(m => m.Message, new { @cols = "30", @rows = "4" })<br />
+                        <br />
+                        @Html.ValidationMessageFor(m => m.Message)
+                    </td>
+                </tr>
+                <tr>
+                    <td class="txt_r">
+                        请输入验证码：
+                    </td>
+                    <td>
+                        <p>
+                            @Html.TextBoxFor(om => om.Captcha, new { @class = "i_txt", @style = "width: 80px;" })
+                            &nbsp;&nbsp;<img id="captcha" alt="验证码" src="@Url.Action("Index", "Captcha")" />
+                            <a href="javascript:void(0);" onclick="javascript:$('#captcha').attr('src','@Url.Action("Index", "Captcha")?r=' + new Date().getTime());return false;">
+                                <img alt="刷新验证码"
+                        src="@Url.Content("~/images/reload_cn.gif")" /></a>(不区分大小写)<br />
+                            @Html.ValidationMessageFor(om => om.Captcha)</p>
+                    </td>
+                </tr>
+            </table>
+            <p class="tbl_send_warp">
+                <input type="submit" class="tbl_send_btn" value="送出" /></p>
+        }
+        <div class="send_footer_cn">
+        </div>
+    </div>
+</div>

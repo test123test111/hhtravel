@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="OrderDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="OrderDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Orders" EntityType="OrderDbModel.Orders" />
+    <EntitySet Name="Orders_Product" EntityType="OrderDbModel.Orders_Product" />
+    <EntitySet Name="Orders_Passenger" EntityType="OrderDbModel.Orders_Passenger" />
+    <EntitySet Name="Orders_Temp" EntityType="OrderDbModel.Orders_Temp" />
+  </EntityContainer>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="OrderId" />
+    </Key>
+    <Property Name="OrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderNo" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="OrderDate" Type="DateTime" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderTime" Type="Time" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="OrderState" Type="Int16" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="CustomerID" Type="Int32" />
+    <Property Name="ReturnDate" Type="DateTime" />
+    <Property Name="TravelDays" Type="Int16" />
+    <Property Name="AdultNum" Type="Int16" />
+    <Property Name="ChildNum" Type="Int16" />
+    <Property Name="PersonNum" Type="Int16" />
+    <Property Name="Amount" Type="Int32" />
+    <Property Name="IsStayHotel" Type="Boolean" />
+    <Property Name="AirTicketOneself" Type="Boolean" />
+    <Property Name="SpecialMemento" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="SpecialHope" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+    <Property Name="RequestFrom" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="Company" Type="Int16" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="LastModifyMan" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="LastModifyTime" Type="DateTime" annotation:StoreGeneratedPattern="Computed" />
+    <Property Type="Int16" Name="TripType" />
+    <Property Type="String" Name="DepartureCity" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ProductID" />
+    <Property Type="Int16" Name="OrderType" />
+    <Property Type="DateTime" Name="DepartDate" />
+    <Property Type="DateTime" Name="StayReturnDate" />
+    <Property Type="DateTime" Name="DepartureTime" />
+  </EntityType>
+  <EntityType Name="Orders_Product">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Type="Int32" Name="ItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="OrderId" Nullable="false" />
+    <Property Type="Int32" Name="ProductId" />
+    <Property Type="Int32" Name="ProductSpecId" />
+    <Property Type="Int16" Name="ProductState" />
+    <Property Type="DateTime" Name="ReturnDate" />
+    <Property Type="Int16" Name="Times" />
+    <Property Type="Int32" Name="Amount" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" annotation:StoreGeneratedPattern="Computed" />
+    <Property Type="String" Name="ProductName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProductSpecName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectionType" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="DepartDate" />
+    <Property Type="String" Name="Unit" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="Quantity" />
+    <Property Type="Int32" Name="Price" />
+    <Property Type="String" Name="Remark" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsStay" />
+    <Property Type="DateTime" Name="DepartureTime" />
+    <Property Type="Int16" Name="AdultNum" />
+    <Property Type="Int16" Name="ChildNum" />
+    <Property Type="Int32" Name="PriceAdult" />
+    <Property Type="Int32" Name="PriceChild" />
+  </EntityType>
+  <EntityType Name="Orders_Passenger">
+    <Key>
+      <PropertyRef Name="PassengerID" />
+    </Key>
+    <Property Type="Int32" Name="PassengerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="OrderId" />
+    <Property Type="String" Name="CName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CredentialsType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="credentialsNo" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Orders_Temp">
+    <Key>
+      <PropertyRef Name="SessionId" />
+    </Key>
+    <Property Type="Guid" Name="SessionId" Nullable="false" />
+    <Property Type="String" Name="Content" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="CreateTime" Nullable="false" />
+  </EntityType>
+</Schema>

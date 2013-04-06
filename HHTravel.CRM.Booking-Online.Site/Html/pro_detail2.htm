@@ -1,0 +1,810 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>实现顶级旅游者的梦想‧鸿鹄逸游 HHtravel</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common.css" type="text/css" rel="stylesheet" />
+    <link href="../css/layout.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../Scripts/jquery-1.4.4.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('.nav span:has(a)').css('color', '#5a5a5a');
+            $('.l_list li:has(a)').css('margin-left', -8);
+            $('.calendar_order_warp>h6.ticket_tit:first()').css('margin-top', '0px');
+            //tab切换
+            //$('#tab li').click(function () {
+            //   $(this).addClass('current').siblings().removeClass();
+            //   var i = $('#tab li').index(this);
+            //   $('#pro_list>div').eq(i).show().siblings().hide();
+            // });
+            //            var h = $(document).height();
+            //            $('.mask_layer').height(h);
+
+            //字体放大缩小
+            $("#r_ope img").click(function () {
+                var font = $("#pro_list").css("font-size");
+                var f = parseFloat(font, 10);
+                var c_name = $(this).attr("class");
+                if (c_name == "c_small") {
+                    if (f <= 22) {
+                        f += 2;
+                    }
+                } else if (c_name == "c_big") {
+                    if (f >= 12) {
+                        f -= 2;
+                    }
+                }
+                $("#pro_list").css("font-size", f);
+            });
+            //点击分享显示层
+            $('#share').click(function () {
+                $('#share_layer').slideToggle(500);
+                $('#share_layer').find('a.ico_close').click(function () {
+                    $('#share_layer').slideUp(500);
+                });
+            });
+            //机票加购项说明提示层
+            $('#tbl_tips_desc').mouseover(function () {
+                $('.spw_type_layer').show();
+            });
+            $('#tbl_tips_desc').mouseout(function () {
+                $('.spw_type_layer').hide();
+            });
+        });
+        //点击"订购须知”弹出新窗口
+        function openwin() {
+            window.open('ordering_inf.htm', 'newwindow', 'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=auto, resizable=no,location=no, status=no')
+        }
+        function openwin_order() {
+            window.open('send_order1.htm', 'newwindow', 'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=yes, resizable=no,location=no, status=no')
+        }
+    </script>
+</head>
+<body>
+    <div class="header_warp">
+        <div class="header header_fixed">
+        </div>
+    </div>
+    <div class="warpper">
+        <div class="photo_warp" style="height: 300px">
+            <img alt="" title="" src="../images/banner_photo/FRN0000009473.jpg" />
+        </div>
+        <div class="nav">
+            <span><a href="../">首页</a>/</span><span><a href="../">目的地</a>/</span><span>亚洲</span></div>
+        <div class="main_warp">
+            <!--left begin-->
+            <div class="left_warp">
+                <h3 class="l_title">
+                    目的地 Travel Destination</h3>
+                <ul class="l_list">
+                    <li><a href="around_world.htm">环游世界</a></li>
+                    <li><a href="search_list.htm">欧洲</a></li>
+                </ul>
+                <h3 class="l_title">
+                    旅行主题 Travel Interest</h3>
+                <ul class="l_list">
+                    <li><a href="search_list.htm">地球标记</a></li>
+                    <li><a href="search_list.htm">世界遗产</a></li>
+                </ul>
+                <h3 class="l_title">
+                    出发月份 Departure Month</h3>
+                <ul class="l_list">
+                    <li>2012</li>
+                    <li><a href="#search_list.htm">2012-8月</a></li>
+                    <li><a href="search_list.htm">2012-9月</a></li>
+                    <li>2013</li>
+                    <li><a href="search_list.htm">2013-1月</a></li>
+                    <li><a href="search_list.htm">2013-2月</a></li>
+                </ul>
+            </div>
+            <!--left end-->
+            <!--right begin-->
+            <div class="right_warp">
+                <div class="r_ope" id="r_ope">
+                    <img alt="字体缩小" class="c_big" src="../images/small_t.gif" /><img alt="字体放大" class="c_small"
+                        src="../images/big_t.gif" /><a href="#" class="share" id="share">分享</a><a href="#"
+                            onclick="window.print();" class="print">打印本页</a>
+                    <div class="share_layer" id="share_layer" style="display: none">
+                        <p class="s_l_tit">
+                            <span>分享、转寄</span><a href="#" class="ico_close"><img src="../images/close_btn.gif" /></a></p>
+                        <p class="s_l_list">
+                            <a class="s_friends" href="javascript:shareWithFriends();">转寄好友</a>
+                            <a class="s_pdf" href="javascript:downloadPDF('cn');">PDF下载</a>
+                            <a class="s_sina" href="javascript:window.open('http://v.t.sina.com.cn/share/share.php?appkey=1961588658&url='+encodeURIComponent('[url]')+'&pic='+encodeURIComponent('')+'&title='+encodeURIComponent('[content]'),'_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0">
+                                新浪微博</a>
+                            <a class="s_renren" href="javascript:window.open('http://share.renren.com/share/buttonshare.do?title='+encodeURIComponent(document.title.substring(0,76))+'&amp;link='+encodeURIComponent(location.href)+'&amp;content=','_blank','scrollbars=no,width=600,height=450,left=75,top=20,status=no,resizable=yes'); void 0">
+                                人人网</a>
+                        </p>
+                    </div>
+                </div>
+                <h3 class="r_title">
+                    北非．突尼斯+摩洛哥 13 天（上海出发）<span class="pro_num">FRN9473</span></h3>
+                <ul class="tab" id="tab">
+                    <li><a href="#">行程亮点</a></li>
+                    <li><a href="#">详细行程</a></li>
+                    <li><a href="#">精选饭店</a></li>
+                    <li class="current"><a href="#">日期.价格</a></li>
+                    <li><a href="#">量身定制</a></li>
+                    <li><a href="#">签证信息</a></li>
+                </ul>
+                <div class="pro_list" id="pro_list">
+                    <!--日期.订购-->
+                    <div class="highlights">
+						<!--1显示已经选好的出发&回程日期-->
+                        <div class="calendar_order_warp">
+                       		<h6 class="process" style="width:450px;"><span>1</span>出发日期：<b class="ft_blue">2012.12.20</b> ～ 回程日期：<b class="ft_blue">2012.12.28</b></h6>
+                            <h6 class="pro_price">产品价格：<b class="ft_blue">RMB 125,000/人</b></h6>
+                        </div>
+                        <p class="dotted_line"></p>
+                        <!--2选择人数-->
+                        <div class="calendar_order_warp">
+                       		<h6 class="process"><span>2</span>选择人数：<em>（最少成形：2成人）</em></h6>
+                            <div class="choose_num">
+                            成人：<input type="text" class="tbl_txt" style="width: 50px; float: none;" />人，孩童：<input
+                            type="text" class="tbl_txt" style="width: 50px; float: none;" />人
+                            </div>
+                        </div>
+                        <p class="dotted_line"></p>
+                        <!--3选择航班-->
+                        <div class="calendar_order_warp">
+                            <h6 class="process">
+                                <span>3</span>选择航班</h6>
+                            <h6 class="ticket_tit">
+                                ·推荐航班1</h6>
+                            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                                <tr class="tr_hide">
+                                    <td style="width: 55px;">
+                                    </td>
+                                    <td style="width: 80px;">
+                                    </td>
+                                    <td style="width: 45px;">
+                                    </td>
+                                    <td style="width: 55px;">
+                                    </td>
+                                    <td style="width: 95px;">
+                                    </td>
+                                    <td style="width: 95px;">
+                                    </td>
+                                    <td style="width: 65px;">
+                                    </td>
+                                    <td style="width: 65px;">
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td style="width: 45px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        行程
+                                    </td>
+                                    <td class="name">
+                                        航空公司
+                                    </td>
+                                    <td class="name">
+                                        航班
+                                    </td>
+                                    <td class="name">
+                                        舱等
+                                    </td>
+                                    <td class="name">
+                                        出发地
+                                    </td>
+                                    <td class="name">
+                                        到达地
+                                    </td>
+                                    <td class="name">
+                                        出发时间
+                                    </td>
+                                    <td class="name">
+                                        到达时间
+                                    </td>
+                                    <td class="name">
+                                        价差
+                                    </td>
+                                    <td class="name">
+                                        选择
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        去程
+                                    </td>
+                                    <td>
+                                        国际航空
+                                    </td>
+                                    <td>
+                                        961
+                                    </td>
+                                    <td>
+                                        公务舱
+                                    </td>
+                                    <td>
+                                        北京机场
+                                    </td>
+                                    <td>
+                                        雅典机场
+                                    </td>
+                                    <td>
+                                        05:10
+                                    </td>
+                                    <td>
+                                        10:10
+                                    </td>
+                                    <td rowspan="2" class="tbl_price">
+                                        RMB 0
+                                    </td>
+                                    <td rowspan="2"><input type="radio" checked="checked" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        回程
+                                    </td>
+                                    <td>
+                                        国际航空
+                                    </td>
+                                    <td>
+                                        961
+                                    </td>
+                                    <td>
+                                        公务舱
+                                    </td>
+                                    <td>
+                                        北京机场
+                                    </td>
+                                    <td>
+                                        雅典机场
+                                    </td>
+                                    <td>
+                                        05:10
+                                    </td>
+                                    <td>
+                                        10:10
+                                    </td>
+                                </tr>
+                            </table>
+                            <h6 class="ticket_tit">
+                                ·推荐航班2</h6>
+                            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                                <tr class="tr_hide">
+                                    <td style="width: 55px;">
+                                    </td>
+                                    <td style="width: 80px;">
+                                    </td>
+                                    <td style="width: 45px;">
+                                    </td>
+                                    <td style="width: 55px;">
+                                    </td>
+                                    <td style="width: 95px;">
+                                    </td>
+                                    <td style="width: 95px;">
+                                    </td>
+                                    <td style="width: 65px;">
+                                    </td>
+                                    <td style="width: 65px;">
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td style="width: 45px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        行程
+                                    </td>
+                                    <td class="name">
+                                        航空公司
+                                    </td>
+                                    <td class="name">
+                                        航班
+                                    </td>
+                                    <td class="name">
+                                        舱等
+                                    </td>
+                                    <td class="name">
+                                        出发地
+                                    </td>
+                                    <td class="name">
+                                        到达地
+                                    </td>
+                                    <td class="name">
+                                        出发时间
+                                    </td>
+                                    <td class="name">
+                                        到达时间
+                                    </td>
+                                    <td class="name">
+                                        价差
+                                    </td>
+                                    <td class="name">
+                                        选择
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        去程
+                                    </td>
+                                    <td>
+                                        国际航空
+                                    </td>
+                                    <td>
+                                        961
+                                    </td>
+                                    <td>
+                                        公务舱
+                                    </td>
+                                    <td>
+                                        北京机场
+                                    </td>
+                                    <td>
+                                        雅典机场
+                                    </td>
+                                    <td>
+                                        05:10
+                                    </td>
+                                    <td>
+                                        10:10
+                                    </td>
+                                    <td rowspan="2" class="tbl_price">
+                                        RMB 125,000 /人
+                                    </td>
+                                    <td rowspan="2"><input type="radio" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        回程
+                                    </td>
+                                    <td>
+                                        国际航空
+                                    </td>
+                                    <td>
+                                        961
+                                    </td>
+                                    <td>
+                                        公务舱
+                                    </td>
+                                    <td>
+                                        北京机场
+                                    </td>
+                                    <td>
+                                        雅典机场
+                                    </td>
+                                    <td>
+                                        05:10
+                                    </td>
+                                    <td>
+                                        10:10
+                                    </td>
+                                </tr>
+                            </table>
+                            <h6 class="ticket_tit">
+                                ·推荐航班3</h6>
+                            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                                <tr class="tr_hide">
+                                    <td style="width: 55px;">
+                                    </td>
+                                    <td style="width: 80px;">
+                                    </td>
+                                    <td style="width: 45px;">
+                                    </td>
+                                    <td style="width: 55px;">
+                                    </td>
+                                    <td style="width: 95px;">
+                                    </td>
+                                    <td style="width: 95px;">
+                                    </td>
+                                    <td style="width: 65px;">
+                                    </td>
+                                    <td style="width: 65px;">
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td style="width: 45px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        行程
+                                    </td>
+                                    <td class="name">
+                                        航空公司
+                                    </td>
+                                    <td class="name">
+                                        航班
+                                    </td>
+                                    <td class="name">
+                                        舱等
+                                    </td>
+                                    <td class="name">
+                                        出发地
+                                    </td>
+                                    <td class="name">
+                                        到达地
+                                    </td>
+                                    <td class="name">
+                                        出发时间
+                                    </td>
+                                    <td class="name">
+                                        到达时间
+                                    </td>
+                                    <td class="name">
+                                        价差
+                                    </td>
+                                    <td class="name">
+                                        选择
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        去程
+                                    </td>
+                                    <td>
+                                        国际航空
+                                    </td>
+                                    <td>
+                                        961
+                                    </td>
+                                    <td>
+                                        公务舱
+                                    </td>
+                                    <td>
+                                        北京机场
+                                    </td>
+                                    <td>
+                                        雅典机场
+                                    </td>
+                                    <td>
+                                        05:10
+                                    </td>
+                                    <td>
+                                        10:10
+                                    </td>
+                                    <td rowspan="2" class="tbl_price">
+                                        RMB 125,000 /人
+                                    </td>
+                                    <td rowspan="2"><input type="radio" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        回程
+                                    </td>
+                                    <td>
+                                        国际航空
+                                    </td>
+                                    <td>
+                                        961
+                                    </td>
+                                    <td>
+                                        公务舱
+                                    </td>
+                                    <td>
+                                        北京机场
+                                    </td>
+                                    <td>
+                                        雅典机场
+                                    </td>
+                                    <td>
+                                        05:10
+                                    </td>
+                                    <td>
+                                        10:10
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <p class="dotted_line"></p>
+                        <!--4选择酒店-->
+                  <div class="calendar_order_warp">
+                            <h6 class="process">
+                                <span>4</span>选择酒店</h6>
+                             <h6 class="hotel_tit">·马尔代夫  入住5晚</h6>
+                                <h6 class="ticket_tit" style="text-indent:12px;">入住日期：<b class="ft_blue">2012.12.20(四)</b> ～ 退房日期：<b class="ft_blue">2012.12.25(四)</b></h6>   
+                            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                                <tr class="tr_hide">
+                                    <td style="width: 300px;">
+                                    </td>
+                                    <td style="width: 90px;">
+                                    </td>
+                                    <td style="width: 110px;"></td>
+                                    <td>
+                                    </td>
+                                    <td style="width: 80px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        酒店
+                                    </td>
+                                    <td class="name"> 房型 </td>
+                                    <td class="name">早晚餐说明</td>
+                                    <td class="name">
+                                        价差
+                                    </td>
+                                    <td class="name">
+                                        选择
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        马尔代夫 Viceroy Hotels Resort Residences Maldives 
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 0
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 5,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        港丽度假村 Conrad Maldives Rangali Island  
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        清迈文华东方度假酒店 Mandarin Oriental Dhara Dhevi,Chiang Mai 
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        新加坡文华东方酒店
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>  
+                            <p class="hotel_dotted_line"></p>
+                            <h6 class="hotel_tit">·曼谷  入住3晚</h6>
+                                <h6 class="ticket_tit" style="text-indent:12px;">入住日期：
+<b class="ft_blue">2012.12.25(四)</b>～ 退房日期：<b class="ft_blue">2012.12.28(四)</b></h6>   
+                            <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+                                <tr class="tr_hide">
+                                    <td style="width: 300px;">
+                                    </td>
+                                    <td style="width: 90px;">
+                                    </td>
+                                    <td style="width: 110px;"></td>
+                                    <td>
+                                    </td>
+                                    <td style="width: 80px;">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="name">
+                                        酒店
+                                    </td>
+                                    <td class="name"> 房型 </td>
+                                    <td class="name">早晚餐说明</td>
+                                    <td class="name">
+                                        价差
+                                    </td>
+                                    <td class="name">
+                                        选择
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        马尔代夫 Viceroy Hotels Resort Residences Maldives 
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 0
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 5,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        港丽度假村 Conrad Maldives Rangali Island  
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        清迈文华东方度假酒店 Mandarin Oriental Dhara Dhevi,Chiang Mai 
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="2" class="tbl_date">
+                                        新加坡文华东方酒店
+                                    </td>
+                                    <td> 双人房 </td>
+                                    <td>双早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td> 单人房 </td>
+                                    <td>单早</td>
+                                    <td class="tbl_price">
+                                        RMB 125,000 /间
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>0间</option>
+                                            <option>1间</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>  
+                        </div>
+                        <p class="dotted_line"></p>
+                        <div class="tbl_send_warp">
+    <input type="button" class="back_btn" value="回上一页" /><input type="button" value="" class="order_btn ml25" onclick="openwin_order()" />
+    <p class="order_infor ml15" style="display:inline; padding-top:5px;"><img alt="订购须知" src="../images/order_ico.jpg" /><a href="#" onclick="openwin()">订购须知</a></p></div>                      
+                    </div>
+                </div>
+            </div>
+            <!--right end-->
+        </div>
+        <div class="sl_footer">
+            <p class="copy_right">
+                <a href="brand_concept.htm">关于HHtravel</a><a href="privacy_policy.htm">隐私政策</a><a
+                    href="news_letter.htm">电子报订阅</a><a href="contact_us.htm">联络我们</a><a href="../">回首页</a>
+            </p>
+            <p class="server_time">
+                服务时间 周一至周五 9：00～18：00</p>
+        </div>
+    </div>
+</body>
+</html>

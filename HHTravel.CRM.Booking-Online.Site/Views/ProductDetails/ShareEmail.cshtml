@@ -1,0 +1,37 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.ShareEmailModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>鸿鹄逸游 HHtravel</title>
+</head>
+<body>
+    <table border="0" cellpadding="0" cellspacing="0" width="590" style="border-collapse: collapse;">
+        <tr>
+            <td>
+                <a href="@Url.AbsoluteIndex()">
+                    <img alt="" src="@Url.AbsoluteContent("~/images/sendLetter_header_cn.gif")" width="590" height="100" /></a>
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 548px; padding: 10px 20px; border: 1px solid #dcf5f2; font-size: 14px;
+                line-height: 22px; color: #5a5a5a;">
+                <p>
+                    @Html.DisplayTextFor(m => m.Message)</p>
+                <b style="color: #24747b;">@Html.DisplayTextFor(m => m.ProductName)</b>
+                <br />
+                <a href="@Url.Product(Model.ProductNo)">
+                    @Url.Product(Model.ProductNo)
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td style="margin-top: 10px; height: 10px; background: #81d9d0; line-height: 10px;">
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

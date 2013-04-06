@@ -22,27 +22,24 @@ namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
 {
     public partial class OrderDbEntities : DbEntitiesBase
     {
-        public OrderDbEntities()
+        internal OrderDbEntities()
             : base("name=OrderDbEntities")
         {
         }
     
-        public OrderDbEntities(string connectionString) : base(connectionString)
+        internal OrderDbEntities(string connectionString) : base(connectionString)
     	{
     	
     	}
     
-    	public OrderDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
+    	internal OrderDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
                 : base(existingConnection, contextOwnsConnection)
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Orders_Product> Orders_Product { get; set; }
+        public DbSet<Orders_Passenger> Orders_Passenger { get; set; }
+        public DbSet<Orders_Temp> Orders_Temp { get; set; }
     }
 }

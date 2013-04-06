@@ -1,0 +1,31 @@
+﻿@model IEnumerable<HHTravel.CRM.Booking_Online.DomainModel.Hotel>
+@{
+    var p = Model;
+}
+<!--精选饭店-->
+<div class="highlights" style="display: block;">
+    <h5>
+        精选饭店</h5>
+    @foreach (var h in Model)
+    {
+        <div class="hotal_warp">
+            <div class="h_title">
+                <em class="h_t_l"></em>
+                <h6 title="@h.HotelName" class="text_overflow">
+                    @h.HotelName</h6>
+                <em class="h_t_r"></em>
+                @if (Uri.IsWellFormedUriString(h.Url, UriKind.Absolute))
+                {
+                    <a href="@h.Url" class="net_link new-blank"></a>}
+            </div>
+            <p class="h_photos">
+                @foreach (var imageInfo in h.PhotoList)
+                {
+                    @Html.Image(imageInfo, Url.Content("~/images/nopic3.gif"), null)
+                }
+            </p>
+            <p class="h_desc">
+                @Html.Raw(h.Feature)</p>
+        </div>
+    }
+</div>

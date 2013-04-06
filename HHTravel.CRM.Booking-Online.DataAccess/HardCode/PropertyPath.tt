@@ -1,19 +1,17 @@
 ﻿<#@ template language="C#" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Data.Entity" #>
-<#@ assembly name="D:\Projects\HHTravel\HHTravel\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll" #>
+<#@ assembly name="D:\Projects\HHTravel\HHTravel\HHTravel.Base\HHTravel.Base.Resource\EntityFramework.dll" #>
 <#@ assembly name="$(TargetPath)" #>
 <#@ assembly name="$(TargetDir)HHTravel.CRM.Booking-Online.Entity.dll" #>
-<#@ assembly name="$(TargetDir)HHTravel.CRM.Booking-Online.IRepository.dll" #>
-<#@ assembly name="$(TargetDir)HHTravel.CRM.Booking-Online.Model.dll" #>
+
 <#@ import namespace = "System.Linq" #>
 <#@ import namespace = "System.Data.Entity" #>
 <#@ import namespace = "HHTravel.CRM.Booking_Online.Entity" #>
 <#@ import namespace = "HHTravel.CRM.Booking_Online.DataAccess" #>
 <#@ import namespace = "HHTravel.CRM.Booking_Online.DataAccess.DbContexts" #>
-<#@ import namespace = "HHTravel.CRM.Booking_Online.DataAccess.Repository" #>
 <#@ import namespace = "HHTravel.CRM.Booking_Online.DataAccess.HardCode" #>
-<#@ import namespace = "HHTravel.CRM.Booking_Online.DataAccess.TableWorkers" #>
+<#@ import namespace = "HHTravel.CRM.Booking_Online.DataAccess.Providers" #>
 <#
     //System.Diagnostics.Debugger.Launch();
     //System.Diagnostics.Debugger.Break();
@@ -21,7 +19,7 @@
         DbContextFactory.GetEntityConnectionString("data source=192.168.83.31,28747;initial catalog=ProductDB;integrated security=True;multipleactiveresultsets=True;", 
             "ProductDb")
     );
-    var repo = new PropertyTableWorker(cxt);
+    var repo = new PropertiesProvider(cxt);
     var a = from p in repo.All()
             where p.PropertyLevel == 0
             select p;
@@ -43,11 +41,10 @@ using System.Text;
 namespace HHTravel.CRM.Booking_Online.DataAccess.HardCode
 {
     /// <summary>
-    /// 对应PROPERTYTYPE表中定义的常量
-    /// 在此提供对应关系，一是为了增强代码可读性；
-    /// 后续还可以考虑采用代码自动生成
+    /// 对应PROPERTY表中定义的父级属性路径
+    /// 在此提供对应关系，是为了增强代码可读性以及引入强类型检查
     /// </summary>
-    internal enum PropertyPath
+    public enum PropertyPath
     {
 <#
     foreach(var p in a)

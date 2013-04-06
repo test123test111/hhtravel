@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>产品名称 | 鸿鹄逸游 HHtravel</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common.css" rel="stylesheet" type="text/css" />
+    <link href="../css/layout.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../Scripts/jquery-1.4.4.min.js"></script>
+    <script type="text/javascript">
+    //点击"订购须知”弹出新窗口
+        function openwin() {
+            window.open('ordering_inf.htm', 'newwindow', 'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=auto, resizable=no,location=no, status=no')
+        }
+        function openwin_new_select() {
+            window.open('new_select_layer.htm', 'newwindow', 'height=600, width=740, top=0, left=0, toolbar=no, menubar=no, scrollbars=auto, resizable=no,location=no, status=no')
+        }
+    //机票加购项说明提示层
+        $(function () {
+            $('#tbl_tips_desc').mouseover(function () {
+                $(this).css('display','block');
+                $('.spw_type_layer').show();
+            });
+            $('#tbl_tips_desc').mouseout(function () {
+                $('.spw_type_layer').hide();
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="warpper" style="padding-top:0; position:relative;">
+<!--<div class="header"></div>-->
+
+<div class="pro_selected">
+    <!--航班选择-->
+    <h6 class="process mt20" style="padding-bottom:0;"><span>7</span>选择机票</h6>
+    <h6 class="ticket_tit">
+        ·第1程推荐&nbsp;&nbsp;&nbsp;&nbsp;出发城市：<b class="ft_blue">上海</b> ～ 到达城市：<b class="ft_blue">曼谷</b>&nbsp;&nbsp;&nbsp;&nbsp;起飞日期：<b class="ft_blue">2013.7.6(四)</b>
+    </h6>
+    <table border="0" cellpadding="0" cellspacing="0" class="tbl_order" id="selected">
+        <tr class="tr_hide">
+            <td style="width: 80px;"> 
+            </td>
+            <td style="width: 45px;">
+            </td>
+            <td style="width: 55px;">
+            </td>
+            <td style="width: 95px;">
+            </td>
+            <td style="width: 95px;">
+            </td>
+            <td style="width: 65px;">
+            </td>
+            <td style="width: 65px;">
+            </td>
+            <td style="width: 65px;">
+            </td>
+            <td>
+            </td>
+            <td style="width: 45px;">
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                航空公司
+            </td>
+            <td class="name">
+                航班
+            </td>
+            <td class="name">
+                舱等
+            </td>
+            <td class="name">
+                出发地
+            </td>
+            <td class="name">
+                到达地
+            </td>
+            <td class="name">
+                出发时间
+            </td>
+            <td class="name">
+                到达时间
+            </td>
+            <td class="name">
+                说明
+            </td>
+            <td class="name">
+                价差
+            </td>
+            <td class="name">
+                选择
+            </td>
+        </tr>
+        <tr>
+            <td colspan="10">
+            <p class="loading_s_warp">
+                <img src="../images/loading_s.gif" /><span>请稍候，正在为您查询</span>
+            </p>
+            </td>
+        </tr>
+    </table>
+    
+    
+    <p class="dotted_line"></p>
+    <!--按钮组-->
+    <div class="tbl_send_warp">
+        <a href="hh33_sep1.htm"><input type="button" class="back_btn sep_pre_btn" value="回上一页" /></a>
+        <a href="hh33_sep2.htm"><input type="button" class="sep_next_btn ml25" value="下一步" /></a>
+    </div>
+</div>
+<!--价格计算-->
+<div class="sep_price_warp">
+    <h5 class="sep_price_header">人数与价格（含税费）</h5>
+    <p>总价：<span class="tbl_price_orange">RMB 125,000</span><br/>
+    人均：<span class="tbl_price_orange">RMB 4,100</span><br/>
+    人数：成人2人，儿童0人</p>
+</div>
+</div>
+</body>
+</html>

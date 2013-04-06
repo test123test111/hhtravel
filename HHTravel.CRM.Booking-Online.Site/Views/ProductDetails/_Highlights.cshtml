@@ -1,0 +1,78 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.ProductModel
+@{
+    var p = Model;
+    string daysText = (p.TravelType == TravelType.TravelType3 && p.TravelChildType == TravelChildType.定点) ?
+        string.Format("{0}天/{1}晚", p.Days, p.MinLodgingDays ?? p.Days - 1) :
+        string.Format("{0}天", p.Days);
+}
+@section JS{
+    <script type="text/javascript">
+        var routeMap = new Image();
+        routeMap.src = '@p.RouteMap.Url';
+    </script>
+}
+<!--行程亮点-->
+<div class="highlights" style="display: block;">
+    <h5>
+        行程亮点</h5>
+    <div class="h_detail">
+        @Html.Image(p.MainImage, Url.Content("~/images/nopic.gif"), new { alt = p.ProductName })
+        <ul class="l_theme h_reset">
+            <li><span class="name">旅行主题：</span><span class="value">@string.Join("、", p.InterestList.Select(i => i.Name ?? ""))</span></li>
+            <li>
+                @if (p.TravelType == TravelType.TravelType3 && p.TravelChildType == TravelChildType.定点)
+                {
+                    <span class="name">入住日期：</span>
+                }
+                else
+                {
+                    <span class="name">出发日期：</span>
+                }
+                <span id="ddate2" class="value" style="display: none">@*/前后的空格是为了解决字符换行问题*@
+                    @string.Join(" / ", p.DepartureDateList.Select(dd => dd.Date.ToString("yyyy.MM.dd")))
+                </span><span id="ddate1" class="value">@(string.Join("/", p.DepartureDateList.Select(dd => dd.Date.ToString("yyyy.MM.dd")).Take(4)))
+                    @if (p.DepartureDateList.Count > 4)
+                    {
+                        <text>...</text><a class="data_more" href="@Url.Action("Index", new { productNo = p.ProductNo, tab = 3 })">更多</a>
+                    }</span></li>
+            <li><span class="name">天 数：</span><span class="value">@daysText </span></li>
+            <li><span class="name">价 格：</span><span class="value"><em>RMB @Html.DisplayFor(m => m.MinPrice)</em>起(含税)</span></li>
+        </ul>
+        @Html.Partial("_ProductTags", p)
+    </div>
+    <div class="h_content">
+        @Html.Raw(@p.Feature)
+    </div>
+    <h5>
+        高端坚持</h5>
+    <div class="h_brand">
+        <p>
+            「鸿鹄逸游 HHtravel」以高端坚持打造每趟旅程，坚持高标准的服务规格，让您无忧无虑，尽情享受优质旅行。</p>
+        <ul class="h_brand_idea">
+            <li>■ 公务舱</li>
+            <li>■ 私家团</li>
+            <li style="width:130px">■ 超越五星级酒店</li>
+            <li>■ 米其林</li>
+            <li>■ 专业领先 </li>
+        </ul>
+        <span class="details_link">&gt;&gt;<a href="@Url.Action("BrandConcept", "Home")">详细内容
+        </a>
+        </span>
+    </div>
+    @if (p.RouteMap != null)
+    {
+        <h5>
+            @if (p.TravelType == TravelType.TravelType3 && p.TravelChildType == TravelChildType.定点)
+            {
+                <text>位置图</text>
+            }
+            else
+            {
+                <text>路线图</text>
+            }
+        </h5>
+        <p class="road_map">
+            <!--liuyan:路线图的整个URL都是需要从数据库中取得-->
+            @Html.Image(p.RouteMap)</p>
+    }
+</div>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using HHTravel.CRM.Booking_Online.Model;
 using Microsoft.Practices.Unity;
 
 namespace HHTravel.CRM.Booking_Online.IRepository
@@ -11,18 +7,20 @@ namespace HHTravel.CRM.Booking_Online.IRepository
     {
         private static IUnityContainer s_container = new UnityContainer();
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
         public static void RegisterType<TFromRepository, TToRepository>()
             where TToRepository : class, TFromRepository
         {
-            s_container.RegisterType<TFromRepository, TToRepository>(new ContainerControlledLifetimeManager());
+            s_container.RegisterType<TFromRepository, TToRepository>();
         }
 
-        public static void RegisterType(Type tFrom, Type tTo)
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope")]
+        public static void RegisterType(Type fromType, Type toType)
         {
-            s_container.RegisterType(tFrom, tTo, new ContainerControlledLifetimeManager());
+            s_container.RegisterType(fromType, toType);
         }
 
-        public static TRepository GetRepository<TRepository>()
+        internal static TRepository GetRepository<TRepository>()
             where TRepository : class
         {
             TRepository repository = default(TRepository);
@@ -31,6 +29,4 @@ namespace HHTravel.CRM.Booking_Online.IRepository
             return repository;
         }
     }
-
-
 }

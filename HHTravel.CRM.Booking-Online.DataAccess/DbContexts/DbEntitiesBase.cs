@@ -2,12 +2,12 @@
 using System.Data.Common;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Validation;
 using System.IO;
 using EFCachingProvider;
 using EFCachingProvider.Caching;
 using EFProviderWrapperToolkit;
 using EFTracingProvider;
-using System.Data.Entity.Validation;
 using HHTravel.Base.Common.Framework.Logging;
 
 namespace HHTravel.CRM.Booking_Online.DataAccess
@@ -16,13 +16,12 @@ namespace HHTravel.CRM.Booking_Online.DataAccess
     {
         private TextWriter logOutput;
 
-        public DbEntitiesBase(string connectionString)
+        protected DbEntitiesBase(string connectionString)
             : base(connectionString)
         {
-
         }
 
-        public DbEntitiesBase(DbConnection existingConnection, bool contextOwnsConnection)
+        protected DbEntitiesBase(DbConnection existingConnection, bool contextOwnsConnection)
             : base(existingConnection, contextOwnsConnection)
         {
         }
@@ -54,21 +53,10 @@ namespace HHTravel.CRM.Booking_Online.DataAccess
 
         #region Tracing Extensions
 
-        private EFTracingConnection TracingConnection
-        {
-            get { return ((IObjectContextAdapter)this).ObjectContext.UnwrapConnection<EFTracingConnection>(); }
-        }
-
         public event EventHandler<CommandExecutionEventArgs> CommandExecuting
         {
             add { this.TracingConnection.CommandExecuting += value; }
             remove { this.TracingConnection.CommandExecuting -= value; }
-        }
-
-        public event EventHandler<CommandExecutionEventArgs> CommandFinished
-        {
-            add { this.TracingConnection.CommandFinished += value; }
-            remove { this.TracingConnection.CommandFinished -= value; }
         }
 
         public event EventHandler<CommandExecutionEventArgs> CommandFailed
@@ -77,13 +65,10 @@ namespace HHTravel.CRM.Booking_Online.DataAccess
             remove { this.TracingConnection.CommandFailed -= value; }
         }
 
-        private void AppendToLog(object sender, CommandExecutionEventArgs e)
+        public event EventHandler<CommandExecutionEventArgs> CommandFinished
         {
-            if (this.logOutput != null)
-            {
-                this.logOutput.WriteLine(e.ToTraceString().TrimEnd());
-                this.logOutput.WriteLine();
-            }
+            add { this.TracingConnection.CommandFinished += value; }
+            remove { this.TracingConnection.CommandFinished -= value; }
         }
 
         public TextWriter Log
@@ -107,15 +92,23 @@ namespace HHTravel.CRM.Booking_Online.DataAccess
             }
         }
 
+        private EFTracingConnection TracingConnection
+        {
+            get { return ((IObjectContextAdapter)this).ObjectContext.UnwrapConnection<EFTracingConnection>(); }
+        }
 
-        #endregion
+        private void AppendToLog(object sender, CommandExecutionEventArgs e)
+        {
+            if (this.logOutput != null)
+            {
+                this.logOutput.WriteLine(e.ToTraceString().TrimEnd());
+                this.logOutput.WriteLine();
+            }
+        }
+
+        #endregion Tracing Extensions
 
         #region Caching Extensions
-
-        private EFCachingConnection CachingConnection
-        {
-            get { return ((IObjectContextAdapter)this).ObjectContext.UnwrapConnection<EFCachingConnection>(); }
-        }
 
         public ICache Cache
         {
@@ -129,6 +122,11 @@ namespace HHTravel.CRM.Booking_Online.DataAccess
             set { CachingConnection.CachingPolicy = value; }
         }
 
-        #endregion
+        private EFCachingConnection CachingConnection
+        {
+            get { return ((IObjectContextAdapter)this).ObjectContext.UnwrapConnection<EFCachingConnection>(); }
+        }
+
+        #endregion Caching Extensions
     }
 }

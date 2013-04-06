@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<Request>
+  <Header UserID="140101" RequestType="FlightIntl.FlightSearch.SearchFlights" AsyncRequest="false" Timeout="0" MessagePriority="3" />
+  <FltIntlSearchFlightsRequest>
+    <TripType>RT</TripType>
+    <PassengerType>CHD</PassengerType>
+    <PassengerCount>1</PassengerCount>
+    <Eligibility>ALL</Eligibility>
+    <BusinessID />
+    <BusinessType>OWN</BusinessType>
+    <Airline />
+    <ClassGrade>Y</ClassGrade>
+    <SalesType>Online</SalesType>
+    <FareIds />
+    <FareType>All</FareType>
+    <AgentID />
+    <ResultMode>All</ResultMode>
+    <OrderBy>Price</OrderBy>
+    <Direction>Asc</Direction>
+    <ShoppingInfoID>[1/2[SHA-FM-X-HKG(NOA,N17763100G,S133,C493)]+1/2[HKG-FM-M-SHA(NOA,N17760082G,S133,C493)]|NOR]{FM845SHAHKG0620,1|FM510HKGSHA0623MU510,2|}</ShoppingInfoID>
+    <SegmentInfos>
+      <SegmentInfo>
+        <DCode>SHA</DCode>
+        <ACode>HKG</ACode>
+        <DAirport />
+        <AAirport />
+        <DDate>2012-06-20T00:00:00</DDate>
+        <TimePeriod>All</TimePeriod>
+      </SegmentInfo>
+      <SegmentInfo>
+        <DCode>HKG</DCode>
+        <ACode>SHA</ACode>
+        <DAirport />
+        <AAirport />
+        <DDate>2012-06-23T00:00:00</DDate>
+        <TimePeriod>All</TimePeriod>
+      </SegmentInfo>
+    </SegmentInfos>
+    <Routings>
+      <Routing>
+        <DCode>SHA</DCode>
+        <ACode>HKG</ACode>
+        <DAirport>SHA</DAirport>
+        <AAirport>HKG</AAirport>
+        <Airline>FM</Airline>
+        <SeatClass>X</SeatClass>
+        <FlightNo>FM845</FlightNo>
+        <OperatorNo>FM</OperatorNo>
+        <SegmentInfoNo>1</SegmentInfoNo>
+        <No>1</No>
+      </Routing>
+    </Routings>
+  </FltIntlSearchFlightsRequest>
+</Request>

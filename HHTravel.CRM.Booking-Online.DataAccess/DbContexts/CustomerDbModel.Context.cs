@@ -16,27 +16,23 @@ namespace HHTravel.CRM.Booking_Online.DataAccess.DbContexts
 {
     public partial class CustomerDbEntities : DbEntitiesBase
     {
-        public CustomerDbEntities()
+        internal CustomerDbEntities()
             : base("name=CustomerDbEntities")
         {
         }
     
-        public CustomerDbEntities(string connectionString) : base(connectionString)
+        internal CustomerDbEntities(string connectionString) : base(connectionString)
     	{
     	
     	}
     
-    	public CustomerDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
+    	internal CustomerDbEntities(DbConnection existingConnection, bool contextOwnsConnection)
                 : base(existingConnection, contextOwnsConnection)
         {
         }
     
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            throw new UnintentionalCodeFirstException();
-        }
-    
         public DbSet<Customer> Customer { get; set; }
         public DbSet<SubNews> SubNews { get; set; }
+        public DbSet<Mkt_Html> Mkt_Html { get; set; }
     }
 }

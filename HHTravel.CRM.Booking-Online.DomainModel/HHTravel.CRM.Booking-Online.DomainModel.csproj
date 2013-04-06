@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HHTravel.CRM.Booking_Online.DomainModel</RootNamespace>
+    <AssemblyName>HHTravel.CRM.Booking-Online.DomainModel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GroundService.cs" />
+    <Compile Include="GroundServiceSegment.cs" />
+    <Compile Include="Passenger.cs" />
+    <Compile Include="SegmentBase.cs" />
+    <Compile Include="IPriceDate.cs" />
+    <Compile Include="PriceDate.cs" />
+    <Compile Include="RoomClass.cs" />
+    <Compile Include="DepartureMonth.cs" />
+    <Compile Include="DestinationGroup.cs" />
+    <Compile Include="DestinationRegion.cs" />
+    <Compile Include="EntityBase.cs" />
+    <Compile Include="Hotel.cs" />
+    <Compile Include="IAggregateRoot.cs" />
+    <Compile Include="Interest.cs" />
+    <Compile Include="Order.cs" />
+    <Compile Include="OrderItem.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Schedule.cs" />
+    <Compile Include="HotelSegment.cs" />
+    <Compile Include="Subscription.cs" />
+    <Compile Include="Ticket.cs" />
+    <Compile Include="TicketSegment.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DomainModel.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+      <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

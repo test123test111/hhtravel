@@ -1,0 +1,22 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.ProductModel
+@{
+    ViewBag.Title = "订购须知";
+    Layout = "~/Views/Shared/_LayoutPopup.cshtml";
+}
+<div class="header_warp" style="width: auto;">
+    <div class="order_warp" style="padding: 0 10px;">
+        <h5 class="order_tit">
+            订购须知</h5>
+        <div class="order_cont">
+            @Html.Raw(Model.OrderNotes)
+        </div>
+        <h5 class="order_tit">
+            费用包含</h5>
+        <div class="order_cont">
+            @Html.Raw(Model.CostNotes1)</div>
+        <h5 class="order_tit">
+            费用不包含</h5>
+        <div class="order_cont">
+            @Html.Raw(Model.CostNotes2)</div>
+    </div>
+</div>

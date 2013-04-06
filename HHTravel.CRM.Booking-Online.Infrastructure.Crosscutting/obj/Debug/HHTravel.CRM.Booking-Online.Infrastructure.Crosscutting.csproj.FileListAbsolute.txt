@@ -1,0 +1,10 @@
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csprojResolveAssemblyReference.cache
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csprojResolveAssemblyReference.cache
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\obj\Debug\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.pdb

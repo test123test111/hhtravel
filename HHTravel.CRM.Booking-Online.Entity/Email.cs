@@ -21,7 +21,7 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public string Cc { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-        public Nullable<bool> SendState { get; set; }
+        public bool SendState { get; set; }
         public short SendTimes { get; set; }
         public Nullable<System.DateTime> SendTime { get; set; }
         public string FailInfo { get; set; }

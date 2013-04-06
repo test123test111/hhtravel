@@ -1,0 +1,108 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.SecondLevelCacheModel
+@{
+    Layout = "_Layout.cshtml";
+}
+@section JS{
+    <script type="text/javascript">
+        $(function () {
+            var viewModel = {};
+            viewModel.key = ko.observable();
+            viewModel.column = ko.observable();
+            viewModel.row = ko.observable();
+            viewModel.items = ko.observableArray();
+            viewModel.queryUrl = ko.computed(function () {
+                var url = '@Url.Action("jSecondLevelCache")?key=' + this.key()
+                + '&column=' + (this.column() ? this.column() : '')
+                + '&row=' + (this.row() ? this.row() : '');
+                return url;
+            }, viewModel);
+            viewModel.query = function () {
+                $.getJSON(viewModel.queryUrl(), function (r) {
+                    viewModel.items.removeAll();
+                    $.each(r, function (i, v) {
+                        viewModel.items.push(v);
+                    });
+                });
+            };
+            ko.applyBindings(viewModel);
+        });
+
+        function parseDate(jsonedDateTime) {
+            if (typeof (jsonedDateTime) != "string") return;
+            if (jsonedDateTime.indexOf("Date") < 0) return;
+            var val = parseInt(jsonedDateTime.substr(6));
+            if (val) {
+                var date = new Date(val);
+                var curr_date = date.getDate();
+                var curr_month = date.getMonth() + 1;
+                var curr_year = date.getFullYear();
+                date = curr_year + "-" + curr_month + "-" + curr_date;
+            }
+            return date;
+        }
+
+        function cast(obj) {
+            if (typeof (obj) == "string") {
+                var d = parseDate(String(obj));
+                obj = d ? d : obj.substr(0, 10);
+            }
+            return obj;
+        }
+    </script>
+    <script type="html/text" id="column-tmpl">
+       <th data-bind="text: $data"></th>
+    </script>
+    <script type="html/text" id="row-tmpl">
+       <td><span data-bind="text: cast($data), attr: {title: $data}"></span></td>
+    </script>
+}
+<fieldset>
+    <legend>Statistics</legend>
+    <div class="display-label">
+        CacheHits</div>
+    <div class="display-field">@Model.CacheHits</div>
+    <div class="display-label">
+        CacheMisses</div>
+    <div class="display-field">@Model.CacheMisses</div>
+    <div class="display-label">
+        CacheAdds</div>
+    <div class="display-field">@Model.CacheAdds</div>
+</fieldset>
+<form class="form-inline">
+<fieldset>
+    <legend>Query(模糊匹配)</legend>
+    <div class="control-group">
+        <div class="controls">
+            <input type="text" placeholder="Key" data-bind="value: key" />
+            <input type="text" placeholder="Column" data-bind="value: column" />
+            <input type="text" placeholder="Row" data-bind="value: row" />
+            <button type="button" class="btn" data-bind="click: query">
+                提交</button>
+        </div>
+    </div>
+</fieldset>
+</form>
+<div data-bind="foreach: items">
+    Key: <b data-bind="text: Key"></b>
+    <!-- ko if: (Value && Value.Rows) -->
+    Rows Count: <b data-bind="text: Value.Rows.length"></b>
+    <!-- /ko -->
+    <br />
+    SQL: <b data-bind="text: SQL"></b>
+    <br />
+    <!-- ko if: (Value && Value.ColumnNames) -->
+    <div style="overflow: auto; width: 1050px;">
+        <table class="table-bordered table-striped">
+            <tr data-bind="template: { name: 'row-tmpl', foreach: Value.ColumnNames}">
+            </tr>
+            <tbody data-bind="foreach: Value.Rows">
+                <tr data-bind="template: { name: 'row-tmpl', foreach: $data}">
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- /ko -->
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -24,10 +24,12 @@
           <EntitySet Name="Picture" EntityType="ProductDbModel.Store.Picture" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product" EntityType="ProductDbModel.Store.Product" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Attach_Product" EntityType="ProductDbModel.Store.Product_Attach_Product" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product_AttachPrice_Cache" EntityType="ProductDbModel.Store.Product_AttachPrice_Cache" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Flight" EntityType="ProductDbModel.Store.Product_Flight" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Info" EntityType="ProductDbModel.Store.Product_Info" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_NoDeparture" EntityType="ProductDbModel.Store.Product_NoDeparture" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Price" EntityType="ProductDbModel.Store.Product_Price" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Product_Price_Cache" EntityType="ProductDbModel.Store.Product_Price_Cache" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Property" EntityType="ProductDbModel.Store.Product_Property" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Schedule" EntityType="ProductDbModel.Store.Product_Schedule" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Product_Schedule_Detail" EntityType="ProductDbModel.Store.Product_Schedule_Detail" store:Type="Tables" Schema="dbo" />
@@ -267,10 +269,11 @@
           <Property Name="ProductName" Type="varchar" Nullable="false" MaxLength="100" />
           <Property Name="ProductType" Type="smallint" />
           <Property Name="TripType" Type="smallint" />
+          <Property Name="TripClass" Type="smallint" />
           <Property Name="ResourceType" Type="smallint" />
-          <Property Name="ProductDesc" Type="varchar" MaxLength="1000" />
-          <Property Name="ProductFeature" Type="varchar" MaxLength="1000" />
-          <Property Name="ProductNote" Type="varchar" MaxLength="1000" />
+          <Property Name="ProductDesc" Type="varchar" MaxLength="4000" />
+          <Property Name="ProductFeature" Type="varchar" MaxLength="4000" />
+          <Property Name="ProductNote" Type="varchar" MaxLength="4000" />
           <Property Name="Language" Type="smallint" />
           <Property Name="Destination1" Type="varchar" MaxLength="20" />
           <Property Name="Destination2" Type="varchar" MaxLength="20" />
@@ -279,18 +282,25 @@
           <Property Name="DestProvince" Type="varchar" MaxLength="20" />
           <Property Name="DestCountry" Type="varchar" MaxLength="20" />
           <Property Name="IsBackCash" Type="bit" />
+          <Property Name="Recommend" Type="bit" />
+          <Property Name="AdvanceTripDays" Type="smallint" />
           <Property Name="TripDays" Type="smallint" />
+          <Property Name="MaxTripDays" Type="smallint" />
+          <Property Name="ExtendTripDays" Type="smallint" />
           <Property Name="MinPersonNum" Type="smallint" />
           <Property Name="MaxPersonNum" Type="smallint" />
           <Property Name="MinLodgingDays" Type="smallint" />
           <Property Name="AdvanceDays" Type="smallint" />
+          <Property Name="Unit" Type="varchar" MaxLength="20" />
+          <Property Name="MinPrice" Type="int" />
           <Property Name="EffectDate" Type="date" />
           <Property Name="ExpireDate" Type="date" />
           <Property Name="SetOffDays" Type="varchar" MaxLength="500" />
           <Property Name="ServiceDays" Type="varchar" MaxLength="500" />
           <Property Name="SaleDesc" Type="varchar" MaxLength="500" />
           <Property Name="Weight" Type="int" />
-          <Property Name="Manager" Type="varchar" MaxLength="20" />
+          <Property Name="Manager" Type="varchar" MaxLength="50" />
+          <Property Name="AllowChild" Type="bit" />
           <Property Name="IsUp" Type="bit" />
           <Property Name="IsValid" Type="bit" />
           <Property Name="Link" Type="varchar" MaxLength="200" />
@@ -310,9 +320,30 @@
           <Property Name="ItemProductId" Type="int" Nullable="false" />
           <Property Name="ItemProductSpecId" Type="int" />
           <Property Name="SectionId" Type="int" />
+          <Property Name="SeqNo" Type="smallint" />
           <Property Name="OptionType" Type="smallint" />
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Product_AttachPrice_Cache">
+          <Key>
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="PriceDate" />
+            <PropertyRef Name="CacheHour" />
+            <PropertyRef Name="SectionID" />
+            <PropertyRef Name="ResourceType" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="PriceDate" Type="date" Nullable="false" />
+          <Property Name="CacheHour" Type="smallint" Nullable="false" />
+          <Property Name="SectionID" Type="int" Nullable="false" />
+          <Property Name="ResourceType" Type="smallint" Nullable="false" />
+          <Property Name="OptionType" Type="smallint" />
+          <Property Name="MinQty" Type="smallint" />
+          <Property Name="MinSinglePrice" Type="int" />
+          <Property Name="MinSinglePriceChild" Type="int" />
+          <Property Name="MinPrice" Type="int" Nullable="false" />
+          <Property Name="MinPriceChild" Type="int" />
         </EntityType>
         <EntityType Name="Product_Flight">
           <Key>
@@ -375,6 +406,24 @@
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" />
         </EntityType>
+        <EntityType Name="Product_Price_Cache">
+          <Key>
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="PriceDate" />
+            <PropertyRef Name="CacheHour" />
+          </Key>
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="PriceDate" Type="date" Nullable="false" />
+          <Property Name="CacheHour" Type="smallint" Nullable="false" />
+          <Property Name="MinBasePrice" Type="int" />
+          <Property Name="MinBasePriceChild" Type="int" />
+          <Property Name="MinAttachPrice" Type="int" />
+          <Property Name="MinAttachPriceChild" Type="int" />
+          <Property Name="MinPrice" Type="int" Nullable="false" />
+          <Property Name="MinPriceChild" Type="int" />
+          <Property Name="MinPersonNum" Type="smallint" />
+          <Property Name="IsComplete" Type="bit" />
+        </EntityType>
         <EntityType Name="Product_Property">
           <Key>
             <PropertyRef Name="ProdPropId" />
@@ -393,6 +442,7 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="DayNo" Type="smallint" Nullable="false" />
           <Property Name="Title" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="SectionId" Type="int" />
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" />
         </EntityType>
@@ -405,7 +455,7 @@
           <Property Name="ScheduleId" Type="int" Nullable="false" />
           <Property Name="ScheduleType" Type="varchar" Nullable="false" MaxLength="20" />
           <Property Name="TakeOffTime" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Description" Type="varchar" Nullable="false" MaxLength="500" />
+          <Property Name="Description" Type="varchar" Nullable="false" />
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" />
         </EntityType>
@@ -419,6 +469,22 @@
           <Property Name="SectionName" Type="varchar" Nullable="false" MaxLength="50" />
           <Property Name="SectionDesc" Type="varchar" MaxLength="500" />
           <Property Name="SectionType" Type="varchar" MaxLength="50" />
+          <Property Name="StartCity" Type="varchar" MaxLength="50" />
+          <Property Name="DestCity" Type="varchar" MaxLength="50" />
+          <Property Name="StartCityCode" Type="varchar" MaxLength="10" />
+          <Property Name="DestCityCode" Type="varchar" MaxLength="10" />
+          <Property Name="MinLodgingDays" Type="smallint" />
+          <Property Name="MinStayDays" Type="smallint" />
+          <Property Name="MaxStayDays" Type="smallint" />
+          <Property Name="UseCtripFlight" Type="bit" />
+          <Property Name="DepartureAdjust" Type="smallint" />
+          <Property Name="IsDirectFlight" Type="bit" />
+          <Property Name="AirfareEarliestTime" Type="time" Precision="0" />
+          <Property Name="AirfareLatestTime" Type="time" Precision="0" />
+          <Property Name="IncludeAirline" Type="varchar" MaxLength="100" />
+          <Property Name="ExcludeAirline" Type="varchar" MaxLength="100" />
+          <Property Name="IncludeFlight" Type="varchar" MaxLength="100" />
+          <Property Name="ExcludeFlight" Type="varchar" MaxLength="100" />
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" />
         </EntityType>
@@ -428,13 +494,14 @@
           </Key>
           <Property Name="SpecId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ProductId" Type="int" />
-          <Property Name="SpecName" Type="varchar" MaxLength="50" />
+          <Property Name="SpecName" Type="varchar" MaxLength="100" />
           <Property Name="SpecRank" Type="varchar" MaxLength="50" />
           <Property Name="SpecType" Type="varchar" MaxLength="50" />
           <Property Name="SpecClass" Type="varchar" MaxLength="50" />
           <Property Name="SpecNote" Type="varchar" MaxLength="50" />
           <Property Name="SpecDesc" Type="varchar" MaxLength="500" />
           <Property Name="MinPersonNum" Type="smallint" />
+          <Property Name="MinGroupNum" Type="smallint" />
           <Property Name="MaxPersonNum" Type="smallint" />
           <Property Name="Remark" Type="varchar" MaxLength="100" />
           <Property Name="SeqNo" Type="smallint" />
@@ -485,8 +552,8 @@
           <Property Name="SEOObjectId" Type="int" Nullable="false" />
           <Property Name="SEOLanguage" Type="smallint" />
           <Property Name="SEOTitle" Type="varchar" MaxLength="200" />
-          <Property Name="SEOKeyword" Type="varchar" MaxLength="200" />
-          <Property Name="SEODescription" Type="varchar" MaxLength="200" />
+          <Property Name="SEOKeyword" Type="varchar" MaxLength="500" />
+          <Property Name="SEODescription" Type="varchar" MaxLength="500" />
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" />
         </EntityType>
@@ -533,6 +600,8 @@
             <End Role="Product" EntitySet="Product" />
             <End Role="Product_Price" EntitySet="Product_Price" />
           </AssociationSet>
+          <EntitySet Name="Product_AttachPrice_Cache" EntityType="ProductDbModel.Product_AttachPrice_Cache" />
+          <EntitySet Name="Product_Price_Cache" EntityType="ProductDbModel.Product_Price_Cache" />
         </EntityContainer>
         <EntityType Name="Area_City">
           <Key>
@@ -799,6 +868,12 @@
           <NavigationProperty Name="Product_NoDeparture" Relationship="ProductDbModel.Product_NoDepartureProduct" FromRole="Product" ToRole="Product_NoDeparture" />
           <NavigationProperty Name="Product_Price" Relationship="ProductDbModel.ProductProduct_Price" FromRole="Product" ToRole="Product_Price" />
           <Property Type="Boolean" Name="IsBackCash" />
+          <Property Type="Boolean" Name="Recommend" />
+          <Property Type="Boolean" Name="AllowChild" />
+          <Property Type="Int16" Name="TripClass" />
+          <Property Type="Int16" Name="AdvanceTripDays" />
+          <Property Type="Int16" Name="MaxTripDays" />
+          <Property Type="Int16" Name="ExtendTripDays" />
         </EntityType>
         <EntityType Name="Product_Flight">
           <Key>
@@ -881,6 +956,7 @@
           <Property Type="String" Name="Title" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="LastModifyTime" />
+          <Property Type="Int32" Name="SectionId" />
         </EntityType>
         <EntityType Name="Product_Schedule_Detail">
           <Key>
@@ -907,6 +983,22 @@
           <Property Type="String" Name="SectionType" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="LastModifyTime" />
+          <Property Type="Int16" Name="MinLodgingDays" />
+          <Property Type="Int16" Name="MinStayDays" />
+          <Property Type="Int16" Name="MaxStayDays" />
+          <Property Type="String" Name="StartCity" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DestCity" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="StartCityCode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="DestCityCode" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Boolean" Name="UseCtripFlight" />
+          <Property Type="Boolean" Name="IsDirectFlight" />
+          <Property Type="Time" Name="AirfareEarliestTime" />
+          <Property Type="Time" Name="AirfareLatestTime" />
+          <Property Type="String" Name="IncludeAirline" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExcludeAirline" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="IncludeFlight" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ExcludeFlight" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="DepartureAdjust" />
         </EntityType>
         <EntityType Name="Product_Spec">
           <Key>
@@ -927,6 +1019,7 @@
           <Property Type="String" Name="SpecNote" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="Int16" Name="MinPersonNum" />
           <Property Type="Int16" Name="MaxPersonNum" />
+          <Property Type="Int16" Name="MinGroupNum" />
         </EntityType>
         <EntityType Name="Product_Stock">
           <Key>
@@ -988,6 +1081,7 @@
           <Property Type="Int16" Name="OptionType" />
           <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="DateTime" Name="LastModifyTime" />
+          <Property Type="Int16" Name="SeqNo" />
         </EntityType>
         <Association Name="Product_NoDepartureProduct">
           <End Type="ProductDbModel.Product_NoDeparture" Role="Product_NoDeparture" Multiplicity="*" />
@@ -1013,6 +1107,44 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Product_AttachPrice_Cache">
+          <Key>
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="PriceDate" />
+            <PropertyRef Name="CacheHour" />
+            <PropertyRef Name="SectionID" />
+            <PropertyRef Name="ResourceType" />
+          </Key>
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="false" />
+          <Property Type="Int16" Name="CacheHour" Nullable="false" />
+          <Property Type="Int32" Name="SectionID" Nullable="false" />
+          <Property Type="Int16" Name="ResourceType" Nullable="false" />
+          <Property Type="Int16" Name="MinQty" />
+          <Property Type="Int32" Name="MinSinglePrice" />
+          <Property Type="Int32" Name="MinPrice" Nullable="false" />
+          <Property Type="Int32" Name="MinSinglePriceChild" />
+          <Property Type="Int32" Name="MinPriceChild" />
+          <Property Type="Int16" Name="OptionType" />
+        </EntityType>
+        <EntityType Name="Product_Price_Cache">
+          <Key>
+            <PropertyRef Name="ProductId" />
+            <PropertyRef Name="PriceDate" />
+            <PropertyRef Name="CacheHour" />
+          </Key>
+          <Property Type="Int32" Name="ProductId" Nullable="false" />
+          <Property Type="DateTime" Name="PriceDate" Nullable="false" />
+          <Property Type="Int16" Name="CacheHour" Nullable="false" />
+          <Property Type="Int32" Name="MinBasePrice" />
+          <Property Type="Int32" Name="MinAttachPrice" />
+          <Property Type="Int32" Name="MinPrice" Nullable="false" />
+          <Property Type="Boolean" Name="IsComplete" />
+          <Property Type="Int32" Name="MinBasePriceChild" />
+          <Property Type="Int32" Name="MinAttachPriceChild" />
+          <Property Type="Int32" Name="MinPriceChild" />
+          <Property Type="Int16" Name="MinPersonNum" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1259,6 +1391,12 @@
           <EntitySetMapping Name="Product">
             <EntityTypeMapping TypeName="ProductDbModel.Product">
               <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="ExtendTripDays" ColumnName="ExtendTripDays" />
+                <ScalarProperty Name="MaxTripDays" ColumnName="MaxTripDays" />
+                <ScalarProperty Name="AdvanceTripDays" ColumnName="AdvanceTripDays" />
+                <ScalarProperty Name="TripClass" ColumnName="TripClass" />
+                <ScalarProperty Name="AllowChild" ColumnName="AllowChild" />
+                <ScalarProperty Name="Recommend" ColumnName="Recommend" />
                 <ScalarProperty Name="IsBackCash" ColumnName="IsBackCash" />
                 <ScalarProperty Name="Manager" ColumnName="Manager" />
                 <ScalarProperty Name="MinLodgingDays" ColumnName="MinLodgingDays" />
@@ -1379,6 +1517,7 @@
           <EntitySetMapping Name="Product_Schedule">
             <EntityTypeMapping TypeName="ProductDbModel.Product_Schedule">
               <MappingFragment StoreEntitySet="Product_Schedule">
+                <ScalarProperty Name="SectionId" ColumnName="SectionId" />
                 <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
                 <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1405,6 +1544,22 @@
           <EntitySetMapping Name="Product_Section">
             <EntityTypeMapping TypeName="ProductDbModel.Product_Section">
               <MappingFragment StoreEntitySet="Product_Section">
+                <ScalarProperty Name="DepartureAdjust" ColumnName="DepartureAdjust" />
+                <ScalarProperty Name="ExcludeFlight" ColumnName="ExcludeFlight" />
+                <ScalarProperty Name="IncludeFlight" ColumnName="IncludeFlight" />
+                <ScalarProperty Name="ExcludeAirline" ColumnName="ExcludeAirline" />
+                <ScalarProperty Name="IncludeAirline" ColumnName="IncludeAirline" />
+                <ScalarProperty Name="AirfareLatestTime" ColumnName="AirfareLatestTime" />
+                <ScalarProperty Name="AirfareEarliestTime" ColumnName="AirfareEarliestTime" />
+                <ScalarProperty Name="IsDirectFlight" ColumnName="IsDirectFlight" />
+                <ScalarProperty Name="UseCtripFlight" ColumnName="UseCtripFlight" />
+                <ScalarProperty Name="DestCityCode" ColumnName="DestCityCode" />
+                <ScalarProperty Name="StartCityCode" ColumnName="StartCityCode" />
+                <ScalarProperty Name="DestCity" ColumnName="DestCity" />
+                <ScalarProperty Name="StartCity" ColumnName="StartCity" />
+                <ScalarProperty Name="MaxStayDays" ColumnName="MaxStayDays" />
+                <ScalarProperty Name="MinStayDays" ColumnName="MinStayDays" />
+                <ScalarProperty Name="MinLodgingDays" ColumnName="MinLodgingDays" />
                 <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
                 <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
                 <ScalarProperty Name="SectionType" ColumnName="SectionType" />
@@ -1419,6 +1574,7 @@
           <EntitySetMapping Name="Product_Spec">
             <EntityTypeMapping TypeName="ProductDbModel.Product_Spec">
               <MappingFragment StoreEntitySet="Product_Spec">
+                <ScalarProperty Name="MinGroupNum" ColumnName="MinGroupNum" />
                 <ScalarProperty Name="MaxPersonNum" ColumnName="MaxPersonNum" />
                 <ScalarProperty Name="MinPersonNum" ColumnName="MinPersonNum" />
                 <ScalarProperty Name="SpecNote" ColumnName="SpecNote" />
@@ -1491,6 +1647,7 @@
           <EntitySetMapping Name="Product_Attach_Product">
             <EntityTypeMapping TypeName="ProductDbModel.Product_Attach_Product">
               <MappingFragment StoreEntitySet="Product_Attach_Product">
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
                 <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
                 <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
                 <ScalarProperty Name="OptionType" ColumnName="OptionType" />
@@ -1499,6 +1656,40 @@
                 <ScalarProperty Name="ItemProductId" ColumnName="ItemProductId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
                 <ScalarProperty Name="ItemId" ColumnName="ItemId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_AttachPrice_Cache">
+            <EntityTypeMapping TypeName="ProductDbModel.Product_AttachPrice_Cache">
+              <MappingFragment StoreEntitySet="Product_AttachPrice_Cache">
+                <ScalarProperty Name="OptionType" ColumnName="OptionType" />
+                <ScalarProperty Name="MinPriceChild" ColumnName="MinPriceChild" />
+                <ScalarProperty Name="MinSinglePriceChild" ColumnName="MinSinglePriceChild" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MinSinglePrice" ColumnName="MinSinglePrice" />
+                <ScalarProperty Name="MinQty" ColumnName="MinQty" />
+                <ScalarProperty Name="ResourceType" ColumnName="ResourceType" />
+                <ScalarProperty Name="SectionID" ColumnName="SectionID" />
+                <ScalarProperty Name="CacheHour" ColumnName="CacheHour" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product_Price_Cache">
+            <EntityTypeMapping TypeName="ProductDbModel.Product_Price_Cache">
+              <MappingFragment StoreEntitySet="Product_Price_Cache">
+                <ScalarProperty Name="MinPersonNum" ColumnName="MinPersonNum" />
+                <ScalarProperty Name="MinPriceChild" ColumnName="MinPriceChild" />
+                <ScalarProperty Name="MinAttachPriceChild" ColumnName="MinAttachPriceChild" />
+                <ScalarProperty Name="MinBasePriceChild" ColumnName="MinBasePriceChild" />
+                <ScalarProperty Name="IsComplete" ColumnName="IsComplete" />
+                <ScalarProperty Name="MinPrice" ColumnName="MinPrice" />
+                <ScalarProperty Name="MinAttachPrice" ColumnName="MinAttachPrice" />
+                <ScalarProperty Name="MinBasePrice" ColumnName="MinBasePrice" />
+                <ScalarProperty Name="CacheHour" ColumnName="CacheHour" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1523,50 +1714,47 @@
     </Options>
     <!-- Diagram content (shape and connector positions) -->
     <Diagrams>
-      <Diagram Name="ProductDbModel">
-        <EntityTypeShape EntityType="ProductDbModel.Area_City" Width="1.875" PointX="0.75" PointY="0.75" Height="3.1161507161458246" />
-        <EntityTypeShape EntityType="ProductDbModel.Area_CityLandmark" Width="1.875" PointX="3.75" PointY="0.75" Height="3.6892097981770746" />
-        <EntityTypeShape EntityType="ProductDbModel.Area_Continent" Width="1.875" PointX="0.75" PointY="5.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="ProductDbModel.Area_Country" Width="1.875" PointX="3.75" PointY="5.75" Height="3.4981901041666674" />
-        <EntityTypeShape EntityType="ProductDbModel.Area_Province" Width="1.875" PointX="6.75" PointY="0.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="ProductDbModel.Base_Holiday" Width="1.875" PointX="6.75" PointY="4.75" Height="2.7341113281249818" />
-        <EntityTypeShape EntityType="ProductDbModel.Base_IDcardType" Width="1.875" PointX="6.75" PointY="8.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="ProductDbModel.Base_IP" Width="1.875" PointX="9.75" PointY="0.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="ProductDbModel.Base_MPCode" Width="1.875" PointX="9.75" PointY="3.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="ProductDbModel.Base_ZipCode" Width="1.875" PointX="9.75" PointY="7.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="ProductDbModel.Fin_Bank" Width="1.875" PointX="0.75" PointY="10.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="ProductDbModel.Fin_CurrencyISO" Width="1.875" PointX="9.75" PointY="10.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="ProductDbModel.Flt_AirLine" Width="1.875" PointX="3.75" PointY="11.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="ProductDbModel.Flt_Airport" Width="1.875" PointX="12.75" PointY="0.75" Height="2.9251310221354174" />
-        <EntityTypeShape EntityType="ProductDbModel.Flt_CraftType" Width="1.875" PointX="12.75" PointY="4.75" Height="3.1161507161458246" />
-        <EntityTypeShape EntityType="ProductDbModel.Picture" Width="1.875" PointX="12.75" PointY="8.75" Height="2.7341113281249996" />
-        <EntityTypeShape EntityType="ProductDbModel.Product" Width="1.875" PointX="12.75" PointY="12.75" Height="8.0826627604166674" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Flight" Width="1.875" PointX="6.75" PointY="14.75" Height="4.0712491861979174" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Info" Width="1.875" PointX="15.75" PointY="0.75" Height="2.1610522460937318" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_NoDeparture" Width="1.875" PointX="0.75" PointY="15.75" Height="1.9700325520833353" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Price" Width="1.875" PointX="15.75" PointY="3.75" Height="3.6892097981770826" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Property" Width="1.875" PointX="15.75" PointY="8.75" Height="1.9700325520833246" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Schedule" Width="1.875" PointX="15.75" PointY="11.75" Height="2.1610522460937318" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Schedule_Detail" Width="1.875" PointX="15.75" PointY="14.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Section" Width="1.875" PointX="18.75" PointY="0.75" Height="2.5430916341145746" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Spec" Width="1.875" PointX="0.75" PointY="18.75" Height="3.4981901041666674" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Stock" Width="1.875" PointX="18.75" PointY="4.75" Height="2.3520719401041674" />
-        <EntityTypeShape EntityType="ProductDbModel.Property" Width="1.875" PointX="18.75" PointY="8.75" Height="4.2622688802083246" />
-        <EntityTypeShape EntityType="ProductDbModel.SEO" Width="1.875" PointX="18.75" PointY="14.75" Height="2.7341113281249818" />
-        <EntityTypeShape EntityType="ProductDbModel.Product_Attach_Product" Width="1.5" PointX="9.75" PointY="14.75" Height="2.5430916341145746" />
+      <Diagram Name="ProductDbModel" ShowGrid="true" ZoomLevel="60">
+        <EntityTypeShape EntityType="ProductDbModel.Area_City" Width="1.875" PointX="8.75" PointY="0.75" Height="3.1161507161458246" />
+        <EntityTypeShape EntityType="ProductDbModel.Area_CityLandmark" Width="1.875" PointX="8.75" PointY="4.75" Height="3.6892097981770746" />
+        <EntityTypeShape EntityType="ProductDbModel.Area_Continent" Width="1.875" PointX="5.75" PointY="9.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="ProductDbModel.Area_Country" Width="1.875" PointX="8.75" PointY="9.75" Height="3.4981901041666674" />
+        <EntityTypeShape EntityType="ProductDbModel.Area_Province" Width="1.875" PointX="0.75" PointY="10.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="ProductDbModel.Base_Holiday" Width="1.875" PointX="11.75" PointY="0.75" Height="2.7341113281249818" />
+        <EntityTypeShape EntityType="ProductDbModel.Base_IDcardType" Width="1.875" PointX="11.75" PointY="4.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="ProductDbModel.Base_IP" Width="1.875" PointX="11.75" PointY="7.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="ProductDbModel.Base_MPCode" Width="1.875" PointX="11.75" PointY="10.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="ProductDbModel.Base_ZipCode" Width="1.875" PointX="3.75" PointY="13.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="ProductDbModel.Fin_Bank" Width="1.875" PointX="14.75" PointY="0.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="ProductDbModel.Fin_CurrencyISO" Width="1.875" PointX="14.75" PointY="4.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="ProductDbModel.Flt_AirLine" Width="1.875" PointX="6.75" PointY="14.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="ProductDbModel.Flt_Airport" Width="1.875" PointX="14.75" PointY="8.75" Height="2.9251310221354174" />
+        <EntityTypeShape EntityType="ProductDbModel.Flt_CraftType" Width="1.875" PointX="9.75" PointY="14.75" Height="3.1161507161458246" />
+        <EntityTypeShape EntityType="ProductDbModel.Picture" Width="1.875" PointX="14.75" PointY="12.75" Height="2.7341113281249996" />
+        <EntityTypeShape EntityType="ProductDbModel.Product" Width="1.875" PointX="3.375" PointY="1.25" Height="9.8018400065104156" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Flight" Width="1.875" PointX="0.75" PointY="16.75" Height="4.0712491861979174" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Info" Width="1.875" PointX="12.75" PointY="16.75" Height="2.1610522460937318" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_NoDeparture" Width="1.875" PointX="0.75" PointY="4.625" Height="1.9700325520833371" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Price" Width="1.875" PointX="6" PointY="3.75" Height="3.6892097981770817" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Property" Width="1.875" PointX="15.75" PointY="16.75" Height="1.9700325520833246" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Schedule" Width="1.875" PointX="17.75" PointY="0.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Schedule_Detail" Width="1.875" PointX="17.75" PointY="4.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Section" Width="1.875" PointX="17.75" PointY="8.75" Height="3.4981901041666674" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Spec" Width="1.875" PointX="3.75" PointY="18.75" Height="3.8802294921875031" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Stock" Width="1.875" PointX="6.75" PointY="18.75" Height="2.3520719401041674" />
+        <EntityTypeShape EntityType="ProductDbModel.Property" Width="1.875" PointX="18.75" PointY="13.75" Height="4.2622688802083246" />
+        <EntityTypeShape EntityType="ProductDbModel.SEO" Width="1.875" PointX="9.75" PointY="19.75" Height="2.7341113281249818" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Attach_Product" Width="2.125" PointX="12.75" PointY="19.75" Height="2.7341113281250031" />
         <AssociationConnector Association="ProductDbModel.Product_NoDepartureProduct">
-          <ConnectorPoint PointX="2.625" PointY="17.720032552083335" />
-          <ConnectorPoint PointX="3" PointY="18.095032552083335" />
-          <ConnectorPoint PointX="3" PointY="21.398682454427082" />
-          <ConnectorPoint PointX="12.375" PointY="21.398682454427082" />
-          <ConnectorPoint PointX="12.75" PointY="21.023682454427082" />
+          <ConnectorPoint PointX="2.625" PointY="5.6100162760416685" />
+          <ConnectorPoint PointX="3.375" PointY="5.6100162760416685" />
         </AssociationConnector>
         <AssociationConnector Association="ProductDbModel.ProductProduct_Price">
-          <ConnectorPoint PointX="14.625" PointY="12.75" />
-          <ConnectorPoint PointX="15" PointY="12.375" />
-          <ConnectorPoint PointX="15" PointY="5.5946048990885409" />
-          <ConnectorPoint PointX="15.75" PointY="5.5946048990885409" />
+          <ConnectorPoint PointX="5.25" PointY="5.5946048990885409" />
+          <ConnectorPoint PointX="6" PointY="5.5946048990885409" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="ProductDbModel.Product_AttachPrice_Cache" Width="2.5" PointX="15.75" PointY="19.75" Height="2.5430916341145746" />
+        <EntityTypeShape EntityType="ProductDbModel.Product_Price_Cache" Width="2.25" PointX="18.75" PointY="19.75" Height="2.3520719401041674" />
       </Diagram>
     </Diagrams>
   </Designer>

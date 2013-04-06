@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{25A021DD-BF8C-4E35-81B6-728085041CFF}</ProjectGuid>
+    <ProjectGuid>{8ABB78F9-B800-4C3B-BAD7-60DC7EB3C6D4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HHTravel.CRM.Booking_Online.Entity</RootNamespace>
@@ -103,10 +103,14 @@
     <Compile Include="Flt_CraftType.cs">
       <DependentUpon>ProductDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="GovDbModel.cs">
       <DependentUpon>GovDbModel.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Mkt_Html.cs">
+      <DependentUpon>CustomerDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="OrderDbModel.cs">
       <DependentUpon>OrderDbModel.tt</DependentUpon>
@@ -116,7 +120,13 @@
     <Compile Include="Orders.cs">
       <DependentUpon>OrderDbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Orders_Passenger.cs">
+      <DependentUpon>OrderDbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Orders_Product.cs">
+      <DependentUpon>OrderDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders_Temp.cs">
       <DependentUpon>OrderDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Picture.cs">
@@ -129,6 +139,10 @@
       <DependentUpon>ProductDbModel.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ProductWrapper.cs" />
+    <Compile Include="Product_AttachPrice_Cache.cs">
+      <DependentUpon>ProductDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product_Attach_Product.cs">
       <DependentUpon>ProductDbModel.tt</DependentUpon>
@@ -143,6 +157,9 @@
       <DependentUpon>ProductDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product_Price.cs">
+      <DependentUpon>ProductDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_Price_Cache.cs">
       <DependentUpon>ProductDbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product_Property.cs">

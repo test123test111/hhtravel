@@ -41,25 +41,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFCachingProvider.dll</HintPath>
     </Reference>
-    <Reference Include="EFProviderWrapperToolkit">
-      <HintPath>..\..\..\..\packages\CommunityEFProviderWrappers.EFProviderWrapperToolkit.1.0.0\lib\net40-Client\EFProviderWrapperToolkit.dll</HintPath>
+    <Reference Include="EFProviderWrapperToolkit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=def642f226e0e59b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFProviderWrapperToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="EFTracingProvider">
-      <HintPath>..\..\..\..\packages\CommunityEFProviderWrappers.EFTracingProvider.1.0.0\lib\net40-Client\EFTracingProvider.dll</HintPath>
+    <Reference Include="EFTracingProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=def642f226e0e59b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFTracingProvider.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
-      <HintPath>..\..\..\..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Practices.Unity.Configuration">
-      <HintPath>..\..\..\..\packages\Unity.2.1.505.2\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.LoadTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -78,22 +78,12 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TableWorkerTest\OrdersProductTableWorkerTest.cs" />
-    <Compile Include="TableWorkerTest\CustomerTableWorkerTest.cs" />
+    <Compile Include="OrderProductsProviderTest.cs" />
+    <Compile Include="CustomersProviderTest.cs" />
     <Compile Include="DbContextFactoryTest.cs" />
-    <Compile Include="TableWorkerTest\OrdersTableWorkerTest.cs" />
-    <Compile Include="RepositoryTest\OrderRepositoryTest.cs" />
-    <Compile Include="RepositoryTest\DepartureMonthRepositoryTest.cs" />
-    <Compile Include="RepositoryTest\DestinationGroupRepositoryTest.cs" />
-    <Compile Include="RepositoryTest\InterestRepositoryTest.cs" />
-    <Compile Include="RepositoryTest\Mock\MockHelperTest.cs" />
-    <Compile Include="RepositoryTest\ProductRepositoryTest.cs" />
+    <Compile Include="OrdersProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RepositoryTest\SiteConfigRepositoryTest.cs" />
-    <Compile Include="RepositoryTest\SubscriptionRepositoryTest.cs" />
-    <Compile Include="RepositoryTest\Mock\ProductRepositoryMockTest.cs" />
-    <Compile Include="TableWorkerTest\PropertyTableWorkerTest.cs" />
-    <Compile Include="RepositoryTest\RepositoryTestBase.cs" />
+    <Compile Include="PropertiesProviderTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Shadow Include="Test References\HHTravel.CRM.Booking-Online.DataAccess.accessor" />
@@ -103,10 +93,6 @@
       <Project>{30A7B2FD-6A5A-4C04-9DD4-0A02FD80E203}</Project>
       <Name>HHTravel.Base.Common.Framework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\..\HHTravel.Base\HHTravel.Base.Common\HHTravel.Base.Common.Web\HHTravel.Base.Common.Web.csproj">
-      <Project>{3672E4F5-B123-48D2-A2B5-C34C37F43350}</Project>
-      <Name>HHTravel.Base.Common.Web</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.DataAccess\HHTravel.CRM.Booking-Online.DataAccess.csproj">
       <Project>{2811D388-AD77-4630-B1FD-D329F7666D55}</Project>
       <Name>HHTravel.CRM.Booking-Online.DataAccess</Name>
@@ -115,13 +101,21 @@
       <Project>{25A021DD-BF8C-4E35-81B6-728085041CFF}</Project>
       <Name>HHTravel.CRM.Booking-Online.Entity</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+      <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Infrastructure\HHTravel.CRM.Booking-Online.Infrastructure.csproj">
+      <Project>{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.IRepository\HHTravel.CRM.Booking-Online.IRepository.csproj">
       <Project>{7A666EBC-4E0D-43AE-8914-909592655561}</Project>
       <Name>HHTravel.CRM.Booking-Online.IRepository</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Model\HHTravel.CRM.Booking-Online.Model.csproj">
-      <Project>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Model</Name>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Repository\HHTravel.CRM.Booking-Online.Repository.csproj">
+      <Project>{59B0D0BD-9508-40D5-B9AE-E5D39B7D6EE9}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Repository</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

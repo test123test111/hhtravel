@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using HHTravel.CRM.Booking_Online.Model;
+using HHTravel.CRM.Booking_Online.DomainModel;
 
 namespace HHTravel.CRM.Booking_Online.IRepository
 {
@@ -13,6 +13,6 @@ namespace HHTravel.CRM.Booking_Online.IRepository
         /// </summary>
         /// <param name="order"></param>
         /// <returns></returns>
-        Order Insert(Order order);
+        Order Add(Order order);
     }
 }

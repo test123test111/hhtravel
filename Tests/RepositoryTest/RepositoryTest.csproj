@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F948E2A8-A6FB-46BA-9D92-2E731F824DFB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RepositoryTest</RootNamespace>
+    <AssemblyName>RepositoryTest</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EFCachingProvider">
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFCachingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EFProviderWrapperToolkit">
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFProviderWrapperToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="EFTracingProvider">
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EFTracingProvider.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\..\..\..\HHTravel.Base\HHTravel.Base.Resource\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.Unity, Version=2.1.505.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DepartureMonthRepositoryTest.cs" />
+    <Compile Include="DestinationGroupRepositoryTest.cs" />
+    <Compile Include="InterestRepositoryTest.cs" />
+    <Compile Include="Mock\ProductRepositoryMockTest.cs" />
+    <Compile Include="OrderRepositoryTest.cs" />
+    <Compile Include="ProductRepositoryTest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryTestBase.cs" />
+    <Compile Include="SubscriptionRepositoryTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.DataAccess\HHTravel.CRM.Booking-Online.DataAccess.csproj">
+      <Project>{2811D388-AD77-4630-B1FD-D329F7666D55}</Project>
+      <Name>HHTravel.CRM.Booking-Online.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.DomainModel\HHTravel.CRM.Booking-Online.DomainModel.csproj">
+      <Project>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</Project>
+      <Name>HHTravel.CRM.Booking-Online.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Entity\HHTravel.CRM.Booking-Online.Entity.csproj">
+      <Project>{8ABB78F9-B800-4C3B-BAD7-60DC7EB3C6D4}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+      <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Infrastructure\HHTravel.CRM.Booking-Online.Infrastructure.csproj">
+      <Project>{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.IRepository\HHTravel.CRM.Booking-Online.IRepository.csproj">
+      <Project>{7A666EBC-4E0D-43AE-8914-909592655561}</Project>
+      <Name>HHTravel.CRM.Booking-Online.IRepository</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Repository\HHTravel.CRM.Booking-Online.Repository.csproj">
+      <Project>{59B0D0BD-9508-40D5-B9AE-E5D39B7D6EE9}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\DataAccessTest\App.config">
+      <Link>App.config</Link>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

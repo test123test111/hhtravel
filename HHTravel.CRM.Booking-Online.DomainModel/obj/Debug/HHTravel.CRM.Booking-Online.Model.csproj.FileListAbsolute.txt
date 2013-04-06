@@ -1,0 +1,12 @@
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\HHTravel.CRM.Booking-Online.Model.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\HHTravel.CRM.Booking-Online.Model.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\EFCachingProvider.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\HHTravel.Base.Common.Framework.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\EFProviderWrapperToolkit.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\HHTravel.CRM.Booking-Online.Infrastructure.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\EFCachingProvider.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\bin\Debug\HHTravel.Base.Common.Framework.pdb
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\obj\Debug\HHTravel.CRM.Booking-Online.Model.csprojResolveAssemblyReference.cache
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\obj\Debug\HHTravel.CRM.Booking-Online.Model.dll
+D:\Projects\HHTravel\HHTravel\HHTravel.CRM\HHTravel.CRM.Booking-Online\HHTravel.CRM.Booking-Online.Model\obj\Debug\HHTravel.CRM.Booking-Online.Model.pdb

@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="9a6af2dd-cfd5-466b-8d35-332288584c21" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="41f658ed-0db4-499c-804c-e927d52d1d0a" name="DataAccessLayer">
+      <childLayers>
+        <layer Id="ecb44307-d1b7-4f7b-8264-3d184d14515a" name="DataAccess">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="70fda648-d869-43c7-a344-550d5adbe49e" direction="Forward">
+              <layerMoniker Id="ca9ced64-82d5-47b3-8a95-6817de2d069f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="33bf65a1-b108-4858-8706-e9d85d2bd5c9" name="HHTravel.CRM.Booking-Online.DataAccess">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.DataAccess" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.DataAccess/HHTravel.CRM.Booking-Online.DataAccess.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.DataAccess)" Label="HHTravel.CRM.Booking-Online.DataAccess.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="ca9ced64-82d5-47b3-8a95-6817de2d069f" name="Entity(EF Designer auto generated)">
+          <references>
+            <reference Id="a8bec8e8-2158-42cb-9168-939c7b010d68" name="HHTravel.CRM.Booking-Online.Entity">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.Entity" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.Entity/HHTravel.CRM.Booking-Online.Entity.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.Entity)" Label="HHTravel.CRM.Booking-Online.Entity.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="e96e2ebf-7d4b-403b-853c-cb42ed031442" name="Repository">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="ac126bd5-de1c-4500-8f51-a8f086fb37c6" direction="Forward">
+              <layerMoniker Id="ecb44307-d1b7-4f7b-8264-3d184d14515a" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="d5893242-4f7a-4075-b3e8-4706c27624e3" direction="Forward">
+              <layerMoniker Id="1747050d-d1ef-40c1-8ce0-c749ced3b52f" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="390daffd-86dd-4297-abec-3cd8e4372caa" direction="Forward">
+              <layerMoniker Id="c6c615c1-6fe4-4ba9-af3d-ba24f7125724" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="e8d7fbf1-d70c-4887-a100-7989f7e18935" direction="Forward">
+              <layerMoniker Id="ca9ced64-82d5-47b3-8a95-6817de2d069f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="eae8d02f-4141-4a61-b566-d64933331f6e" name="HHTravel.CRM.Booking-Online.Repository">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.Repository" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.Repository/HHTravel.CRM.Booking-Online.Repository.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.Repository)" Label="HHTravel.CRM.Booking-Online.Repository.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="39731d3b-2514-4c29-a6d1-ee84cec445bb" name="DomainLayer">
+      <childLayers>
+        <layer Id="c6c615c1-6fe4-4ba9-af3d-ba24f7125724" name="IRepository">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="47646c63-69a2-475d-8ef7-506f712d8afd" direction="Forward">
+              <layerMoniker Id="1747050d-d1ef-40c1-8ce0-c749ced3b52f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="a1849d66-8e90-4590-9eeb-dd2d59980a63" name="HHTravel.CRM.Booking-Online.IRepository">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.IRepository" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.IRepository/HHTravel.CRM.Booking-Online.IRepository.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.IRepository)" Label="HHTravel.CRM.Booking-Online.IRepository.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="cbe87f07-a30c-471a-88c1-e700cd4f390d" name="DomainService">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="52527291-66f1-4b28-9746-e53676cfc6a0" direction="Forward">
+              <layerMoniker Id="c6c615c1-6fe4-4ba9-af3d-ba24f7125724" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="0eefdc78-6d79-4b73-b91e-c5c986ad7d28" direction="Forward">
+              <layerMoniker Id="1747050d-d1ef-40c1-8ce0-c749ced3b52f" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="caaf7434-78ff-460e-8cf4-ae40d52a42ad" name="HHTravel.CRM.Booking-Online.DomainService">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.DomainService" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.DomainService/HHTravel.CRM.Booking-Online.DomainService.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.DomainService)" Label="HHTravel.CRM.Booking-Online.DomainService.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="1747050d-d1ef-40c1-8ce0-c749ced3b52f" name="DomainModel">
+          <references>
+            <reference Id="80156cbe-d66f-49dc-a3dd-966842186826" name="HHTravel.CRM.Booking-Online.DomainModel">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.DomainModel" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.DomainModel/HHTravel.CRM.Booking-Online.DomainModel.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.DomainModel)" Label="HHTravel.CRM.Booking-Online.DomainModel.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="96803724-4d18-4b17-b577-b7226c62bb4c" name="ApplicationLayer">
+      <childLayers>
+        <layer Id="35d07820-2885-47dd-80e0-3669b7d93ec9" name="ApplicationService">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="d2b447c6-2779-4dee-a932-4fee9cb555fc" direction="Forward">
+              <layerMoniker Id="cbe87f07-a30c-471a-88c1-e700cd4f390d" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="93eff036-4003-4192-8820-65dbc6e44115" direction="Forward">
+              <layerMoniker Id="c6c615c1-6fe4-4ba9-af3d-ba24f7125724" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="7dea0320-8346-41e3-a815-bb776b6b3c84" direction="Forward">
+              <layerMoniker Id="1747050d-d1ef-40c1-8ce0-c749ced3b52f" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="63981c7d-fd31-41a1-b970-f9ec00673a0a" direction="Forward">
+              <layerMoniker Id="56292860-9022-4553-8c78-f3a79166e8f4" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="af730f72-f2f9-47b8-8b5b-1dda8f8a26dd" name="HHTravel.CRM.Booking-Online.ApplicationService">
+              <ArtifactNode Label="HHTravel.CRM.Booking-Online.ApplicationService" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.ApplicationService/HHTravel.CRM.Booking-Online.ApplicationService.csproj)">
+                <Category Ref="CodeSchema_SourceFile" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.ApplicationService)" Label="HHTravel.CRM.Booking-Online.ApplicationService.dll" Category="FileSystem.Category.FileOfType.dll">
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="c54ed3a9-a9ff-4b28-87f7-9b3fa9cb49b1" name="PresentationLayer">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="0fb3aa90-7eee-4942-9fd1-10330e51e341" direction="Forward">
+          <layerMoniker Id="35d07820-2885-47dd-80e0-3669b7d93ec9" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="69949a09-3a44-4c45-bd8b-8f425eb03dce" direction="Forward">
+          <layerMoniker Id="1747050d-d1ef-40c1-8ce0-c749ced3b52f" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="15f13b7a-e27e-457f-a670-d72ada4b95e6" name="View">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="6c6dd948-473f-4100-81e6-dc90d71701b7" direction="Forward">
+              <layerMoniker Id="8f035a66-7368-4214-96a5-e73f1d3e75e9" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+        <layer Id="8f035a66-7368-4214-96a5-e73f1d3e75e9" name="Model" />
+        <layer Id="89039a38-f55a-41d5-af0e-7472339d1e14" name="Controller">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="4442d829-0e1d-457c-a55c-72b7acb50217" direction="Forward">
+              <layerMoniker Id="8f035a66-7368-4214-96a5-e73f1d3e75e9" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="8e0fd87d-8e3d-4151-9fa1-3e08e0369f2a" direction="Forward">
+              <layerMoniker Id="15f13b7a-e27e-457f-a670-d72ada4b95e6" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+        </layer>
+      </childLayers>
+      <references>
+        <reference Id="17863c84-7785-468a-9bf9-79074d4a1555" name="PresentationLayer">
+          <ArtifactNode Label="PresentationLayer" Category="SolutionFolder" Id="(Assembly=../PresentationLayer)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.Site)" Label="HHTravel.CRM.Booking-Online.Site.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="56292860-9022-4553-8c78-f3a79166e8f4" name="DataService">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4755aa58-81a2-4f12-9f9f-e8ba6ade16ab" direction="Forward">
+          <layerMoniker Id="ecb44307-d1b7-4f7b-8264-3d184d14515a" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="04ff92b6-3cd4-41b6-8020-0cf15e06392e" name="HHTravel.CRM.Booking-Online.DataService">
+          <ArtifactNode Label="HHTravel.CRM.Booking-Online.DataService" Category="CodeSchema_Project" Id="(Assembly=../HHTravel.CRM.Booking-Online.DataService/HHTravel.CRM.Booking-Online.DataService.csproj)">
+            <Category Ref="CodeSchema_SourceFile" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=HHTravel.CRM.Booking-Online.DataService)" Label="HHTravel.CRM.Booking-Online.DataService.dll" Category="FileSystem.Category.FileOfType.dll">
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

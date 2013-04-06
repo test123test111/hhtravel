@@ -1,0 +1,587 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProductDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ProductDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Area_City" EntityType="ProductDbModel.Area_City" />
+    <EntitySet Name="Area_CityLandmark" EntityType="ProductDbModel.Area_CityLandmark" />
+    <EntitySet Name="Area_Continent" EntityType="ProductDbModel.Area_Continent" />
+    <EntitySet Name="Area_Country" EntityType="ProductDbModel.Area_Country" />
+    <EntitySet Name="Area_Province" EntityType="ProductDbModel.Area_Province" />
+    <EntitySet Name="Base_Holiday" EntityType="ProductDbModel.Base_Holiday" />
+    <EntitySet Name="Base_IDcardType" EntityType="ProductDbModel.Base_IDcardType" />
+    <EntitySet Name="Base_IP" EntityType="ProductDbModel.Base_IP" />
+    <EntitySet Name="Base_MPCode" EntityType="ProductDbModel.Base_MPCode" />
+    <EntitySet Name="Base_ZipCode" EntityType="ProductDbModel.Base_ZipCode" />
+    <EntitySet Name="Fin_Bank" EntityType="ProductDbModel.Fin_Bank" />
+    <EntitySet Name="Fin_CurrencyISO" EntityType="ProductDbModel.Fin_CurrencyISO" />
+    <EntitySet Name="Flt_AirLine" EntityType="ProductDbModel.Flt_AirLine" />
+    <EntitySet Name="Flt_Airport" EntityType="ProductDbModel.Flt_Airport" />
+    <EntitySet Name="Flt_CraftType" EntityType="ProductDbModel.Flt_CraftType" />
+    <EntitySet Name="Picture" EntityType="ProductDbModel.Picture" />
+    <EntitySet Name="Product" EntityType="ProductDbModel.Product" />
+    <EntitySet Name="Product_Flight" EntityType="ProductDbModel.Product_Flight" />
+    <EntitySet Name="Product_Info" EntityType="ProductDbModel.Product_Info" />
+    <EntitySet Name="Product_NoDeparture" EntityType="ProductDbModel.Product_NoDeparture" />
+    <EntitySet Name="Product_Price" EntityType="ProductDbModel.Product_Price" />
+    <EntitySet Name="Product_Property" EntityType="ProductDbModel.Product_Property" />
+    <EntitySet Name="Product_Schedule" EntityType="ProductDbModel.Product_Schedule" />
+    <EntitySet Name="Product_Schedule_Detail" EntityType="ProductDbModel.Product_Schedule_Detail" />
+    <EntitySet Name="Product_Section" EntityType="ProductDbModel.Product_Section" />
+    <EntitySet Name="Product_Spec" EntityType="ProductDbModel.Product_Spec" />
+    <EntitySet Name="Product_Stock" EntityType="ProductDbModel.Product_Stock" />
+    <EntitySet Name="Property" EntityType="ProductDbModel.Property" />
+    <EntitySet Name="SEO" EntityType="ProductDbModel.SEO" />
+    <EntitySet Name="Product_Attach_Product" EntityType="ProductDbModel.Product_Attach_Product" />
+    <AssociationSet Name="Product_NoDepartureProduct" Association="ProductDbModel.Product_NoDepartureProduct">
+      <End Role="Product_NoDeparture" EntitySet="Product_NoDeparture" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="ProductProduct_Price" Association="ProductDbModel.ProductProduct_Price">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Price" EntitySet="Product_Price" />
+    </AssociationSet>
+    <EntitySet Name="Product_AttachPrice_Cache" EntityType="ProductDbModel.Product_AttachPrice_Cache" />
+    <EntitySet Name="Product_Price_Cache" EntityType="ProductDbModel.Product_Price_Cache" />
+  </EntityContainer>
+  <EntityType Name="Area_City">
+    <Key>
+      <PropertyRef Name="CityID" />
+    </Key>
+    <Property Type="Int32" Name="CityID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CityCode" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnAbbreviation" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYin" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYinAbbreviation" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ProvinceID" />
+    <Property Type="Int32" Name="CountryID" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Area_CityLandmark">
+    <Key>
+      <PropertyRef Name="CityLandmarkID" />
+    </Key>
+    <Property Type="Int32" Name="CityLandmarkID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CnAbbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Abbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnAbbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYin" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYinAbbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="Longitude" Nullable="false" />
+    <Property Type="Double" Name="Latitude" Nullable="false" />
+    <Property Type="Int16" Name="CityLandmarkTypeID" />
+    <Property Type="Int32" Name="CityID" Nullable="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Area_Continent">
+    <Key>
+      <PropertyRef Name="ContinentID" />
+    </Key>
+    <Property Type="Int32" Name="ContinentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+    <Property Type="String" Name="CnAbbreviation" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnAbbreviation" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Abbreviation" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Area_Country">
+    <Key>
+      <PropertyRef Name="CountryID" />
+    </Key>
+    <Property Type="Int32" Name="CountryID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CountryTwoCode" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CnAbbreviation" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Abbreviation" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnAbbreviation" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYin" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYinAbbreviation" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Capital" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ContinentName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Area_Province">
+    <Key>
+      <PropertyRef Name="ProvinceID" />
+    </Key>
+    <Property Type="Int32" Name="ProvinceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinYin" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Area" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Base_Holiday">
+    <Key>
+      <PropertyRef Name="HolidayID" />
+    </Key>
+    <Property Type="Int32" Name="HolidayID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="EffectDate" Nullable="false" />
+    <Property Type="DateTime" Name="StarDate" Nullable="false" />
+    <Property Type="DateTime" Name="EndDate" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Base_IDcardType">
+    <Key>
+      <PropertyRef Name="IDcardTypeID" />
+    </Key>
+    <Property Type="Int16" Name="IDcardTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Base_IP">
+    <Key>
+      <PropertyRef Name="IPID" />
+    </Key>
+    <Property Type="Int32" Name="IPID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="StartIP" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="EndIP" MaxLength="15" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="400" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Base_MPCode">
+    <Key>
+      <PropertyRef Name="MPCodeID" />
+    </Key>
+    <Property Type="Int32" Name="MPCodeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Prefix7" Nullable="false" MaxLength="7" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="ProvinceID" />
+    <Property Type="String" Name="ProvinceName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CityID" />
+    <Property Type="String" Name="Cityname" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MPType" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Base_ZipCode">
+    <Key>
+      <PropertyRef Name="ZipCodeID" />
+    </Key>
+    <Property Type="Int32" Name="ZipCodeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ZipCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DistrictCode" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DistrictName" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="400" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Fin_Bank">
+    <Key>
+      <PropertyRef Name="BankID" />
+    </Key>
+    <Property Type="Int32" Name="BankID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="BankCode" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CnAbbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Abbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnAbbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Fin_CurrencyISO">
+    <Key>
+      <PropertyRef Name="CurrencyISOID" />
+    </Key>
+    <Property Type="Int32" Name="CurrencyISOID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Country" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CurrencyISO" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CurrencySymbol" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flt_AirLine">
+    <Key>
+      <PropertyRef Name="AirLineID" />
+    </Key>
+    <Property Type="Int32" Name="AirLineID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AirLineCode" Nullable="false" MaxLength="2" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CountryID" Nullable="false" />
+    <Property Type="String" Name="Continent" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flt_Airport">
+    <Key>
+      <PropertyRef Name="AirportID" />
+    </Key>
+    <Property Type="Int32" Name="AirportID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AirportCode" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="CnName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CnAbbreviation" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Big5Name" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Abbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnName" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="EnAbbreviation" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="CityID" Nullable="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Flt_CraftType">
+    <Key>
+      <PropertyRef Name="CraftTypeID" />
+    </Key>
+    <Property Type="Int32" Name="CraftTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CraftTypeCode" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CNName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Big5Name" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ENName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="WidthLevel" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="MinSeats" />
+    <Property Type="Int32" Name="MaxSeats" />
+    <Property Type="String" Name="CraftKind" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="Boolean" Name="IsAvailable" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Picture">
+    <Key>
+      <PropertyRef Name="PictureId" />
+    </Key>
+    <Property Type="Int32" Name="PictureId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ObjectType" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ObjectId" />
+    <Property Type="String" Name="Location" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Title" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="URL" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Size" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Type="Int32" Name="ProductId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProductNo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProductName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="ProductType" />
+    <Property Type="Int16" Name="TripType" />
+    <Property Type="Int16" Name="ResourceType" />
+    <Property Type="String" Name="ProductDesc" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ProductFeature" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="Language" />
+    <Property Type="String" Name="Destination1" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Destination2" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StartCity" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DestCity" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DestProvince" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DestCountry" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="TripDays" />
+    <Property Type="Int16" Name="MinPersonNum" />
+    <Property Type="Int16" Name="MaxPersonNum" />
+    <Property Type="Int16" Name="AdvanceDays" />
+    <Property Type="DateTime" Name="EffectDate" />
+    <Property Type="DateTime" Name="ExpireDate" />
+    <Property Type="String" Name="SetOffDays" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ServiceDays" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SaleDesc" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Weight" />
+    <Property Type="Boolean" Name="IsUp" />
+    <Property Type="Boolean" Name="IsValid" />
+    <Property Type="String" Name="Link" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="Longitude" />
+    <Property Type="Double" Name="Latitude" />
+    <Property Type="Int16" Name="Company" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+    <Property Type="String" Name="ProductNote" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="MinLodgingDays" />
+    <Property Type="String" Name="Manager" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Product_NoDeparture" Relationship="ProductDbModel.Product_NoDepartureProduct" FromRole="Product" ToRole="Product_NoDeparture" />
+    <NavigationProperty Name="Product_Price" Relationship="ProductDbModel.ProductProduct_Price" FromRole="Product" ToRole="Product_Price" />
+    <Property Type="Boolean" Name="IsBackCash" />
+    <Property Type="Boolean" Name="Recommend" />
+    <Property Type="Boolean" Name="AllowChild" />
+    <Property Type="Int16" Name="TripClass" />
+    <Property Type="Int16" Name="AdvanceTripDays" />
+    <Property Type="Int16" Name="MaxTripDays" />
+    <Property Type="Int16" Name="ExtendTripDays" />
+  </EntityType>
+  <EntityType Name="Product_Flight">
+    <Key>
+      <PropertyRef Name="FlightID" />
+    </Key>
+    <Property Type="Int32" Name="FlightID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int16" Name="SeqNo" Nullable="false" />
+    <Property Type="String" Name="Direction" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="AirLine" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FlightNo" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="FlightStyle" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="Stops" />
+    <Property Type="String" Name="StopPorts" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="TimeLength" />
+    <Property Type="String" Name="Dport" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Aport" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Time" Name="Dtime" />
+    <Property Type="Time" Name="Atime" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_Info">
+    <Key>
+      <PropertyRef Name="ProdInfoId" />
+    </Key>
+    <Property Type="Int32" Name="ProdInfoId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" />
+    <Property Type="String" Name="InfoTypeName" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Info" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_NoDeparture">
+    <Key>
+      <PropertyRef Name="DepartureId" />
+    </Key>
+    <Property Type="Int32" Name="DepartureId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="DateTime" Name="DepartureDate" Nullable="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_Price">
+    <Key>
+      <PropertyRef Name="PriceId" />
+    </Key>
+    <Property Type="Int32" Name="PriceId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="SpecId" />
+    <Property Type="DateTime" Name="EffectDate" Nullable="false" />
+    <Property Type="DateTime" Name="ExpireDate" Nullable="false" />
+    <Property Type="Int32" Name="Price" Nullable="false" />
+    <Property Type="Int32" Name="PriceStay" />
+    <Property Type="Int32" Name="PriceMarketing" />
+    <Property Type="Int32" Name="PriceChild" />
+    <Property Type="Int32" Name="PriceStayChild" />
+    <Property Type="Int32" Name="PriceBaby" />
+    <Property Type="Int32" Name="PriceStayBaby" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_Property">
+    <Key>
+      <PropertyRef Name="ProdPropId" />
+    </Key>
+    <Property Type="Int32" Name="ProdPropId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="PropertyId" Nullable="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Type="Int32" Name="ScheduleId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int16" Name="DayNo" Nullable="false" />
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+    <Property Type="Int32" Name="SectionId" />
+  </EntityType>
+  <EntityType Name="Product_Schedule_Detail">
+    <Key>
+      <PropertyRef Name="ScheduleDetailId" />
+    </Key>
+    <Property Type="Int32" Name="ScheduleDetailId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="ScheduleId" Nullable="false" />
+    <Property Type="String" Name="ScheduleType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TakeOffTime" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Description" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_Section">
+    <Key>
+      <PropertyRef Name="SectionId" />
+    </Key>
+    <Property Type="Int32" Name="SectionId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int16" Name="SeqNo" Nullable="false" />
+    <Property Type="String" Name="SectionName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectionDesc" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SectionType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+    <Property Type="Int16" Name="MinLodgingDays" />
+    <Property Type="Int16" Name="MinStayDays" />
+    <Property Type="Int16" Name="MaxStayDays" />
+    <Property Type="String" Name="StartCity" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DestCity" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="StartCityCode" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="DestCityCode" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="UseCtripFlight" />
+    <Property Type="Boolean" Name="IsDirectFlight" />
+    <Property Type="Time" Name="AirfareEarliestTime" />
+    <Property Type="Time" Name="AirfareLatestTime" />
+    <Property Type="String" Name="IncludeAirline" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExcludeAirline" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="IncludeFlight" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ExcludeFlight" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="DepartureAdjust" />
+  </EntityType>
+  <EntityType Name="Product_Spec">
+    <Key>
+      <PropertyRef Name="SpecId" />
+    </Key>
+    <Property Type="Int32" Name="SpecId" Nullable="false" />
+    <Property Type="Int32" Name="ProductId" />
+    <Property Type="String" Name="SpecName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SpecDesc" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Remark" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="SeqNo" />
+    <Property Type="Boolean" Name="IsValid" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+    <Property Type="String" Name="SpecRank" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SpecType" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SpecClass" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SpecNote" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="MinPersonNum" />
+    <Property Type="Int16" Name="MaxPersonNum" />
+    <Property Type="Int16" Name="MinGroupNum" />
+  </EntityType>
+  <EntityType Name="Product_Stock">
+    <Key>
+      <PropertyRef Name="StockId" />
+    </Key>
+    <Property Type="Int32" Name="StockId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="SpecId" />
+    <Property Type="DateTime" Name="StockDate" Nullable="false" />
+    <Property Type="Int32" Name="Qty" Nullable="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Property">
+    <Key>
+      <PropertyRef Name="PropertyId" />
+    </Key>
+    <Property Type="Int32" Name="PropertyId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="PropertyNo" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PropertyName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PropertyCName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PropertyEName" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Pinyin" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PinyinAbb" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ENameAbb" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="PropertyPath" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ParentPropertyPath" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="Int16" Name="PropertyLevel" />
+    <Property Type="Int16" Name="SeqNo" />
+    <Property Type="String" Name="Remark" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="IsValid" />
+    <Property Type="Int16" Name="Company" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="SEO">
+    <Key>
+      <PropertyRef Name="SEOId" />
+    </Key>
+    <Property Type="Int32" Name="SEOId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="SEOObjectType" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="SEOObjectId" Nullable="false" />
+    <Property Type="Int16" Name="SEOLanguage" />
+    <Property Type="String" Name="SEOTitle" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SEOKeyword" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="SEODescription" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+  </EntityType>
+  <EntityType Name="Product_Attach_Product">
+    <Key>
+      <PropertyRef Name="ItemId" />
+    </Key>
+    <Property Type="Int32" Name="ItemId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="Int32" Name="ItemProductId" Nullable="false" />
+    <Property Type="Int32" Name="ItemProductSpecId" />
+    <Property Type="Int32" Name="SectionId" />
+    <Property Type="Int16" Name="OptionType" />
+    <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="LastModifyTime" />
+    <Property Type="Int16" Name="SeqNo" />
+  </EntityType>
+  <Association Name="Product_NoDepartureProduct">
+    <End Type="ProductDbModel.Product_NoDeparture" Role="Product_NoDeparture" Multiplicity="*" />
+    <End Type="ProductDbModel.Product" Role="Product" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Product_NoDeparture">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductProduct_Price">
+    <End Type="ProductDbModel.Product" Role="Product" Multiplicity="1" />
+    <End Type="ProductDbModel.Product_Price" Role="Product_Price" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductId" />
+      </Principal>
+      <Dependent Role="Product_Price">
+        <PropertyRef Name="ProductId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product_AttachPrice_Cache">
+    <Key>
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="PriceDate" />
+      <PropertyRef Name="CacheHour" />
+      <PropertyRef Name="SectionID" />
+      <PropertyRef Name="ResourceType" />
+    </Key>
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="DateTime" Name="PriceDate" Nullable="false" />
+    <Property Type="Int16" Name="CacheHour" Nullable="false" />
+    <Property Type="Int32" Name="SectionID" Nullable="false" />
+    <Property Type="Int16" Name="ResourceType" Nullable="false" />
+    <Property Type="Int16" Name="MinQty" />
+    <Property Type="Int32" Name="MinSinglePrice" />
+    <Property Type="Int32" Name="MinPrice" Nullable="false" />
+    <Property Type="Int32" Name="MinSinglePriceChild" />
+    <Property Type="Int32" Name="MinPriceChild" />
+    <Property Type="Int16" Name="OptionType" />
+  </EntityType>
+  <EntityType Name="Product_Price_Cache">
+    <Key>
+      <PropertyRef Name="ProductId" />
+      <PropertyRef Name="PriceDate" />
+      <PropertyRef Name="CacheHour" />
+    </Key>
+    <Property Type="Int32" Name="ProductId" Nullable="false" />
+    <Property Type="DateTime" Name="PriceDate" Nullable="false" />
+    <Property Type="Int16" Name="CacheHour" Nullable="false" />
+    <Property Type="Int32" Name="MinBasePrice" />
+    <Property Type="Int32" Name="MinAttachPrice" />
+    <Property Type="Int32" Name="MinPrice" Nullable="false" />
+    <Property Type="Boolean" Name="IsComplete" />
+    <Property Type="Int32" Name="MinBasePriceChild" />
+    <Property Type="Int32" Name="MinAttachPriceChild" />
+    <Property Type="Int32" Name="MinPriceChild" />
+    <Property Type="Int16" Name="MinPersonNum" />
+  </EntityType>
+</Schema>

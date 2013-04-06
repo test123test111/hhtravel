@@ -1,15 +1,12 @@
-﻿using HHTravel.CRM.Booking_Online.DataAccess;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
-using System.Linq;
-using System.Data.Entity;
+﻿using System;
 using EFCachingProvider;
 using EFCachingProvider.Caching;
+using HHTravel.CRM.Booking_Online.DataAccess;
+using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace DataAccessTest
 {
-    
-    
     /// <summary>
     ///This is a test class for DbContextFactoryTest and is intended
     ///to contain all DbContextFactoryTest Unit Tests
@@ -17,8 +14,6 @@ namespace DataAccessTest
     [TestClass()]
     public class DbContextFactoryTest
     {
-
-
         private TestContext testContextInstance;
 
         /// <summary>
@@ -38,7 +33,8 @@ namespace DataAccessTest
         }
 
         #region Additional test attributes
-        // 
+
+        //
         //You can use the following additional attributes as you write your tests:
         //
         //Use ClassInitialize to run code before running the first test in the class
@@ -50,7 +46,7 @@ namespace DataAccessTest
 
             EFCachingProviderConfiguration.DefaultCache = new InMemoryCache();
         }
-        
+
         //Use ClassCleanup to run code after all tests in a class have run
         //[ClassCleanup()]
         //public static void MyClassCleanup()
@@ -69,20 +65,24 @@ namespace DataAccessTest
         //{
         //}
         //
-        #endregion
 
+        #endregion Additional test attributes
+
+        [TestMethod()]
+        public void CreateTest()
+        {
+            CreateTestHelper<ProductDbEntities>();
+        }
 
         /// <summary>
         ///A test for Create
         ///</summary>
         public void CreateTestHelper<T>()
-            where T : DbEntitiesBase, new()
+            where T : DbEntitiesBase
         {
-            T expected = new T(); // TODO: Initialize to an appropriate value
             T actual;
-            actual = DbContextFactory.Create<T>();
-            Assert.AreEqual(expected, actual);
-
+            actual = DbContextFactory.Create<T>(false);
+            Assert.IsNotNull(actual);
 
             try
             {
@@ -95,13 +95,6 @@ namespace DataAccessTest
             }
 
             Assert.Inconclusive("Verify the correctness of this test method.");
-        }
-
-        [TestMethod()]
-        public void CreateTest()
-        {
-            Assert.Inconclusive("No appropriate type parameter is found to satisfies the type constraint(s) of T. " +
-                    "Please call CreateTestHelper<T>() with appropriate type parameters.");
         }
 
         [TestMethod()]

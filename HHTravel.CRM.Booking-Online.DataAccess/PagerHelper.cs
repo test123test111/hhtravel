@@ -1,43 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace HHTravel.CRM.Booking_Online.DataAccess
 {
     public class PagerHelper
     {
-        internal static int PageSize = 5;
-
-        /// <summary>
-        /// 分页
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="list"></param>
-        /// <param name="pageIndex"></param>
-        /// <param name="pageCount"></param>
-        /// <returns></returns>
-        internal static IEnumerable<T> TakePage<T>(IEnumerable<T> list, int? pageIndex, out int pageCount)
+        private PagerHelper()
         {
-            int count = list.Count();
-            pageCount = (int)Math.Ceiling((decimal)count / PageSize);
+        }
+
+        public static IQueryable<T> LazyTakePage<T>(IQueryable<T> query, int pageSize, int? pageIndex, out int pageCount) where T : class
+        {
+            int count;
+            count = query.Count();
+            pageCount = (int)Math.Ceiling((decimal)count / pageSize);
 
             int i = 0;
             if (pageIndex.HasValue)
             {
                 i = pageIndex.Value;
+
                 // fix range
                 if (i < 0) i = 0;
             }
+
             // fix range
             if (pageIndex > pageCount)
                 pageIndex = pageCount;
 
-            int skip = i * PageSize;
-            int take = PageSize;
+            int skip = i * pageSize;
+            int take = pageSize;
 
-            var b = list.Skip(skip).Take(take);
-            return b;
+            return query.Skip(skip).Take(take);
+        }
+
+        /// <summary>
+        /// 分页
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="query"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> TakePage<T>(IEnumerable<T> query, int pageSize, int? pageIndex, out int pageCount) where T : class
+        {
+            int count;
+            count = query.Count();
+
+            pageCount = (int)Math.Ceiling((decimal)count / pageSize);
+
+            int i = 0;
+            if (pageIndex.HasValue)
+            {
+                i = pageIndex.Value;
+
+                // fix range
+                if (i < 0) i = 0;
+            }
+
+            // fix range
+            if (pageIndex > pageCount)
+                pageIndex = pageCount;
+
+            int skip = i * pageSize;
+            int take = pageSize;
+
+            return query.Skip(skip).Take(take);
         }
     }
 }

@@ -53,17 +53,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.Business\HHTravel.CRM.Booking-Online.Business.csproj">
-      <Project>{8085D7A1-A59B-4DB5-9FB2-59BFF4542719}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Business</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.DataAccess\HHTravel.CRM.Booking-Online.DataAccess.csproj">
-      <Project>{2811D388-AD77-4630-B1FD-D329F7666D55}</Project>
-      <Name>HHTravel.CRM.Booking-Online.DataAccess</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <ProjectReference Include="..\..\HHTravel.CRM.Booking-Online.ApplicationService\HHTravel.CRM.Booking-Online.ApplicationService.csproj">
+      <Project>{36876F6D-A6C7-4519-8065-B265E854F385}</Project>
+      <Name>HHTravel.CRM.Booking-Online.ApplicationService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,101 @@
+﻿@model DataValidator.Models.ProductListModel
+@{
+    ViewBag.Title = "hhTravel-产品数据验证器";
+}
+<h2>
+    hhTravel产品数据验证器</h2>
+<div class="idx_search">
+    @Html.Partial("_SearchBox", Model.SearchBox)
+</div>
+<div>
+    <div>
+        搜索结果 （@Model.ProductList.Count 个）</div>
+    <table class="table-bordered table-striped">
+        @if (Model.ProductList.Count > 0)
+        {
+            <thead>
+                <tr>
+                    <th>
+                        Id
+                    </th>
+                    <th>
+                        产品编号
+                    </th>
+                    <th>
+                        产品名称
+                    </th>
+                    <th>
+                        旅游型态
+                    </th>
+                    <th>
+                        主题
+                    </th>
+                    <th>
+                        天数
+                    </th>
+                    <th>
+                        提前预订
+                    </th>
+                    <th>
+                        底价
+                    </th>
+                    <th>
+                        出发日期
+                    </th>
+                    <th>
+                        酒店
+                    </th>
+                    <th>
+                        房型
+                    </th>
+                    <th>
+                        机票
+                    </th>
+                    <th>
+                        数据错误
+                    </th>
+                </tr>
+            </thead>
+        }
+        @foreach (var p in Model.ProductList)
+        {
+            <tr>
+                <td>@p.ProductId
+                </td>
+                <td>
+                    <a class="btn btn-info btn-small" href="@(Model.DomainBase)/Product/@p.ProductNo" target="_blank">@p.ProductNo</a>
+                </td>
+                <td>
+                    <span title="@p.ProductName">@p.ProductName.Substring(0, Math.Min(p.ProductName.Length, 15))</span>
+                </td>
+                <td>
+                    @p.TravelType
+                </td>
+                <td>
+                    <span title="@string.Join("/", p.InterestList)">@string.Join("/", p.InterestList.Take(2))</span>
+                </td>
+                <td>@p.Days
+                </td>
+                <td>@(p.AdvanceDays)
+                </td>
+                <td>@p.MinPrice
+                </td>
+                <td>
+                    @{var days = p.DepartureDateList.Select(d => d.Date.ToString("yyyy.MM.dd"));}
+                    <i class="icon-calendar"></i><span title="@string.Join("/", days)">@string.Join("/", days.Take(2))</span>
+                </td>
+                <td>
+                    <i class="icon-home"></i>@p.HotelList.Count
+                </td>
+                <td>@p.RoomClassList.Count
+                </td>
+                <td>
+                    <i class="icon-plane"></i>@p.TicketList.Count
+                </td>
+                <td>
+                    <span style="color: Red">@p.Errors</span>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>实现顶级旅游者的梦想‧鸿鹄逸游 HHtravel</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common.css" type="text/css" rel="stylesheet" />
+    <link href="../css/layout.css" type="text/css" rel="stylesheet" />
+    <!--    <script type="text/javascript" src="../Scripts/jquery-1.4.4.js"></script>-->
+    <script src="../js/select2css.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            var len = $(".photo_no> a").length;
+            var index = 0;
+            var adTimer;
+            $(".photo_no a").click(function () {
+                index = $(".photo_no a").index(this);
+                showImg(index);
+            });
+            //滑入 停止动画，滑出开始动画.
+            $('.silder').hover(function () {
+                clearInterval(adTimer);
+            }, function () {
+                adTimer = setInterval(function () {
+                    showImg(index)
+                    index++;
+                    if (index == len) { index = 0; }
+                }, 4000);
+            }).trigger("mouseleave");
+        });
+        // 通过控制top ，来显示不同的幻灯片
+        function showImg(index) {
+            $(".photo_list a").eq(index).stop(true, false).fadeIn(1500).siblings().hide();
+            $(".photo_no a").removeClass("on").eq(index).addClass("on");
+        }
+    </script>
+</head>
+<body>
+    <div class="header_warp">
+        <div class="header header_fixed" id="header">
+            <h2 class="h_logo">
+                <a href="../">
+                    <img alt="鸿鹄逸游" src="../images/logo_cn.jpg" />鸿鹄逸游</a></h2>
+            <div class="h_top">
+                <p class="h_slogan">
+                    <span>「鸿鹄逸游」是<img alt="携程" src="../images/ctrip_logo.png" />环游世界、高端旅游品牌</span></p>
+                <!--<p class="h_depart"><a href="#">台北出发</a><a href="#">北京出发</a><a href="../">上海出发</a></p>  -->
+                <p class="h_tel" style="top: 5px;">
+                    400 690 2323</p>
+                <ul class="h_menu">
+                    <li class="one"><a href="brand_concept.htm">品牌理念</a></li>
+                    <li class="two"><a href="destination.htm">目的地</a></li>
+                    <li class="thr"><a href="depart_month.htm">出发月份</a></li>
+                    <li class="four"><a href="travel_themes.htm">旅行主题</a></li>
+                    <li class="five"><a href="top_tasting.htm">热门品鉴</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="warpper">
+        <!--图片切换-->
+        <div class="photo_warp">
+            <p class="photo_no">
+                <a href="#" class="on">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+            </p>
+            <div class="silder">
+                <p class="photo_list">
+                    <a href="#">
+                        <img alt="十.一 黄金周 美好长假，就该去旅行！" title="十.一 黄金周 美好长假，就该去旅行！" src="../images/idx_photo/77_b_cn.jpg" /></a>
+                    <a href="#">
+                        <img alt="新航A380豪华套房  坐卧云端‧环游世界" title="新航A380豪华套房  坐卧云端‧环游世界" src="../images/idx_photo/73_b_cn.jpg" /></a>
+                    <a href="#">
+                        <img alt="秋日。好枫景" title="秋日。好枫景" src="../images/idx_photo/74_b_cn.jpg" /></a>
+                    <a href="#">
+                        <img alt="ELLE 2012巴黎時裝周之旅" title="ELLE 2012巴黎時裝周之旅" src="../images/idx_photo/75_b_cn.jpg" /></a>
+                </p>
+            </div>
+        </div>
+        <div class="main_warp clearfix pt20" style="width: 655px; padding-left: 305px;">
+            <!--搜索-->
+            <div class="idx_search" style="behavior: url(../css/PIE.htc);">
+                <ul class="idx_search_list">
+                    <li><b class="address_mark">出发地</b>
+                        <div class="hhtravel_select">
+                            <select name="language" id="language">
+                                <option selected="selected">全部</option>
+                                <option>上海</option>
+                                <option>上海</option>
+                            </select></div>
+                    </li>
+                    <li><b class="address_mark">目的地</b>
+                        <div class="hhtravel_select">
+                            <select name="language1" id="language1">
+                                <option>北京</option>
+                                <option>上海</option>
+                            </select></div>
+                        <div class="hhtravel_select" style="margin-top: 8px;">
+                            <select name="language2" id="language2">
+                                <option>全部</option>
+                                <option>上海</option>
+                            </select></div>
+                    </li>
+                    <li><b>旅游型态</b>
+                        <div class="hhtravel_select">
+                            <select name="language3" id="language3">
+                                <option>全部</option>
+                                <option>6人成行.全程领队服务</option>
+                                <option>2人成行.当地专属车导</option>
+                                <option>单品游.2人成行.自行组装</option>
+                            </select></div>
+                    </li>
+                    <li><b>出发区间</b><input type="text" class="idx_txt" /><input type="text" class="idx_txt"
+                        style="margin-top: 8px;" /></li>
+                    <li><b>旅行主题</b>
+                        <div class="hhtravel_select">
+                            <select name="language4" id="language4">
+                                <option>全部</option>
+                                <option>主题1</option>
+                            </select></div>
+                    </li>
+                </ul>
+                <p class="idx_search_btn">
+                    <input type="button" value="搜索" /></p>
+            </div>
+            <!--订阅-->
+            <div class="idx_search wh_reset" style="behavior: url(../css/PIE.htc);">
+                <p>
+                    订阅最新情报</p>
+                <p>
+                    <input type="text" value="输入Email" class="idx_subscribe_text" /><input type="button"
+                        value="订阅" class="idx_subscribe_btn" /></p>
+                <p>
+                    需要专人服务？<span>400 690 2323</span></p>
+            </div>
+            <!--高端产品推荐-->
+            <div class="idx_travel">
+                <h4 class="t_title">
+                    超越头等舱的尊贵体验．A380豪华套房</h4>
+                <p class="d_cont">
+                    最奢华的航行！全程搭乘世界最佳新加坡航空环游世界。特别安排A380豪华套房感受坐卧云端尊荣享受：意大利名家手工缝制皮革扶手椅，配备23吋液晶电视娱乐系统，独立豪华睡床伴随新航知名铺床服务，每间套房配有活动拉门与窗帘，可依据喜好调整私人空间，同时由享誉全球烹饪品酒团队为您精选美食佳肴...
+                    <a href="#" class="t_more">更多</a></p>
+                <p class="d_ad_img">
+                    <img width="635" height="210" alt="" src="../images/top_tasting/700x280_20120816.jpg" /></p>
+                <p class="d_ad_img">
+                    <img width="635" height="123" alt="" src="../images/top_tasting/700x280_20120816.jpg" /></p>
+            </div>
+        </div>
+        <div class="main_warp clearfix pt20">
+            <!--新品热推-->
+            <div class="idx_new_pro_tit">
+                <h5>
+                    新品热推</h5>
+                <span>Featured Offers</span></div>
+            <ul class="idx_new_pro_list">
+                <li>
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                    <p>
+                        <a href="#">澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+                </li>
+                <li>
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                    <p>
+                        <a href="#">澳大利亚3奇景澳大利亚3奇景澳大利亚3奇景澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+                </li>
+                <li>
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" />
+                    <p>
+                        <a href="#">澳大利亚3奇景</a><span class="idx_to_detail"></span></p>
+                </li>
+            </ul>
+        </div>
+        <div class="main_warp clearfix pt20">
+            <!--热门排行-->
+            <div class="idx_new_pro_tit">
+                <h5>
+                    热门排行</h5>
+                <span>Most Popular</span></div>
+            <p class="idx_ranking_list">
+                <a href="#" class="fir">
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" /></a>
+                <a href="#">
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" /></a>
+                <a href="#">
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" /></a>
+                <a href="#">
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" /></a>
+                <a href="#">
+                    <img alt="" src="../images/top_tasting/700x280_20120816.jpg" /></a>
+            </p>
+        </div>
+        <div class="main_warp clearfix pt20">
+            <!--合作伙伴-->
+            <div class="idx_new_pro_tit">
+                <h5>
+                    合作伙伴</h5>
+                <span>Most Popular</span></div>
+            <p class="idx_partners_list">
+                <a href="#" class="fir">
+                    <img alt="" src="" /></a>
+                <a href="#">
+                    <img alt="" src="" /></a>
+                <a href="#">
+                    <img alt="" src="" /></a>
+                <a href="#">
+                    <img alt="" src="" /></a>
+                <a href="#">
+                    <img alt="" src="" /></a>
+                <a href="#">
+                    <img alt="" src="" /></a>
+            </p>
+        </div>
+        <div class="main_warp clearfix pt20">
+            <!--口号-->
+            <div class="idx_slogan">
+                <h1>
+                    鸿鹄 实现高端旅游者的梦想</h1>
+                <p>
+                    「鸿鹄逸游 HHtravel」创作，挑战极限；服务，精雕细琢；以高端坚持打造每趟旅行；一趟旅行，无价收藏。</p>
+                <ul class="h_brand_idea">
+                    <li>■ 商 务 舱</li>
+                    <li>■ 高端住宿</li>
+                    <li>■ 美食飨宴</li>
+                    <li>■ 六人成行</li>
+                    <li>■ 一人两座</li>
+                    <li>■ 专业领队</li>
+                    <li>■ 严选时节</li>
+                    <li>■ 小型团队</li>
+                    <li>■ 订制延宿</li>
+                    <li>■ 珍贵稀有</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <p class="copy_right">
+                <a href="brand_concept.htm">关于HHtravel</a><a href="privacy_policy.htm">隐私政策</a><a
+                    href="news_letter.htm">电子报订阅</a><a href="contact_us.htm">联络我们</a><a href="http://weibo.com/u/2667201671"
+                        class="ico_attention">关注鸿鹄逸游</a>
+            </p>
+            <p class="server_time">
+                服务时间 周一至周五 9：00～18：00</p>
+            <p class="f_share">
+                分享 <a href="http://campaign.ctrip.com/Destinations/fenxiang/fenxiang.asp?type=1&amp;ti=实现高端旅游者的梦想‧鸿鹄逸游 HHtravel&amp;url=http://www.hhtravel.com/index_cn.html">
+                    <img alt="转贴到开心网" src="../images/icon10.gif" /></a>
+                <a href="http://campaign.ctrip.com/Destinations/fenxiang/fenxiang.asp?type=2&amp;ti=实现高端旅游者的梦想‧鸿鹄逸游 HHtravel&amp;url=http://www.hhtravel.com/index_cn.html">
+                    <img alt="分享到QQ" src="../images/icon11.gif" /></a>
+                <a href="http://campaign.ctrip.com/Destinations/fenxiang/fenxiang.asp?type=5&amp;ti=实现高端旅游者的梦想‧鸿鹄逸游 HHtravel&amp;url=http://www.hhtravel.com/index_cn.html"
+                    title="收藏到豆瓣">
+                    <img alt="推荐给你的豆瓣友邻" src="../images/icon13.gif" /></a>
+                <a href="http://campaign.ctrip.com/Destinations/fenxiang/fenxiang.asp?type=6&amp;ti=实现高端旅游者的梦想‧鸿鹄逸游 HHtravel&amp;url=http://www.hhtravel.com/index_cn.html">
+                    <img alt="分享到百度" src="../images/icon14.gif" /></a>
+                <a href="http://campaign.ctrip.com/Destinations/fenxiang/fenxiang.asp?type=7&amp;ti=实现高端旅游者的梦想‧鸿鹄逸游 HHtravel&amp;url=http://www.hhtravel.com/index_cn.html">
+                    <img alt="分享到谷歌" src="../images/icon04.gif" /></a></p>
+        </div>
+    </div>
+</body>
+</html>

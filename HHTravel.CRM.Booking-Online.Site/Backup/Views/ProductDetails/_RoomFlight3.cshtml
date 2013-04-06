@@ -1,0 +1,369 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.RoomFlightModel
+<script src="@Url.Content("~/js/datepicker/WdatePicker.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        //机票加购项说明提示层
+        $('.tbl_tips_desc').mouseover(function () {
+            $(this).siblings('.spw_type_layer').show();
+        });
+        $('.tbl_tips_desc').mouseout(function () {
+            $(this).siblings('.spw_type_layer').hide();
+        });
+    });
+    function openOrderWin() {
+        $('.field-validation-error').empty();
+        var showError = function (err) {
+            $('.order_btn').after($('<span class="field-validation-error" />').text(err));
+        };
+        // 房型相关验证
+        var pass = false;
+        $('.selRoomCount').each(function (j, s) {
+            if ($(this).val() > 0) {
+                pass = true;
+                return false;
+            }
+        });
+        if (!pass) {
+            showError('请选择入住的房间');
+            return false;
+        }
+        // 延住相关验证
+        var stayReturnDate = $('#PreOrderModel_StayReturnDate').val();
+        var hasSelected = false;
+        $('.selStayRoomCount').each(function (j, s) {
+            if ($(this).val() > 0) {
+                hasSelected = true;
+                return false;
+            }
+        });
+        if ((stayReturnDate && !hasSelected)) {
+            showError('请选择延住的房间');
+            return false;
+        }
+        if (hasSelected && !stayReturnDate) {
+            showError('请选择退房日期');
+            return false;
+        }
+
+        openwin('about:blank');
+        document["order_form"].submit();
+
+        //$.post(document["order_form"].action, BedClassInfos, function (data) {
+        //    var win = openwin('about:blank');
+        //    with (win.document) {
+        //        open();
+        //        write(data);
+        //        close();
+        //    }
+        //});
+    }
+</script>
+<div class="calendar_order_warp" style="position: relative;">
+    @using (Html.BeginForm("Index3", "Order", FormMethod.Post, new { @name = "order_form", @target = "newwindow" }))
+    {
+        @Html.HiddenFor(rf => rf.PreOrderModel.ProductId)
+        @Html.HiddenFor(om => om.PreOrderModel.ProductNo)
+        @Html.HiddenFor(om => om.PreOrderModel.ProductName)
+        @Html.HiddenFor(om => om.PreOrderModel.DepartureDate)
+        @Html.HiddenFor(rf => rf.PreOrderModel.PlanReturnDate)
+        @Html.HiddenFor(om => om.PreOrderModel.Days)
+        @Html.HiddenFor(om => om.PreOrderModel.TravelType)
+        @Html.Hidden("PreOrderModel.OldDescription", HttpUtility.HtmlEncode(Model.PreOrderModel.OldDescription))
+        <!--2房型.数量-->
+        <h6 class="process">
+            <span>2</span>房型.数量</h6>
+        <p class="order_infor pst_reset">
+            <img alt="订购须知" src="@Url.Content("~/images/order_ico.jpg")" />
+            <a href="@Url.Action("OrderNotes", new { productNo = Model.ProductNo })" class="new-window">
+                订购须知</a></p>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+            <tr class="tr_hide">
+                <td style="width: 140px;">
+                </td>
+                <td style="width: 160px;">
+                </td>
+                <td style="width: 90px;">
+                </td>
+                <td>
+                </td>
+                <td style="width: 80px;">
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    入住日期
+                </td>
+                <td class="tbl_date tbl_price">
+                    @Html.DepartureDate(Model.DepartureDate)
+                </td>
+                <td class="name">
+                    退房日期
+                </td>
+                <td colspan="2" class="tbl_date tbl_price">
+                    @Html.DepartureDate(Model.ReturnDate)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    房型
+                </td>
+                <td class="name">
+                    含早/晚餐
+                </td>
+                <td class="name">
+                    入住/晚
+                </td>
+                <td class="name">
+                    价格
+                </td>
+                <td class="name">
+                    选择(必选)
+                </td>
+            </tr>
+            @for (int i = 0; i < Model.PreOrderModel.RoomClassModels.Count; i++)
+            {
+                var b = Model.PreOrderModel.RoomClassModels[i];
+                <tr>
+                    <td>
+                        @b.RoomClassName
+                    </td>
+                    <td>
+                        @(!string.IsNullOrEmpty(b.BreakfastDinnerTip) ? b.BreakfastDinnerTip : "无")
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => m.Nights)
+                    </td>
+                    <td class="tbl_price">
+                        RMB @Html.DisplayFor(m => m.PreOrderModel.RoomClassModels[i].SegmentPrice) (含税)/人
+                    </td>
+                    <td>
+                        @Html.HiddenFor(rf => rf.PreOrderModel.RoomClassModels[i].RoomClassId)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.RoomClassModels[i].RoomClassName)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.RoomClassModels[i].SegmentPrice)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.RoomClassModels[i].StayPrice)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.RoomClassModels[i].BreakfastDinnerTip)
+                        @Html.DropDownListFor(rf => rf.PreOrderModel.RoomClassModels[i].Count, Model.PreOrderModel.RoomClassModels[i].GetSelectList(), new { @class = "selRoomCount" })
+                    </td>
+                </tr>
+            }
+        </table>
+        <!--3延长住宿-->
+        <h6 class="process mt20">
+            <span>3</span>延长住宿</h6>
+        <p class="h_content">
+            若您对于天数无法尽兴，我们更贴心提供延长住宿的服务</p>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+            <tr class="tr_hide">
+                <td style="width: 140px;">
+                </td>
+                <td style="width: 160px;">
+                </td>
+                <td>
+                </td>
+                <td style="width: 80px;">
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    退房日期
+                </td>
+                <td colspan="3" class="tbl_date">
+                    @*延住退房日期需要大于预定的退房日期*@
+                    @Html.TextBoxFor(m => m.PreOrderModel.StayReturnDate, new { @class = "tbl_txt", maxlength = "10", @onclick = "WdatePicker({ minDate: '" + Model.ReturnDate.AddDays(1).ToString("yyyy-MM-dd") + "', maxDate: '" + Model.ReturnDate.AddDays(7).ToString("yyyy-MM-dd") + "' });" })
+                    最多延长7晚
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    房型
+                </td>
+                <td class="name">
+                    含早/晚餐
+                </td>
+                <td class="name">
+                    每晚延长住宿价格
+                </td>
+                <td class="name">
+                    选择
+                </td>
+            </tr>
+            @for (int i = 0; i < Model.PreOrderModel.StayRoomClassModels.Count; i++)
+            {
+                var b = Model.PreOrderModel.StayRoomClassModels[i];
+                <tr>
+                    <td>
+                        @b.RoomClassName
+                    </td>
+                    <td>
+                        @(!string.IsNullOrEmpty(b.BreakfastDinnerTip) ? b.BreakfastDinnerTip : "无")
+                    </td>
+                    <td class="tbl_price">
+                        RMB @Html.DisplayFor(m => m.PreOrderModel.StayRoomClassModels[i].StayPrice) (含税)/人
+                    </td>
+                    <td>
+                        @Html.HiddenFor(rf => rf.PreOrderModel.StayRoomClassModels[i].RoomClassId)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.StayRoomClassModels[i].RoomClassName)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.StayRoomClassModels[i].SegmentPrice)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.StayRoomClassModels[i].StayPrice)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.StayRoomClassModels[i].BreakfastDinnerTip)
+                        @Html.DropDownListFor(rf => rf.PreOrderModel.StayRoomClassModels[i].StayCount, Model.PreOrderModel.StayRoomClassModels[i].GetSelectList(), new { @class = "selStayRoomCount" })
+                    </td>
+                </tr>
+            }
+        </table>
+        <!--4加购机票-->
+        <h6 class="process mt20">
+            <span>4</span>加购机票</h6>
+        <p class="h_content">
+            若您有机票的需求，欢迎加购我们提供的推荐机票</p>
+            for (int i = 0; i < Model.PreOrderModel.TicketModels.Count; i++)
+            {
+                var ticketModel = Model.PreOrderModel.TicketModels[i];
+        <h6 class="ticket_tit">
+            推荐机票@(i + 1)</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+            <tr class="tr_hide">
+                <td style="width: 45px;">
+                </td>
+                <td style="width: 70px;">
+                </td>
+                <td style="width: 45px;">
+                </td>
+                <td style="width: 55px;">
+                </td>
+                <td style="width: 70px;">
+                </td>
+                <td style="width: 60px;">
+                </td>
+                <td style="width: 50px;">
+                </td>
+                <td style="width: 50px;">
+                </td>
+                <td>
+                </td>
+                <td style="width: 55px;">
+                </td>
+                <td style="width: 80px;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="name">
+                    出发日期
+                </td>
+                <td colspan="4" class="tbl_date tbl_price">
+                    @Html.DepartureDate(Model.DepartureDate)
+                </td>
+                <td colspan="2" class="name">
+                    回程日期
+                </td>
+                <td colspan="3" class="tbl_date tbl_price">
+                    @Html.DepartureDate(Model.ReturnDate)
+                </td>
+            </tr>
+            <tr>
+                <td class="name">
+                    行程
+                </td>
+                <td class="name">
+                    航空公司
+                </td>
+                <td class="name">
+                    航班
+                </td>
+                <td class="name">
+                    舱等
+                </td>
+                <td class="name">
+                    出发地
+                </td>
+                <td class="name">
+                    到达地
+                </td>
+                <td class="name">
+                    出发时间
+                </td>
+                <td class="name">
+                    到达时间
+                </td>
+                <td class="name">
+                    价格
+                </td>
+                <td class="name">
+                    说明
+                </td>
+                <td class="name">
+                    选择
+                </td>
+            </tr>
+            @for (var j = 0; j < ticketModel.FlightModelList.Count; j++)
+            {
+                var f = ticketModel.FlightModelList[j];
+                <tr>
+                    <td>
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].SectionName)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].Airline)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].FlightNo)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightClassName)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].DepartureAirport)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].ArrivalAirport)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].DepartureTime)
+                        @Html.HiddenFor(rf => rf.PreOrderModel.TicketModels[i].FlightModelList[j].ArrivalTime)
+                        @f.SectionName
+                    </td>
+                    <td>
+                        @f.Airline
+                    </td>
+                    <td>
+                        @f.FlightNo
+                    </td>
+                    <td>
+                        @ticketModel.FlightClassName
+                    </td>
+                    <td>
+                        @f.DepartureAirport
+                    </td>
+                    <td>
+                        @f.ArrivalAirport
+                    </td>
+                    <td>
+                        @f.DepartureTime.Value.ToString(@"hh\:mm")
+                    </td>
+                    <td>
+                        @f.ArrivalTime.Value.ToString(@"hh\:mm")
+                    </td>
+                    @if (j == 0)
+                    {
+                        <td rowspan="2" class="tbl_price">
+                            RMB @Html.DisplayFor(m => m.PreOrderModel.TicketModels[i].Price) (含税)/人
+                        </td>
+                        <td rowspan="@ticketModel.FlightModelList.Count" class="ticket_FlightList_td">
+                            <div class="ticket_FlightList_div" style="position: relative;">
+                                <img alt="说明" src="@Url.Content("~/images/order_ico.jpg")" /><a class="tbl_tips_desc"
+                                    href="javascript:void(0);">说明</a>
+                                <!--机票加购项说明-->
+                                <div class="spw_type_layer tbl_type_layer" style="behavior: url(@Url.Content("~/css/PIE.htc"));">
+                                    <p>
+                                        @Html.Raw(ticketModel.AdditionalPurchasesNote)</p>
+                                    <div class="spw_type_tip">
+                                        <em>&#9670</em><span>&#9670</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td rowspan="@ticketModel.FlightModelList.Count">
+                            <input type="hidden" name="tickets[@i].TicketId" value="@ticketModel.TicketId" />
+                            <input type="hidden" name="tickets[@i].Price" value="@ticketModel.Price" />
+                            <input type="hidden" name="tickets[@i].FlightClassName" value="@ticketModel.FlightClassName" />
+                            @Html.DropDownListFor(rf => rf.PreOrderModel.TicketModels[i].Count, SelectListFactory.CreateTicketCountSelectList())
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+
+            }
+        <p class="tbl_send_warp">
+            <input id="btnOrder" type="submit" class="order_btn" onclick="javascript:return openOrderWin();"
+                value="" /></p>
+    }
+</div>

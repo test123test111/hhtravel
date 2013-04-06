@@ -70,7 +70,7 @@ namespace <#=Code.EscapeNamespace(ObjectNamespace)#>
 #>
 <#=Accessibility.ForType(container)#> partial class <#=Code.Escape(container)#> : DbEntitiesBase
 {
-    public <#=Code.Escape(container)#>()
+    internal <#=Code.Escape(container)#>()
         : base("name=<#=container.Name#>")
     {
 <#
@@ -78,24 +78,19 @@ namespace <#=Code.EscapeNamespace(ObjectNamespace)#>
 #>
     }
 
-    public <#=Code.Escape(container)#>(string connectionString) : base(connectionString)
+    internal <#=Code.Escape(container)#>(string connectionString) : base(connectionString)
 	{
 <#
         WriteLazyLoadingEnabled(container);
 #>	
 	}
 
-	public <#=Code.Escape(container)#>(DbConnection existingConnection, bool contextOwnsConnection)
+	internal <#=Code.Escape(container)#>(DbConnection existingConnection, bool contextOwnsConnection)
             : base(existingConnection, contextOwnsConnection)
     {
 <#
         WriteLazyLoadingEnabled(container);
 #>
-    }
-
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
-    {
-        throw new UnintentionalCodeFirstException();
     }
 
 <#

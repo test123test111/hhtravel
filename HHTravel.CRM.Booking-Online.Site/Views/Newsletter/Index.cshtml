@@ -1,0 +1,43 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.NewsletterModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section JS{
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
+    <script type="text/javascript">
+        function onSuccess(ajaxContext) {
+            //            var response = ajaxContext.get_response();
+            //            var statusCode = response.get_statusCode();
+            if (ajaxContext.Success) {
+                if (!ajaxContext.IsSubscription) {
+                    $('.show_ok_layer p').text('您已成功退订电子报');
+                } else {
+                    $('.show_ok_layer p').text('您已成功订阅电子报');
+                }
+                $('.show_ok_layer').show();
+            } else {
+                $('#UpdatePanel').html(ajaxContext);
+            }
+        }
+        $(function () {
+            $('.show_ok_bg>input').click(function () {
+                $('.show_ok_layer').hide();
+                return false;
+            });
+        });
+    </script>
+}
+<div id="UpdatePanel" class="pp_bg1">
+    @Html.Partial("_Form")
+</div>
+<!--layer-->
+<div class="show_ok_layer">
+    <em class="show_ok_bgtop"></em>
+    <div class="show_ok_bg">
+        <p>
+            <img alt="" src="@Url.Content("~/images/ok_icon.gif")" style="vertical-align:text-top;" />您已成功订阅电子报</p>
+        <input type="button" value="" /></div>
+    <em class="show_ok_bgbot"></em>
+</div>

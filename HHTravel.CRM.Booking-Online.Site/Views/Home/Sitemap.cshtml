@@ -1,0 +1,56 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.SitemapModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 class="s_m_tit">
+    <a href="@Url.Index()">出发城市</a></h2>
+<ul class="s_m_list" style="margin-left:-12px;">
+    <li>
+        @foreach (var c in Model.DepartureCitys)
+        {
+            <span><a href="@Url.Index()">@(c.CityName)出发</a></span>
+        }
+    </li>
+</ul>
+<h2 class="s_m_tit">
+    <a href="@Url.Action("Destination", "Home")">目的地</a></h2>
+<ul class="s_m_list">
+    @foreach (var g in Model.DestinationGroups)
+    {
+        <li><b><a href="@(Url.Action("FindBy", "Product", new { propertyType = 1, propertyValue = g.GroupId }))">@g.Name</a></b>
+            @foreach (var r in g.RegionList)
+            {
+                <span><a href="@(Url.Action("FindBy", "Product", new { propertyType = 1, propertyValue = g.GroupId, childValue = r.RegionId }))">@r.Name</a></span>
+            }
+        </li>
+    }
+</ul>
+<h2 class="s_m_tit">
+    <a href="@Url.Action("Interest", "Home")">旅行主题</a></h2>
+<ul class="s_m_list" style="margin-left:-12px;">
+    <li>
+        @foreach (var i in Model.Interests)
+        {
+            <span><a href="@Url.Action("FindBy", "Product", new { propertyType = 2, propertyValue = i.InterestId })">@i.Name</a></span>
+        }
+    </li>
+</ul>
+<h2 class="s_m_tit">
+    <a href="@Url.Action("DepartMonth", "Home")">出发月份</a></h2>
+@{
+    var dms = Model.DepartureMonths;
+    var groups = dms.GroupBy(m => m.Year);
+}
+<ul class="s_m_list">
+    @foreach (var group in groups)
+    {
+        int year = group.Key;
+        <li><b style="width:50px;">@year</b>
+            @foreach (var m in group)
+            {
+                int month = m.Month;
+                <span><a href="@Url.Action("FindBy", "Product", new { propertyType = 3, propertyValue = year, childValue = month })">@m.Name</a></span>
+            }
+        </li>
+    }
+</ul>

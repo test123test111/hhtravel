@@ -19,17 +19,25 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public Nullable<int> ProductId { get; set; }
         public Nullable<int> ProductSpecId { get; set; }
         public Nullable<short> ProductState { get; set; }
-        public Nullable<bool> IsStay { get; set; }
-        public Nullable<System.DateTime> DepartureTime { get; set; }
         public Nullable<System.DateTime> ReturnDate { get; set; }
         public Nullable<short> Times { get; set; }
+        public Nullable<int> Amount { get; set; }
+        public string LastModifyMan { get; set; }
+        public Nullable<System.DateTime> LastModifyTime { get; set; }
+        public string ProductName { get; set; }
+        public string ProductSpecName { get; set; }
+        public string SectionType { get; set; }
+        public Nullable<System.DateTime> DepartDate { get; set; }
+        public string Unit { get; set; }
+        public Nullable<short> Quantity { get; set; }
+        public Nullable<int> Price { get; set; }
+        public string Remark { get; set; }
+        public Nullable<bool> IsStay { get; set; }
+        public Nullable<System.DateTime> DepartureTime { get; set; }
         public Nullable<short> AdultNum { get; set; }
         public Nullable<short> ChildNum { get; set; }
         public Nullable<int> PriceAdult { get; set; }
         public Nullable<int> PriceChild { get; set; }
-        public Nullable<int> Amount { get; set; }
-        public string LastModifyMan { get; set; }
-        public Nullable<System.DateTime> LastModifyTime { get; set; }
     }
     
 }

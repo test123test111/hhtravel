@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CustomerDbModelStoreContainer" CdmEntityContainer="CustomerDbEntities">
+    <EntitySetMapping Name="Customer">
+      <EntityTypeMapping TypeName="CustomerDbModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="CnFirstName" ColumnName="CnFirstName" />
+          <ScalarProperty Name="CnLastName" ColumnName="CnLastName" />
+          <ScalarProperty Name="EnFirstName" ColumnName="EnFirstName" />
+          <ScalarProperty Name="EnLastName" ColumnName="EnLastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+          <ScalarProperty Name="MobilePhone" ColumnName="MobilePhone" />
+          <ScalarProperty Name="Telphone" ColumnName="Telphone" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Province" ColumnName="Province" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PostCode" ColumnName="PostCode" />
+          <ScalarProperty Name="ContactFavorite" ColumnName="ContactFavorite" />
+          <ScalarProperty Name="ConvenientTime" ColumnName="ConvenientTime" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SubNews">
+      <EntityTypeMapping TypeName="CustomerDbModel.SubNews">
+        <MappingFragment StoreEntitySet="SubNews">
+          <ScalarProperty Name="SubId" ColumnName="SubId" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mkt_Html">
+      <EntityTypeMapping TypeName="CustomerDbModel.Mkt_Html">
+        <MappingFragment StoreEntitySet="Mkt_Html">
+          <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+          <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+          <ScalarProperty Name="Remark" ColumnName="Remark" />
+          <ScalarProperty Name="HtmlTest" ColumnName="HtmlTest" />
+          <ScalarProperty Name="Html" ColumnName="Html" />
+          <ScalarProperty Name="Language" ColumnName="Language" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="MarketingID" ColumnName="MarketingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

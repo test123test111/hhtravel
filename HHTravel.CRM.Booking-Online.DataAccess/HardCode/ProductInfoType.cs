@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace HHTravel.CRM.Booking_Online.DataAccess.HardCode
+﻿namespace HHTravel.CRM.Booking_Online.DataAccess.HardCode
 {
     /// <summary>
     /// 对应Product_Info表中的InfoTypeName
     /// </summary>
-    internal struct ProductInfoType
+    public struct ProductInfoType
     {
         public const string 订购须知 = "订购须知";
         public const string 费用包含 = "费用包含";

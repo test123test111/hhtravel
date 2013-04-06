@@ -20,9 +20,7 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public Nullable<System.TimeSpan> OrderTime { get; set; }
         public Nullable<short> OrderState { get; set; }
         public Nullable<int> CustomerID { get; set; }
-        public Nullable<System.DateTime> DepartureTime { get; set; }
         public Nullable<System.DateTime> ReturnDate { get; set; }
-        public Nullable<System.DateTime> StayReturnDate { get; set; }
         public Nullable<short> TravelDays { get; set; }
         public Nullable<short> AdultNum { get; set; }
         public Nullable<short> ChildNum { get; set; }
@@ -38,6 +36,11 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public Nullable<System.DateTime> LastModifyTime { get; set; }
         public Nullable<short> TripType { get; set; }
         public string DepartureCity { get; set; }
+        public Nullable<int> ProductID { get; set; }
+        public Nullable<short> OrderType { get; set; }
+        public Nullable<System.DateTime> DepartDate { get; set; }
+        public Nullable<System.DateTime> StayReturnDate { get; set; }
+        public Nullable<System.DateTime> DepartureTime { get; set; }
     }
     
 }

@@ -1,0 +1,16 @@
+﻿@if ((int?)Model == 0)
+{
+    @Html.Encode("09:00-12:00")
+}
+else if ((int?)Model == 1)
+{
+    @Html.Encode("12:00-14:00")
+}
+else if ((int?)Model == 2)
+{
+    @Html.Encode("14:00-18:00")
+}
+else if ((int?)Model == -1)
+{
+    @Html.Encode("以上时间皆可")
+}

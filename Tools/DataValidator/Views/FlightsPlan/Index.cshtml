@@ -1,0 +1,102 @@
+﻿@model DataValidator.Models.FlightsPlan.FlightsPlanSearchModel
+@{
+    ViewBag.Title = "hhTravel-国际机票查询验证器";
+}
+<h2>
+    hhTravel-国际机票查询验证器</h2>
+@using (Html.BeginForm("Search", "FlightsPlan", FormMethod.Post, new { target = "_blank", @class = "form-horizontal" }))
+{
+    @Html.HiddenFor(m => m.CurrentSegmentNo)
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+        <div class="control-group">
+            <label class="control-label">
+                显示后台数据</label>
+            <div class="controls">
+                @Html.RadioButtonFor(model => model.IsShowPlansJson, false)否
+                @Html.RadioButtonFor(model => model.IsShowPlansJson, true)是
+                @Html.ValidationMessageFor(model => model.IsShowPlansJson)
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label">
+                运行环境</label>
+            <div class="controls">
+                @Html.DropDownListFor(sbm => sbm.DbServer, DataValidator.Models.FlightsPlan.FlightsPlanSearchModel.DbServers, new { @class = "span2" })
+                @Html.ValidationMessageFor(model => model.DbServer)
+            </div>
+        </div>
+        <div class="control-group">
+            @Html.LabelFor(model => model.ProductNo, new { @class = "control-label" })
+            <div class="controls">
+                @Html.EditorFor(model => model.ProductNo)（请输入完整的产品编号）
+                @Html.ValidationMessageFor(model => model.ProductNo)
+            </div>
+        </div>
+        @for (var i = 0; i < Model.FlightSegmentPostModels.Count; i++)
+        {
+            <label class="control-label">
+                航段@(i + 1)</label><br />
+            @Html.HiddenFor(model => Model.FlightSegmentPostModels[i].SegmentNo)
+            <div class="control-group">
+                <div class="editor-label">
+                    @Html.LabelFor(model => Model.FlightSegmentPostModels[i].DepartCityCode, new { @class = "control-label" })
+                </div>
+                <div class="controls">
+                    @Html.EditorFor(model => Model.FlightSegmentPostModels[i].DepartCityCode)
+                    @Html.ValidationMessageFor(model => Model.FlightSegmentPostModels[i].DepartCityCode)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => Model.FlightSegmentPostModels[i].ArrivalCityCode, new { @class = "control-label" })
+                </div>
+                <div class="controls">
+                    @Html.EditorFor(model => Model.FlightSegmentPostModels[i].ArrivalCityCode)
+                    @Html.ValidationMessageFor(model => Model.FlightSegmentPostModels[i].ArrivalCityCode)
+                </div>
+                <div class="editor-label">
+                    @Html.LabelFor(model => Model.FlightSegmentPostModels[i].DepartDate, new { @class = "control-label" })
+                </div>
+                <div class="controls">
+                    <div class="input-append date" data-date="@Model.FlightSegmentPostModels[i].DepartDate.ToString("yyyy-MM-dd")" data-date-format="yyyy-mm-dd">
+                        @Html.TextBoxFor(model => Model.FlightSegmentPostModels[i].DepartDate, new { @class = "span2", size = 16 })
+                        <span class="add-on"><i class="icon-th"></i></span>
+                    </div>
+                    @Html.ValidationMessageFor(model => Model.FlightSegmentPostModels[i].DepartDate)
+                </div>
+            </div>
+        }
+        <script type="text/javascript">
+            $('.date').datepicker();
+        </script>
+        <div class="control-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.FlightSeat, new { @class = "control-label" })
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.FlightSeat)
+                @Html.ValidationMessageFor(model => model.FlightSeat)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.AdultCount, new { @class = "control-label" })
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.AdultCount)
+                @Html.ValidationMessageFor(model => model.AdultCount)
+            </div>
+            <div class="editor-label">
+                @Html.LabelFor(model => model.ChildCount, new { @class = "control-label" })
+            </div>
+            <div class="controls">
+                @Html.EditorFor(model => model.ChildCount)
+                @Html.ValidationMessageFor(model => model.ChildCount)
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="submit" value="搜索航段计划" class="btn btn-primary btn-large" />
+            </div>
+        </div>
+    </fieldset>
+}

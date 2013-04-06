@@ -1,0 +1,181 @@
+﻿@model DataValidator.Models.FlightsPlan.FligthsPlanListModel
+@{
+    ViewBag.Title = "hhTravel-国际机票查询验证器";
+}
+<h2>
+    国际机票查询验证器</h2>
+<p>
+    第 @Model.SearchCondition.CurrentSegmentNo 航段
+</p>
+<p>
+    @Model.SearchConditionJson
+</p>
+<p>
+    共 @(Model.PlanModels.Count)个航班计划
+</p>
+<table class="table-bordered table-striped">
+    <tr>
+        <th>
+            航班
+        </th>
+        <th>
+            航空公司
+        </th>
+        <th>
+            舱等
+        </th>
+        <th>
+            执飞航班
+        </th>
+        <th>
+            执飞航空公司
+        </th>
+        <th>
+            出发机场
+        </th>
+        <th>
+            出发城市
+        </th>
+        <th>
+            到达机场
+        </th>
+        <th>
+            到达城市
+        </th>
+        <th>
+            出发-到达时间
+        </th>
+        <th>
+            行李
+        </th>
+        @*            <th>
+                AircraftModel
+            </th>
+            <th>
+                AircraftType
+            </th>
+            <th>
+                MinSeats
+            </th>
+            <th>
+                MaxSeats
+            </th>*@
+    </tr>
+    @for (int i = 0; i < Model.PlanModels.Count; i++)
+    {
+        var planModel = Model.PlanModels[i];
+        //[(int)Model.SearchCondition.CurrentSegmentNo - 1]
+        foreach (var item in planModel.FlightModels)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNo)
+            </td>
+            <td>
+                @(item.Airline.AirlineName)(@item.Airline.AirlineCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActualFlightNo)
+            </td>
+            <td>
+                @(item.ActualAirline.AirlineName)(@item.ActualAirline.AirlineCode)
+            </td>
+            <td>
+                @(item.DepartAirport.AirportName)(@item.DepartAirport.AirportCode)
+            </td>
+            <td>
+                @(item.DepartCity.CityName)(@item.DepartCity.CityCode)
+            </td>
+            <td>
+                @(item.ArrivalAirport.AirportName)(@item.ArrivalAirport.AirportCode)
+            </td>
+            <td>
+                @(item.ArrivalCity.CityName)(@item.ArrivalCity.CityCode)
+            </td>
+            <td>
+                @item.DepartTimeString - @item.ArrivalTimeString
+                @(item.ArrivalDays > 0 ? "(+" + item.ArrivalDays + ")" : "")
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Baggage)
+            </td>
+            @*                <td>
+                    @Html.DisplayFor(modelItem => item.AircraftModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AircraftType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MinSeats)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaxSeats)
+                </td>*@
+        </tr>
+        }
+        <tr>
+            <td colspan="4">
+                <table border="1">
+                    <tr>
+                        <td>
+                            @planModel.AdultCount 成
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => planModel.AdultFuelSurcharges)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => planModel.AdultTax)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => planModel.AdultPrice)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @planModel.ChildCount 儿
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => planModel.ChildFuelSurcharges)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => planModel.ChildTax)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => planModel.ChildPrice)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            总
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => planModel.TotalFuelSurcharges)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => planModel.TotalTax)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => planModel.TotalPrice)
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="11">
+                @using (Html.BeginForm("SearchNextSegment", "FlightsPlan", FormMethod.Post))
+                {
+                    @Html.Hidden("DbServer", Model.DbServer)
+                    <input type="hidden" name="SearchConditionJson" value="@Model.SearchConditionJson" />
+                    <input type="hidden" name="FlightsPlanJson" value="@planModel.FlightsPlanJson" />
+                    <input class="btn btn-info btn-small" type="submit" value="查询返程" />
+                }
+            </td>
+        </tr>
+                if (Model.IsShowPlansJson)
+                {
+        <tr>
+            <td colspan="11">
+                @planModel.FlightsPlanJson
+            </td>
+        </tr>
+                }
+    }
+</table>

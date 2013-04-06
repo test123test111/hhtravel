@@ -70,21 +70,21 @@ namespace <#=Code.EscapeNamespace(ObjectNamespace)#>
 #>
 <#=Accessibility.ForType(container)#> partial class <#=Code.Escape(container)#> : DbEntitiesBase
 {
-	public <#=Code.Escape(container)#>() : base("name=<#=container.Name#>")
+	internal <#=Code.Escape(container)#>() : base("name=<#=container.Name#>")
 	{
 <#
         WriteLazyLoadingEnabled(container);
 #>	
 	}
 
-    public <#=Code.Escape(container)#>(string connectionString) : base(connectionString)
+    internal <#=Code.Escape(container)#>(string connectionString) : base(connectionString)
 	{
 <#
         WriteLazyLoadingEnabled(container);
 #>	
 	}
 
-	public <#=Code.Escape(container)#>(DbConnection existingConnection, bool contextOwnsConnection)
+	internal <#=Code.Escape(container)#>(DbConnection existingConnection, bool contextOwnsConnection)
             : base(existingConnection, contextOwnsConnection)
     {
 <#
@@ -92,16 +92,21 @@ namespace <#=Code.EscapeNamespace(ObjectNamespace)#>
 #>
     }
 
-    protected override void OnModelCreating(DbModelBuilder modelBuilder)
+    // 实现NoTrack的 临时解决方案，InternalEntity标记为public是因为EF在运行时的需要
+<#
+    foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
     {
-        throw new UnintentionalCodeFirstException();
+#>
+    public DbSet<<#=Code.Escape(entitySet.ElementType)#>> Internal<#=Code.Escape(entitySet)#> { get; set; }
+<#
     }
+#>
 
 <#
     foreach (var entitySet in container.BaseEntitySets.OfType<EntitySet>())
     {
 #>
-    <#=Accessibility.ForReadOnlyProperty(entitySet)#> DbSet<<#=Code.Escape(entitySet.ElementType)#>> <#=Code.Escape(entitySet)#> { get; set; }
+    public DbQuery<<#=Code.Escape(entitySet.ElementType)#>> <#=Code.Escape(entitySet)#> { get { return this.Internal<#=Code.Escape(entitySet)#> != null ? this.Internal<#=Code.Escape(entitySet)#>.AsNoTracking() : this.Internal<#=Code.Escape(entitySet)#>; } }
 <#
     }
 

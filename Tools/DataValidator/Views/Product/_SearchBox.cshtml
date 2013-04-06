@@ -1,0 +1,50 @@
+﻿@model DataValidator.Models.SearchBoxModel
+@using (Html.BeginForm("Search", "Product", FormMethod.Get, new { @class = "form-horizontal" }))
+{
+    <div class="control-group">
+        <label class="control-label">
+            出发地</label>
+        <div class="controls">
+            @Html.DropDownListFor(sbm => sbm.DepartureCity, SearchBoxModel.DepartureCitys, new { @class = "span2" })
+            <span>目的地分组</span>
+            @Html.DropDownListFor(sbm => sbm.DestinationGroup, SearchBoxModel.DestinationGroups, new { @class = "span2" })
+            <span>目的地区域</span> @*@Html.DropDownListFor(sbm => sbm.DestinationRegion, null, new { @class = "span2" })*@
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            旅游型态</label>
+        <div class="controls">
+            @Html.DropDownListFor(sbm => sbm.TravelType, SearchBoxModel.TravelTypes, new { @class = "span2" })
+            &nbsp;&nbsp;<b>旅行主题</b>
+            @Html.DropDownListFor(sbm => sbm.Interest, SearchBoxModel.Interests, new { @class = "span2" })
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">
+            出发区间 自</label>
+        <div class="controls">
+            <div class="input-append date" id="dp3" data-date="@Model.DepartureBeginDate.ToString("yyyy-MM-dd")" data-date-format="yyyy-mm-dd">
+                <input name="beginDate" class="span2" size="16" type="text" value="">
+                <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            <text>至</text>
+            <div class="input-append date" id="dp3" data-date="@Model.DepartureEndDate.ToString("yyyy-MM-dd")" data-date-format="yyyy-mm-dd">
+                <input name="endDate" class="span2" size="16" type="text" value="">
+                <span class="add-on"><i class="icon-th"></i></span>
+            </div>
+            <script type="text/javascript">
+                $('.date').datepicker();
+            </script>
+            <span>行程天数</span>
+            @Html.DropDownListFor(sbm => sbm.DaysSection, SearchBoxModel.DaysSections, new { @class = "span2" })
+        </div>
+    </div>
+    <div class="control-group">
+        <div class="controls">
+            @Html.DropDownListFor(sbm => sbm.DbServer, SearchBoxModel.DbServers, new { @class = "span2" })
+            <button id="btnSearch" type="submit" class="btn btn-primary btn-large">
+                搜索</button>
+        </div>
+    </div>
+}

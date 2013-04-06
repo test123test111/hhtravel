@@ -1,0 +1,445 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.OrderWizard.Step2Model
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    // hh33
+    $(document).ready(function () {
+        if ($('input[name="IsChooseFlights"]:checked').val() == 'True') {
+            $('#flights-seg').show();
+            $('#no-flights-tips').hide();
+        } else {
+            $('#flights-seg').hide();
+            $('#no-flights-tips').show();
+        }
+
+        $('input[name="IsChooseFlights"]').change(function () {
+            $('#flights-seg').slideToggle();
+            $('#no-flights-tips').slideToggle();
+        });
+
+        var refreshSelect = function ($selHotelId) {
+            var hotelId = $selHotelId.val();
+            var $seg = $selHotelId.parents('.seg-hotel');
+            // 禁用不能选择的房型的下拉列表，避免用户误选
+            var $radios = $seg.find('.room-count[data-hotelId="' + hotelId + '"]');
+            var $radiosAnother = $seg.find('.room-count[data-hotelId!="' + hotelId + '"]');
+            $radios.prev('input').attr('disabled', false);
+            $radiosAnother.prev('input').attr('disabled', true);
+            $radios.attr('disabled', false);
+            $radiosAnother.attr('disabled', true).val(0);
+
+            calcPrice();
+        };
+        $('.hotel-id:checked').each(function () {
+            refreshSelect($(this));
+        });
+
+        $('.hotel-id').change(function () {
+            refreshSelect($(this));
+        });
+
+        $('.room-count').change(calcPrice);
+        $('.ground-service-id').change(calcPrice);
+    });
+
+    function calcPrice() {
+        var totalPrice = 0;
+        // 酒店计价 包括定点和线路的酒店及其延住酒店
+        $('.room-count').each(function (i, sel) {
+            var roomCount = $(this).val();
+            // 间数*单价(已考虑变价并按日期范围累计)
+            var roomPrice = roomCount * $(this).attr('data-price');
+            totalPrice += roomPrice;
+        });
+        // 地面产品计价
+        var $radioGroundService = $('.ground-service-id:checked');
+        if ($radioGroundService.length) {
+            var gsTotalPrice = parseInt($radioGroundService.attr('data-totalPrice'));
+            // 计算总价
+            totalPrice += gsTotalPrice;
+        }
+        $('#total-price').text('RMB ' + formatToCurrency(totalPrice));
+        // 计算均价
+        var personCount = '@(Model.AdultCount + Model.ChildCount)';
+        $('#average-price').text('RMB ' + formatToCurrency(Math.round(totalPrice / personCount))); // !四舍五入
+    }
+</script>
+<h1 class="r_title r_title_wp_reset">
+    <a href="@Url.Product(Model.ProductNo)">@Model.ProductName</a><span class="pro_num">@Model.ProductNo</span></h1>
+<div class="pro_selected">
+    @using (Html.BeginForm("Step2", "OrderWizard"))
+    {
+        @Html.HiddenFor(m => m.SessionId)
+        if (Model.HotelSegment.HotelSegmentType == HotelSegmentType.酒店)
+        {
+        <!--酒店选择-->
+        <h6 class="process">
+            <span>@(Model.BeginSubstepNo++)</span>选择酒店</h6>
+        <h6 class="ticket_tit" style="margin-top: 0;">
+            入住日期：<b class="ft_blue">@Model.HotelSegment.CheckinDateString</b>～ 退房日期：<b class="ft_blue">@Model.HotelSegment.CheckoutDateString</b>&nbsp;&nbsp;入住@(Model.HotelSegment.Nights)晚</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order seg-hotel">
+            <tr>
+                <td class="name" style="width: 40px;">
+                    选择
+                </td>
+                <td class="name" style="width: 230px;">
+                    酒店
+                </td>
+                <td class="name" style="width: 110px;">
+                    房型
+                </td>
+                <td class="name" style="width: 90px;">
+                    早晚餐说明
+                </td>
+                <td class="name" style="width: 70px;">
+                    可住人数
+                </td>
+                <td class="name">
+                    价差
+                </td>
+                <td class="name" style="width: 80px;">
+                    间数
+                </td>
+            </tr>
+            @for (int i = 0; i < Model.HotelSegment.HotelModelList.Count; i++)
+            {
+                var hotel = Model.HotelSegment.HotelModelList[i];
+                for (int roomIndexInHotel = 0; roomIndexInHotel < hotel.RoomClassModelList.Count; roomIndexInHotel++)
+                {
+                    var room = hotel.RoomClassModelList[roomIndexInHotel];
+                <tr>
+                    @if (roomIndexInHotel == 0)
+                    {
+                        var htmlAttributes = new Dictionary<string, object> { { "class", "hotel-id" } };
+                        if (hotel.Checked)
+                        {
+                            htmlAttributes.Add("checked", "checked");
+                        }
+                        <td rowspan="@hotel.RoomClassModelList.Count">
+                            @Html.RadioButtonFor(m => m.HotelPostModel.HotelId, hotel.HotelId, htmlAttributes)
+                        </td>
+                        <td rowspan="@hotel.RoomClassModelList.Count" class="tbl_date">
+                            @Html.ActionLink(hotel.HotelName, "Hotels", "ProductDetails", new { productNo = Model.ProductNo }, new { @class = "new-window" })
+                        </td>
+                    }
+                    <td>
+                        @room.RoomClassName
+                    </td>
+                    <td>
+                        @room.BreakfastDinnerTip
+                    </td>
+                    <td>
+                        @room.MaxOccupancy
+                    </td>
+                    <td class="tbl_price">
+                        RMB @Html.DisplayFor(m => room.SegmentPriceDelta)
+                    </td>
+                    <td>
+                        @Html.Hidden("HotelPostModel.RoomClassPostModels["
+                             + roomIndexInHotel + "].RoomClassId", room.RoomClassId)
+                        @{ 
+                    int maxRoomCount = Model.AdultCount + Model.ChildCount;
+                    int selectedRoomCount = (Model.HotelPostModel
+                       != null && Model.HotelPostModel.HotelId == hotel.HotelId) ? Model.HotelPostModel.RoomClassPostModels[roomIndexInHotel].RoomCount : (room.WithLowestPrice ? 1 : 0); 
+                        }
+                        @Html.DropDownListFor(m => m.HotelPostModel.RoomClassPostModels[roomIndexInHotel].RoomCount,
+                              room.GetSelectList(selectedRoomCount, maxRoomCount), new
+                              {
+                                  @class = "room-count",
+                                  @data_hotelId = hotel.HotelId,
+                                  @data_price = room.SegmentPrice,
+                                  @data_nights = Model.HotelSegment.Nights
+                              })
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+        <p style="clear: both; text-align: right; line-height: 30px; padding-right: 5px;">@Html.ValidationMessage("HotelPostModel.RoomClassPostModels.RoomCount")</p>
+        }
+        else if (Model.HotelSegment.HotelSegmentType == HotelSegmentType.线路)
+        {
+        <!--线路产品-->
+        <h6 class="process">
+            <span>@(Model.BeginSubstepNo++)</span>线路产品</h6>
+        <h6 class="ticket_tit" style="margin-top: 0;">
+            开始日期：<b class="ft_blue">@Model.HotelSegment.CheckinDateString</b>～ 退房日期：<b class="ft_blue">@Model.HotelSegment.CheckoutDateString</b>&nbsp;&nbsp;行程@(Model.HotelSegment.Nights + 1)天</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order seg-hotel">
+            <tr>
+                <td class="name" style="width: 40px;">
+                    选择
+                </td>
+                <td class="name">
+                    名称
+                </td>
+                <td class="name" style="width: 150px;">
+                    描述
+                </td>
+                <td class="name" style="width: 100px;">
+                    房型
+                </td>
+                <td class="name" style="width: 160px;">
+                    价差
+                </td>
+                <td class="name" style="width: 80px;">
+                    人数
+                </td>
+            </tr>
+            @for (int i = 0; i < Model.HotelSegment.HotelModelList.Count; i++)
+            {
+                var hotel = Model.HotelSegment.HotelModelList[i];
+                for (int roomIndexInHotel = 0; roomIndexInHotel < hotel.RoomClassModelList.Count; roomIndexInHotel++)
+                {
+                    var room = hotel.RoomClassModelList[roomIndexInHotel];
+                <tr>
+                    @if (roomIndexInHotel == 0)
+                    {
+                        var htmlAttributes = new Dictionary<string, object> { { "class", "hotel-id" } };
+                        if (hotel.Checked)
+                        {
+                            htmlAttributes.Add("checked", "checked");
+                        }
+                        <td class="tbl_date" rowspan="@hotel.RoomClassModelList.Count">
+                            @Html.RadioButtonFor(m => m.HotelPostModel.HotelId, hotel.HotelId, htmlAttributes)
+                        </td>
+                        <td rowspan="@hotel.RoomClassModelList.Count">
+                            @hotel.HotelName
+                        </td>
+                        <td rowspan="@hotel.RoomClassModelList.Count">
+                            @hotel.Description
+                        </td>
+                    }
+                    <td>
+                        @room.RoomClassName
+                    </td>
+                    <td class="tbl_price">
+                        RMB @Html.DisplayFor(m => room.SegmentPriceDelta)
+                    </td>
+                    <td>
+                        @Html.Hidden("HotelPostModel.RoomClassPostModels["
+                             + roomIndexInHotel + "].RoomClassId", room.RoomClassId)
+                        @{
+                    int maxPersonCount = Model.AdultCount + Model.ChildCount;
+                    int selectedPersonCount = (Model.HotelPostModel
+                    != null && Model.HotelPostModel.HotelId == hotel.HotelId) ? Model.HotelPostModel.RoomClassPostModels[roomIndexInHotel].RoomCount
+                    : (room.WithLowestPrice ? maxPersonCount : 0); 
+                        }
+                        @Html.DropDownListFor(m => m.HotelPostModel.RoomClassPostModels[roomIndexInHotel].RoomCount,
+                                room.GetSelectList(selectedPersonCount, maxPersonCount, "{0}人"), new
+                                {
+                                    @class = "room-count",
+                                    @data_hotelId = hotel.HotelId,
+                                    @data_price = room.SegmentPrice,
+                                    @data_nights = Model.HotelSegment.Nights
+                                })
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+        <p style="clear: both; text-align: right; line-height: 30px; padding-right: 5px;">@Html.ValidationMessage("HotelPostModel.RoomClassPostModels.RoomCount")</p>
+        }
+        if (Model.DelayHotelSegment != null)
+        {
+        <p class="dotted_line">
+        </p>
+        <!--延住产品-->
+        <h6 class="process mt20">
+            <span>@(Model.BeginSubstepNo++)</span>延长住宿</h6>
+        <h6 class="ticket_tit" style="margin-top: 0;">
+            延住日期：<b class="ft_blue">@Model.DelayHotelSegment.CheckinDateString</b>～ 退房日期：<b class="ft_blue">@Model.DelayHotelSegment.CheckoutDateString</b>&nbsp;&nbsp;入住@(Model.DelayHotelSegment.Nights)晚</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order seg-hotel">
+            <tr>
+                <td class="name" style="width: 40px;">
+                    选择
+                </td>
+                <td class="name" style="width: 230px;">
+                    酒店
+                </td>
+                <td class="name" style="width: 110px;">
+                    房型
+                </td>
+                <td class="name" style="width: 90px;">
+                    早晚餐说明
+                </td>
+                <td class="name" style="width: 70px;">
+                    可住人数
+                </td>
+                <td class="name">
+                    价差
+                </td>
+                <td class="name" style="width: 80px;">
+                    间数
+                </td>
+            </tr>
+            @for (int i = 0; i < Model.DelayHotelSegment.HotelModelList.Count; i++)
+            {
+                var hotel = Model.DelayHotelSegment.HotelModelList[i];
+                for (int roomIndexInHotel = 0; roomIndexInHotel < hotel.RoomClassModelList.Count; roomIndexInHotel++)
+                {
+                    var room = hotel.RoomClassModelList[roomIndexInHotel];
+                <tr>
+                    @if (roomIndexInHotel == 0)
+                    {
+                        var htmlAttributes = new Dictionary<string, object> { { "class", "hotel-id" } };
+                        if (hotel.Checked)
+                        {
+                            htmlAttributes.Add("checked", "checked");
+                        }
+                        <td rowspan="@hotel.RoomClassModelList.Count">
+                            @Html.RadioButtonFor(m => m.DelayHotelPostModel.HotelId, hotel.HotelId, htmlAttributes)
+                        </td>
+                        <td rowspan="@hotel.RoomClassModelList.Count" class="tbl_date">
+                            @Html.ActionLink(hotel.HotelName, "Hotels", "ProductDetails", new { productNo = Model.ProductNo }, new { @class = "new-window" })
+                        </td>
+                    }
+                    <td>
+                        @room.RoomClassName
+                    </td>
+                    <td>
+                        @room.BreakfastDinnerTip
+                    </td>
+                    <td>
+                        @room.MaxOccupancy
+                    </td>
+                    <td class="tbl_price">
+                        RMB @Html.DisplayFor(m => room.SegmentPriceDelta)
+                    </td>
+                    <td>
+                        @Html.Hidden("DelayHotelPostModel.RoomClassPostModels["
+                             + roomIndexInHotel + "].RoomClassId", room.RoomClassId)
+                        @{ 
+                            
+                    int maxRoomCount = Model.AdultCount + Model.ChildCount;
+                    int selectedRoomCount = Model.DelayHotelPostModel
+                            != null ? Model.DelayHotelPostModel.RoomClassPostModels[roomIndexInHotel].RoomCount
+                            : (room.WithLowestPrice ? 1 : 0); 
+                        }
+                        @Html.DropDownListFor(m => m.DelayHotelPostModel.RoomClassPostModels[roomIndexInHotel].RoomCount,
+                             room.GetSelectList(selectedRoomCount, maxRoomCount), new
+                             {
+                                 @class = "room-count",
+                                 @data_hotelId = hotel.HotelId,
+                                 @data_price = room.SegmentPrice,
+                                 @data_nights = Model.DelayHotelSegment.Nights
+                             })
+                    </td>
+                </tr>
+                }
+            }
+        </table>
+        <p style="clear: both; text-align: right; line-height: 30px; padding-right: 5px;">@Html.ValidationMessage("DelayHotelPostModel.RoomClassPostModels.RoomCount")</p>
+        }
+        if (Model.GroundServiceModels.Count > 0)
+        {
+        <p class="dotted_line">
+        </p>
+        <!--地面附加产品-->
+        <h6 class="process mt20">
+            <span>@(Model.BeginSubstepNo++)</span>地面产品</h6>
+        <table border="0" cellpadding="0" cellspacing="0" class="tbl_order">
+            <tr>
+                <td class="name" style="width: 40px;">
+                    选择
+                </td>
+                <td class="name">
+                    名称
+                </td>
+                <td class="name" style="width: 150px;">
+                    描述
+                </td>
+                <td class="name" style="width: 90px;">
+                    计价单位
+                </td>
+                <td class="name" style="width: 70px;">
+                    份数
+                </td>
+                <td class="name" style="width: 120px;">
+                    价差
+                </td>
+            </tr>
+            @foreach (var gs in Model.GroundServiceModels)
+            {
+                var htmlAttributes = new Dictionary<string, object> {
+                    { "class", "ground-service-id" },
+                    { "data-totalPrice", gs.TotalPrice },
+                };
+                if (gs.Checked)
+                {
+                    htmlAttributes.Add("checked", "checked");
+                }
+                <tr>
+                    <td>
+                        @Html.RadioButtonFor(m => m.SelectedGroundServiceId, gs.GroundServiceId, htmlAttributes)
+                    </td>
+                    <td class="tbl_date">
+                        @gs.ServiceName
+                    </td>
+                    <td>
+                        @Html.Raw(gs.Description)
+                    </td>
+                    <td>
+                        人
+                    </td>
+                    <td>
+                        @gs.PurchaseCount
+                    </td>
+                    <td>
+                        @Html.DisplayFor(m => gs.TotalPriceDelta)
+                    </td>
+                </tr>
+            }
+        </table>
+        }
+        <p class="dotted_line">
+        </p>
+        <!--航班选择-->
+        <h6 class="process mt20">
+            <span>@(Model.BeginSubstepNo++)</span>选择机票</h6>
+        <p class="ds_select">
+            <span class="ds_label">加购机票：</span>
+            @Html.RadioButtonFor(m => m.IsChooseFlights, true)是
+            @Html.RadioButtonFor(m => m.IsChooseFlights, false)否
+        </p>
+        <div id="flights-seg" style="display: @(Model.IsChooseFlights ? "block" : "none")">
+            <p class="ds_select">
+                <span class="ds_label">选择舱等：</span>
+                @Html.RadioButtonFor(m => m.FlightSeat, "经济舱")经济舱
+                @Html.RadioButtonFor(m => m.FlightSeat, "超经舱")超级经济舱
+                @Html.RadioButtonFor(m => m.FlightSeat, "公务舱")公务舱
+                @Html.RadioButtonFor(m => m.FlightSeat, "头等舱")头等舱
+            </p>
+            @foreach (var seg in Model.FlightsSegmentModels)
+            {
+                <p class="ds_select flight_w mt10">
+                    第<b class="ft_blue">@seg.SegmentNo</b>程&nbsp;&nbsp;出发城市：<b class="ft_blue">@seg.DepartCity.CityName</b>
+                    ～ 到达城市：<b class="ft_blue">@seg.ArrivalCity.CityName</b>&nbsp;&nbsp;&nbsp;&nbsp;起飞日期：@seg.DepartDate.ToString("yyyy-MM-dd")
+                </p>
+            }
+            <p style="clear: both; text-align: right; line-height: 30px; padding-right: 5px;">@Html.ValidationMessage("FlightsSegmentModels.DepartDate")</p>
+        </div>
+        <p class="dotted_line">
+        </p>
+        <!--按钮组-->
+        <div class="tbl_send_warp">
+            <a href="javascript:void(0)">
+                <input type="button" onclick="javascript:history.go(-1);" class="back_btn sep_pre_btn"
+                    value="回上一页" /></a>
+            <a href="javascript:void(0)">
+                <input id="btn-submit" type="submit" class="sep_next_btn ml25" value="下一步" /></a>
+        </div>
+    }
+</div>
+<!--价格计算-->
+<div class="sep_price_warp">
+    <div class="sep_price_warp_fixed">
+        <h5 class="sep_price_header">
+            人数与价格（含税费）</h5>
+        <p>
+            总价：<span id="total-price" class="tbl_price_orange">RMB -1</span><br />
+            人均：<span id="average-price" class="tbl_price_orange">RMB -1</span><br />
+            人数：成人@(Model.AdultCount)人，儿童@(Model.ChildCount)人<br />
+            <span id="no-flights-tips" class="ft_gray">备注：不包含机票价格</span></p>
+    </div>
+</div>

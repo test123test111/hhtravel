@@ -1,0 +1,55 @@
+﻿<?xml version="1.0"?>
+<Request>
+  <Header UserID="140101" RequestType="FlightIntl.FlightSearch.SearchFlights" AsyncRequest="false" />
+  <FltIntlSearchFlightsRequest>
+    <TripType>RT</TripType>
+    <SegmentInfos>
+      <SegmentInfo>
+        <DCode>SHA</DCode>
+        <ACode>SEL</ACode>
+        <DAirport />
+        <AAirport />
+        <DDate>2012-08-02</DDate>
+        <TimePeriod>All</TimePeriod>
+      </SegmentInfo>
+      <SegmentInfo>
+        <DCode>SEL</DCode>
+        <ACode>SHA</ACode>
+        <DAirport />
+        <AAirport />
+        <DDate>2012-08-06</DDate>
+        <TimePeriod>All</TimePeriod>
+      </SegmentInfo>
+    </SegmentInfos>
+    <PassengerType>ADT</PassengerType>
+    <PassengerCount>1</PassengerCount>
+    <Eligibility>ALL</Eligibility>
+    <BusinessID />
+    <BusinessType>OWN</BusinessType>
+    <Airline />
+    <ClassGrade>Y</ClassGrade>
+    <SalesType>Online</SalesType>
+    <FareIds />
+    <FareType>All</FareType>
+    <AgentID />
+    <ShoppingInfoID>[1/2[SHA-CZ-Z-SEL(NOA,N21544329G,S468,C3195)]+1/2[SEL-CZ-Z$Z-CAN-CZ-Z$W-SHA(NOA,N21544329G,S468,C3195)]|NOR]{CZ313SHASEL0802,1|}</ShoppingInfoID>
+    <IsCompress>false</IsCompress>
+    <Routings>
+      <Routing>
+        <DCode>SHA</DCode>
+        <ACode>SEL</ACode>
+        <DAirport>PVG</DAirport>
+        <AAirport>ICN</AAirport>
+        <Airline>CZ</Airline>
+        <SeatClass>S</SeatClass>
+        <FlightNo>CZ313</FlightNo>
+        <OperatorNo>CZ313</OperatorNo>
+        <SegmentInfoNo>1</SegmentInfoNo>
+        <No>1</No>
+      </Routing>
+    </Routings>
+    <ResultMode>All</ResultMode>
+    <OrderBy>Price</OrderBy>
+    <Direction>Asc</Direction>
+  </FltIntlSearchFlightsRequest>
+</Request>

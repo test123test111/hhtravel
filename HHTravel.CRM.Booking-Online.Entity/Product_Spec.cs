@@ -29,6 +29,7 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public string SpecNote { get; set; }
         public Nullable<short> MinPersonNum { get; set; }
         public Nullable<short> MaxPersonNum { get; set; }
+        public Nullable<short> MinGroupNum { get; set; }
     }
     
 }

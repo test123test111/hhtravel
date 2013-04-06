@@ -49,22 +49,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDepartureMonthRepository.cs" />
-    <Compile Include="IDepartureCityRepository.cs" />
     <Compile Include="IDestinationGroupRepository.cs" />
-    <Compile Include="IEmailRepository.cs" />
     <Compile Include="IInterestRepository.cs" />
     <Compile Include="IOrderRepository.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="ISiteConfigRepository.cs" />
     <Compile Include="INewsletterRepository.cs" />
     <Compile Include="IProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RepositoryCaller.cs" />
     <Compile Include="RepositoryFactory.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Model\HHTravel.CRM.Booking-Online.Model.csproj">
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.DomainModel\HHTravel.CRM.Booking-Online.DomainModel.csproj">
       <Project>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Model</Name>
+      <Name>HHTravel.CRM.Booking-Online.DomainModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+      <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

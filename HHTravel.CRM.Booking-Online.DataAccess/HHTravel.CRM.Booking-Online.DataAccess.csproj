@@ -25,6 +25,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>..\..\..\..\..\My.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,6 +34,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EFCachingProvider, Version=1.0.0.0, Culture=neutral, PublicKeyToken=def642f226e0e59b, processorArchitecture=MSIL">
@@ -57,6 +59,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.Linq" />
@@ -101,41 +104,30 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>OrderDbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="HardCode\PropertyPath.cs">
+      <DependentUpon>PropertyPath.tt</DependentUpon>
+      <SubType>Code</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="HardCode\SEOObjectType.cs" />
     <Compile Include="PagerHelper.cs" />
-    <Compile Include="Repository\DepartureMonthRepository.cs" />
     <Compile Include="HardCode\PictureLocation.cs" />
     <Compile Include="HardCode\PictureObjectType.cs" />
-    <Compile Include="Repository\DepartureCityRepository.cs" />
-    <Compile Include="Repository\DestinationGroupRepository.cs" />
     <Compile Include="HardCode\ProductInfoType.cs" />
     <Compile Include="HardCode\PropertyName.cs" />
-    <Compile Include="HardCode\PropertyPath.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PropertyPath.tt</DependentUpon>
-    </Compile>
     <Compile Include="HardCode\ProductResourceType.cs" />
-    <Compile Include="Repository\EmailRepository.cs" />
-    <Compile Include="TableWorkers\CustomerDbTableWorkerBase.cs" />
-    <Compile Include="TableWorkers\CustomerDb\CustomerTableWorker.cs" />
-    <Compile Include="TableWorkers\OrderDbTableWorkerBase.cs" />
-    <Compile Include="TableWorkers\OrderDb\OrdersProductTableWorker.cs" />
-    <Compile Include="TableWorkers\OrderDb\OrdersTableWorker.cs" />
-    <Compile Include="TableWorkers\ProductDb\ProductFlightTableWorker.cs" />
-    <Compile Include="TableWorkers\ProductDb\ProductTableWorker.cs" />
-    <Compile Include="TableWorkers\ProductDb\PictureTableWorker.cs" />
-    <Compile Include="Repository\InterestRepository.cs" />
-    <Compile Include="TableWorkers\ProductDb\ProductSpecTableWorker.cs" />
-    <Compile Include="TableWorkers\ProductDbTableWorkerBase.cs" />
-    <Compile Include="TableWorkers\ITableWorker.cs" />
-    <Compile Include="Mock\ProductTableWorkerMock.cs" />
-    <Compile Include="Mock\MockHelper.cs" />
-    <Compile Include="Mock\PictureTableWorkerMock.cs" />
-    <Compile Include="Mock\ProductRepositoryMock.cs" />
-    <Compile Include="Mock\SubscriptionRepositoryMock.cs" />
-    <Compile Include="Repository\OrderRepository.cs" />
-    <Compile Include="Repository\ProductRepository.cs" />
-    <Compile Include="TableWorkers\ProductDb\PropertyTableWorker.cs" />
+    <Compile Include="Providers\CustomerDbProviderBase.cs" />
+    <Compile Include="Providers\CustomerDB\CustomersProvider.cs" />
+    <Compile Include="Providers\OrderDbProviderBase.cs" />
+    <Compile Include="Providers\OrderDB\OrderProductsProvider.cs" />
+    <Compile Include="Providers\OrderDB\OrdersProvider.cs" />
+    <Compile Include="Providers\OrderDB\OrdersTempProvider.cs" />
+    <Compile Include="Providers\ProductDB\PicturesProvider.cs" />
+    <Compile Include="Providers\ProductDbProviderBase.cs" />
+    <Compile Include="Providers\IDataProvider.cs" />
+    <Compile Include="Mock\PicturesProviderMock.cs" />
     <Compile Include="DbContexts\DbContextFactory.cs" />
     <Compile Include="DbContexts\ProductDbEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -148,9 +140,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\RepositoryBase.cs" />
-    <Compile Include="Repository\SiteConfigRepository.cs" />
-    <Compile Include="Repository\NewsletterRepository.cs" />
+    <Compile Include="Providers\ProductDB\PropertiesProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\HHTravel.Base\HHTravel.Base.Common\HHTravel.Base.Common.Framework\HHTravel.Base.Common.Framework.csproj">
@@ -158,16 +150,16 @@
       <Name>HHTravel.Base.Common.Framework</Name>
     </ProjectReference>
     <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Entity\HHTravel.CRM.Booking-Online.Entity.csproj">
-      <Project>{25A021DD-BF8C-4E35-81B6-728085041CFF}</Project>
+      <Project>{8ABB78F9-B800-4C3B-BAD7-60DC7EB3C6D4}</Project>
       <Name>HHTravel.CRM.Booking-Online.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.IRepository\HHTravel.CRM.Booking-Online.IRepository.csproj">
-      <Project>{7A666EBC-4E0D-43AE-8914-909592655561}</Project>
-      <Name>HHTravel.CRM.Booking-Online.IRepository</Name>
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting\HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting.csproj">
+      <Project>{38830438-C575-481D-ACC1-7D123961F4DD}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure.Crosscutting</Name>
     </ProjectReference>
-    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Model\HHTravel.CRM.Booking-Online.Model.csproj">
-      <Project>{2B505487-72C1-4DEC-85A1-FF944CA1FF46}</Project>
-      <Name>HHTravel.CRM.Booking-Online.Model</Name>
+    <ProjectReference Include="..\HHTravel.CRM.Booking-Online.Infrastructure\HHTravel.CRM.Booking-Online.Infrastructure.csproj">
+      <Project>{914C84B9-B2A0-497C-9B73-4C9B6F48C2AA}</Project>
+      <Name>HHTravel.CRM.Booking-Online.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +194,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>OrderDbModel.Context.cs</LastGenOutput>
     </None>
+    <None Include="HardCode\PropertyPath.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PropertyPath.cs</LastGenOutput>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -213,12 +209,7 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ProductDbModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="HardCode\PropertyPath.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>PropertyPath.cs</LastGenOutput>
-    </None>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

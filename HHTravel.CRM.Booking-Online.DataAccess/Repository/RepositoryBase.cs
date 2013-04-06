@@ -6,19 +6,45 @@ using System.Data.Entity;
 using System.Data;
 using HHTravel.CRM.Booking_Online.IRepository;
 using HHTravel.CRM.Booking_Online.Model;
-using HHTravel.CRM.Booking_Online.DataAccess.DbContexts;
 
 namespace HHTravel.CRM.Booking_Online.DataAccess.Repository
 {
     public abstract class RepositoryBase<T> : IRepository<T> where T : class, new()
     {
-        protected ProductDbEntities ProductDbContext { get; set; }
-        protected CustomerDbEntities CustomerDbContext { get; set; }
-        protected OrderDbEntities OrderDbContext { get; set; }
-        protected GovDbEntities GovDbContext { get; set; }
+        protected DbContext DbContext { get; private set; }
+
+        public RepositoryBase(DbContext cxt)
+        {
+            this.DbContext = cxt;
+        }
 
         public abstract T Find(int id);
 
+        public T Create()
+        {
+            throw new NotImplementedException();
+        }
+
+        public T Update(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        public T Insert(T entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public abstract IEnumerable<T> All();
+
+        public IEnumerable<T> AllIncluding(params System.Linq.Expressions.Expression<Func<T, object>>[] includeProperties)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -4,9 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="CustomerDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="CustomerDbModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="CustomerDbModelStoreContainer">
           <EntitySet Name="Customer" EntityType="CustomerDbModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mkt_Html" EntityType="CustomerDbModel.Store.Mkt_Html" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SubNews" EntityType="CustomerDbModel.Store.SubNews" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
         <EntityType Name="Customer">
@@ -38,6 +39,19 @@
           <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
           <Property Name="LastModifyTime" Type="datetime" StoreGeneratedPattern="Computed" />
         </EntityType>
+        <EntityType Name="Mkt_Html">
+          <Key>
+            <PropertyRef Name="MarketingID" />
+          </Key>
+          <Property Name="MarketingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Location" Type="varchar" Nullable="false" MaxLength="200" />
+          <Property Name="Language" Type="smallint" Nullable="false" />
+          <Property Name="Html" Type="varchar(max)" Nullable="false" />
+          <Property Name="HtmlTest" Type="varchar(max)" />
+          <Property Name="Remark" Type="varchar" MaxLength="200" />
+          <Property Name="LastModifyMan" Type="varchar" MaxLength="50" />
+          <Property Name="LastModifyTime" Type="datetime" />
+        </EntityType>
         <EntityType Name="SubNews">
           <Key>
             <PropertyRef Name="SubId" />
@@ -47,14 +61,14 @@
           <Property Name="IsValid" Type="bit" />
           <Property Name="LastModifyTime" Type="datetime" StoreGeneratedPattern="Computed" />
         </EntityType>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="CustomerDbModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
         <EntityContainer Name="CustomerDbEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customer" EntityType="CustomerDbModel.Customer" />
           <EntitySet Name="SubNews" EntityType="CustomerDbModel.SubNews" />
+          <EntitySet Name="Mkt_Html" EntityType="CustomerDbModel.Mkt_Html" />
         </EntityContainer>
         <EntityType Name="Customer">
           <Key>
@@ -94,6 +108,19 @@
           <Property Name="IsValid" Type="Boolean" />
           <Property Name="LastModifyTime" Type="DateTime" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
+        <EntityType Name="Mkt_Html">
+          <Key>
+            <PropertyRef Name="MarketingID" />
+          </Key>
+          <Property Type="Int32" Name="MarketingID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Location" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="Int16" Name="Language" Nullable="false" />
+          <Property Type="String" Name="Html" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="HtmlTest" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Remark" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="LastModifyMan" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="LastModifyTime" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -132,6 +159,20 @@
             <ScalarProperty Name="IsValid" ColumnName="IsValid" />
             <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Mkt_Html">
+            <EntityTypeMapping TypeName="CustomerDbModel.Mkt_Html">
+              <MappingFragment StoreEntitySet="Mkt_Html">
+                <ScalarProperty Name="LastModifyTime" ColumnName="LastModifyTime" />
+                <ScalarProperty Name="LastModifyMan" ColumnName="LastModifyMan" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="HtmlTest" ColumnName="HtmlTest" />
+                <ScalarProperty Name="Html" ColumnName="Html" />
+                <ScalarProperty Name="Language" ColumnName="Language" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="MarketingID" ColumnName="MarketingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -156,6 +197,7 @@
       <Diagram Name="CustomerDbModel" ZoomLevel="99">
         <EntityTypeShape EntityType="CustomerDbModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" Height="5.59940673828125" IsExpanded="true" />
         <EntityTypeShape EntityType="CustomerDbModel.SubNews" Width="1.5" PointX="2.75" PointY="0.75" Height="1.7790128580729174" IsExpanded="true" />
+        <EntityTypeShape EntityType="CustomerDbModel.Mkt_Html" Width="1.5" PointX="4.875" PointY="0.875" Height="2.5430916341145835" />
       </Diagram>
     </Diagrams>
   </Designer>

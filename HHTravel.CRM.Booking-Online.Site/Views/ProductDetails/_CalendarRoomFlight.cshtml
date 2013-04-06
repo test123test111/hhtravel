@@ -1,0 +1,44 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.ProductModel
+@{var prodModel = Model;}
+<!--日期.订购-->
+<div class="highlights">
+    @if (ViewBag.Step == 1)
+    {
+        if (prodModel.TravelType == TravelType.TravelType1 || prodModel.TravelType == TravelType.TravelType4)
+        {
+        <!--第一步(TravelType1/4中的日历)-->
+        <div class="calendar_order_warp">
+            <h6 class="process">
+                <span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订）</em></h6>
+            @Html.Partial("_Calendar")
+        </div>
+        }
+        else if (prodModel.TravelType == TravelType.TravelType2)
+        {
+        <!--第一步(TravelType2里的日历)-->
+        <div class="calendar_order_warp">
+            <h6 class="process">
+                <span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订）</em></h6>
+            @Html.Partial("_Calendar")
+        </div>
+        }
+        else if (prodModel.TravelType == TravelType.TravelType3)
+        {
+        <div class="calendar_order_warp">
+            <h6 class="process">
+                <span>1</span>选择出发日期.价格<em>（点击日历上价格可以进行预订）</em></h6>
+            @Html.Partial("_Calendar")
+        </div>
+        }
+    }
+    else if (ViewBag.Step == 2)
+    {
+        int travelType = (int)prodModel.TravelType;
+        if (travelType == 4)
+        {
+            travelType = 1; 
+        }
+        <!--第二步-->
+        @Html.Partial("_RoomFlight" + travelType, (RoomFlightModel)ViewBag.RoomFlightModel)
+    }
+</div>

@@ -20,6 +20,7 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public string Title { get; set; }
         public string LastModifyMan { get; set; }
         public Nullable<System.DateTime> LastModifyTime { get; set; }
+        public Nullable<int> SectionId { get; set; }
     }
     
 }

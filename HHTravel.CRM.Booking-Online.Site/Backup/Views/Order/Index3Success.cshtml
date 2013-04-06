@@ -1,0 +1,414 @@
+﻿@model HHTravel.CRM.Booking_Online.Site.Models.OrderModel
+@{
+    ViewBag.Title = "高端游需求单";
+    Layout = "~/Views/Shared/_LayoutPopup.cshtml";
+}
+<table border="0" cellpadding="0" cellspacing="0" width="700" style="border-collapse: collapse;
+    margin-left: 10px;">
+    <tr>
+        <td>
+            <a href="@Url.AbsoluteIndex()">
+                <img alt="鸿鹄逸游" src="@Url.AbsoluteContent("~/images/email_h_bg.jpg")" width="700" height="100" style="border:none;" /></a>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px 0 5px 0; font-size: 16px; line-height: 22px; color: #24747b;">
+            <b>高端游需求单</b>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding-top: 15px; font-size: 13px; line-height: 22px; color: #5a5a5a;">
+            <b>订单编号：@Html.DisplayFor(om => om.OrderNo)</b><br />
+            感谢您对鸿鹄逸游的支持！您的预订需求已转交专属服务人员处理中，敬请耐心等候。如有任何疑问，欢迎与我们联系。
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px 0 10px; border-bottom: 1px solid #ccc; font-size: 13px;
+            line-height: 22px; color: #5a5a5a;">
+            鸿鹄．上海<br />
+            .服务电话 400 690 2323<br />
+            .服务时间 周一至周五 9：00～18：00
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px 0 5px 0; font-size: 13px; line-height: 22px; color: #5a5a5a;">
+            <b>基本数据</b>
+            <table border="0" cellpadding="0" cellspacing="0" width="700" style="border-collapse: collapse;">
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        中文姓名
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.BasicInfoModel.FirstName)
+                        @Html.DisplayFor(om => om.BasicInfoModel.LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        英文姓名
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.BasicInfoModel.FirstNameEn)
+                        @Html.DisplayFor(om => om.BasicInfoModel.LastNameEn)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        联络电话
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.BasicInfoModel.PhoneNumber)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        E-mail
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.BasicInfoModel.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        参加人数
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        成人：
+                        @Html.DisplayFor(om => om.PreOrderModel.AdultCount)，孩童：
+                        @Html.DisplayFor(om => om.PreOrderModel.ChildCount)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        联络方式偏好
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.BasicInfoModel.ContactFavorite)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        方便接听电话时间
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.BasicInfoModel.ConvinientTime)
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px 0 5px 0; font-size: 13px; line-height: 22px; color: #5a5a5a;">
+            <b>行程需求</b>
+            <table border="0" cellpadding="0" cellspacing="0" width="700" style="border-collapse: collapse;">
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        商品名称
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;">
+                        <a href="@Url.Product(Model.PreOrderModel.ProductNo)" style="color: #24747b; text-decoration: none;">@Model.PreOrderModel.ProductName</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        天数
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.PreOrderModel.Days) 天/@(Model.PreOrderModel.Days - 1)
+                        晚
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        预定入住日期
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.DisplayFor(om => om.PreOrderModel.DepartureDate)
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 180px; padding: 6px 0 6px 20px; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                        详细行程
+                    </td>
+                    <td style="padding-left: 20px; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a;">
+                        @Html.Raw(HttpUtility.HtmlDecode(Model.PreOrderModel.Description))
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 20px 0 5px 0; font-size: 13px; line-height: 22px; color: #5a5a5a;">
+            <b>房型.数量</b>
+            <table border="0" cellpadding="0" cellspacing="0" width="700" style="border-collapse: collapse;">
+                <tr>
+                    <td style="width: 140px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                        房型
+                    </td>
+                    <td style="width: 130px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                        含早/晚餐
+                    </td>
+                    <td style="width: 100px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                        入住/晚
+                    </td>
+                    <td style="padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7; font-size: 13px;
+                        line-height: 22px; color: #5a5a5a; text-align: center;">
+                        价格
+                    </td>
+                    <td style="width: 100px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                        font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                        数量
+                    </td>
+                </tr>
+                @for (int i = 0; i < Model.PreOrderModel.RoomClassModels.Count; i++)
+                {
+                    var selected = Model.PreOrderModel.RoomClassModels[i];
+                    <tr>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                            color: #5a5a5a; text-align: center;">
+                            @selected.RoomClassName
+                        </td>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                            color: #5a5a5a; text-align: center;">
+                            @selected.BreakfastDinnerTip
+                        </td>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                            color: #5a5a5a; text-align: center;">
+                            @(Model.PreOrderModel.Days - 1)
+                        </td>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                            color: #5a5a5a; text-align: center;">
+                            RMB @Html.DisplayFor(om => om.PreOrderModel.RoomClassModels[i].Price) (含税)/人
+                        </td>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                            color: #5a5a5a; text-align: center;">
+                            @(selected.Count)间
+                        </td>
+                    </tr>
+                }
+            </table>
+        </td>
+    </tr>
+    @if (Model.StayInfoModel.StayReturnDate.HasValue && Model.PreOrderModel.StayRoomClassModels.Count> 0)
+    {
+        <tr>
+            <td style="padding: 20px 0 5px 0; font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                <b>延长住宿</b>
+                <table border="0" cellpadding="0" cellspacing="0" width="700" style="border-collapse: collapse;">
+                    <tr>
+                        <td style="width: 140px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            退房日期
+                        </td>
+                        <td colspan="3" style="padding: 6px 0 6px 20px; border: 1px solid #cccccc; font-size: 13px;
+                            line-height: 22px; color: #5a5a5a;">
+                            @Html.DepartureDate(Model.StayInfoModel.StayReturnDate.Value)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 140px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            房型
+                        </td>
+                        <td style="width: 130px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            含早/晚餐
+                        </td>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7; font-size: 13px;
+                            line-height: 22px; color: #5a5a5a; text-align: center;">
+                            每晚延长住宿价格
+                        </td>
+                        <td style="width: 100px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            数量
+                        </td>
+                    </tr>
+                    @for (int i = 0; i < Model.PreOrderModel.StayRoomClassModels.Count; i++)
+                    {
+                        var selected = Model.PreOrderModel.StayRoomClassModels[i];
+                        <tr>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @selected.RoomClassName
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @selected.BreakfastDinnerTip
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                RMB @selected.StayPrice (含税)/人
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @(selected.StayCount)间
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+    @if (Model.PreOrderModel.TicketModels != null && Model.PreOrderModel.TicketModels.Count> 0)
+    {
+        <tr>
+            <td style="padding: 20px 0 5px 0; font-size: 13px; line-height: 22px; color: #5a5a5a;">
+                <b>加购机票</b>
+                <table border="0" cellpadding="0" cellspacing="0" width="700" style="border-collapse: collapse;">
+                    <tr>
+                        <td colspan="2" style="padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            出发日期
+                        </td>
+                        <td colspan="4" style="padding: 6px 0 6px 20px; border: 1px solid #cccccc; font-size: 13px;
+                            line-height: 22px; color: #5a5a5a;">
+                            @Html.DepartureDate(Model.PreOrderModel.DepartureDate)
+                        </td>
+                        <td colspan="2" style="padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            回程日期
+                        </td>
+                        <td colspan="2" style="padding: 6px 0 6px 20px; border: 1px solid #cccccc; font-size: 13px;
+                            line-height: 22px; color: #5a5a5a;">
+                            @Html.DepartureDate(Model.PreOrderModel.PlanReturnDate)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 40px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            行程
+                        </td>
+                        <td style="width: 70px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            航空公司
+                        </td>
+                        <td style="width: 50px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            航班
+                        </td>
+                        <td style="width: 50px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            舱等
+                        </td>
+                        <td style="width: 65px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            出发地
+                        </td>
+                        <td style="width: 65px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            到达地
+                        </td>
+                        <td style="width: 50px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            出发时间
+                        </td>
+                        <td style="width: 50px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            到达时间
+                        </td>
+                        <td style="padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7; font-size: 13px;
+                            line-height: 22px; color: #5a5a5a; text-align: center;">
+                            价格
+                        </td>
+                        <td style="width: 40px; padding: 6px 0; border: 1px solid #cccccc; background: #e4e5e7;
+                            font-size: 13px; line-height: 22px; color: #5a5a5a; text-align: center;">
+                            数量
+                        </td>
+                    </tr>
+                    @for (var i = 0; i < Model.PreOrderModel.TicketModels.Count; i++)
+                    {
+                        var ticketModel = Model.PreOrderModel.TicketModels[i];
+                        for (var j = 0; j < ticketModel.FlightModelList.Count; j++)
+                        {
+                            var f = ticketModel.FlightModelList[j];
+                        <tr>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.SectionName
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.Airline
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.FlightNo
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @ticketModel.FlightClassName
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.DepartureAirport
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.ArrivalAirport
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.DepartureTime.Value.ToString(@"hh\:mm")
+                            </td>
+                            <td style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                                color: #5a5a5a; text-align: center;">
+                                @f.ArrivalTime.Value.ToString(@"hh\:mm")
+                            </td>
+                            @if (j == 0)
+                            {
+                                <td rowspan="@ticketModel.FlightModelList.Count" style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a; text-align: center;">
+                                    RMB @ticketModel.Price (含税)/人
+                                </td>
+                                <td rowspan="@ticketModel.FlightModelList.Count" style="padding: 6px 0; border: 1px solid #cccccc; font-size: 13px; line-height: 22px;
+                        color: #5a5a5a; text-align: center;">
+                                    @(ticketModel.Count != 9999 ? ticketModel.Count.ToString() : "9人以上")
+                                </td>
+                            }
+                        </tr>
+                        }
+                    }
+                </table>
+            </td>
+        </tr>
+    }
+    @if (!Model.UsedByEmail)
+    {
+        <tr>
+            <td>
+                <p class="tbl_send_warp">
+                    @*http://blogs.x2line.com/al/articles/350.aspx*@ <a id="lnkClose" class="close_link_green" href="javascript:window.opener='x';window.close();">
+                        关闭本窗口</a></p>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td style="padding-top: 20px;">
+            <img alt="" src="@Url.AbsoluteContent("~/images/email_f_bg.jpg")" width="700" height="53" />
+        </td>
+    </tr>
+</table>

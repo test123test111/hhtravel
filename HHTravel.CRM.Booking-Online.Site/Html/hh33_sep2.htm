@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>产品名称 | 鸿鹄逸游 HHtravel</title>
+    <link href="../css/reset.css" type="text/css" rel="stylesheet" />
+    <link href="../css/common.css" rel="stylesheet" type="text/css" />
+    <link href="../css/layout.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="../Scripts/jquery-1.4.4.min.js"></script>
+    
+    <!--<script type="text/javascript">
+        $(function () {
+            //表格删除行
+            $('#traveler_tbl').find('tr>td>a').click(function () {
+                $(this).parent().parent().remove();
+            });
+            //表格新增行
+            $('#addRow').click(function () {
+                $('#traveler_tbl').append('<tr><td>第3位</td><td><input type=\"text\" class=\"tbl_txt\" style=\"float:none;width: 100px;\" /></td><td><input type=\"text\" class=\"tbl_txt\" style=\"float:none;width: 100px;\" /></td><td><select><option>身份证</option><option>护照</option></select></td><td><input type=\"text\" class=\"tbl_txt\" style=\"float:none;width: 210px;\" /></td><td><a href=\"javascript:void(0)\" class=\"add_num\">删除</a></td></tr>');
+            });
+        });    
+    </script>-->
+</head>
+<body>
+<div class="warpper" style="padding-top:0; position: relative;">
+<!--<div class="header"></div>-->
+
+<div class="pro_selected">
+    <!--联系人信息-->
+    <h6 class="process mt20"><span>8</span>联系人资料</h6>
+    <table border="0" cellpadding="0" cellspacing="0" class="tbl">
+        <tr>
+            <td class="name">
+                中文姓名<em class="red">*</em>
+            </td>
+            <td>
+                <span class="tbl_attr">姓</span><input type="text" class="tbl_txt" style="width: 60px;" /><span
+                    class="tbl_attr">名</span><input type="text" class="tbl_txt" style="width: 60px;" />
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                英文姓名
+            </td>
+            <td>
+                <span class="tbl_attr">Last Name</span><input type="text" class="tbl_txt" style="width: 60px;" /><span
+                    class="tbl_attr">First Name</span><input type="text" class="tbl_txt" style="width: 60px;" /><span
+                        class="font_gray">须与护照相同</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                联络电话<em class="red">*</em>
+            </td>
+            <td>
+                <input type="text" class="tbl_txt" />
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                E-mail<em class="red">*</em>
+            </td>
+            <td>
+                <input type="text" class="tbl_txt" />
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                联络方式偏好<em class="red">*</em>
+            </td>
+            <td>
+                <input type="radio" name="contact" value="c1" />电话或手机
+                <input type="radio" name="contact" value="c2" />E-mail
+            </td>
+        </tr>
+        <tr>
+            <td class="name">
+                方便接听电话时间<em class="red">*</em>
+            </td>
+            <td>
+                <input type="radio" name="tel" value="t1" />09:00-12:00
+                <input type="radio" name="tel" value="t2" />12:00-14:00
+                <input type="radio" name="tel" value="t1" />14:00-18:00
+                <input type="radio" name="tel" value="t2" />以上时间皆可
+            </td>
+        </tr>
+    </table>
+    <p class="dotted_line"></p>
+    <!--旅客信息-->  
+    <h6 class="process mt20" style="position:relative;"><span>9</span>旅客信息
+        <!--<a href="javascript:void(0)" class="pst_reset add_num" id="addRow">新增一位游客</a>-->
+    </h6>
+     <table border="0" cellpadding="0" cellspacing="0" class="tbl_order" id="traveler_tbl">
+        <tr>
+            <td class="name" style="width:50px;">
+            </td>
+            <td class="name" style="width:130px;">
+                中文姓名
+            </td>
+            <td class="name" style="width:130px;">
+                英文姓名
+            </td>
+            <td class="name" style="width:90px;">
+                证件类型
+            </td>
+            <td class="name">
+                证件号码
+            </td>
+            <td class="name" style="width:50px;">
+            </td>
+        </tr>
+        <tr>
+            <td>第1位</td>
+            <td><input type="text" class="tbl_txt" style="float:none;width: 100px;" /></td>
+            <td><input type="text" class="tbl_txt" style="float:none;width: 100px;" /></td>
+            <td><select>
+                    <option>身份证</option>
+                    <option>护照</option>
+                </select></td>
+            <td><input type="text" class="tbl_txt" style="float:none;width: 210px;" /></td>
+            <td><a href="javascript:void(0)" class="add_num">清空</a></td>
+        </tr>
+        <tr>
+            <td>第2位</td>
+            <td><input type="text" class="tbl_txt" style="float:none;width: 100px;" /></td>
+            <td><input type="text" class="tbl_txt" style="float:none;width: 100px;" /></td>
+            <td><select>
+                    <option>身份证</option>
+                    <option>护照</option>
+                </select></td>
+            <td><input type="text" class="tbl_txt" style="float:none;width: 210px;" /></td>
+            <td><a href="javascript:void(0)" class="add_num">清空</a></td>
+        </tr>
+    </table>  
+    <p class="dotted_line"></p> 
+    <!--特殊行程需求-->
+    <h6 class="process mt20"><span class="ft11">10</span>特殊行程需求</h6>
+    <p><textarea class="sep_in_txtr"></textarea></p>
+    <p class="dotted_line"></p>
+    <!--按钮组-->
+    <div class="tbl_send_warp">
+        <a href="hh33_sep1-2.htm"><input type="button" class="back_btn sep_pre_btn" value="回上一页" /></a>
+        <a href="hh33_sep3.htm"><input type="button" class="sep_next_btn ml25" value="下一步" /></a>
+    </div>
+</div>
+<!--价格计算-->
+<div class="sep_price_warp">
+    <h5 class="sep_price_header">人数与价格（含税费）</h5>
+    <p>总价：<span class="tbl_price_orange">RMB 125,000</span><br/>
+    人均：<span class="tbl_price_orange">RMB 4,100</span><br/>
+    人数：成人2人，儿童0人</p>
+</div>
+</div>
+</body>
+</html>

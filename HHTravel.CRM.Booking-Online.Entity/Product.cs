@@ -58,6 +58,12 @@ namespace HHTravel.CRM.Booking_Online.Entity
         public Nullable<short> MinLodgingDays { get; set; }
         public string Manager { get; set; }
         public Nullable<bool> IsBackCash { get; set; }
+        public Nullable<bool> Recommend { get; set; }
+        public Nullable<bool> AllowChild { get; set; }
+        public Nullable<short> TripClass { get; set; }
+        public Nullable<short> AdvanceTripDays { get; set; }
+        public Nullable<short> MaxTripDays { get; set; }
+        public Nullable<short> ExtendTripDays { get; set; }
     
         public virtual ICollection<Product_NoDeparture> Product_NoDeparture { get; set; }
         public virtual ICollection<Product_Price> Product_Price { get; set; }
